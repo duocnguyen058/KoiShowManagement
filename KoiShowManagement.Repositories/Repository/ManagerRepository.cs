@@ -1,17 +1,19 @@
-﻿using System;
-using KoiShowManagement.Repositories.Entities;
+﻿using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
+using System;
+
 
 namespace KoiShowManagement.Repositories.Repository
 {
-    internal class ManagerRepository : IManagerRepository
+    public class ManagerRepository : IManagerRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
-        public ManagerRepository (KoiShowManagementDbContext dbContext)
+        public ManagerRepository(KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
         }
+
         public bool AddManager(Manager manager)
         {
             try
@@ -22,10 +24,10 @@ namespace KoiShowManagement.Repositories.Repository
             }
             catch (Exception ex)
             {
-
                 throw new NotImplementedException();
                 return false;
             }
+
         }
 
         public bool DelManager(int Id)
@@ -46,6 +48,7 @@ namespace KoiShowManagement.Repositories.Repository
                 throw new NotImplementedException();
                 return false;
             }
+
         }
 
         public bool DelManager(Manager manager)
@@ -58,20 +61,21 @@ namespace KoiShowManagement.Repositories.Repository
             }
             catch (Exception ex)
             {
-
                 throw new NotImplementedException();
                 return false;
             }
-        }
 
-        public async Task<Manager> ManagerById(int Id)
-        {
-            return await _dbContext.Managers.Where(p => p.ManagerId.Equals(Id)).FirstOrDefaultAsync();
         }
 
         public async Task<List<Manager>> GetAllManagers()
         {
             return await _dbContext.Managers.ToListAsync();
+
+        }
+
+        public async Task<Manager> GetManagerById(int Id)
+        {
+            return await _dbContext.Managers.Where(p => p.ManagerId.Equals(Id)).FirstOrDefaultAsync();
         }
 
         public bool UpdManager(Manager manager)
@@ -89,14 +93,6 @@ namespace KoiShowManagement.Repositories.Repository
             }
 
         }
-        Task<Manager> IManagerRepository.GetManagerById(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<List<Manager>> GetAllManager()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
