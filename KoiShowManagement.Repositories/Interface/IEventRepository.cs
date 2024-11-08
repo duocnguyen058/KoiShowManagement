@@ -3,8 +3,8 @@ using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.Repositories.Interface
 {
-	public interface IEventRepository
-	{
+    public interface IEventRepository
+    {
         Task<List<Event>> GetAllEvents();
         Boolean DelEvent(int Id);
         Boolean DelEvent(Event @event);
@@ -13,4 +13,3 @@ namespace KoiShowManagement.Repositories.Interface
         Task<Event> EventById(int Id);
     }
 }
-

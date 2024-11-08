@@ -94,4 +94,3 @@ namespace KoiShowManagementSystem.Repositories.Repository
         }
     }
 }
-

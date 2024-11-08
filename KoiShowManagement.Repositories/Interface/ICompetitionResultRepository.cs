@@ -3,8 +3,8 @@ using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.Repositories.Interface
 {
-	public interface ICompetitionResultRepository
-	{
+    public interface ICompetitionResultRepository
+    {
         Task<List<CompetitionResult>> GetAllCompetitionResults();
         Boolean DelCompetitionResult(int Id);
         Boolean DelCompetitionResult(CompetitionResult result);
@@ -13,4 +13,3 @@ namespace KoiShowManagement.Repositories.Interface
         Task<CompetitionResult> GetCompetitionResultById(int Id);
     }
 }
-

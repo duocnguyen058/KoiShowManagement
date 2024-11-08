@@ -80,13 +80,13 @@ namespace KoiShowManagement.Repositories.Repository
                 _dbContext.Events.Update(@event);
                 _dbContext.SaveChanges();
                 return true;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new NotImplementedException();
                 return false;
             }
-            
+
         }
     }
 }
-
