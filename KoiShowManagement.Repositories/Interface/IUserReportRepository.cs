@@ -5,7 +5,7 @@ namespace KoiShowManagement.Repositories.Interface
 {
 	public interface IUserReportRepository
 	{
-        Task<List<UserReport>> GetAllUserReport();
+        Task<List<UserReport>> GetAllUserReports();
         Boolean DelUserReport(int Id);
         Boolean DelUserReport(UserReport userReport);
         Boolean AddUserReport(UserReport userReport);

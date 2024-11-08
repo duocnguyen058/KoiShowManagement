@@ -30,7 +30,7 @@ namespace KoiShowManagement.Services.Service
 
         public Task<List<UserReport>> GetAllUserReports()
         {
-            return _repository.GetAllUserReport();
+            return _repository.GetAllUserReports();
         }
 
         public Task<UserReport> GetUserReportById(int Id)
