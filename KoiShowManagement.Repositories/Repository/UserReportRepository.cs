@@ -67,7 +67,8 @@ namespace KoiShowManagement.Repositories.Repository
             }
         }
 
-        public async Task<List<UserReport>> GetAllUserReport()
+
+        public async Task<List<UserReport>> GetAllUserReports()
         {
             try
             {
