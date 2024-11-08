@@ -1,14 +1,14 @@
 ﻿using KoiShowManagement.Repositories.Entities;
-
+using System;
 namespace KoiShowManagement.Repositories.Interface
 {
     public interface IKoiRepository
     {
         Task<List<Koi>> GetAllKois();
-        bool DelKoi(int Id);
-        bool DelKoi(Koi koi);
-        bool AddKoi(Koi koi);
-        bool UpdKoi(Koi koi);
+        Boolean DelKoi(int Id);
+        Boolean DelKoi(Koi koi);
+        Boolean AddKoi(Koi koi);
+        Boolean UpdKoi(Koi koi);
         Task<Koi> GetKoiById(int Id);
     }
 }
