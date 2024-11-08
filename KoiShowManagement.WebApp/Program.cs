@@ -1,26 +1,38 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.AspNetCore.Authentication.Cookies;
+using KoiShowManagement.WebApp;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+
+// Cấu hình dịch vụ Razor Pages và Authentication
 builder.Services.AddRazorPages();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";  // Đường dẫn trang đăng nhập
+        options.AccessDeniedPath = "/Account/AccessDenied"; // Đường dẫn khi quyền truy cập bị từ chối
+    });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Cấu hình Middleware
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseDeveloperExceptionPage();
+}
+else
+{
+    app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
+// Middleware cho Authentication và Authorization
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.MapRazorPages(); // Đảm bảo bạn có MapRazorPages() ở đây.
 
 app.Run();
-
