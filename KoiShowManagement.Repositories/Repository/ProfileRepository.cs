@@ -2,23 +2,23 @@
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace KoiShowManagement.Repositories.Repository
 {
-    public class EventRepository : IEventRepository
+	public class ProfileRepository : IProfileRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
-
-        public EventRepository(KoiShowManagementDbContext dbContext)
-        {
+        public ProfileRepository(KoiShowManagementDbContext dbContext)
+		{
             _dbContext = dbContext;
-        }
+		}
 
-        public bool AddEvent(Event @event)
+        public bool AddProfile(Profile profile)
         {
             try
             {
-                _dbContext.Events.Add(@event);
+                _dbContext.Profiles.Add(profile);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -29,14 +29,14 @@ namespace KoiShowManagement.Repositories.Repository
             }
         }
 
-        public bool DelEvent(int Id)
+        public bool DelProfile(int Id)
         {
             try
             {
-                var objDel = _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefault();
+                var objDel = _dbContext.Profiles.Where(p => p.ProfileId.Equals(Id)).FirstOrDefault();
                 if (objDel != null)
                 {
-                    _dbContext.Events.Remove(objDel);
+                    _dbContext.Profiles.Remove(objDel);
                     _dbContext.SaveChanges();
                     return true;
                 }
@@ -49,11 +49,11 @@ namespace KoiShowManagement.Repositories.Repository
             }
         }
 
-        public bool DelEvent(Event @event)
+        public bool DelProfile(Profile profile)
         {
             try
             {
-                _dbContext.Events.Remove(@event);
+                _dbContext.Profiles.Remove(profile);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -62,24 +62,23 @@ namespace KoiShowManagement.Repositories.Repository
                 throw new NotImplementedException();
                 return false;
             }
-
         }
-       
-        public async Task<List<Event>> GetAllEvents()
+
+        public async Task<List<Profile>> GetAllProfiles()
         {
-            return await _dbContext.Events.ToListAsync();
+            return await _dbContext.Profiles.ToListAsync();
         }
 
-        public async Task<Event> GetEventById(int Id)
+        public async Task<Profile> GetEventById(int Id)
         {
-            return await _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefaultAsync();
+            return await _dbContext.Profiles.Where(p => p.ProfileId.Equals(Id)).FirstOrDefaultAsync();
         }
 
-        public bool UpdEvent(Event @event)
+        public bool UpdProfile(Profile profile)
         {
             try
             {
-                _dbContext.Events.Update(@event);
+                _dbContext.Profiles.Update(profile);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -88,9 +87,7 @@ namespace KoiShowManagement.Repositories.Repository
                 throw new NotImplementedException();
                 return false;
             }
-
         }
-
-        
     }
 }
+
