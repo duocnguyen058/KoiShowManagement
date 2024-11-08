@@ -5,7 +5,7 @@ namespace KoiShowManagement.Repositories.Interface
 {
     internal interface IManagerRepository
     {
-        Task<List<Manager>> GetAllManager();
+        Task<List<Manager>> GetAllManagers();
         Boolean DelManager(int Id);
         Boolean DelManager(Manager manager);
         Boolean AddManager(Manager manager);
