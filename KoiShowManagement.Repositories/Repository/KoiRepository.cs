@@ -1,8 +1,6 @@
-﻿using KoiShowManagement.Repositories.Interface;
-using KoiShowManagementSystem.Repositories.Entities;
-using KoiShowManagementSystem.Repositories.Interface;
+﻿using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace KoiShowManagementSystem.Repositories.Repositories
 {
@@ -29,6 +27,7 @@ namespace KoiShowManagementSystem.Repositories.Repositories
             }
         }
 
+     
         public bool DelKoi(int Id)
         {
             try
@@ -64,6 +63,7 @@ namespace KoiShowManagementSystem.Repositories.Repositories
             }
         }
 
+       
         public async Task<List<Koi>> GetAllKois()
         {
             return await _dbContext.Kois.ToListAsync();
@@ -87,6 +87,17 @@ namespace KoiShowManagementSystem.Repositories.Repositories
                 throw new NotImplementedException();
                 return false;
             }
+        }
+
+        
+        Task<List<Koi>> IKoiRepository.GetAllKois()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<Koi> IKoiRepository.GetKoiById(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
