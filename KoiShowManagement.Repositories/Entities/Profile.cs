@@ -18,4 +18,8 @@ public partial class Profile
     public string? Bio { get; set; }
 
     public virtual User? User { get; set; }
+    public string Email { get; set; }
+    public string Name { get; set; }
+    public string FullName { get; set; }
+    public string PhoneNumber { get; set; }
 }
