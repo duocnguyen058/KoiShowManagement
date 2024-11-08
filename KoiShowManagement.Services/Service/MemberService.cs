@@ -30,7 +30,7 @@ namespace KoiShowManagement.Services.Service
 
         public Task<List<Member>> GetAllMembers()
         {
-            return _repository.GetAllMember();
+            return _repository.GetAllMembers();
         }
 
         public Task<Member> GetMemberById(int Id)

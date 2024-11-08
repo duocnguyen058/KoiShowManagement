@@ -9,10 +9,6 @@ namespace KoiShowManagement.Repositories.Repository
     {
         private readonly KoiShowManagementDbContext _dbContext;
 
-        public EventRepository()
-        {
-        }
-
         public EventRepository(KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -68,14 +64,15 @@ namespace KoiShowManagement.Repositories.Repository
             }
 
         }
-        public async Task<Event> EventById(int Id)
-        {
-            return await _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefaultAsync();
-        }
-
+       
         public async Task<List<Event>> GetAllEvents()
         {
             return await _dbContext.Events.ToListAsync();
+        }
+
+        public async Task<Event> GetEventById(int Id)
+        {
+            return await _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefaultAsync();
         }
 
         public bool UpdEvent(Event @event)
@@ -94,9 +91,6 @@ namespace KoiShowManagement.Repositories.Repository
 
         }
 
-        Task<Event> IEventRepository.GetEventById(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
