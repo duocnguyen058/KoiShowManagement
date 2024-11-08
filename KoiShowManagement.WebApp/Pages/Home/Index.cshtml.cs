@@ -6,6 +6,7 @@ namespace KoiShowManagement.WebApp.Pages.Home
     {
         public void OnGet()
         {
+            // Gán giá trị cho ViewData["Title"]
             ViewData["Title"] = "Trang chủ";
         }
     }
