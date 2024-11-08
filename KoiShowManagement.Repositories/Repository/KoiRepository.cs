@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KoiShowManagementSystem.Repositories.Repositories
 {
-    internal class KoiRepository : IKoiRepository
+    public class KoiRepository : IKoiRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
 
