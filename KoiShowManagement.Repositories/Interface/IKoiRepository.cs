@@ -1,4 +1,4 @@
-﻿using KoiShowManagementSystem.Repositories.Entities;
+﻿using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.Repositories.Interface
 {
