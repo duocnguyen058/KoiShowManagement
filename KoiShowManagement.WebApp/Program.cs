@@ -1,25 +1,20 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using KoiShowManagement.WebApp;
+﻿var builder = WebApplication.CreateBuilder(args);
 
-var builder = WebApplication.CreateBuilder(args);
-
-// Cấu hình dịch vụ Razor Pages và Authentication
-builder.Services.AddRazorPages();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
+// Đăng ký dịch vụ MVC và cấu hình tìm view trong Pages
+builder.Services.AddControllersWithViews()
+    .AddRazorOptions(options =>
     {
-        options.LoginPath = "/Account/Login";  // Đường dẫn trang đăng nhập
-        options.AccessDeniedPath = "/Account/AccessDenied"; // Đường dẫn khi quyền truy cập bị từ chối
+        options.ViewLocationFormats.Add("/Pages/{1}/{0}.cshtml");
+        options.ViewLocationFormats.Add("/Pages/Shared/{0}.cshtml");
     });
+
+builder.Services.AddRazorPages();
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// Cấu hình Middleware
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
@@ -27,12 +22,16 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
 
-// Middleware cho Authentication và Authorization
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapRazorPages(); // Đảm bảo bạn có MapRazorPages() ở đây.
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();
