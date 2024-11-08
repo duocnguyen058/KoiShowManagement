@@ -2,6 +2,7 @@
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using System;
+
 namespace KoiShowManagement.Repositories.Repository
 {
     public class ScoreKoiRepository : IScoreKoiRepository
@@ -23,19 +24,19 @@ namespace KoiShowManagement.Repositories.Repository
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
 
         public bool DelScoreKoi(int Id)
         {
-             try
+            try
             {
-                var objDel = _dbContext.ScoreKois.Where(p => p.ScoreKoiId.Equals(Id)).FirstOrDefault();
-                if (objDel != null)
+                var scoreKoiToDelete = _dbContext.ScoreKois.Where(s => s.ScoreKoiId.Equals(Id)).FirstOrDefault();
+                if (scoreKoiToDelete != null)
                 {
-                    _dbContext.ScoreKois.Remove(objDel);
+                    _dbContext.ScoreKois.Remove(scoreKoiToDelete);
                     _dbContext.SaveChanges();
                     return true;
                 }
@@ -43,7 +44,7 @@ namespace KoiShowManagement.Repositories.Repository
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -58,19 +59,19 @@ namespace KoiShowManagement.Repositories.Repository
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
 
-        public async Task<List<ScoreKoi>> GetAllScoreKoi()
+        public async Task<List<ScoreKoi>> GetAllScoreKois()
         {
             return await _dbContext.ScoreKois.ToListAsync();
         }
 
-        public async Task<ScoreKoi> GetScoreKoiId(int Id)
+        public async Task<ScoreKoi> GetScoreKoiById(int Id)
         {
-            return await _dbContext.ScoreKois.Where(p => p.ScoreKoiId.Equals(Id)).FirstOrDefaultAsync();
+            return await _dbContext.ScoreKois.Where(s => s.ScoreKoiId.Equals(Id)).FirstOrDefaultAsync();
         }
 
         public bool UpdScoreKoi(ScoreKoi scoreKoi)
@@ -83,7 +84,7 @@ namespace KoiShowManagement.Repositories.Repository
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
