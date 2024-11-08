@@ -18,4 +18,6 @@ public partial class Event
     public virtual ICollection<CompetitionResult> CompetitionResults { get; set; } = new List<CompetitionResult>();
 
     public virtual Manager? Manager { get; set; }
+
+    public virtual ICollection<ScoreKoi> ScoreKois { get; set; } = new List<ScoreKoi>();
 }
