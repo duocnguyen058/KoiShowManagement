@@ -6,11 +6,11 @@ namespace KoiShowManagement.Repositories.Interface
 {
     public interface IScoreKoiRepository
     {
-        Task<List<ScoreKoi>> GetAllScoreKoi();
+        Task<List<ScoreKoi>> GetAllScoreKois();
         Boolean DelScoreKoi(int Id);
         Boolean DelScoreKoi(ScoreKoi scoreKoi);
         Boolean AddScoreKoi(ScoreKoi scoreKoi);
         Boolean UpdScoreKoi(ScoreKoi scoreKoi);
-        Task<ScoreKoi> GetScoreKoiId(int Id);
+        Task<ScoreKoi> GetScoreKoiById(int id);
     }
 }
