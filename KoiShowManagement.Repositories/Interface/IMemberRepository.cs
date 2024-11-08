@@ -5,7 +5,7 @@ namespace KoiShowManagement.Repositories.Interface
 {
     public interface IMemberRepository
     {
-        // Thêm một thành viên mới
+        // Thêm một thành vin mới
         void AddMember(Member member);
 
         // Lấy thông tin thành viên theo ID
