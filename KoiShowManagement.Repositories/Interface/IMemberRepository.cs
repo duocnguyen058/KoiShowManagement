@@ -5,7 +5,7 @@ namespace KoiShowManagement.Repositories.Interface
 {
     public interface IMemberRepository
     {
-        Task<List<Member>> GetAllMember();
+        Task<List<Member>> GetAllMembers();
         Boolean DelMember(int Id);
         Boolean DelMember(Member member);
         Boolean AddMember(Member member);

@@ -5,7 +5,7 @@ namespace KoiShowManagement.Repositories.Interface
 {
     public interface IStaffRepository
     {
-        Task<List<Staff>> GetAllStaff();
+        Task<List<Staff>> GetAllStaffs();
         Boolean DelStaff(int Id);
         Boolean DelStaff(Staff staff);
         Boolean AddStaff(Staff staff);

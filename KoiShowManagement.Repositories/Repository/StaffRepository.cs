@@ -103,7 +103,7 @@ namespace KoiShowManagement.Repositories.Repository
             throw new NotImplementedException();
         }
 
-        Task<List<Staff>> IStaffRepository.GetAllStaff()
+        Task<List<Staff>> IStaffRepository.GetAllStaffs()
         {
             throw new NotImplementedException();
         }

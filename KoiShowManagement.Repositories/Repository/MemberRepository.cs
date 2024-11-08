@@ -63,7 +63,7 @@ namespace KoiShowManagement.Repositories.Repository
             }
         }
 
-        public async Task<List<Member>> GetAllMember()
+        public async Task<List<Member>> GetAllMembers()
         {
             return await _dbContext.Members.ToListAsync();
         }
