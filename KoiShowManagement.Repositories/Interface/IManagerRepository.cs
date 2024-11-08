@@ -1,9 +1,10 @@
 ﻿using KoiShowManagement.Repositories.Entities;
 using System;
 
+
 namespace KoiShowManagement.Repositories.Interface
 {
-    internal interface IManagerRepository
+    public interface IManagerRepository 
     {
         Task<List<Manager>> GetAllManagers();
         Boolean DelManager(int Id);
