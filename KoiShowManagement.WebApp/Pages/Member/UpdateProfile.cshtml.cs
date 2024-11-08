@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KoiShowManagement.Repositories.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using KoiShowManagement.WebApp.Models; // Đảm bảo bạn đã thêm mô hình Profile
 
 namespace KoiShowManagement.WebApp.Pages.Member
 {
