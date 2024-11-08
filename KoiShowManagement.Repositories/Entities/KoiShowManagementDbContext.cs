@@ -27,9 +27,13 @@ public partial class KoiShowManagementDbContext : DbContext
 
     public virtual DbSet<Member> Members { get; set; }
 
+    public virtual DbSet<Profile> Profiles { get; set; }
+
     public virtual DbSet<Referee> Referees { get; set; }
 
     public virtual DbSet<Report> Reports { get; set; }
+
+    public virtual DbSet<ScoreKoi> ScoreKois { get; set; }
 
     public virtual DbSet<Staff> Staff { get; set; }
 
@@ -195,6 +199,33 @@ public partial class KoiShowManagementDbContext : DbContext
                 .HasColumnName("phone");
         });
 
+        modelBuilder.Entity<Profile>(entity =>
+        {
+            entity.HasKey(e => e.ProfileId).HasName("PK__Profile__AEBB701F53C96E39");
+
+            entity.ToTable("Profile");
+
+            entity.Property(e => e.ProfileId).HasColumnName("profile_id");
+            entity.Property(e => e.Address)
+                .HasMaxLength(255)
+                .HasColumnName("address");
+            entity.Property(e => e.Avatar)
+                .HasMaxLength(255)
+                .HasColumnName("avatar");
+            entity.Property(e => e.Bio)
+                .HasMaxLength(500)
+                .HasColumnName("bio");
+            entity.Property(e => e.Birthdate)
+                .HasColumnType("date")
+                .HasColumnName("birthdate");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Profiles)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK__Profile__user_id__6FE99F9F");
+        });
+
         modelBuilder.Entity<Referee>(entity =>
         {
             entity.HasKey(e => e.RefereeId).HasName("PK__Referee__28102F7A6449E3DC");
@@ -240,6 +271,41 @@ public partial class KoiShowManagementDbContext : DbContext
                 .HasForeignKey(d => d.CreatedBy)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("FK__Report__created___5DCAEF64");
+        });
+
+        modelBuilder.Entity<ScoreKoi>(entity =>
+        {
+            entity.HasKey(e => e.ScoreId).HasName("PK__ScoreKoi__8CA19050F484E207");
+
+            entity.ToTable("ScoreKoi");
+
+            entity.Property(e => e.ScoreId).HasColumnName("score_id");
+            entity.Property(e => e.EventId).HasColumnName("event_id");
+            entity.Property(e => e.Feedback)
+                .HasMaxLength(500)
+                .HasColumnName("feedback");
+            entity.Property(e => e.KoiId).HasColumnName("koi_id");
+            entity.Property(e => e.RefereeId).HasColumnName("referee_id");
+            entity.Property(e => e.Score)
+                .HasColumnType("decimal(3, 1)")
+                .HasColumnName("score");
+            entity.Property(e => e.ScoreDate)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime")
+                .HasColumnName("score_date");
+
+            entity.HasOne(d => d.Event).WithMany(p => p.ScoreKois)
+                .HasForeignKey(d => d.EventId)
+                .HasConstraintName("FK__ScoreKoi__event___75A278F5");
+
+            entity.HasOne(d => d.Koi).WithMany(p => p.ScoreKois)
+                .HasForeignKey(d => d.KoiId)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK__ScoreKoi__koi_id__74AE54BC");
+
+            entity.HasOne(d => d.Referee).WithMany(p => p.ScoreKois)
+                .HasForeignKey(d => d.RefereeId)
+                .HasConstraintName("FK__ScoreKoi__refere__76969D2E");
         });
 
         modelBuilder.Entity<Staff>(entity =>

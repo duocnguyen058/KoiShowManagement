@@ -20,4 +20,6 @@ public partial class Koi
     public virtual ICollection<CompetitionResult> CompetitionResults { get; set; } = new List<CompetitionResult>();
 
     public virtual Member? Member { get; set; }
+
+    public virtual ICollection<ScoreKoi> ScoreKois { get; set; } = new List<ScoreKoi>();
 }
