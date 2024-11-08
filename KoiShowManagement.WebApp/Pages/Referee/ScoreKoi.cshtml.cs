@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KoiShowManagement.Repositories.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using KoiShowManagement.WebApp.Models;
 
 namespace KoiShowManagement.WebApp.Pages.Referee
 {
@@ -17,7 +17,7 @@ namespace KoiShowManagement.WebApp.Pages.Referee
         // Thuộc tính để lưu điểm số của cá koi
         public void SetScore(ScoreKoi value)
         {
-            score = value;
+            score = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         // Dữ liệu này sẽ được sử dụng để hiển thị các điểm số trên trang
