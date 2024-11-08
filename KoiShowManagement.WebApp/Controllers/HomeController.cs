@@ -4,21 +4,25 @@ public class HomeController : Controller
 {
     public IActionResult Index()
     {
-        return View("~/Pages/Home/Index.cshtml");
+        ViewData["Title"] = "Trang chủ"; // Gán tiêu đề
+        return View("~/Pages/Home/Index.cshtml"); // Đường dẫn đến file Razor Page
     }
 
     public IActionResult About()
     {
-        return View("~/Pages/Home/About.cshtml");
+        ViewData["Title"] = "Giới thiệu"; // Gán tiêu đề
+        return View("~/Pages/Home/About.cshtml"); // Đường dẫn đến file Razor Page
     }
 
     public IActionResult Competitions()
     {
-        return View("~/Pages/Home/Competitions.cshtml");
+        ViewData["Title"] = "Cuộc thi"; // Gán tiêu đề
+        return View("~/Pages/Home/Competitions.cshtml"); // Đường dẫn đến file Razor Page
     }
 
     public IActionResult Search()
     {
-        return View("~/Pages/Home/Search.cshtml");
+        ViewData["Title"] = "Tìm kiếm"; // Gán tiêu đề
+        return View("~/Pages/Home/Search.cshtml"); // Đường dẫn đến file Razor Page
     }
 }
