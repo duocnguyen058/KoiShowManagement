@@ -1,24 +1,23 @@
-﻿using System;
-using KoiShowManagement.Repositories.Entities;
+﻿using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
-
+using System;
 namespace KoiShowManagement.Repositories.Repository
 {
-    public class EventRepository : IEventRepository
+    public class ScoreKoiRepository : IScoreKoiRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
 
-        public EventRepository(KoiShowManagementDbContext dbContext)
+        public ScoreKoiRepository(KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public bool AddEvent(Event @event)
+        public bool AddScoreKoi(ScoreKoi scoreKoi)
         {
             try
             {
-                _dbContext.Events.Add(@event);
+                _dbContext.ScoreKois.Add(scoreKoi);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -29,14 +28,14 @@ namespace KoiShowManagement.Repositories.Repository
             }
         }
 
-        public bool DelEvent(int Id)
+        public bool DelScoreKoi(int Id)
         {
-            try
+             try
             {
-                var objDel = _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefault();
+                var objDel = _dbContext.ScoreKois.Where(p => p.ScoreKoiId.Equals(Id)).FirstOrDefault();
                 if (objDel != null)
                 {
-                    _dbContext.Events.Remove(objDel);
+                    _dbContext.ScoreKois.Remove(objDel);
                     _dbContext.SaveChanges();
                     return true;
                 }
@@ -49,11 +48,11 @@ namespace KoiShowManagement.Repositories.Repository
             }
         }
 
-        public bool DelEvent(Event @event)
+        public bool DelScoreKoi(ScoreKoi scoreKoi)
         {
             try
             {
-                _dbContext.Events.Remove(@event);
+                _dbContext.ScoreKois.Remove(scoreKoi);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -62,24 +61,23 @@ namespace KoiShowManagement.Repositories.Repository
                 throw new NotImplementedException();
                 return false;
             }
-
         }
-       
-        public async Task<List<Event>> GetAllEvents()
+
+        public async Task<List<ScoreKoi>> GetAllScoreKoi()
         {
-            return await _dbContext.Events.ToListAsync();
+            return await _dbContext.ScoreKois.ToListAsync();
         }
 
-        public async Task<Event> GetEventById(int Id)
+        public async Task<ScoreKoi> GetScoreKoiId(int Id)
         {
-            return await _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefaultAsync();
+            return await _dbContext.ScoreKois.Where(p => p.ScoreKoiId.Equals(Id)).FirstOrDefaultAsync();
         }
 
-        public bool UpdEvent(Event @event)
+        public bool UpdScoreKoi(ScoreKoi scoreKoi)
         {
             try
             {
-                _dbContext.Events.Update(@event);
+                _dbContext.ScoreKois.Update(scoreKoi);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -88,9 +86,6 @@ namespace KoiShowManagement.Repositories.Repository
                 throw new NotImplementedException();
                 return false;
             }
-
         }
-
-        
     }
 }

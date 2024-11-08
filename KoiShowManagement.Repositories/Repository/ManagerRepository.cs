@@ -5,38 +5,37 @@ using Microsoft.EntityFrameworkCore;
 
 namespace KoiShowManagement.Repositories.Repository
 {
-    public class EventRepository : IEventRepository
+    internal class ManagerRepository : IManagerRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
-
-        public EventRepository(KoiShowManagementDbContext dbContext)
+        public ManagerRepository (KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-
-        public bool AddEvent(Event @event)
+        public bool AddManager(Manager manager)
         {
             try
             {
-                _dbContext.Events.Add(@event);
+                _dbContext.Managers.Add(manager);
                 _dbContext.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
+
                 throw new NotImplementedException();
                 return false;
             }
         }
 
-        public bool DelEvent(int Id)
+        public bool DelManager(int Id)
         {
             try
             {
-                var objDel = _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefault();
+                var objDel = _dbContext.Managers.Where(p => p.ManagerId.Equals(Id)).FirstOrDefault();
                 if (objDel != null)
                 {
-                    _dbContext.Events.Remove(objDel);
+                    _dbContext.Managers.Remove(objDel);
                     _dbContext.SaveChanges();
                     return true;
                 }
@@ -49,11 +48,37 @@ namespace KoiShowManagement.Repositories.Repository
             }
         }
 
-        public bool DelEvent(Event @event)
+        public bool DelManager(Manager manager)
         {
             try
             {
-                _dbContext.Events.Remove(@event);
+                _dbContext.Managers.Remove(manager);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw new NotImplementedException();
+                return false;
+            }
+        }
+
+        public async Task<Manager> ManagerById(int Id)
+        {
+            return await _dbContext.Managers.Where(p => p.ManagerId.Equals(Id)).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<Manager>> GetAllManagers()
+        {
+            return await _dbContext.Managers.ToListAsync();
+        }
+
+        public bool UpdManager(Manager manager)
+        {
+            try
+            {
+                _dbContext.Managers.Update(manager);
                 _dbContext.SaveChanges();
                 return true;
             }
@@ -64,33 +89,14 @@ namespace KoiShowManagement.Repositories.Repository
             }
 
         }
-       
-        public async Task<List<Event>> GetAllEvents()
+        Task<Manager> IManagerRepository.GetManagerById(int id)
         {
-            return await _dbContext.Events.ToListAsync();
+            throw new NotImplementedException();
         }
 
-        public async Task<Event> GetEventById(int Id)
+        public Task<List<Manager>> GetAllManager()
         {
-            return await _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefaultAsync();
+            throw new NotImplementedException();
         }
-
-        public bool UpdEvent(Event @event)
-        {
-            try
-            {
-                _dbContext.Events.Update(@event);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-
-        }
-
-        
     }
 }

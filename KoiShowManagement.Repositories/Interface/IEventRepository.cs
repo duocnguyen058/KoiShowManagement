@@ -10,7 +10,6 @@ namespace KoiShowManagement.Repositories.Interface
         Boolean DelEvent(Event @event);
         Boolean AddEvent(Event @event);
         Boolean UpdEvent(Event @event);
-        Task<Event> EventById(int Id);
-        Task<Event> GetEventById(int id);
+        Task<Event> GetEventById(int Id);
     }
 }
