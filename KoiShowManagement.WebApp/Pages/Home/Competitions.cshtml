@@ -1,0 +1,24 @@
+﻿@page
+@model KoiShowManagement.WebApp.Pages.Home.CompetitionsModel
+@{
+    ViewData["Title"] = "Cuộc thi";
+}
+
+<h1 class="text-center">Danh sách Cuộc thi</h1>
+<table class="table table-striped mt-4">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Tên cuộc thi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Competitions.Count; i++)
+        {
+            <tr>
+                <td>@(i + 1)</td>
+                <td>@Model.Competitions[i]</td>
+            </tr>
+        }
+    </tbody>
+</table>

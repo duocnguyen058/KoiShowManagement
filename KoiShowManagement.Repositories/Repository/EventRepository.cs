@@ -8,6 +8,11 @@ namespace KoiShowManagement.Repositories.Repository
     public class EventRepository : IEventRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
+
+        public EventRepository()
+        {
+        }
+
         public EventRepository(KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -87,6 +92,11 @@ namespace KoiShowManagement.Repositories.Repository
                 return false;
             }
 
+        }
+
+        Task<Event> IEventRepository.GetEventById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
