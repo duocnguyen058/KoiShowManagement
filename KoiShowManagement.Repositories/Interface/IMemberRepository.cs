@@ -1,23 +1,16 @@
-﻿using KoiShowManagement.Repositories.Entities;
-using System.Collections.Generic;
+﻿using System;
+using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.Repositories.Interface
 {
     public interface IMemberRepository
     {
-        // Thêm một thành vin mới
-        void AddMember(Member member);
+        Task<List<Member>> AllMember { get; }
 
-        // Lấy thông tin thành viên theo ID
-        Member GetMemberById(int id);
-
-        // Lấy danh sách tất cả các thành viên
-        IEnumerable<Member> GetAllMembers();
-
-        // Cập nhật thông tin thành viên
-        void UpdateMember(Member member);
-
-        // Xóa thành viên theo ID
-        void DeleteMember(int id);
+        Boolean DelMember(int Id);
+        Boolean DelMember(Member member);
+        Boolean AddMember(Member member);
+        Boolean UpdMember(Member member);
+        Task<Member> GetMemberById(int Id);
     }
 }

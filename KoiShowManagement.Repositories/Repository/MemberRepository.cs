@@ -1,54 +1,90 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using KoiShowManagement.Repositories;
-using KoiShowManagement.Models;
+﻿using System;
 using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace KoiShowManagement.Repositories.Repository
 {
     public class MemberRepository : IMemberRepository
     {
-        private readonly KoiShowDbContext _context;
-
-        public MemberRepository(KoiShowDbContext context)
+        private readonly KoiShowManagementDbContext _dbContext;
+        public MemberRepository(KoiShowManagementDbContext dbContext)
         {
-            _context = context;
+            _dbContext = dbContext;
         }
 
-        // Thêm một thành viên mới
-        public void AddMember(Member member)
+        public bool AddMember(Member member)
         {
-            _context.Members.Add(member);
-            _context.SaveChanges();
-        }
-
-        // Lấy thông tin thành viên theo ID
-        public Member GetMemberById(int id)
-        {
-            return _context.Members.Find(id);
-        }
-
-        // Lấy danh sách tất cả các thành viên
-        public IEnumerable<Member> GetAllMembers()
-        {
-            return _context.Members.ToList();
-        }
-
-        // Cập nhật thông tin thành viên
-        public void UpdateMember(Member member)
-        {
-            _context.Members.Update(member);
-            _context.SaveChanges();
-        }
-
-        // Xóa thành viên theo ID
-        public void DeleteMember(int id)
-        {
-            var member = _context.Members.Find(id);
-            if (member != null)
+            try
             {
-                _context.Members.Remove(member);
-                _context.SaveChanges();
+                _dbContext.Members.Add(member);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
+        }
+
+        public bool DelMember(int Id)
+        {
+            try
+            {
+                var objDel = _dbContext.Members.Where(p => p.MemberId.Equals(Id)).FirstOrDefault();
+                if (objDel != null)
+                {
+                    _dbContext.Members.Remove(objDel);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
+        }
+
+        public bool DelMember(Member member)
+        {
+            try
+            {
+                _dbContext.Members.Remove(member);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
+        }
+
+        public async Task<List<Member>> GetAllMembers()
+        {
+            return await _dbContext.Members.ToListAsync();
+        }
+
+        public async Task<Member> GetMemberById(int Id)
+        {
+            return await _dbContext.Members.Where(p => p.MemberId.Equals(Id)).FirstOrDefaultAsync();
+        }
+
+        public bool UpdMember(Member member)
+        {
+            try
+            {
+                _dbContext.Members.Update(member);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
             }
         }
     }
