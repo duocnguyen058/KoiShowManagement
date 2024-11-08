@@ -1,16 +1,16 @@
 ﻿using System;
 using KoiShowManagement.Repositories.Entities;
 
-namespace KoiShowManagement.Repositories.Interface
+namespace KoiShowManagement.Services.Interface
 {
-    public interface IEventRepository
-    {
+	public interface IEventService
+	{
         Task<List<Event>> GetAllEvents();
         Boolean DelEvent(int Id);
         Boolean DelEvent(Event @event);
         Boolean AddEvent(Event @event);
         Boolean UpdEvent(Event @event);
-        Task<Event> EventById(int Id);
-        Task<Event> GetEventById(int id);
+        Task<Event> GetEventById(int Id);
     }
 }
+
