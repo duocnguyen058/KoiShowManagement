@@ -1,95 +1,92 @@
-﻿using KoiShowManagement.Repositories.Entities;
+using System;
+using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace KoiShowManagement.Repositories.Repository
 {
-    public class ReportRepository
+    public class ReportRepository : IReportRepository
     {
-        private readonly KoiShowManagementDbContext _context;
-
-        public ReportRepository(KoiShowManagementDbContext context)
+        private readonly KoiShowManagementDbContext _dbContext;
+        public ReportRepository(KoiShowManagementDbContext dbContext)
         {
-            _context = context;
+            _dbContext = dbContext;
         }
 
-        // Retrieve all reports asynchronously
-        public async Task<List<Report>> GetAllReportsAsync()
+        public bool AddReport(Report report)
         {
-            return await _context.Reports
-                .Include(r => r.CreatedByNavigation)  // Eager load CreatedByNavigation
-                .ToListAsync();
-        }
-
-        // Retrieve a report by its ID asynchronously
-        public async Task<Report?> GetReportByIdAsync(int reportId)
-        {
-            return await _context.Reports
-                .Include(r => r.CreatedByNavigation) // Eager load CreatedByNavigation
-                .FirstOrDefaultAsync(r => r.ReportId == reportId);
-        }
-
-        // Add a new report
-        public async Task<bool> AddReportAsync(Report report)
-        {
-            if (report != null)
+            try
             {
-                await _context.Reports.AddAsync(report);
-                await _context.SaveChangesAsync();
+                _dbContext.Reports.Add(report);
+                _dbContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
         }
 
-        // Update an existing report
-        public async Task<bool> UpdateReportAsync(Report report)
+        public bool DelReport(int Id)
         {
-            var existingReport = await _context.Reports
-                .FirstOrDefaultAsync(r => r.ReportId == report.ReportId);
-
-            if (existingReport != null)
+            try
             {
-                existingReport.Title = report.Title;
-                existingReport.Content = report.Content;
-                existingReport.CreatedAt = report.CreatedAt;
-                existingReport.CreatedBy = report.CreatedBy;
-
-                _context.Reports.Update(existingReport);
-                await _context.SaveChangesAsync();
-                return true;
+                var objDel = _dbContext.Reports.Where(r => r.ReportId.Equals(Id)).FirstOrDefault();
+                if (objDel != null)
+                {
+                    _dbContext.Reports.Remove(objDel);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                return false;
             }
-
-            return false;
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
         }
 
-        // Delete a report by its ID
-        public async Task<bool> DeleteReportByIdAsync(int reportId)
+        public bool DelReport(Report report)
         {
-            var report = await _context.Reports
-                .FirstOrDefaultAsync(r => r.ReportId == reportId);
-
-            if (report != null)
+            try
             {
-                _context.Reports.Remove(report);
-                await _context.SaveChangesAsync();
+                _dbContext.Reports.Remove(report);
+                _dbContext.SaveChanges();
                 return true;
             }
-
-            return false;
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
         }
 
-        // Delete a specific report object
-        public async Task<bool> DeleteReportAsync(Report report)
+        public async Task<List<Report>> GetAllReports()
         {
-            if (report != null)
+            return await _dbContext.Reports.ToListAsync();
+        }
+
+        public async Task<Report> GetReportById(int Id)
+        {
+            return await _dbContext.Reports.Where(r => r.ReportId.Equals(Id)).FirstOrDefaultAsync();
+        }
+
+        public bool UpdReport(Report report)
+        {
+            try
             {
-                _context.Reports.Remove(report);
-                await _context.SaveChangesAsync();
+                _dbContext.Reports.Update(report);
+                _dbContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
         }
     }
 }
