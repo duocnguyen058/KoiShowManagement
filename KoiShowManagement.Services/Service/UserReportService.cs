@@ -18,12 +18,7 @@ namespace KoiShowManagement.Services.Service
 
         public async Task<bool> AddUserReportAsync(UserReport userReport)
         {
-            if (userReport == null)
-                throw new ArgumentNullException(nameof(userReport), "Thông tin báo cáo người dùng không được để trống.");
-
-            if (string.IsNullOrWhiteSpace(userReport.AccessLevel))
-                throw new ArgumentNullException(nameof(userReport.AccessLevel), "Cấp độ truy cập không được để trống hoặc chỉ chứa khoảng trống.");
-
+            ValidateUserReport(userReport);
             return await _repository.AddUserReportAsync(userReport);
         }
 
@@ -58,16 +53,35 @@ namespace KoiShowManagement.Services.Service
 
         public async Task<bool> UpdateUserReportAsync(UserReport userReport)
         {
-            if (userReport == null)
-                throw new ArgumentNullException(nameof(userReport), "Thông tin báo cáo người dùng không được để trống.");
+            ValidateUserReport(userReport);
 
             if (userReport.UserReportId <= 0)
                 throw new ArgumentException("Mã báo cáo người dùng phải là số nguyên dương.", nameof(userReport.UserReportId));
 
+            return await _repository.UpdateUserReportAsync(userReport);
+        }
+
+        
+        private void ValidateUserReport(UserReport userReport)
+        {
+            if (userReport == null)
+                throw new ArgumentNullException(nameof(userReport), "Thông tin báo cáo người dùng không được để trống.");
+
+            if (userReport.UserId.HasValue && userReport.UserId <= 0)
+                throw new ArgumentException("UserId phải là số nguyên dương nếu được cung cấp.", nameof(userReport.UserId));
+
+            if (userReport.ReportId.HasValue && userReport.ReportId <= 0)
+                throw new ArgumentException("ReportId phải là số nguyên dương nếu được cung cấp.", nameof(userReport.ReportId));
+
             if (string.IsNullOrWhiteSpace(userReport.AccessLevel))
                 throw new ArgumentNullException(nameof(userReport.AccessLevel), "Cấp độ truy cập không được để trống hoặc chỉ chứa khoảng trống.");
 
-            return await _repository.UpdateUserReportAsync(userReport);
+            
+            if (userReport.Report != null && userReport.Report.ReportId <= 0)
+                throw new ArgumentException("ReportId của đối tượng Report phải là số nguyên dương.", nameof(userReport.Report));
+
+            if (userReport.User != null && userReport.User.UserId <= 0)
+                throw new ArgumentException("UserId của đối tượng User phải là số nguyên dương.", nameof(userReport.User));
         }
     }
 }
