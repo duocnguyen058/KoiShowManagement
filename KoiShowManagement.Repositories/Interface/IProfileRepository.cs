@@ -1,16 +1,15 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.Repositories.Interface
 {
-	public interface IProfileRepository
-	{
-        Task<List<Profile>> GetAllProfiles();
-        Boolean DelProfile(int Id);
-        Boolean DelProfile(Profile profile);
-        Boolean AddProfile(Profile profile);
-        Boolean UpdProfile(Profile profile);
-        Task<Profile> GetEventById(int Id);
+    public interface IProfileRepository
+    {
+        Task<List<Profile>> GetAllProfilesAsync();
+        Task<Profile> GetProfileByIdAsync(int profileId);
+        Task<bool> AddProfileAsync(Profile profile);
+        Task<bool> UpdateProfileAsync(Profile profile);
+        Task<bool> DeleteProfileAsync(int profileId);
     }
 }
-

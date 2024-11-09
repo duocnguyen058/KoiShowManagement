@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -14,83 +16,75 @@ namespace KoiShowManagement.Repositories.Repository
             _dbContext = dbContext;
         }
 
-        public bool AddEvent(Event @event)
+        public async Task<List<Event>> GetAllEventsAsync()
+        {
+            return await _dbContext.Events.ToListAsync();
+        }
+
+        public async Task<Event> GetEventByIdAsync(int id)
+        {
+            return await _dbContext.Events.FirstOrDefaultAsync(e => e.EventId == id);
+        }
+
+        public async Task<bool> AddEventAsync(Event eventObj)
         {
             try
             {
-                _dbContext.Events.Add(@event);
-                _dbContext.SaveChanges();
+                await _dbContext.Events.AddAsync(eventObj);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-        public bool DelEvent(int Id)
+        public async Task<bool> UpdateEventAsync(Event eventObj)
         {
             try
             {
-                var objDel = _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefault();
-                if (objDel != null)
+                _dbContext.Events.Update(eventObj);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.ToString());
+            }
+        }
+
+        public async Task<bool> DeleteEventAsync(int id)
+        {
+            try
+            {
+                var eventObj = await _dbContext.Events.FindAsync(id);
+                if (eventObj != null)
                 {
-                    _dbContext.Events.Remove(objDel);
-                    _dbContext.SaveChanges();
+                    _dbContext.Events.Remove(eventObj);
+                    await _dbContext.SaveChangesAsync();
                     return true;
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-        public bool DelEvent(Event @event)
+        public async Task<bool> DeleteEventAsync(Event eventObj)
         {
             try
             {
-                _dbContext.Events.Remove(@event);
-                _dbContext.SaveChanges();
+                _dbContext.Events.Remove(eventObj);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
-
         }
-       
-        public async Task<List<Event>> GetAllEvents()
-        {
-            return await _dbContext.Events.ToListAsync();
-        }
-
-        public async Task<Event> GetEventById(int Id)
-        {
-            return await _dbContext.Events.Where(p => p.EventId.Equals(Id)).FirstOrDefaultAsync();
-        }
-
-        public bool UpdEvent(Event @event)
-        {
-            try
-            {
-                _dbContext.Events.Update(@event);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-
-        }
-
-        
     }
 }

@@ -6,7 +6,7 @@ using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace KoiShowManagement.Repositories.Repository
+namespace KoiShowManagementSystem.Repositories.Repository
 {
     public class UserReportRepository : IUserReportRepository
     {
@@ -17,95 +17,74 @@ namespace KoiShowManagement.Repositories.Repository
             _dbContext = dbContext;
         }
 
-        public bool AddUserReport(UserReport userReport)
+        public async Task<bool> AddUserReportAsync(UserReport userReport)
         {
             try
             {
-                _dbContext.UserReports.Add(userReport);
-                _dbContext.SaveChanges();
+                await _dbContext.UserReports.AddAsync(userReport);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error adding UserReport: {ex.Message}");
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-        public bool DelUserReport(int id)
+        public async Task<bool> DeleteUserReportAsync(int id)
         {
             try
             {
-                var objDel = _dbContext.UserReports.FirstOrDefault(p => p.Id == id);
-                if (objDel != null)
+                var userReport = await _dbContext.UserReports.FirstOrDefaultAsync(ur => ur.UserReportId == id);
+                if (userReport != null)
                 {
-                    _dbContext.UserReports.Remove(objDel);
-                    _dbContext.SaveChanges();
+                    _dbContext.UserReports.Remove(userReport);
+                    await _dbContext.SaveChangesAsync();
                     return true;
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error deleting UserReport by Id: {ex.Message}");
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-        public bool DelUserReport(UserReport userReport)
+        public async Task<bool> DeleteUserReportAsync(UserReport userReport)
         {
             try
             {
                 _dbContext.UserReports.Remove(userReport);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error deleting UserReport: {ex.Message}");
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-
-        public async Task<List<UserReport>> GetAllUserReports()
+        public async Task<List<UserReport>> GetAllUserReportsAsync()
         {
-            try
-            {
-                return await _dbContext.UserReports.ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error retrieving all UserReports: {ex.Message}");
-                return new List<UserReport>();
-            }
+            return await _dbContext.UserReports.ToListAsync();
         }
 
-        public async Task<UserReport> GetUserReportById(int id)
+        public async Task<UserReport> GetUserReportByIdAsync(int id)
         {
-            try
-            {
-                return await _dbContext.UserReports.FirstOrDefaultAsync(p => p.Id == id);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error retrieving UserReport by Id: {ex.Message}");
-                return null;
-            }
+            return await _dbContext.UserReports.FirstOrDefaultAsync(ur => ur.UserReportId == id);
         }
 
-        public bool UpdUserReport(UserReport userReport)
+        public async Task<bool> UpdateUserReportAsync(UserReport userReport)
         {
             try
             {
                 _dbContext.UserReports.Update(userReport);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error updating UserReport: {ex.Message}");
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
     }
