@@ -1,7 +1,8 @@
-﻿using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using KoiShowManagement.Services.Interface;
 using System;
+
 namespace KoiShowManagement.Services.Service
 {
     public class ScoreKoiService : IScoreKoiService
@@ -12,34 +13,58 @@ namespace KoiShowManagement.Services.Service
         {
             _repository = repository;
         }
-        public bool AddScoreKoi(ScoreKoi scoreKoi)
+
+        public async Task<bool> AddScoreKoiAsync(ScoreKoi scoreKoi)
         {
-            return _repository.AddScoreKoi(scoreKoi);
+            if (scoreKoi == null)
+                throw new ArgumentNullException(nameof(scoreKoi), "ScoreKoi không được để trống.");
+            if (scoreKoi.KoiId <= 0)
+                throw new ArgumentException("ID của Koi phải là số nguyên dương.", nameof(scoreKoi.KoiId));
+            if (scoreKoi.Score < 0 || scoreKoi.Score > 100)
+                throw new ArgumentException("Điểm của ScoreKoi phải nằm trong khoảng từ 0 đến 100.", nameof(scoreKoi.Score));
+
+            return await _repository.AddScoreKoiAsync(scoreKoi);
         }
 
-        public bool DelScoreKoi(int Id)
+        public async Task<bool> DeleteScoreKoiAsync(int Id)
         {
-            return _repository.DelScoreKoi(Id);
+            if (Id <= 0)
+                throw new ArgumentException("ID không hợp lệ, chỉ chấp nhận số nguyên dương.", nameof(Id));
+
+            return await _repository.DeleteScoreKoiAsync(Id);
         }
 
-        public bool DelScoreKoi(ScoreKoi scoreKoi)
+        public async Task<bool> DeleteScoreKoiAsync(ScoreKoi scoreKoi)
         {
-            return _repository.DelScoreKoi(scoreKoi);
+            if (scoreKoi == null)
+                throw new ArgumentNullException(nameof(scoreKoi), "ScoreKoi không được để trống.");
+
+            return await _repository.DeleteScoreKoiAsync(scoreKoi);
         }
 
-        public Task<List<ScoreKoi>> GetAllScoreKois()
+        public async Task<List<ScoreKoi>> GetAllScoreKoisAsync()
         {
-            return _repository.GetAllScoreKois();
+            return await _repository.GetAllScoreKoisAsync();
         }
 
-        public Task<ScoreKoi> GetScoreKoiId(int Id)
+        public async Task<ScoreKoi> GetScoreKoiByIdAsync(int Id)
         {
-            return _repository.GetScoreKoiById(Id);
+            if (Id <= 0)
+                throw new ArgumentException("ID không hợp lệ, chỉ chấp nhận số nguyên dương.", nameof(Id));
+
+            return await _repository.GetScoreKoiByIdAsync(Id);
         }
 
-        public bool UpdScoreKoi(ScoreKoi scoreKoi)
+        public async Task<bool> UpdateScoreKoiAsync(ScoreKoi scoreKoi)
         {
-            return _repository.UpdScoreKoi(scoreKoi);
+            if (scoreKoi == null)
+                throw new ArgumentNullException(nameof(scoreKoi), "ScoreKoi không được để trống.");
+            if (scoreKoi.KoiId <= 0)
+                throw new ArgumentException("ID của Koi phải là số nguyên dương.", nameof(scoreKoi.KoiId));
+            if (scoreKoi.Score < 0 || scoreKoi.Score > 100)
+                throw new ArgumentException("Điểm của ScoreKoi phải nằm trong khoảng từ 0 đến 100.", nameof(scoreKoi.Score));
+
+            return await _repository.UpdateScoreKoiAsync(scoreKoi);
         }
     }
 }      
