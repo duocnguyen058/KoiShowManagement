@@ -1,4 +1,4 @@
-﻿using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,92 +12,77 @@ namespace KoiShowManagementSystem.Repositories.Repositories
         {
             _dbContext = dbContext;
         }
-        public bool AddKoi(Koi koi)
+
+        public async Task<bool> AddKoiAsync(Koi koi)
         {
             try
             {
-                _dbContext.Kois.Add(koi);
-                _dbContext.SaveChanges();
+                await _dbContext.Kois.AddAsync(koi);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-     
-        public bool DelKoi(int Id)
+        public async Task<bool> DelKoiAsync(int Id)
         {
             try
             {
-                var koiToDelete = _dbContext.Kois.Where(k => k.KoiId.Equals(Id)).FirstOrDefault();
-                if (koiToDelete != null)
+                var objDel = await _dbContext.Kois.FindAsync(Id);
+                if (objDel != null)
                 {
-                    _dbContext.Kois.Remove(koiToDelete);
-                    _dbContext.SaveChanges();
+                    _dbContext.Kois.Remove(objDel);
+                    await _dbContext.SaveChangesAsync();
                     return true;
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-        public bool DelKoi(Koi koi)
+        public async Task<bool> DelKoiAsync(Koi koi)
         {
             try
             {
                 _dbContext.Kois.Remove(koi);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-       
-        public async Task<List<Koi>> GetAllKois()
+        public async Task<List<Koi>> GetKoiAsync()
         {
             return await _dbContext.Kois.ToListAsync();
         }
 
-        public async Task<Koi> GetKoiById(int Id)
+        public async Task<Koi> GetKoiByIdAsync(int Id)
         {
-            return await _dbContext.Kois.Where(k => k.KoiId.Equals(Id)).FirstOrDefaultAsync();
+            return await _dbContext.Kois.Where(p => p.KoiId.Equals(Id)).FirstOrDefaultAsync();
         }
 
-        public bool UpdKoi(Koi koi)
+        public async Task<bool> UpdKoiAsync(Koi koi)
         {
+
             try
             {
                 _dbContext.Kois.Update(koi);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
-        }
-
-        
-        Task<List<Koi>> IKoiRepository.GetAllKois()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Koi> IKoiRepository.GetKoiById(int Id)
-        {
-            throw new NotImplementedException();
         }
     }
 }
