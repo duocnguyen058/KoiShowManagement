@@ -1,9 +1,6 @@
 ﻿using KoiShowManagement.Repositories.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace KoiShowManagement.Repositories.Interface
 {
@@ -15,6 +12,6 @@ namespace KoiShowManagement.Repositories.Interface
         Boolean AddReferee(Referee referee);
         Boolean UpdReferee(Referee referee);
         Task<Referee> GetByRefereeId(int Id);
-        
+
     }
 }
