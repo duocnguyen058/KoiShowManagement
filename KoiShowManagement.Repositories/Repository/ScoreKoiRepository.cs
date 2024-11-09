@@ -25,10 +25,10 @@ namespace KoiShowManagement.Repositories.Repository
             catch (Exception ex)
             {
                 throw new NotImplementedException(ex.ToString());
-            }
+            };
         }
 
-        public async Task<bool> DelScoreKoiAsync(int Id)
+        public async Task<bool> DeleteScoreKoiAsync(int Id)
         {
             try
             {
@@ -47,7 +47,7 @@ namespace KoiShowManagement.Repositories.Repository
             }
         }
 
-        public async Task<bool> DelScoreKoiAsync(ScoreKoi scoreKoi)
+        public async Task<bool> DeleteScoreKoiAsync(ScoreKoi scoreKoi)
         {
             try
             {
@@ -61,17 +61,27 @@ namespace KoiShowManagement.Repositories.Repository
             }
         }
 
-        public async Task<ScoreKoi> GetScoreKoiByIdAsync(int Id)
-        {
-            return await _dbContext.ScoreKois.Where(p => p.ScoreKoiId.Equals(Id)).FirstOrDefaultAsync();
-        }
-
-        public async Task<List<ScoreKoi>> GetScoreKoisAsync()
+        public async Task<List<ScoreKoi>> GetAllScoreKois()
         {
             return await _dbContext.ScoreKois.ToListAsync();
         }
 
-        public async Task<bool> UpdScoreKoiAsync(ScoreKoi scoreKoi)
+        public async Task<List<ScoreKoi>> GetAllScoreKoisAsync()
+        {
+            return await _dbContext.ScoreKois.ToListAsync();
+        }
+
+        public Task<ScoreKoi> GetScoreKoiById(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ScoreKoi> GetScoreKoiByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<bool> UpdateScoreKoiAsync(ScoreKoi scoreKoi)
         {
             try
             {
@@ -81,8 +91,7 @@ namespace KoiShowManagement.Repositories.Repository
             }
             catch (Exception ex)
             {
-                // Log the exception if necessary
-                throw new Exception("Error updating ScoreKoi: " + ex.Message);
+                throw new NotImplementedException(ex.ToString());
             }
         }
     }
