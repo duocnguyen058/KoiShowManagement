@@ -1,4 +1,5 @@
 ﻿using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Interface;
 using KoiShowManagement.Services.Interface;
 using System;
 
@@ -6,8 +7,8 @@ namespace KoiShowManagement.Services.Service
 {
     public class RefereeService : IRefereeService
     {
-        private readonly IRefereeService _repository;
-        public RefereeService(IRefereeService repository)
+        private readonly IRefereeRepository _repository;
+        public RefereeService(IRefereeRepository repository)
         {
             _repository = repository;
         }
@@ -34,7 +35,7 @@ namespace KoiShowManagement.Services.Service
 
         public Task<Referee> GetRefereeById(int Id)
         {
-            return _repository.GetRefereeById(Id);
+            return _repository.GetByRefereeId(Id);
         }
 
         public bool UpdReferee(Referee referee)
@@ -43,5 +44,3 @@ namespace KoiShowManagement.Services.Service
         }
     }
 }
-    
-

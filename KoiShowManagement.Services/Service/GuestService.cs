@@ -6,8 +6,8 @@ namespace KoiShowManagement.Services.Service
 {
     public class GuestService : IGuestService
     {
-        private readonly IGuestService _repository;
-        public GuestService(IGuestService repository)
+        private readonly IGuestRepository _repository;
+        public GuestService(IGuestRepository repository)
         {
             _repository = repository;
         }
