@@ -1,4 +1,4 @@
-﻿using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Entities;
 using System;
 
 
@@ -6,11 +6,11 @@ namespace KoiShowManagement.Repositories.Interface
 {
     public interface IScoreKoiRepository
     {
-        Task<List<ScoreKoi>> GetAllScoreKois();
-        Boolean DelScoreKoi(int Id);
-        Boolean DelScoreKoi(ScoreKoi scoreKoi);
-        Boolean AddScoreKoi(ScoreKoi scoreKoi);
-        Boolean UpdScoreKoi(ScoreKoi scoreKoi);
-        Task<ScoreKoi> GetScoreKoiById(int id);
+        Task<List<ScoreKoi>> GetScoreKoisAsync();
+        Task<bool> DelScoreKoiAsync(int Id);
+        Task<bool> DelScoreKoiAsync(ScoreKoi scoreKoi);
+        Task<bool> AddScoreKoiAsync(ScoreKoi scoreKoi);
+        Task<bool> UpdScoreKoiAsync(ScoreKoi scoreKoi);
+        Task<ScoreKoi> GetScoreKoiByIdAsync(int Id);
     }
 }
