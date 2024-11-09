@@ -15,5 +15,6 @@ namespace KoiShowManagement.Repositories.Interface
         Boolean AddReferee(Referee referee);
         Boolean UpdReferee(Referee referee);
         Task<Referee> GetByRefereeId(int Id);
+        
     }
 }

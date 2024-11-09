@@ -1,86 +1,91 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System;
 using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace KoiShowManagement.Repositories.Repository
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
-        private readonly KoiShowManagementDbContext _context;
-
-        public UserRepository(KoiShowManagementDbContext context)
+        private readonly KoiShowManagementDbContext _dbContext;
+        public UserRepository(KoiShowManagementDbContext dbContext)
         {
-            _context = context;
+            _dbContext = dbContext;
         }
 
-        // Retrieves all users asynchronously from the database
-        public async Task<List<User>> GetAllUsersAsync()
+        public bool AddUser(User user)
         {
-            return await _context.Users.ToListAsync();
-        }
-
-        // Retrieves a user by their UserId asynchronously
-        public async Task<User> GetUserByIdAsync(int userId)
-        {
-            return await _context.Users.FirstOrDefaultAsync(u => u.UserId == userId);
-        }
-
-        // Adds a new user to the database
-        public async Task<bool> AddUserAsync(User user)
-        {
-            if (user != null)
+            try
             {
-                await _context.Users.AddAsync(user);
-                await _context.SaveChangesAsync();
+                _dbContext.Users.Add(user);
+                _dbContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
         }
 
-        // Updates an existing user
-        public async Task<bool> UpdateUserAsync(User user)
+        public bool DelUser(int Id)
         {
-            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.UserId == user.UserId);
-            if (existingUser != null)
+            try
             {
-                existingUser.Username = user.Username;
-                existingUser.Password = user.Password;
-                existingUser.Role = user.Role;
-                existingUser.CreatedAt = user.CreatedAt;
-
-                _context.Users.Update(existingUser);
-                await _context.SaveChangesAsync();
-                return true;
+                var objDel = _dbContext.Users.Where(u => u.UserId.Equals(Id)).FirstOrDefault();
+                if (objDel != null)
+                {
+                    _dbContext.Users.Remove(objDel);
+                    _dbContext.SaveChanges();
+                    return true;
+                }
+                return false;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
         }
 
-        // Deletes a user by their UserId
-        public async Task<bool> DeleteUserByIdAsync(int userId)
+        public bool DelUser(User user)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == userId);
-            if (user != null)
+            try
             {
-                _context.Users.Remove(user);
-                await _context.SaveChangesAsync();
+                _dbContext.Users.Remove(user);
+                _dbContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
         }
 
-        // Deletes a specific user
-        public async Task<bool> DeleteUserAsync(User user)
+        public async Task<List<User>> GetAllUsers()
         {
-            if (user != null)
+            return await _dbContext.Users.ToListAsync();
+        }
+
+        public async Task<User> GetUserById(int Id)
+        {
+            return await _dbContext.Users.Where(u => u.UserId.Equals(Id)).FirstOrDefaultAsync();
+        }
+
+        public bool UpdUser(User user)
+        {
+            try
             {
-                _context.Users.Remove(user);
-                await _context.SaveChangesAsync();
+                _dbContext.Users.Update(user);
+                _dbContext.SaveChanges();
                 return true;
             }
-            return false;
+            catch (Exception ex)
+            {
+                throw new NotImplementedException();
+                return false;
+            }
         }
     }
 }

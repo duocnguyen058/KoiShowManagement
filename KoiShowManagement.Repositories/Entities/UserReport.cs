@@ -16,4 +16,5 @@ public partial class UserReport
     public virtual Report? Report { get; set; }
 
     public virtual User? User { get; set; }
+    public int Id { get; internal set; }
 }

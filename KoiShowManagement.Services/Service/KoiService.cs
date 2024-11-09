@@ -6,8 +6,8 @@ namespace KoiShowManagement.Services.Service
 {
     public class KoiService : IKoiService
     {
-        private readonly IKoiService _repository;
-        public KoiService(IKoiService repository)
+        private readonly IKoiRepository _repository;
+        public KoiService(IKoiRepository repository)
         {
             _repository = repository;
         }

@@ -1,25 +1,55 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using KoiShowManagement.WebApp;
+﻿using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Interface;
+using KoiShowManagement.Repositories.Repository;
+using KoiShowManagement.Services.Interface;
+using KoiShowManagement.Services.Service;
+using KoiShowManagementSystem.Repositories.Repositories;
+using KoiShowManagementSystem.Repositories.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Cấu hình dịch vụ Razor Pages và Authentication
+builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/Account/Login";  // Đường dẫn trang đăng nhập
-        options.AccessDeniedPath = "/Account/AccessDenied"; // Đường dẫn khi quyền truy cập bị từ chối
-    });
+
+//DI
+builder.Services.AddDbContext<KoiShowManagementDbContext>();
+//DI Repositories
+builder.Services.AddScoped<ICompetitionResultRepository, CompetitionResultRepository>();
+builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<IGuestRepository, GuestRepository>();
+builder.Services.AddScoped<IKoiRepository, KoiRepository>();
+builder.Services.AddScoped<IManagerRepository, ManagerRepository>();
+builder.Services.AddScoped<IMemberRepository, MemberRepository>();
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IRefereeRepository, RefereeRepository>();
+builder.Services.AddScoped<IReportRepository, ReportRepository>();
+builder.Services.AddScoped<IScoreKoiRepository, ScoreKoiRepository>();
+builder.Services.AddScoped<IStaffRepository, StaffRepository>();
+builder.Services.AddScoped<IUserReportRepository, UserReportRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+
+//DI Services
+builder.Services.AddScoped<ICompetitionResultService, CompetitionResultService>();
+builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<IGuestService, GuestService>();
+builder.Services.AddScoped<IKoiService, KoiService>();
+builder.Services.AddScoped<IManagerService, ManagerService>();
+builder.Services.AddScoped<IMemberService, MemberService>();
+builder.Services.AddScoped<IProfileService, ProfileService>();
+builder.Services.AddScoped<IRefereeService, RefereeService>();
+builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddScoped<IScoreKoiService, ScoreKoiService>();
+builder.Services.AddScoped<IStaffService, StaffService>();
+builder.Services.AddScoped<IUserReportService, UserReportService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+
+
 
 var app = builder.Build();
 
-// Cấu hình Middleware
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
@@ -28,11 +58,13 @@ else
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
-// Middleware cho Authentication và Authorization
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapRazorPages(); // Đảm bảo bạn có MapRazorPages() ở đây.
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();

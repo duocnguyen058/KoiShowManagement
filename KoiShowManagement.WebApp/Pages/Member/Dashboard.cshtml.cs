@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KoiShowManagement.Repositories.Entities;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using KoiShowManagement.WebApp.Models; // Đảm bảo bạn có mô hình dữ liệu thích hợp
-using System.Collections.Generic;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace KoiShowManagement.WebApp.Pages.Member
 {
