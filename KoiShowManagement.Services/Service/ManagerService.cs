@@ -2,6 +2,7 @@
 using KoiShowManagement.Repositories.Interface;
 using KoiShowManagement.Services.Interface;
 using System;
+
 namespace KoiShowManagement.Services.Service
 {
     public class ManagerService : IManagerService
