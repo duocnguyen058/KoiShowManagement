@@ -1,7 +1,8 @@
-﻿using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using System;
+
 namespace KoiShowManagement.Repositories.Repository
 {
     public class GuestRepository : IGuestRepository
@@ -12,79 +13,80 @@ namespace KoiShowManagement.Repositories.Repository
         {
             _dbContext = dbContext;
         }
-        public bool AddGuest(Guest guest)
+
+        public async Task<bool> AddGuestAsync(Guest guest)
         {
             try
             {
-                _dbContext.Guests.Add(guest);
-                _dbContext.SaveChanges();
+                await _dbContext.Guests.AddAsync(guest);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
+
         }
 
-        public bool DelGuest(int Id)
+        public async Task<bool> DelGuestAsync(int Id)
         {
             try
             {
-                var guestToDelete = _dbContext.Guests.Where(g => g.GuestId.Equals(Id)).FirstOrDefault();
-                if (guestToDelete != null)
+                var objDel = _dbContext.Guests.Where(p => p.GuestId.Equals(Id)).FirstOrDefault();
+                if (objDel != null)
                 {
-                    _dbContext.Guests.Remove(guestToDelete);
-                    _dbContext.SaveChanges();
+                    _dbContext.Guests.Remove(objDel);
+                    await _dbContext.SaveChangesAsync();
                     return true;
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
+
         }
 
-        public bool DelGuest(Guest guest)
+        public async Task<bool> DelGuestAsync(Guest guest)
         {
             try
             {
                 _dbContext.Guests.Remove(guest);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
+
         }
 
-        public async Task<List<Guest>> GetAllGuests()
+        public async Task<Guest> GetGuestByIdAsync(int Id)
+        {
+            return await _dbContext.Guests.Where(p => p.GuestId.Equals(Id)).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<Guest>> GetGuestsAsync()
         {
             return await _dbContext.Guests.ToListAsync();
         }
 
-        public async Task<Guest> GetGuestById(int Id)
-        {
-            return await _dbContext.Guests.Where(g => g.GuestId.Equals(Id)).FirstOrDefaultAsync();
-        }
-
-        public bool UpdGuest(Guest guest)
+        public async Task<bool> UpdGuestAsync(Guest guest)
         {
             try
             {
                 _dbContext.Guests.Update(guest);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
+
         }
     }
 }
