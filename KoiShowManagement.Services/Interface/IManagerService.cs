@@ -10,7 +10,7 @@ namespace KoiShowManagement.Services.Interface
         Boolean DelManager(Manager manager);
         Boolean AddManager(Manager manager);
         Boolean UpdManager(Manager manager);
-        Task<Guest> GetManagerById(int Id);
-        Task<Manager> GetAllManagerById(int id);
+        Task<Manager> GetManagerById(int Id);
+
     }
 }
