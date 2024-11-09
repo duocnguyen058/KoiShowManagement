@@ -27,7 +27,7 @@ namespace KoiShowManagementSystem.Repositories.Repositories
             }
         }
 
-        public async Task<bool> DelKoiAsync(int Id)
+        public async Task<bool> DeleteKoiAsync(int Id)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace KoiShowManagementSystem.Repositories.Repositories
             }
         }
 
-        public async Task<bool> DelKoiAsync(Koi koi)
+        public async Task<bool> DeleteKoiAsync(Koi koi)
         {
             try
             {
@@ -60,19 +60,18 @@ namespace KoiShowManagementSystem.Repositories.Repositories
             }
         }
 
-        public async Task<List<Koi>> GetKoiAsync()
-        {
-            return await _dbContext.Kois.ToListAsync();
-        }
-
         public async Task<Koi> GetKoiByIdAsync(int Id)
         {
             return await _dbContext.Kois.Where(p => p.KoiId.Equals(Id)).FirstOrDefaultAsync();
         }
 
-        public async Task<bool> UpdKoiAsync(Koi koi)
+        public async Task<List<Koi>> GetKoisAsync()
         {
+            return await _dbContext.Kois.ToListAsync();
+        }
 
+        public async Task<bool> UpdateKoiAsync(Koi koi)
+        {
             try
             {
                 _dbContext.Kois.Update(koi);
