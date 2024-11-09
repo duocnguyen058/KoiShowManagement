@@ -1,4 +1,4 @@
-﻿using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,78 +14,75 @@ namespace KoiShowManagement.Repositories.Repository
             _dbContext = dbContext;
         }
 
-        public bool AddScoreKoi(ScoreKoi scoreKoi)
+        public async Task<bool> AddScoreKoiAsync(ScoreKoi scoreKoi)
         {
             try
             {
-                _dbContext.ScoreKois.Add(scoreKoi);
-                _dbContext.SaveChanges();
+                await _dbContext.ScoreKois.AddAsync(scoreKoi);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-        public bool DelScoreKoi(int Id)
+        public async Task<bool> DelScoreKoiAsync(int Id)
         {
             try
             {
-                var scoreKoiToDelete = _dbContext.ScoreKois.Where(s => s.ScoreKoiId.Equals(Id)).FirstOrDefault();
-                if (scoreKoiToDelete != null)
+                var objDel = await _dbContext.ScoreKois.FindAsync(Id);
+                if (objDel != null)
                 {
-                    _dbContext.ScoreKois.Remove(scoreKoiToDelete);
-                    _dbContext.SaveChanges();
+                    _dbContext.ScoreKois.Remove(objDel);
+                    await _dbContext.SaveChangesAsync();
                     return true;
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-        public bool DelScoreKoi(ScoreKoi scoreKoi)
+        public async Task<bool> DelScoreKoiAsync(ScoreKoi scoreKoi)
         {
             try
             {
                 _dbContext.ScoreKois.Remove(scoreKoi);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
         }
 
-        public async Task<List<ScoreKoi>> GetAllScoreKois()
+        public async Task<ScoreKoi> GetScoreKoiByIdAsync(int Id)
+        {
+            return await _dbContext.ScoreKois.Where(p => p.ScoreKoiId.Equals(Id)).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<ScoreKoi>> GetScoreKoisAsync()
         {
             return await _dbContext.ScoreKois.ToListAsync();
         }
 
-        public async Task<ScoreKoi> GetScoreKoiById(int Id)
-        {
-            return await _dbContext.ScoreKois.Where(s => s.ScoreKoiId.Equals(Id)).FirstOrDefaultAsync();
-        }
-
-        public bool UpdScoreKoi(ScoreKoi scoreKoi)
+        public async Task<bool> UpdScoreKoiAsync(ScoreKoi scoreKoi)
         {
             try
             {
                 _dbContext.ScoreKois.Update(scoreKoi);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                return false;
+                // Log the exception if necessary
+                throw new Exception("Error updating ScoreKoi: " + ex.Message);
             }
         }
     }
