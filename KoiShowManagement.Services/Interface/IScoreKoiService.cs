@@ -1,14 +1,17 @@
 ﻿using KoiShowManagement.Repositories.Entities;
 using System;
+using System.Threading.Task;
 namespace KoiShowManagement.Services.Interface
 {
     public interface IScoreKoiService
     {
         Task<List<ScoreKoi>> GetAllScoreKois();
-        Boolean DelScoreKoi(int Id);
-        Boolean DelScoreKoi(ScoreKoi scoreKoi);
-        Boolean AddScoreKoi(ScoreKoi scoreKoi);
-        Boolean UpdScoreKoi(ScoreKoi scoreKoi);
+        Task<bool> DelScoreKoi(int Id);
+        Task<bool>  DelScoreKoi(ScoreKoi scoreKoi);
+        Task<bool>  AddScoreKoi(ScoreKoi scoreKoi);
+        Task<bool>  UpdScoreKoi(ScoreKoi scoreKoi);
         Task<ScoreKoi> GetScoreKoiId(int Id);
+        string? GetAll();
+        string? GetById(int id);
     }
 }
