@@ -17,3 +17,4 @@ namespace KoiShowManagement.Repositories.Interface
         Task<List<Member>> SearchMembersAsync(string? name, string? email, string? membershipType);
     }
 }
+ 
