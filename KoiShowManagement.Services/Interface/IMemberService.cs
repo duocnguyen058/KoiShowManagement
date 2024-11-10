@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 
-namespace KoiShowManagement.Repositories.Interface
+namespace KoiShowManagement.Services.Interface
 {
-    public interface IMemberRepository
+    public interface IMemberService
     {
         Task<List<Member>> GetAllMembersAsync();
         Task<Member> GetMemberByIdAsync(int memberId);
