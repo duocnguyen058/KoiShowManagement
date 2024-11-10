@@ -1,18 +1,17 @@
-using KoiShowManagement.Repositories.Entities;
 using System;
-
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.Repositories.Interface
 {
     public interface IScoreKoiRepository
     {
-        Task<List<ScoreKoi>> GetAllScoreKois();
-        Task<ScoreKoi> GetScoreKoiById(int Id);
-        Task<bool> AddScoreKoiAsync(ScoreKoi scoreKoi);
-        Task<bool> DeleteScoreKoiAsync(int Id);
-        Task<bool> DeleteScoreKoiAsync(ScoreKoi scoreKoi);
         Task<List<ScoreKoi>> GetAllScoreKoisAsync();
-        Task<ScoreKoi> GetScoreKoiByIdAsync(int Id);
-        Task<bool> UpdateScoreKoiAsync(ScoreKoi scoreKoi);
+        Task<ScoreKoi> GetScoreKoiByIdAsync(int scoreId);
+        Task<bool> AddScoreKoiAsync(ScoreKoi scoreKoi);
+        Task<bool> UpdScoreKoiAsync(ScoreKoi scoreKoi);
+        Task<bool> DelScoreKoiAsync(int scoreId);
+        Task<bool> DelScoreKoiAsync(ScoreKoi scoreKoi);
     }
 }
