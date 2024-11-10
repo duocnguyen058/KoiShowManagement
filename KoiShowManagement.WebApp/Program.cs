@@ -3,7 +3,7 @@ using KoiShowManagement.Repositories.Interface;
 using KoiShowManagement.Repositories.Repository;
 using KoiShowManagement.Services.Interface;
 using KoiShowManagement.Services.Service;
-using KoiShowManagementSystem.Repositories.Repositories;
+using KoiShowManagementSystem.Repositories;
 using KoiShowManagementSystem.Repositories.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
