@@ -54,7 +54,7 @@ namespace KoiShowManagement.Services.Service
             return await _profileRepository.DeleteProfileAsync(profileId);
         }
 
-        // Private helper method to validate profile data
+       
         private void ValidateProfile(Profile profile)
         {
             if (profile == null)
@@ -87,7 +87,7 @@ namespace KoiShowManagement.Services.Service
             if (string.IsNullOrWhiteSpace(profile.FullName))
                 throw new ArgumentException("Họ và tên không được để trống hoặc chỉ chứa khoảng trắng.", nameof(profile.FullName));
 
-            // Validate User object if provided
+            
             if (profile.User != null && profile.User.UserId <= 0)
                 throw new ArgumentException("UserId của đối tượng User phải là số nguyên dương.", nameof(profile.User));
         }
