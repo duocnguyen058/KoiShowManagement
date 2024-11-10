@@ -1,7 +1,8 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
-using KoiShowManagement.Repositories.Repository;
 using KoiShowManagement.Services.Interface;
 
 namespace KoiShowManagement.Services.Service
@@ -9,39 +10,63 @@ namespace KoiShowManagement.Services.Service
     public class ReportService : IReportService
     {
         private readonly IReportRepository _repository;
+
         public ReportService(IReportRepository repository)
         {
             _repository = repository;
         }
 
-        public bool AddReport(Report report)
+        public async Task<bool> AddReport(Report report)
         {
-            return _repository.AddReport(report);
+            ValidateReport(report);
+            return await _repository.AddReportAsync(report);
         }
 
-        public bool DelReport(int Id)
+        public async Task<bool> DelReport(int id)
         {
-            return _repository.DelReport(Id);
+            if (id <= 0)
+                throw new ArgumentException("Invalid ID. Must be a positive integer.", nameof(id));
+
+            return await _repository.DelReportAsync(id);
         }
 
-        public bool DelReport(Report report)
+        public async Task<bool> DelReport(Report report)
         {
-            return _repository.DelReport(report);
+            if (report == null)
+                throw new ArgumentNullException(nameof(report), "Report cannot be null.");
+
+            return await _repository.DelReportAsync(report);
         }
 
-        public Task<List<Report>> GetAllReports()
+        public async Task<List<Report>> GetAllReports()
         {
-            return _repository.GetAllReports();
+            return await _repository.GetAllReportsAsync();
         }
 
-        public Task<Report> GetReportById(int Id)
+        public async Task<Report> GetReportById(int id)
         {
-            return _repository.GetReportById(Id);
+            if (id <= 0)
+                throw new ArgumentException("Invalid ID. Must be a positive integer.", nameof(id));
+
+            return await _repository.GetReportByIdAsync(id);
         }
 
-        public bool UpdReport(Report report)
+        public async Task<bool> UpdReport(Report report)
         {
-            return _repository.UpdReport(report);
+            ValidateReport(report);
+            return await _repository.UpdReportAsync(report);
+        }
+
+        private void ValidateReport(Report report)
+        {
+            if (report == null)
+                throw new ArgumentNullException(nameof(report), "Report cannot be null.");
+
+            if (string.IsNullOrWhiteSpace(report.Title))
+                throw new ArgumentException("Report title cannot be null or empty.", nameof(report.Title));
+
+            if (report.CreatedBy.HasValue && report.CreatedBy <= 0)
+                throw new ArgumentException("Invalid CreatedBy value. Must be a positive integer.", nameof(report.CreatedBy));
         }
     }
 }
