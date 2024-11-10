@@ -1,4 +1,4 @@
-﻿@model List<KoiShowManagement.Repositories.Entities.Report>
+@model List<KoiShowManagement.Repositories.Entities.Report>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -40,7 +40,7 @@
                                         <tr>
                                             <td>@report.ReportId</td>
                                             <td>@report.Title</td>
-                                            <td>@report.CreatedDate.ToString("dd/MM/yyyy")</td>
+                                            <td>@report.CreatedAt?.ToString("dd/MM/yyyy")</td> <!-- Use CreatedAt -->
                                             <td>
                                                 <a href="@Url.Action("Details", "Report", new { id = report.ReportId })" class="btn btn-info">Chi tiết</a>
                                                 <a href="@Url.Action("Edit", "Report", new { id = report.ReportId })" class="btn btn-primary">Sửa</a>
