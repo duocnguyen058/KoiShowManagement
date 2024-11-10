@@ -1,4 +1,4 @@
-﻿@model KoiShowManagement.Repositories.Entities.Report
+@model KoiShowManagement.Repositories.Entities.Report
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -26,7 +26,7 @@
                         <div class="card-body">
                             <p><strong>ID:</strong> @Model.ReportId</p>
                             <p><strong>Tiêu đề:</strong> @Model.Title</p>
-                            <p><strong>Ngày tạo:</strong> @Model.CreatedDate.ToString("dd/MM/yyyy")</p>
+                            <p><strong>Ngày tạo:</strong> @Model.CreatedAt?.ToString("dd/MM/yyyy")</p> <!-- Updated from CreatedDate to CreatedAt -->
                             <p><strong>Nội dung:</strong></p>
                             <p>@Model.Content</p>
                             <a href="@Url.Action("Edit", "Report", new { id = Model.ReportId })" class="btn btn-primary">Chỉnh sửa</a>
