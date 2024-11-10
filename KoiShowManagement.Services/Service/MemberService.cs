@@ -1,4 +1,6 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using KoiShowManagement.Services.Interface;
@@ -8,39 +10,73 @@ namespace KoiShowManagement.Services.Service
     public class MemberService : IMemberService
     {
         private readonly IMemberRepository _repository;
+
         public MemberService(IMemberRepository repository)
         {
             _repository = repository;
         }
 
-        public bool AddMember(Member member)
+        public async Task<List<Member>> GetAllMembersAsync()
         {
-            return _repository.AddMember(member);
+            return await _repository.GetAllMembersAsync();
         }
 
-        public bool DelMember(int Id)
+        public async Task<Member> GetMemberByIdAsync(int memberId)
         {
-            return _repository.DelMember(Id);
+            if (memberId <= 0)
+                throw new ArgumentException("ID không hợp lệ, chỉ chấp nhận số nguyên dương.", nameof(memberId));
+
+            return await _repository.GetMemberByIdAsync(memberId);
         }
 
-        public bool DelMember(Member member)
+        public async Task<bool> AddMemberAsync(Member member)
         {
-            return _repository.DelMember(member);
+            ValidateMember(member);
+            return await _repository.AddMemberAsync(member);
         }
 
-        public Task<List<Member>> GetAllMembers()
+        public async Task<bool> UpdateMemberAsync(Member member)
         {
-            return _repository.GetAllMembers();
+            ValidateMember(member);
+            return await _repository.UpdateMemberAsync(member);
         }
 
-        public Task<Member> GetMemberById(int Id)
+        public async Task<bool> DeleteMemberAsync(int memberId)
         {
-            return _repository.GetMemberById(Id);
+            if (memberId <= 0)
+                throw new ArgumentException("ID không hợp lệ, chỉ chấp nhận số nguyên dương.", nameof(memberId));
+
+            return await _repository.DeleteMemberAsync(memberId);
         }
 
-        public bool UpdMember(Member member)
+        public async Task<bool> DeleteMemberAsync(Member member)
         {
-            return _repository.UpdMember(member);
+            if (member == null)
+                throw new ArgumentNullException(nameof(member), "Thành viên không được để trống.");
+
+            return await _repository.DeleteMemberAsync(member);
+        }
+
+        private void ValidateMember(Member member)
+        {
+            if (member == null)
+                throw new ArgumentNullException(nameof(member), "Thành viên không được để trống.");
+
+            if (string.IsNullOrWhiteSpace(member.Name))
+                throw new ArgumentException("Tên thành viên không được để trống hoặc chỉ chứa khoảng trắng.", nameof(member.Name));
+
+            if (!string.IsNullOrEmpty(member.Email) && !member.Email.Contains("@"))
+                throw new ArgumentException("Email không hợp lệ.", nameof(member.Email));
+
+            if (!string.IsNullOrEmpty(member.Phone) && member.Phone.Length < 10)
+                throw new ArgumentException("Số điện thoại không hợp lệ.", nameof(member.Phone));
+
+            if (member.MembershipDate.HasValue && member.MembershipDate.Value > DateTime.Now)
+                throw new ArgumentException("Ngày đăng ký thành viên không thể ở tương lai.", nameof(member.MembershipDate));
+
+            var validMembershipTypes = new List<string> { "Standard", "Premium", "VIP" }; // Các loại thành viên hợp lệ
+            if (!string.IsNullOrEmpty(member.MembershipType) && !validMembershipTypes.Contains(member.MembershipType))
+                throw new ArgumentException("Loại thành viên không hợp lệ.", nameof(member.MembershipType));
         }
     }
 }
