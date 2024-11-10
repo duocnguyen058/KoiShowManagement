@@ -1,4 +1,4 @@
-﻿@model List<KoiShowManagement.Repositories.Entities.Koi>
+@model List<KoiShowManagement.Repositories.Entities.Koi>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -29,8 +29,9 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên</th>
-                                        <th>Giới tính</th>
                                         <th>Tuổi</th>
+                                        <th>Kích thước</th>
+                                        <th>Màu sắc</th>
                                         <th>Hành động</th>
                                     </tr>
                                 </thead>
@@ -38,13 +39,14 @@
                                     @foreach (var koi in Model)
                                     {
                                         <tr>
-                                            <td>@koi.Id</td>
+                                            <td>@koi.KoiId</td>
                                             <td>@koi.Name</td>
-                                            <td>@koi.Gender</td>
                                             <td>@koi.Age</td>
+                                            <td>@koi.Size</td>
+                                            <td>@koi.Color</td>
                                             <td>
-                                                <a href="@Url.Action("Details", "Koi", new { id = koi.Id })" class="btn btn-info">Chi tiết</a>
-                                                <a href="@Url.Action("Edit", "Koi", new { id = koi.Id })" class="btn btn-primary">Sửa</a>
+                                                <a href="@Url.Action("Details", "Koi", new { id = koi.KoiId })" class="btn btn-info">Chi tiết</a>
+                                                <a href="@Url.Action("Edit", "Koi", new { id = koi.KoiId })" class="btn btn-primary">Sửa</a>
                                             </td>
                                         </tr>
                                     }
