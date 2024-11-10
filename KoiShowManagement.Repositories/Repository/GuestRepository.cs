@@ -71,20 +71,7 @@ namespace KoiShowManagement.Repositories.Repository
             return await _dbContext.Guests.FirstOrDefaultAsync(g => g.GuestId == Id);
         }
 
-        public async Task<bool> UpdateGuestAsync(Guest guest)
-        {
-            try
-            {
-                _dbContext.Guests.Update(guest);
-                await _dbContext.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException(ex.ToString());
-            }
-        }
-         public async Task<List<Guest>> SearchGuestsAsync(string? name, string? email, string? phone)
+        public async Task<List<Guest>> SearchGuestsAsync(string? name, string? email, string? phone)
         {
             var query = _dbContext.Guests.AsQueryable();
 
@@ -99,6 +86,19 @@ namespace KoiShowManagement.Repositories.Repository
 
             return await query.ToListAsync();
         }
+
+        public async Task<bool> UpdateGuestAsync(Guest guest)
+        {
+            try
+            {
+                _dbContext.Guests.Update(guest);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.ToString());
+            }
+        }
     }
 }
-
