@@ -24,11 +24,11 @@
                             <h3 class="card-title">Thông Tin Thành viên</h3>
                         </div>
                         <div class="card-body">
-                            <p><strong>ID:</strong> @Model.Id</p>
+                            <p><strong>ID:</strong> @Model.MemberId</p>
                             <p><strong>Tên:</strong> @Model.Name</p>
                             <p><strong>Email:</strong> @Model.Email</p>
-                            <p><strong>Ngày tham gia:</strong> @Model.JoinDate.ToString("dd/MM/yyyy")</p>
-                            <a href="@Url.Action("Edit", "Member", new { id = Model.Id })" class="btn btn-primary">Chỉnh sửa</a>
+                            <p><strong>Ngày tham gia:</strong> @Model.MembershipDate?.ToString("dd/MM/yyyy")</p>
+                            <a asp-action="Edit" asp-controller="Member" asp-route-id="@Model.MemberId" class="btn btn-primary">Chỉnh sửa</a>
                         </div>
                     </div>
                 </div>

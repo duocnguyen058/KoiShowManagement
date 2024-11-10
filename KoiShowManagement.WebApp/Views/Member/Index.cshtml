@@ -30,7 +30,9 @@
                                         <th>ID</th>
                                         <th>Tên</th>
                                         <th>Email</th>
+                                        <th>Điện thoại</th>
                                         <th>Ngày tham gia</th>
+                                        <th>Loại thành viên</th>
                                         <th>Hành động</th>
                                     </tr>
                                 </thead>
@@ -38,13 +40,15 @@
                                     @foreach (var member in Model)
                                     {
                                         <tr>
-                                            <td>@member.Id</td>
+                                            <td>@member.MemberId</td>
                                             <td>@member.Name</td>
                                             <td>@member.Email</td>
-                                            <td>@member.JoinDate.ToString("dd/MM/yyyy")</td>
+                                            <td>@member.Phone</td>
+                                            <td>@member.MembershipDate?.ToString("dd/MM/yyyy")</td>
+                                            <td>@member.MembershipType</td>
                                             <td>
-                                                <a href="@Url.Action("Details", "Member", new { id = member.Id })" class="btn btn-info">Chi tiết</a>
-                                                <a href="@Url.Action("Edit", "Member", new { id = member.Id })" class="btn btn-primary">Sửa</a>
+                                                <a href="@Url.Action("Details", "Member", new { id = member.MemberId })" class="btn btn-info">Chi tiết</a>
+                                                <a href="@Url.Action("Edit", "Member", new { id = member.MemberId })" class="btn btn-primary">Sửa</a>
                                             </td>
                                         </tr>
                                     }
@@ -64,4 +68,3 @@
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
 </body>
 </html>
-
