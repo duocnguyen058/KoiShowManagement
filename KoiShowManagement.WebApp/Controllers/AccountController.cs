@@ -1,24 +1,46 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Services.Interface;
 
-public class AccountController : Controller
+namespace KoiShowManagement.WebApp.Controllers
 {
-    public IActionResult Login()
+    public class AccountController : Controller
     {
-        return View();
-    }
+        private readonly IUserService _userService;
 
-    public IActionResult Register()
-    {
-        return View();
-    }
+        public AccountController(IUserService userService)
+        {
+            _userService = userService;
+        }
 
-    public IActionResult ForgotPassword()
-    {
-        return View();
-    }
+        public IActionResult Login()
+        {
+            return View();
+        }
 
-    public IActionResult ResetPassword()
-    {
-        return View();
+        [HttpPost]
+        public IActionResult Login(User user)
+        {
+            if (_userService.Login(user))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View(user);
+        }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(User user)
+        {
+            if (_userService.Register(user))
+            {
+                return RedirectToAction("Login");
+            }
+            return View(user);
+        }
     }
 }

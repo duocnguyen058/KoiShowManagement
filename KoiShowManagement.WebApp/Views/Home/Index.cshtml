@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section Styles {
+    <style>
+        /* Custom styles for this specific page */
+        .content {
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            max-width: 1200px;
+            margin: 30px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
+
+        .section-title {
+            color: #2980B9;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #2980B9;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #1D6F92;
+            }
+    </style>
+}
+
+@section Content {
+    <div class="content">
+        <h2>Thông tin về cuộc thi</h2>
+        <div class="section-description">
+            <h3>Cuộc thi Triển lãm Cá Koi - Koi Show 2024</h3>
+            <p><strong>Mục tiêu:</strong> Triển lãm và thi đấu những chú cá Koi đẹp nhất đến từ nhiều nơi trên thế giới, nơi các nhà sưu tập và đam mê cá Koi có thể đăng ký, trưng bày và tranh tài.</p>
+        </div>
+
+        <h2 class="section-title">Giải thưởng</h2>
+        <div class="section-description">
+            <p>Giải thưởng hấp dẫn cho các cá Koi đẹp nhất, bao gồm các giải thưởng tiền mặt, cúp và những phần quà giá trị từ các nhà tài trợ.</p>
+        </div>
+
+        <h2 class="section-title">Luật thi đấu</h2>
+        <h3>Các cá Koi được phân loại vào từng hạng mục thi đấu dựa trên các yếu tố sau:</h3>
+        <ul>
+            <li>Giống (Variety): Các dòng cá Koi như Kohaku, Sanke, Showa, v.v.</li>
+            <li>Kích thước (Size): Được đo bằng chiều dài của cá Koi.</li>
+            <li>Độ tuổi (Age): Phân loại theo độ tuổi của cá Koi (Baby, Young, Adult, Mature).</li>
+        </ul>
+
+        <h2 class="section-title">Tiêu chí chấm điểm</h2>
+        <div class="criteria">
+            <ul>
+                <li><strong>Dáng</strong> (50%): Dáng bơi, hình dáng tổng thể của cá Koi.</li>
+                <li><strong>Màu sắc</strong> (30%): Độ sắc nét, tươi sáng của màu sắc cá.</li>
+                <li><strong>Hoa văn</strong> (20%): Cấu trúc và độ đẹp mắt của hoa văn trên cá.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">Tin tức mới nhất</h2>
+        <div class="section-description">
+            <p>Cập nhật thông tin về các sự kiện và hoạt động liên quan đến cuộc thi Koi Show 2024. Chúng tôi sẽ cung cấp các thông tin mới nhất về các buổi tập huấn, các cuộc thi chuẩn bị, và các thông báo quan trọng về giải thưởng.</p>
+            <button onclick="clearAllData()">Xóa Tất Cả Dữ Liệu</button>
+        </div>
+    </div>
+}

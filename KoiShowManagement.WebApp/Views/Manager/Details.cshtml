@@ -1,0 +1,20 @@
+﻿@model KoiShowManagement.Repositories.Entities.Manager
+
+@{
+    ViewData["Title"] = "Chi Tiết Quản Lý";
+}
+
+<h2>@Model.Name</h2>
+<p>Email: @Model.Email</p>
+<p>Điện Thoại: @Model.Phone</p>
+<p>Khoa: @Model.Department</p>
+
+<h3>Sự Kiện Quản Lý</h3>
+<ul>
+    @foreach (var eventItem in Model.Events)
+    {
+        <li>@eventItem.EventName - @eventItem.EventDate?.ToShortDateString()</li>
+    }
+</ul>
+
+<a href="@Url.Action("Index")">Quay lại</a>

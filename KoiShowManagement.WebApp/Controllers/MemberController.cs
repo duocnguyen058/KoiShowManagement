@@ -1,14 +1,47 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Services.Interface;
 
-public class MemberController : Controller
+namespace KoiShowManagement.WebApp.Controllers
 {
-    public IActionResult Dashboard()
+    public class MemberController : Controller
     {
-        return View();
-    }
+        private readonly IMemberService _memberService;
 
-    public IActionResult UpdateProfile()
-    {
-        return View();
+        public MemberController(IMemberService memberService)
+        {
+            _memberService = memberService;
+        }
+
+        public IActionResult Index()
+        {
+            var members = _memberService.GetAllMembers();  // Đảm bảo gọi đúng phương thức bất đồng bộ
+            return View(members);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var member = _memberService.GetMemberById(id);  // Đảm bảo gọi đúng phương thức bất đồng bộ
+            return View(member);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Member member)
+        {
+            if (ModelState.IsValid)
+            {
+                bool isAdded = await _memberService.AddMember(member);  // Sửa từ Add thành AddMember
+                if (isAdded)
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            return View(member);
+        }
     }
 }

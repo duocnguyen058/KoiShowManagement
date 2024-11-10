@@ -1,0 +1,11 @@
+﻿@model KoiShowManagement.Repositories.Entities.Koi
+
+@{
+    ViewData["Title"] = "Chi Tiết Koi";
+}
+
+<h2>@Model.Name</h2>
+<p>Loại: @Model.Color</p> <!-- Sử dụng thuộc tính Color thay cho Description -->
+<p>Tuổi: @Model.Age</p> <!-- Sử dụng thuộc tính Age thay cho Description -->
+<p>Kích Cỡ: @Model.Size</p> <!-- Sử dụng thuộc tính Size thay cho Description -->
+<a href="@Url.Action("Index")">Quay lại</a>

@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.Services.Interface
 {
-	public interface IEventService
-	{
-        Task<List<Event>> GetAllEvents();
-        Boolean DelEvent(int Id);
-        Boolean DelEvent(Event @event);
-        Boolean AddEvent(Event @event);
-        Boolean UpdEvent(Event @event);
-        Task<Event> GetEventById(int Id);
+    public interface IEventService
+    {
+        Task<List<Event>> GetAllEventsAsync();
+        Task<Event> GetEventByIdAsync(int id);
+        Task<bool> AddEventAsync(Event eventObj);
+        Task<bool> UpdateEventAsync(Event eventObj);
+        Task<bool> DeleteEventAsync(int id);
+        Task<bool> DeleteEventAsync(Event eventObj);
     }
 }
-

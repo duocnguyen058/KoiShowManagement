@@ -1,7 +1,10 @@
-﻿using KoiShowManagement.Repositories.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace KoiShowManagement.Repositories.Repository
 {
@@ -14,77 +17,84 @@ namespace KoiShowManagement.Repositories.Repository
             _dbContext = dbContext;
         }
 
-        public bool AddScoreKoi(ScoreKoi scoreKoi)
+        // Lấy tất cả các kết quả chấm điểm
+        public async Task<List<ScoreKoi>> GetAllScoreKoisAsync()
+        {
+            return await _dbContext.ScoreKois
+                .Include(s => s.Event)
+                .Include(s => s.Koi)
+                .Include(s => s.Referee)
+                .ToListAsync();
+        }
+
+        // Lấy kết quả chấm điểm theo ScoreId
+        public async Task<ScoreKoi> GetScoreKoiByIdAsync(int scoreId)
+        {
+            return await _dbContext.ScoreKois
+                .Include(s => s.Event)
+                .Include(s => s.Koi)
+                .Include(s => s.Referee)
+                .FirstOrDefaultAsync(s => s.ScoreId == scoreId);
+        }
+
+        // Thêm một kết quả chấm điểm mới
+        public async Task<bool> AddScoreKoiAsync(ScoreKoi scoreKoi)
         {
             try
             {
-                _dbContext.ScoreKois.Add(scoreKoi);
-                _dbContext.SaveChanges();
+                await _dbContext.ScoreKois.AddAsync(scoreKoi);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
                 return false;
             }
         }
 
-        public bool DelScoreKoi(int Id)
-        {
-            try
-            {
-                var scoreKoiToDelete = _dbContext.ScoreKois.Where(s => s.ScoreKoiId.Equals(Id)).FirstOrDefault();
-                if (scoreKoiToDelete != null)
-                {
-                    _dbContext.ScoreKois.Remove(scoreKoiToDelete);
-                    _dbContext.SaveChanges();
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
-        public bool DelScoreKoi(ScoreKoi scoreKoi)
-        {
-            try
-            {
-                _dbContext.ScoreKois.Remove(scoreKoi);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
-        }
-
-        public async Task<List<ScoreKoi>> GetAllScoreKois()
-        {
-            return await _dbContext.ScoreKois.ToListAsync();
-        }
-
-        public async Task<ScoreKoi> GetScoreKoiById(int Id)
-        {
-            return await _dbContext.ScoreKois.Where(s => s.ScoreKoiId.Equals(Id)).FirstOrDefaultAsync();
-        }
-
-        public bool UpdScoreKoi(ScoreKoi scoreKoi)
+        // Cập nhật kết quả chấm điểm
+        public async Task<bool> UpdScoreKoiAsync(ScoreKoi scoreKoi)
         {
             try
             {
                 _dbContext.ScoreKois.Update(scoreKoi);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+        // Xóa kết quả chấm điểm theo ScoreId
+        public async Task<bool> DelScoreKoiAsync(int scoreId)
+        {
+            try
+            {
+                var scoreKoi = await _dbContext.ScoreKois.FindAsync(scoreId);
+                if (scoreKoi == null) return false;
+                _dbContext.ScoreKois.Remove(scoreKoi);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        // Xóa kết quả chấm điểm theo đối tượng ScoreKoi
+        public async Task<bool> DelScoreKoiAsync(ScoreKoi scoreKoi)
+        {
+            try
+            {
+                _dbContext.ScoreKois.Remove(scoreKoi);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
                 return false;
             }
         }

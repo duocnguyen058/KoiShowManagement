@@ -13,84 +13,76 @@ namespace KoiShowManagementSystem.Repositories.Repository
             _dbContext = dbContext;
         }
 
-        public bool AddCompetitionResult(CompetitionResult result)
+        public async Task<bool> AddCompetitionResultAsync(CompetitionResult result)
         {
             try
             {
-                _dbContext.CompetitionResults.Add(result);
-                _dbContext.SaveChanges();
+                await _dbContext.CompetitionResults.AddAsync(result);
+                await _dbContext.SaveChangesAsync();
                 return true;
-            }
-            catch (Exception ex)
+            }catch(Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
-
+            
         }
 
-        public bool DelCompetitionResult(int Id)
+        public async Task<bool> DelCompetitionResultAsync(int Id)
         {
             try
             {
                 var objDel = _dbContext.CompetitionResults.Where(p => p.ResultId.Equals(Id)).FirstOrDefault();
-                if (objDel != null)
+                if(objDel != null)
                 {
                     _dbContext.CompetitionResults.Remove(objDel);
-                    _dbContext.SaveChanges();
+                    await _dbContext.SaveChangesAsync();
                     return true;
                 }
                 return false;
-            }
-            catch (Exception ex)
+            }catch(Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
-
+            
         }
 
-        public bool DelCompetitionResult(CompetitionResult result)
+        public async Task<bool> DelCompetitionResultAsync(CompetitionResult result)
         {
             try
             {
                 _dbContext.CompetitionResults.Remove(result);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
-            }
-            catch (Exception ex)
+            }catch(Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
-
+            
         }
 
-        public async Task<List<CompetitionResult>> GetAllCompetitionResults()
+        public async Task<List<CompetitionResult>> GetAllCompetitionResultsAsync()
         {
             return await _dbContext.CompetitionResults.ToListAsync();
-
         }
 
-        public async Task<CompetitionResult> GetCompetitionResultById(int Id)
+        public async Task<CompetitionResult> GetCompetitionResultByIdAsync(int Id)
         {
             return await _dbContext.CompetitionResults.Where(p => p.ResultId.Equals(Id)).FirstOrDefaultAsync();
         }
 
-        public bool UpdCompetitionResult(CompetitionResult result)
+        public async Task<bool> UpdCompetitionResultAsync(CompetitionResult result)
         {
             try
             {
                 _dbContext.CompetitionResults.Update(result);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new NotImplementedException(ex.ToString());
             }
-
         }
     }
-}
+
+}        

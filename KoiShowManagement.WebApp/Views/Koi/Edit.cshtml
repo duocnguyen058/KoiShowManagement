@@ -1,0 +1,27 @@
+﻿@model KoiShowManagement.Repositories.Entities.Koi
+
+@{
+    ViewData["Title"] = "Sửa Koi";
+}
+
+<h2>Sửa Koi</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Tên Koi</label>
+        <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required />
+    </div>
+    <div class="form-group">
+        <label for="Color">Màu Sắc Koi</label>
+        <input type="text" id="Color" name="Color" class="form-control" value="@Model.Color" required />
+    </div>
+    <div class="form-group">
+        <label for="Age">Tuổi Koi</label>
+        <input type="number" id="Age" name="Age" class="form-control" value="@Model.Age" required />
+    </div>
+    <div class="form-group">
+        <label for="Size">Kích Cỡ Koi</label>
+        <input type="number" id="Size" name="Size" class="form-control" value="@Model.Size" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Cập Nhật</button>
+</form>

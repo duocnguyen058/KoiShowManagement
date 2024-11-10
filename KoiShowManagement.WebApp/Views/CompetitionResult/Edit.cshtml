@@ -1,0 +1,25 @@
+﻿@model KoiShowManagement.Repositories.Entities.CompetitionResult
+
+@{
+    ViewData["Title"] = "Sửa Kết Quả Cuộc Thi";
+}
+
+<h2>Sửa Kết Quả Cuộc Thi</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="CompetitionName">Tên Cuộc Thi</label>
+        <!-- Sửa từ Model.Event?.Name thành Model.Event?.EventName -->
+        <input type="text" id="CompetitionName" name="CompetitionName" class="form-control" value="@Model.Event?.EventName" readonly />
+    </div>
+    <div class="form-group">
+        <label for="Date">Ngày</label>
+        <!-- Sửa từ Model.Event?.Date thành Model.Event?.EventDate -->
+        <input type="date" id="Date" name="Date" class="form-control" value="@Model.Event?.EventDate?.ToString("yyyy-MM-dd")" required />
+    </div>
+    <div class="form-group">
+        <label for="Feedback">Chi Tiết</label>
+        <textarea id="Feedback" name="Feedback" class="form-control" required>@Model.Feedback</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Cập Nhật</button>
+</form>

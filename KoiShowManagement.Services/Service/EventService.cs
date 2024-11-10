@@ -1,47 +1,94 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using KoiShowManagement.Services.Interface;
 
 namespace KoiShowManagement.Services.Service
 {
-	public class EventService : IEventService
+    public class EventService : IEventService
     {
-        private readonly IEventRepository _repository;
-        public EventService(IEventRepository repository)
-		{
-            _repository = repository;
-		}
+        private readonly IEventRepository _eventRepository;
 
-        public bool AddEvent(Event @event)
+        public EventService(IEventRepository eventRepository)
         {
-            return _repository.AddEvent(@event);
+            _eventRepository = eventRepository;
         }
 
-        public bool DelEvent(int Id)
+        public async Task<List<Event>> GetAllEventsAsync()
         {
-            return _repository.DelEvent(Id);
+            return await _eventRepository.GetAllEventsAsync();
         }
 
-        public bool DelEvent(Event @event)
+        public async Task<Event> GetEventByIdAsync(int id)
         {
-            return _repository.DelEvent(@event);
+            if (id <= 0)
+                throw new ArgumentException("ID không hợp lệ. ID phải là số nguyên dương.", nameof(id));
+
+            return await _eventRepository.GetEventByIdAsync(id);
         }
 
-        public Task<List<Event>> GetAllEvents()
+        public async Task<bool> AddEventAsync(Event eventObj)
         {
-            return _repository.GetAllEvents();
+            ValidateEvent(eventObj);
+            return await _eventRepository.AddEventAsync(eventObj);
         }
 
-        public Task<Event> GetEventById(int Id)
+        public async Task<bool> UpdateEventAsync(Event eventObj)
         {
-            return _repository.GetEventById(Id);
+            if (eventObj == null)
+                throw new ArgumentNullException(nameof(eventObj), "Sự kiện không được để trống.");
+            if (eventObj.EventId <= 0)
+                throw new ArgumentException("ID sự kiện không hợp lệ. ID phải là số nguyên dương.", nameof(eventObj.EventId));
+
+            ValidateEvent(eventObj);
+            return await _eventRepository.UpdateEventAsync(eventObj);
         }
 
-        public bool UpdEvent(Event @event)
+        public async Task<bool> DeleteEventAsync(int id)
         {
-            return _repository.UpdEvent(@event);
+            if (id <= 0)
+                throw new ArgumentException("ID không hợp lệ. ID phải là số nguyên dương.", nameof(id));
+
+            return await _eventRepository.DeleteEventAsync(id);
+        }
+
+        public async Task<bool> DeleteEventAsync(Event eventObj)
+        {
+            if (eventObj == null)
+                throw new ArgumentNullException(nameof(eventObj), "Sự kiện không được để trống.");
+
+            return await _eventRepository.DeleteEventAsync(eventObj);
+        }
+
+        
+        private void ValidateEvent(Event eventObj)
+        {
+            if (eventObj == null)
+                throw new ArgumentNullException(nameof(eventObj), "Sự kiện không được để trống.");
+
+            if (string.IsNullOrWhiteSpace(eventObj.EventName))
+                throw new ArgumentException("Tên sự kiện không được để trống hoặc chỉ chứa khoảng trắng.", nameof(eventObj.EventName));
+
+            if (eventObj.EventDate.HasValue && eventObj.EventDate < DateTime.Now)
+                throw new ArgumentException("Ngày sự kiện không thể là quá khứ.", nameof(eventObj.EventDate));
+
+            if (!string.IsNullOrWhiteSpace(eventObj.Location) && eventObj.Location.Length > 200)
+                throw new ArgumentException("Vị trí không được vượt quá 200 ký tự.", nameof(eventObj.Location));
+
+            if (eventObj.ManagerId.HasValue && eventObj.ManagerId <= 0)
+                throw new ArgumentException("Mã người quản lý phải là số nguyên dương.", nameof(eventObj.ManagerId));
+
+            
+            if (eventObj.CompetitionResults == null)
+                eventObj.CompetitionResults = new List<CompetitionResult>();
+
+            if (eventObj.ScoreKois == null)
+                eventObj.ScoreKois = new List<ScoreKoi>();
+
+            if (eventObj.Manager != null && eventObj.Manager.ManagerId <= 0)
+                throw new ArgumentException("Mã người quản lý của đối tượng người quản lý phải là số nguyên dương.", nameof(eventObj.Manager));
         }
     }
 }
-

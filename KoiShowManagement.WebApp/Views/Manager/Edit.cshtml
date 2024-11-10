@@ -1,0 +1,27 @@
+﻿@model KoiShowManagement.Repositories.Entities.Manager
+
+@{
+    ViewData["Title"] = "Chỉnh Sửa Quản Lý";
+}
+
+<h2>Chỉnh Sửa Quản Lý</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Name">Tên Quản Lý</label>
+        <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" />
+    </div>
+    <div class="form-group">
+        <label for="Phone">Điện Thoại</label>
+        <input type="text" id="Phone" name="Phone" class="form-control" value="@Model.Phone" />
+    </div>
+    <div class="form-group">
+        <label for="Department">Khoa</label>
+        <input type="text" id="Department" name="Department" class="form-control" value="@Model.Department" />
+    </div>
+    <button type="submit" class="btn btn-primary">Cập Nhật</button>
+</form>

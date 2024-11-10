@@ -1,14 +1,17 @@
-﻿using KoiShowManagement.Repositories.Entities;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using KoiShowManagement.Repositories.Entities;
+
 namespace KoiShowManagement.Repositories.Interface
 {
     public interface IKoiRepository
     {
-        Task<List<Koi>> GetAllKois();
-        Boolean DelKoi(int Id);
-        Boolean DelKoi(Koi koi);
-        Boolean AddKoi(Koi koi);
-        Boolean UpdKoi(Koi koi);
-        Task<Koi> GetKoiById(int Id);
+        Task<List<Koi>> GetKoisAsync();
+        Task<bool> DeleteKoiAsync(int Id);
+        Task<bool> DeleteKoiAsync(Koi koi);
+        Task<bool> AddKoiAsync(Koi koi);
+        Task<bool> UpdateKoiAsync(Koi koi);
+        Task<Koi> GetKoiByIdAsync(int Id);
     }
 }

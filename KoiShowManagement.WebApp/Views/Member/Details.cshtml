@@ -1,0 +1,12 @@
+﻿@model KoiShowManagement.Repositories.Entities.Member
+
+@{
+    ViewData["Title"] = "Chi Tiết Thành Viên";
+}
+
+<h2>@Model.Name</h2>
+<p>Email: @Model.Email</p>
+<p>Số Điện Thoại: @Model.Phone</p>
+<p>Ngày Tham Gia: @Model.MembershipDate?.ToString("dd/MM/yyyy")</p>
+<p>Loại Thành Viên: @Model.MembershipType</p>
+<a href="@Url.Action("Index")">Quay lại</a>

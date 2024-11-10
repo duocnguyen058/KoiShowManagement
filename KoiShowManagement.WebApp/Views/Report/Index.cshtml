@@ -1,0 +1,27 @@
+﻿@model List<KoiShowManagement.Repositories.Entities.Report>
+
+@{
+    ViewData["Title"] = "Danh Sách Báo Cáo";
+}
+
+<h2>Danh Sách Báo Cáo</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tiêu Đề</th>
+            <th>Ngày Tạo</th>
+            <th>Chi Tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model)
+        {
+            <tr>
+                <td>@report.Title</td>
+                <td>@report.CreatedAt?.ToString("dd/MM/yyyy")</td>
+                <td><a href="@Url.Action("Details", new { id = report.ReportId })">Xem Chi Tiết</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

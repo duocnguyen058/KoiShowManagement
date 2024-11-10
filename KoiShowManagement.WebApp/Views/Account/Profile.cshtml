@@ -1,0 +1,28 @@
+﻿@model KoiShowManagement.Repositories.Entities.User
+
+@{
+    ViewData["Title"] = "Hồ Sơ Người Dùng";
+}
+
+<h2>Hồ Sơ Người Dùng</h2>
+
+<p><strong>Tên Tài Khoản:</strong> @Model.Username</p>
+<p><strong>Vai Trò:</strong> @Model.Role ?? "Chưa xác định"</p>
+<p><strong>Ngày Tạo:</strong> @Model.CreatedAt?.ToString("dd/MM/yyyy") ?? "Chưa có thông tin"</p>
+
+<h3>Báo Cáo Của Bạn</h3>
+<table>
+    <tr>
+        <th>Tiêu Đề</th>
+        <th>Ngày Tạo</th>
+        <th>Chi Tiết</th>
+    </tr>
+    @foreach (var report in Model.Reports)
+    {
+        <tr>
+            <td>@report.Title</td>
+            <td>@report.CreatedAt?.ToString("dd/MM/yyyy")</td>
+            <td><a href="@Url.Action("Details", "Report", new { id = report.ReportId })">Xem Chi Tiết</a></td>
+        </tr>
+    }
+</table>

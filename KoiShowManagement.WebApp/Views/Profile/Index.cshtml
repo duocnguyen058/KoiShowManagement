@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Thông Tin Cá Nhân";
+}
+
+<h2>Thông Tin Cá Nhân</h2>
+
+<div>
+    <h3>@Model.Name</h3>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Số Điện Thoại:</strong> @Model.Phone</p>
+    <p><strong>Địa Chỉ:</strong> @Model.Address</p>
+    <p><strong>Ngày Sinh:</strong> @Model.DateOfBirth.ToShortDateString()</p>
+</div>
+
+<div>
+    <a href="@Url.Action("Edit", "Profile")" class="btn btn-warning">Chỉnh Sửa Thông Tin</a>
+</div>

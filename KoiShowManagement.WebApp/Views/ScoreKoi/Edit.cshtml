@@ -1,0 +1,15 @@
+﻿@model KoiShowManagement.Repositories.Entities.ScoreKoi
+
+@{
+    ViewData["Title"] = "Sửa Điểm Số Koi";
+}
+
+<h2>Sửa Điểm Số Koi</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Score">Điểm</label>
+        <input type="number" id="Score" name="Score" class="form-control" value="@Model.Score" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Cập Nhật</button>
+</form>
