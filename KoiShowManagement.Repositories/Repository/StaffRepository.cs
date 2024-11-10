@@ -1,121 +1,82 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace KoiShowManagement.Repositories.Repository
+namespace KoiShowManagementSystem.Repositories.Repository
 {
     public class StaffRepository : IStaffRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
+
         public StaffRepository(KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public bool AddStaff(Staff staff)
-        {
-            try
-            {
-                _dbContext.Staff.Add(staff);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-        }
-
-        public bool DelStaff(int Id)
-        {
-            try
-            {
-                var objDel = _dbContext.Staff.Where(p => p.StaffId.Equals(Id)).FirstOrDefault();
-                if (objDel != null)
-                {
-                    _dbContext.Staff.Remove(objDel);
-                    _dbContext.SaveChanges();
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-        }
-
-        public bool DelStaff(Staff staff)
-        {
-            try
-            {
-                _dbContext.Staff.Remove(staff);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-        }
-
-        public async Task<List<Staff>> GetAllStaffs()
+        public async Task<List<Staff>> GetAllStaffsAsync()
         {
             return await _dbContext.Staff.ToListAsync();
         }
 
-        public async Task<Staff> GetStaffById(int Id)
+        public async Task<Staff> GetStaffByIdAsync(int staffId)
         {
-            return await _dbContext.Staff.Where(p => p.StaffId.Equals(Id)).FirstOrDefaultAsync();
+            return await _dbContext.Staff.FindAsync(staffId);
         }
 
-        public bool UpdStaff(Staff staff)
+        public async Task<bool> AddStaffAsync(Staff staff)
         {
             try
             {
-                _dbContext.Staff.Update(staff);
-                _dbContext.SaveChanges();
+                await _dbContext.Staff.AddAsync(staff);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Có lỗi xảy ra khi thêm nhân viên.", ex);
             }
         }
 
-        bool IStaffRepository.AddStaff(Staff staff)
+        public async Task<bool> UpdateStaffAsync(Staff staff)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.Staff.Update(staff);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Có lỗi xảy ra khi cập nhật thông tin nhân viên.", ex);
+            }
         }
 
-        bool IStaffRepository.DelStaff(int Id)
+        public async Task<bool> DeleteStaffAsync(int staffId)
         {
-            throw new NotImplementedException();
+            var staff = await _dbContext.Staff.FindAsync(staffId);
+            if (staff == null) return false;
+
+            _dbContext.Staff.Remove(staff);
+            await _dbContext.SaveChangesAsync();
+            return true;
         }
 
-        bool IStaffRepository.DelStaff(Staff staff)
+        public async Task<bool> DeleteStaffAsync(Staff staff)
         {
-            throw new NotImplementedException();
-        }
-
-        Task<List<Staff>> IStaffRepository.GetAllStaffs()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<Staff> IStaffRepository.GetStaffById(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IStaffRepository.UpdStaff(Staff staff)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                _dbContext.Staff.Remove(staff);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Có lỗi xảy ra khi xóa nhân viên.", ex);
+            }
         }
     }
 }
