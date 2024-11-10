@@ -26,14 +26,13 @@ namespace KoiShowManagement.Repositories.Repository
             {
                 throw new NotImplementedException(ex.ToString());
             }
-
         }
 
-        public async Task<bool> DelGuestAsync(int Id)
+        public async Task<bool> DeleteGuestAsync(int Id)
         {
             try
             {
-                var objDel = _dbContext.Guests.Where(p => p.GuestId.Equals(Id)).FirstOrDefault();
+                var objDel = await _dbContext.Guests.FirstOrDefaultAsync(g => g.GuestId == Id);
                 if (objDel != null)
                 {
                     _dbContext.Guests.Remove(objDel);
@@ -46,10 +45,9 @@ namespace KoiShowManagement.Repositories.Repository
             {
                 throw new NotImplementedException(ex.ToString());
             }
-
         }
 
-        public async Task<bool> DelGuestAsync(Guest guest)
+        public async Task<bool> DeleteGuestAsync(Guest guest)
         {
             try
             {
@@ -61,20 +59,19 @@ namespace KoiShowManagement.Repositories.Repository
             {
                 throw new NotImplementedException(ex.ToString());
             }
-
         }
 
-        public async Task<Guest> GetGuestByIdAsync(int Id)
-        {
-            return await _dbContext.Guests.Where(p => p.GuestId.Equals(Id)).FirstOrDefaultAsync();
-        }
-
-        public async Task<List<Guest>> GetGuestsAsync()
+        public async Task<List<Guest>> GetAllGuestsAsync()
         {
             return await _dbContext.Guests.ToListAsync();
         }
 
-        public async Task<bool> UpdGuestAsync(Guest guest)
+        public async Task<Guest> GetGuestByIdAsync(int Id)
+        {
+            return await _dbContext.Guests.FirstOrDefaultAsync(g => g.GuestId == Id);
+        }
+
+        public async Task<bool> UpdateGuestAsync(Guest guest)
         {
             try
             {
@@ -86,7 +83,7 @@ namespace KoiShowManagement.Repositories.Repository
             {
                 throw new NotImplementedException(ex.ToString());
             }
-
         }
     }
 }
+
