@@ -17,3 +17,4 @@ namespace KoiShowManagement.Repositories.Interface
         Task<List<Staff>> SearchStaffAsync(string? name, string? email, string? position);
     }
 }
+ 
