@@ -1,7 +1,9 @@
-using KoiShowManagement.Repositories.Entities;
-using KoiShowManagement.Services.Interface;
-using KoiShowManagement.Repositories.Interface;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using KoiShowManagement.Repositories.Entities;
+using KoiShowManagement.Repositories.Interface;
+using KoiShowManagement.Services.Interface;
 
 namespace KoiShowManagement.Services.Service
 {
@@ -14,61 +16,61 @@ namespace KoiShowManagement.Services.Service
             _repository = repository;
         }
 
+        // Lay tat ca ca Koi
+        public async Task<List<Koi>> GetAllKoisAsync()
+        {
+            return await _repository.GetAllKoisAsync();
+        }
+
+        // Lay ca Koi theo ID
+        public async Task<Koi> GetKoiByIdAsync(int koiId)
+        {
+            if (koiId <= 0)
+                throw new ArgumentException("ID khong hop le, chi chap nhan so nguyen duong", nameof(koiId));
+
+            return await _repository.GetKoiByIdAsync(koiId);
+        }
+
+        // Them ca Koi
         public async Task<bool> AddKoiAsync(Koi koi)
         {
-            if (koi == null)
-                throw new ArgumentNullException(nameof(koi), "Koi không được để trống.");
-            if (koi.KoiId <= 0)
-                throw new ArgumentException("ID của Koi phải là số nguyên dương.", nameof(koi.KoiId));
-            if (string.IsNullOrWhiteSpace(koi.Name))
-                throw new ArgumentException("Tên Koi không được để trống hoặc chỉ chứa khoảng trống.", nameof(koi.Name));
-            if (koi.Age < 0)
-                throw new ArgumentException("Tuổi của Koi không được là số âm.", nameof(koi.Age));
-
+            ValidateKoi(koi);
             return await _repository.AddKoiAsync(koi);
         }
 
-        public async Task<bool> DeleteKoiAsync(int Id)
-        {
-            if (Id <= 0)
-                throw new ArgumentException("ID không hợp lệ, chỉ chấp nhận số nguyên dương.", nameof(Id));
-
-            return await _repository.DeleteKoiAsync(Id);
-        }
-
-        public async Task<bool> DeleteKoiAsync(Koi koi)
-        {
-            if (koi == null)
-                throw new ArgumentNullException(nameof(koi), "Koi không được để trống.");
-
-            return await _repository.DeleteKoiAsync(koi);
-        }
-
-        public async Task<List<Koi>> GetKoisAsync()
-        {
-            return await _repository.GetKoisAsync();
-        }
-
-        public async Task<Koi> GetKoiByIdAsync(int Id)
-        {
-            if (Id <= 0)
-                throw new ArgumentException("ID không hợp lệ, chỉ chấp nhận số nguyên dương.", nameof(Id));
-
-            return await _repository.GetKoiByIdAsync(Id);
-        }
-
+        // Cap nhat thong tin ca Koi
         public async Task<bool> UpdateKoiAsync(Koi koi)
         {
-            if (koi == null)
-                throw new ArgumentNullException(nameof(koi), "Koi không được để trống.");
-            if (koi.KoiId <= 0)
-                throw new ArgumentException("ID của Koi phải là số nguyên dương.", nameof(koi.KoiId));
-            if (string.IsNullOrWhiteSpace(koi.Name))
-                throw new ArgumentException("Tên Koi không được để trống hoặc chỉ chứa khoảng trống.", nameof(koi.Name));
-            if (koi.Age < 0)
-                throw new ArgumentException("Tuổi của Koi không được là số âm.", nameof(koi.Age));
-
+            ValidateKoi(koi);
             return await _repository.UpdateKoiAsync(koi);
+        }
+
+        // Xoa ca Koi theo ID
+        public async Task<bool> DeleteKoiAsync(int koiId)
+        {
+            if (koiId <= 0)
+                throw new ArgumentException("ID khong hop le, chi chap nhan so nguyen duong", nameof(koiId));
+
+            return await _repository.DeleteKoiAsync(koiId);
+        }
+
+        // Ham xac thuc cac thong tin cua Koi
+        private void ValidateKoi(Koi koi)
+        {
+            if (koi == null)
+                throw new ArgumentNullException(nameof(koi), "Thong tin ca Koi khong duoc de trong");
+
+            if (string.IsNullOrWhiteSpace(koi.Name))
+                throw new ArgumentException("Ten ca Koi khong duoc de trong hoac chi chua khoang trang", nameof(koi.Name));
+
+            if (koi.Age.HasValue && koi.Age <= 0)
+                throw new ArgumentException("Tuoi cua ca Koi phai la so nguyen duong", nameof(koi.Age));
+
+            if (koi.Size.HasValue && koi.Size <= 0)
+                throw new ArgumentException("Kich thuoc cua ca Koi phai la so duong", nameof(koi.Size));
+
+            if (string.IsNullOrWhiteSpace(koi.Color))
+                throw new ArgumentException("Mau sac cua ca Koi khong duoc de trong hoac chi chua khoang trang", nameof(koi.Color));
         }
     }
 }
