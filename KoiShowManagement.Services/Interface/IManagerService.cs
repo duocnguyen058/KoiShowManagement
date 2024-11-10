@@ -1,16 +1,20 @@
-﻿using KoiShowManagement.Repositories.Entities;
-using System;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.Services.Interface
 {
     public interface IManagerService
     {
-        Task<List<Manager>> GetAllManagers();
-        Boolean DelManager(int Id);
-        Boolean DelManager(Manager manager);
-        Boolean AddManager(Manager manager);
-        Boolean UpdManager(Manager manager);
-        Task<Manager> GetManagerById(int Id);
+        Task<List<Manager>> GetAllManagersAsync();
+        Task<Manager> GetManagerByIdAsync(int managerId);
+        Task<bool> AddManagerAsync(Manager manager);
+        Task<bool> UpdateManagerAsync(Manager manager);
+        Task<bool> DeleteManagerByIdAsync(int managerId);
+        Task<bool> DeleteManagerAsync(Manager manager);
+        Task<List<Manager>> GetManagersByDepartmentAsync(string department);
 
+        // Phương thức tìm kiếm với các tiêu chí tùy chọn
+        Task<List<Manager>> SearchManagersAsync(string name = null, string email = null, string department = null);
     }
 }
