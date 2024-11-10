@@ -57,6 +57,12 @@ namespace KoiShowManagement.Services.Service
             return await _repository.DeleteStaffAsync(staff);
         }
 
+        // Triển khai phương thức tìm kiếm
+        public async Task<List<Staff>> SearchStaffAsync(string? name, string? email, string? position)
+        {
+            return await _repository.SearchStaffAsync(name, email, position);
+        }
+
         private void ValidateStaff(Staff staff)
         {
             if (staff == null)
