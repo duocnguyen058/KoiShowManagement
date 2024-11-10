@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using KoiShowManagement.Services.Interface;
+using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.WebApp.Controllers
 {
@@ -12,22 +13,24 @@ namespace KoiShowManagement.WebApp.Controllers
             _managerService = managerService;
         }
 
-        public IActionResult Index()
+        // Đảm bảo sử dụng await để chờ kết quả trả về từ phương thức bất đồng bộ
+        public async Task<IActionResult> Index()
         {
-            var managers = _managerService.GetAllManagersAsync();
+            var managers = await _managerService.GetAllManagersAsync();  // Sử dụng await
             return View(managers);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            var manager = _managerService.GetManagerByIdAsync(id);
+            var manager = await _managerService.GetManagerByIdAsync(id);  // Sử dụng await
             return View(manager);
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            var manager = _managerService.GetManagerByIdAsync(id);
+            var manager = await _managerService.GetManagerByIdAsync(id);  // Sử dụng await
             return View(manager);
         }
     }
 }
+
