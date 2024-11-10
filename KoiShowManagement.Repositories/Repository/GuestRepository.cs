@@ -84,6 +84,21 @@ namespace KoiShowManagement.Repositories.Repository
                 throw new NotImplementedException(ex.ToString());
             }
         }
+         public async Task<List<Guest>> SearchGuestsAsync(string? name, string? email, string? phone)
+        {
+            var query = _dbContext.Guests.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(name))
+                query = query.Where(g => g.Name.Contains(name));
+
+            if (!string.IsNullOrWhiteSpace(email))
+                query = query.Where(g => g.Email.Contains(email));
+
+            if (!string.IsNullOrWhiteSpace(phone))
+                query = query.Where(g => g.Phone.Contains(phone));
+
+            return await query.ToListAsync();
+        }
     }
 }
 
