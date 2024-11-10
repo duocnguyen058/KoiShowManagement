@@ -1,90 +1,80 @@
-﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace KoiShowManagement.Repositories.Repository
+namespace KoiShowManagementSystem.Repositories.Repository
 {
     public class MemberRepository : IMemberRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
+
         public MemberRepository(KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public bool AddMember(Member member)
-        {
-            try
-            {
-                _dbContext.Members.Add(member);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-        }
-
-        public bool DelMember(int Id)
-        {
-            try
-            {
-                var objDel = _dbContext.Members.Where(p => p.MemberId.Equals(Id)).FirstOrDefault();
-                if (objDel != null)
-                {
-                    _dbContext.Members.Remove(objDel);
-                    _dbContext.SaveChanges();
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-        }
-
-        public bool DelMember(Member member)
-        {
-            try
-            {
-                _dbContext.Members.Remove(member);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-        }
-
-        public async Task<List<Member>> GetAllMembers()
+        public async Task<List<Member>> GetAllMembersAsync()
         {
             return await _dbContext.Members.ToListAsync();
         }
 
-        public async Task<Member> GetMemberById(int Id)
+        public async Task<Member> GetMemberByIdAsync(int memberId)
         {
-            return await _dbContext.Members.Where(p => p.MemberId.Equals(Id)).FirstOrDefaultAsync();
+            return await _dbContext.Members.FindAsync(memberId);
         }
 
-        public bool UpdMember(Member member)
+        public async Task<bool> AddMemberAsync(Member member)
         {
             try
             {
-                _dbContext.Members.Update(member);
-                _dbContext.SaveChanges();
+                await _dbContext.Members.AddAsync(member);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Có lỗi xảy ra khi thêm thành viên.", ex);
+            }
+        }
+
+        public async Task<bool> UpdateMemberAsync(Member member)
+        {
+            try
+            {
+                _dbContext.Members.Update(member);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Có lỗi xảy ra khi cập nhật thành viên.", ex);
+            }
+        }
+
+        public async Task<bool> DeleteMemberAsync(int memberId)
+        {
+            var member = await _dbContext.Members.FindAsync(memberId);
+            if (member == null) return false;
+
+            _dbContext.Members.Remove(member);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> DeleteMemberAsync(Member member)
+        {
+            try
+            {
+                _dbContext.Members.Remove(member);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Có lỗi xảy ra khi xóa thành viên.", ex);
             }
         }
     }
