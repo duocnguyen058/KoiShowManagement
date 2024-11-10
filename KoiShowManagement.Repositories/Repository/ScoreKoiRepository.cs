@@ -51,7 +51,6 @@ namespace KoiShowManagement.Repositories.Repository
                 return false;
             }
         }
-
         // Cập nhật kết quả chấm điểm
         public async Task<bool> UpdScoreKoiAsync(ScoreKoi scoreKoi)
         {
