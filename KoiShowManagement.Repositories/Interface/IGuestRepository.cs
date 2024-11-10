@@ -12,6 +12,6 @@ namespace KoiShowManagement.Repositories.Interface
         Task<bool> UpdateGuestAsync(Guest guest);
         Task<bool> DeleteGuestAsync(int Id);
         Task<bool> DeleteGuestAsync(Guest guest);
-
+        Task<List<Guest>> SearchGuestsAsync(string? name, string? email, string? phone);
     }
 }
