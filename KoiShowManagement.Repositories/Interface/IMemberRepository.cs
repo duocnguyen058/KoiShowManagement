@@ -1,15 +1,16 @@
-﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 
 namespace KoiShowManagement.Repositories.Interface
 {
     public interface IMemberRepository
     {
-        Task<List<Member>> GetAllMembers();
-        Boolean DelMember(int Id);
-        Boolean DelMember(Member member);
-        Boolean AddMember(Member member);
-        Boolean UpdMember(Member member);
-        Task<Member> GetMemberById(int Id);
+        Task<List<Member>> GetAllMembersAsync();
+        Task<Member> GetMemberByIdAsync(int memberId);
+        Task<bool> AddMemberAsync(Member member);
+        Task<bool> UpdateMemberAsync(Member member);
+        Task<bool> DeleteMemberAsync(int memberId);
+        Task<bool> DeleteMemberAsync(Member member);
     }
 }
