@@ -62,7 +62,6 @@ namespace KoiShowManagement.Services.Service
             return await _eventRepository.DeleteEventAsync(eventObj);
         }
 
-        
         private void ValidateEvent(Event eventObj)
         {
             if (eventObj == null)
@@ -80,7 +79,6 @@ namespace KoiShowManagement.Services.Service
             if (eventObj.ManagerId.HasValue && eventObj.ManagerId <= 0)
                 throw new ArgumentException("Mã người quản lý phải là số nguyên dương.", nameof(eventObj.ManagerId));
 
-            
             if (eventObj.CompetitionResults == null)
                 eventObj.CompetitionResults = new List<CompetitionResult>();
 

@@ -20,11 +20,12 @@ namespace KoiShowManagementSystem.Repositories.Repository
                 await _dbContext.CompetitionResults.AddAsync(result);
                 await _dbContext.SaveChangesAsync();
                 return true;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new NotImplementedException(ex.ToString());
             }
-            
+
         }
 
         public async Task<bool> DelCompetitionResultAsync(int Id)
@@ -32,18 +33,19 @@ namespace KoiShowManagementSystem.Repositories.Repository
             try
             {
                 var objDel = _dbContext.CompetitionResults.Where(p => p.ResultId.Equals(Id)).FirstOrDefault();
-                if(objDel != null)
+                if (objDel != null)
                 {
                     _dbContext.CompetitionResults.Remove(objDel);
                     await _dbContext.SaveChangesAsync();
                     return true;
                 }
                 return false;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new NotImplementedException(ex.ToString());
             }
-            
+
         }
 
         public async Task<bool> DelCompetitionResultAsync(CompetitionResult result)
@@ -53,11 +55,12 @@ namespace KoiShowManagementSystem.Repositories.Repository
                 _dbContext.CompetitionResults.Remove(result);
                 await _dbContext.SaveChangesAsync();
                 return true;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new NotImplementedException(ex.ToString());
             }
-            
+
         }
 
         public async Task<List<CompetitionResult>> GetAllCompetitionResultsAsync()
@@ -85,4 +88,4 @@ namespace KoiShowManagementSystem.Repositories.Repository
         }
     }
 
-}        
+}

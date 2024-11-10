@@ -11,5 +11,6 @@ namespace KoiShowManagement.Repositories.Interface
         Task<bool> AddProfileAsync(Profile profile);
         Task<bool> UpdateProfileAsync(Profile profile);
         Task<bool> DeleteProfileAsync(int profileId);
+        Task<Profile> GetProfileByNameAsync(string name);
     }
 }

@@ -11,5 +11,6 @@ namespace KoiShowManagement.Services.Interface
         Task<bool> AddProfileAsync(Profile profile);
         Task<bool> UpdateProfileAsync(Profile profile);
         Task<bool> DeleteProfileAsync(int profileId);
+        Task<Profile> GetProfile(string? name);  // Corrected return type to Task<Profile>
     }
 }

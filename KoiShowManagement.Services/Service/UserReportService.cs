@@ -61,7 +61,7 @@ namespace KoiShowManagement.Services.Service
             return await _repository.UpdateUserReportAsync(userReport);
         }
 
-        
+
         private void ValidateUserReport(UserReport userReport)
         {
             if (userReport == null)
@@ -76,7 +76,7 @@ namespace KoiShowManagement.Services.Service
             if (string.IsNullOrWhiteSpace(userReport.AccessLevel))
                 throw new ArgumentNullException(nameof(userReport.AccessLevel), "Cấp độ truy cập không được để trống hoặc chỉ chứa khoảng trống.");
 
-            
+
             if (userReport.Report != null && userReport.Report.ReportId <= 0)
                 throw new ArgumentException("ReportId của đối tượng Report phải là số nguyên dương.", nameof(userReport.Report));
 

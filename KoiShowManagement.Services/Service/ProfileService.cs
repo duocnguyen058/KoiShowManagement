@@ -54,7 +54,15 @@ namespace KoiShowManagement.Services.Service
             return await _profileRepository.DeleteProfileAsync(profileId);
         }
 
-       
+        // Implement the GetProfile method
+        public async Task<Profile> GetProfile(string? name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Tên không được để trống.", nameof(name));
+
+            return await _profileRepository.GetProfileByNameAsync(name);  // Assuming the repository method exists
+        }
+
         private void ValidateProfile(Profile profile)
         {
             if (profile == null)
@@ -87,7 +95,6 @@ namespace KoiShowManagement.Services.Service
             if (string.IsNullOrWhiteSpace(profile.FullName))
                 throw new ArgumentException("Họ và tên không được để trống hoặc chỉ chứa khoảng trắng.", nameof(profile.FullName));
 
-            
             if (profile.User != null && profile.User.UserId <= 0)
                 throw new ArgumentException("UserId của đối tượng User phải là số nguyên dương.", nameof(profile.User));
         }

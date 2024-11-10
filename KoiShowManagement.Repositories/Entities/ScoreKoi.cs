@@ -24,7 +24,7 @@ public partial class ScoreKoi
     public virtual Koi? Koi { get; set; }
 
     public virtual Referee? Referee { get; set; }
-    public object ScoreKoiId { get; internal set; }
+    public int ScoreKoiId { get; internal set; }
     public string JudgeName { get; set; }
     public int ScoreValue { get; set; }
     public int FishId { get; set; }
