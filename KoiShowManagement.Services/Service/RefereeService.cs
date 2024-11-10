@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
@@ -65,7 +65,6 @@ namespace KoiShowManagement.Services.Service
             return await _repository.GetRefereesByExpertiseLevelAsync(expertiseLevel);
         }
 
-        // Triển khai chức năng tìm kiếm
         public async Task<List<Referee>> SearchRefereesAsync(string name = null, string email = null, string expertiseLevel = null)
         {
             return await _repository.SearchRefereesAsync(name, email, expertiseLevel);
@@ -81,6 +80,7 @@ namespace KoiShowManagement.Services.Service
 
             if (referee.RefereeId <= 0)
                 throw new ArgumentException("Mã trọng tài phải là số nguyên dương.", nameof(referee.RefereeId));
+
             if (!string.IsNullOrWhiteSpace(referee.Email) && !referee.Email.Contains("@"))
                 throw new ArgumentException("Email không hợp lệ.", nameof(referee.Email));
 
