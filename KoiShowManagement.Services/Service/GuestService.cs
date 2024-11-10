@@ -92,7 +92,10 @@ namespace KoiShowManagement.Services.Service
             ValidateGuest(guest);
             return await _repository.UpdateGuestAsync(guest);
         }
-
+         public async Task<List<Guest>> SearchGuestsAsync(string? name, string? email, string? phone)
+        {
+            return await _repository.SearchGuestsAsync(name, email, phone);
+        }
     }
 }
 
