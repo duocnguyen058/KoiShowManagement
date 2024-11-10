@@ -12,6 +12,5 @@ namespace KoiShowManagement.Repositories.Interface
         Task<bool> UpdateKoiAsync(Koi koi);
         Task<bool> DeleteKoiAsync(int koiId);
         Task<bool> DeleteKoiAsync(Koi koi);
-        Task<List<Koi>> GetKoisAsync();
     }
 }
