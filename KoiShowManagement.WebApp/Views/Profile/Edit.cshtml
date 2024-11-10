@@ -1,4 +1,4 @@
-﻿@model KoiShowManagement.Repositories.Entities.Manager
+@model KoiShowManagement.Repositories.Entities.Profile
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -27,23 +27,28 @@
                             @using (Html.BeginForm())
                             {
                                 <div class="form-group">
-                                    <label for="Name">Tên</label>
-                                    <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required />
+                                    <label for="FullName">Họ tên</label>
+                                    <input type="text" id="FullName" name="FullName" class="form-control" value="@Model.FullName" required />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="Email">Email</label>
-                                    <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" />
+                                    <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="Phone">Điện thoại</label>
-                                    <input type="text" id="Phone" name="Phone" class="form-control" value="@Model.Phone" />
+                                    <label for="PhoneNumber">Điện thoại</label>
+                                    <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control" value="@Model.PhoneNumber" required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="Department">Phòng ban</label>
-                                    <input type="text" id="Department" name="Department" class="form-control" value="@Model.Department" />
+                                    <label for="Address">Địa chỉ</label>
+                                    <input type="text" id="Address" name="Address" class="form-control" value="@Model.Address" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Bio">Tiểu sử</label>
+                                    <textarea id="Bio" name="Bio" class="form-control" rows="3">@Model.Bio</textarea>
                                 </div>
 
                                 <button type="submit" class="btn btn-success">Lưu thay đổi</button>
