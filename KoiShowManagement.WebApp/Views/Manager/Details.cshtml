@@ -1,20 +1,51 @@
 ﻿@model KoiShowManagement.Repositories.Entities.Manager
 
-@{
-    ViewData["Title"] = "Chi Tiết Quản Lý";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Người Quản lý</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="#" class="brand-link">
+                <img src="logo.png" alt="Logo" class="brand-image img-circle elevation-3">
+                <span class="brand-text font-weight-light">Cuộc thi Cá Koi</span>
+            </a>
+        </aside>
 
-<h2>@Model.Name</h2>
-<p>Email: @Model.Email</p>
-<p>Điện Thoại: @Model.Phone</p>
-<p>Khoa: @Model.Department</p>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Chi tiết Người Quản lý</h1>
+            </div>
 
-<h3>Sự Kiện Quản Lý</h3>
-<ul>
-    @foreach (var eventItem in Model.Events)
-    {
-        <li>@eventItem.EventName - @eventItem.EventDate?.ToShortDateString()</li>
-    }
-</ul>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Thông tin Người Quản lý</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>ID:</strong> @Model.ManagerId</p> <!-- Thay Id bằng ManagerId -->
+                            <p><strong>Tên:</strong> @Model.Name</p>
+                            <p><strong>Phòng ban:</strong> @Model.Department</p> <!-- Sử dụng Department thay vì Position -->
+                            <a href="@Url.Action("Edit", "Manager", new { id = Model.ManagerId })" class="btn btn-primary">Chỉnh sửa</a> <!-- Thay Id bằng ManagerId -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<a href="@Url.Action("Index")">Quay lại</a>
+        <footer class="main-footer">
+            <strong>&copy; 2024 <a href="#">Cuộc thi Cá Koi</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>
