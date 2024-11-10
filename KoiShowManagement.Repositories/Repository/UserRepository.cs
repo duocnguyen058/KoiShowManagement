@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -8,83 +11,80 @@ namespace KoiShowManagement.Repositories.Repository
     public class UserRepository : IUserRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
+
         public UserRepository(KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public bool AddUser(User user)
+        public async Task<bool> AddUserAsync(User user)
         {
             try
             {
-                _dbContext.Users.Add(user);
-                _dbContext.SaveChanges();
+                await _dbContext.Users.AddAsync(user);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Error adding user.", ex);
             }
         }
 
-        public bool DelUser(int Id)
+        public async Task<bool> DelUserAsync(int Id)
         {
             try
             {
-                var objDel = _dbContext.Users.Where(u => u.UserId.Equals(Id)).FirstOrDefault();
-                if (objDel != null)
+                var user = await _dbContext.Users.FindAsync(Id);
+                if (user != null)
                 {
-                    _dbContext.Users.Remove(objDel);
-                    _dbContext.SaveChanges();
+                    _dbContext.Users.Remove(user);
+                    await _dbContext.SaveChangesAsync();
                     return true;
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Error deleting user by Id.", ex);
             }
         }
 
-        public bool DelUser(User user)
+        public async Task<bool> DelUserAsync(User user)
         {
             try
             {
                 _dbContext.Users.Remove(user);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Error deleting user.", ex);
             }
         }
 
-        public async Task<List<User>> GetAllUsers()
+        public async Task<List<User>> GetAllUsersAsync()
         {
             return await _dbContext.Users.ToListAsync();
         }
 
-        public async Task<User> GetUserById(int Id)
+        public async Task<User> GetUserByIdAsync(int Id)
         {
-            return await _dbContext.Users.Where(u => u.UserId.Equals(Id)).FirstOrDefaultAsync();
+            return await _dbContext.Users.FindAsync(Id);
         }
 
-        public bool UpdUser(User user)
+        public async Task<bool> UpdUserAsync(User user)
         {
             try
             {
                 _dbContext.Users.Update(user);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Error updating user.", ex);
             }
         }
     }
