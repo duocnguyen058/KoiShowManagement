@@ -1,4 +1,4 @@
-﻿@model KoiShowManagement.Repositories.Entities.Manager
+@model KoiShowManagement.Repositories.Entities.Manager
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -28,6 +28,8 @@
                             <p><strong>Email:</strong> @Model.Email</p>
                             <p><strong>Điện thoại:</strong> @Model.Phone</p>
                             <p><strong>Phòng ban:</strong> @Model.Department</p>
+
+                            <!-- Edit Profile Link -->
                             <a href="@Url.Action("Edit", "Profile")" class="btn btn-primary">Chỉnh sửa</a>
                         </div>
                     </div>
@@ -38,6 +40,7 @@
         @await Html.PartialAsync("_Footer")
     </div>
 
+    <!-- JavaScript libraries -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
