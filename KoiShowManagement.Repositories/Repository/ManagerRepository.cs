@@ -1,98 +1,108 @@
-﻿using KoiShowManagement.Repositories.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
-using System;
 
-
-namespace KoiShowManagement.Repositories.Repository
+namespace KoiShowManagementSystem.Repositories.Repository
 {
     public class ManagerRepository : IManagerRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
+
         public ManagerRepository(KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public bool AddManager(Manager manager)
+        public async Task<List<Manager>> GetAllManagersAsync()
+        {
+            return await _dbContext.Managers.Include(m => m.Events).ToListAsync();
+        }
+
+        public async Task<Manager> GetManagerByIdAsync(int managerId)
+        {
+            return await _dbContext.Managers.Include(m => m.Events)
+                                            .FirstOrDefaultAsync(m => m.ManagerId == managerId);
+        }
+
+        public async Task<bool> AddManagerAsync(Manager manager)
         {
             try
             {
-                _dbContext.Managers.Add(manager);
-                _dbContext.SaveChanges();
+                await _dbContext.Managers.AddAsync(manager);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new NotImplementedException();
                 return false;
             }
-
         }
 
-        public bool DelManager(int Id)
-        {
-            try
-            {
-                var objDel = _dbContext.Managers.Where(p => p.ManagerId.Equals(Id)).FirstOrDefault();
-                if (objDel != null)
-                {
-                    _dbContext.Managers.Remove(objDel);
-                    _dbContext.SaveChanges();
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-
-        }
-
-        public bool DelManager(Manager manager)
-        {
-            try
-            {
-                _dbContext.Managers.Remove(manager);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw new NotImplementedException();
-                return false;
-            }
-
-        }
-
-        public async Task<List<Manager>> GetAllManagers()
-        {
-            return await _dbContext.Managers.ToListAsync();
-
-        }
-
-        public async Task<Manager> GetManagerById(int Id)
-        {
-            return await _dbContext.Managers.Where(p => p.ManagerId.Equals(Id)).FirstOrDefaultAsync();
-        }
-
-        public bool UpdManager(Manager manager)
+        public async Task<bool> UpdateManagerAsync(Manager manager)
         {
             try
             {
                 _dbContext.Managers.Update(manager);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new NotImplementedException();
                 return false;
             }
-
         }
 
+        public async Task<bool> DeleteManagerByIdAsync(int managerId)
+        {
+            var manager = await GetManagerByIdAsync(managerId);
+            if (manager == null) return false;
+            return await DeleteManagerAsync(manager);
+        }
+
+        public async Task<bool> DeleteManagerAsync(Manager manager)
+        {
+            try
+            {
+                _dbContext.Managers.Remove(manager);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<List<Manager>> GetManagersByDepartmentAsync(string department)
+        {
+            return await _dbContext.Managers.Where(m => m.Department == department).ToListAsync();
+        }
+
+        // Triển khai chức năng tìm kiếm với các tiêu chí tùy chọn
+        public async Task<List<Manager>> SearchManagersAsync(string name = null, string email = null, string department = null)
+        {
+            var query = _dbContext.Managers.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                query = query.Where(m => m.Name.Contains(name));
+            }
+
+            if (!string.IsNullOrWhiteSpace(email))
+            {
+                query = query.Where(m => m.Email.Contains(email));
+            }
+
+            if (!string.IsNullOrWhiteSpace(department))
+            {
+                query = query.Where(m => m.Department.Contains(department));
+            }
+
+            return await query.Include(m => m.Events).ToListAsync();
+        }
     }
 }
