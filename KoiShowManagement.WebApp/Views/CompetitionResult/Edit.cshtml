@@ -24,19 +24,47 @@
                             <h3 class="card-title">Chỉnh sửa kết quả cuộc thi</h3>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="@Url.Action("Edit", "CompetitionResult", new { id = Model.Id })">
+                            <form method="post" action="@Url.Action("Edit", "CompetitionResult", new { id = Model.ResultId })">
                                 <div class="form-group">
-                                    <label for="CompetitionName">Tên cuộc thi</label>
-                                    <input type="text" class="form-control" id="CompetitionName" name="CompetitionName" value="@Model.CompetitionName" required />
+                                    <label for="KoiId">Mã Koi</label>
+                                    <select class="form-control" id="KoiId" name="KoiId">
+                                        @foreach (var koi in ViewBag.Kois)
+                                        {
+                                            <option value="@koi.KoiId" @(koi.KoiId == Model.KoiId ? "selected" : "")>@koi.Name</option>
+                                        }
+                                    </select>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="RefereeId">Mã Giám Khảo</label>
+                                    <select class="form-control" id="RefereeId" name="RefereeId">
+                                        @foreach (var referee in ViewBag.Referees)
+                                        {
+                                            <option value="@referee.RefereeId" @(referee.RefereeId == Model.RefereeId ? "selected" : "")>@referee.Name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="EventId">Mã Cuộc Thi</label>
+                                    <select class="form-control" id="EventId" name="EventId">
+                                        @foreach (var eventItem in ViewBag.Events)
+                                        {
+                                            <option value="@eventItem.EventId" @(eventItem.EventId == Model.EventId ? "selected" : "")>@eventItem.EventName</option>
+                                        }
+                                    </select>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="Score">Điểm</label>
                                     <input type="number" class="form-control" id="Score" name="Score" value="@Model.Score" required />
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="ScoreDate">Ngày chấm điểm</label>
-                                    <input type="date" class="form-control" id="ScoreDate" name="ScoreDate" value="@Model.ScoreDate.ToString("yyyy-MM-dd")" required />
+                                    <label for="Feedback">Phản Hồi</label>
+                                    <textarea class="form-control" id="Feedback" name="Feedback">@Model.Feedback</textarea>
                                 </div>
+
                                 <button type="submit" class="btn btn-primary">Cập nhật kết quả</button>
                             </form>
                         </div>

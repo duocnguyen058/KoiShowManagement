@@ -39,13 +39,15 @@
                                     @foreach (var result in Model)
                                     {
                                         <tr>
-                                            <td>@result.Id</td>
-                                            <td>@result.CompetitionName</td>
+                                            <td>@result.ResultId</td>
+                                            <!-- Lấy tên cuộc thi từ Event -->
+                                            <td>@result.Event?.EventName</td>
                                             <td>@result.Score</td>
-                                            <td>@result.ScoreDate.ToString("dd/MM/yyyy")</td>
+                                            <!-- Nếu có trường ngày chấm điểm, hiển thị -->
+                                            <td>@result.Event?.EventDate?.ToString("dd/MM/yyyy")</td>
                                             <td>
-                                                <a href="@Url.Action("Details", "CompetitionResult", new { id = result.Id })" class="btn btn-info">Chi tiết</a>
-                                                <a href="@Url.Action("Edit", "CompetitionResult", new { id = result.Id })" class="btn btn-primary">Sửa</a>
+                                                <a href="@Url.Action("Details", "CompetitionResult", new { id = result.ResultId })" class="btn btn-info">Chi tiết</a>
+                                                <a href="@Url.Action("Edit", "CompetitionResult", new { id = result.ResultId })" class="btn btn-primary">Sửa</a>
                                             </td>
                                         </tr>
                                     }
@@ -65,4 +67,3 @@
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
 </body>
 </html>
-    

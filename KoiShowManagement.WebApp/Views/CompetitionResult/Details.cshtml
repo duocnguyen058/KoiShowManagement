@@ -24,11 +24,18 @@
                             <h3 class="card-title">Thông tin kết quả cuộc thi</h3>
                         </div>
                         <div class="card-body">
-                            <p><strong>Id:</strong> @Model.Id</p>
-                            <p><strong>Tên cuộc thi:</strong> @Model.CompetitionName</p>
+                            <p><strong>Id:</strong> @Model.ResultId</p>
+                            <p><strong>Mã Koi:</strong> @Model.KoiId</p>
+                            <p><strong>Tên Koi:</strong> @Model.Koi?.Name</p> <!-- Display the Koi name -->
+                            <p><strong>Mã Giám Khảo:</strong> @Model.RefereeId</p>
+                            <p><strong>Tên Giám Khảo:</strong> @Model.Referee?.Name</p> <!-- Display the Referee name -->
+                            <p><strong>Mã Cuộc Thi:</strong> @Model.EventId</p>
+                            <p><strong>Tên Cuộc Thi:</strong> @Model.Event?.EventName</p> <!-- Display the Event name -->
                             <p><strong>Điểm:</strong> @Model.Score</p>
-                            <p><strong>Ngày chấm điểm:</strong> @Model.ScoreDate.ToString("dd/MM/yyyy")</p>
-                            <a href="@Url.Action("Edit", "CompetitionResult", new { id = Model.Id })" class="btn btn-primary">Sửa</a>
+                            <p><strong>Phản Hồi:</strong> @Model.Feedback</p>
+
+                            <a href="@Url.Action("Edit", "CompetitionResult", new { id = Model.ResultId })" class="btn btn-primary">Sửa</a>
+                            <a href="@Url.Action("Index", "CompetitionResult")" class="btn btn-secondary">Quay lại</a>
                         </div>
                     </div>
                 </div>
