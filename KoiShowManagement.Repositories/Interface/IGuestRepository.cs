@@ -14,3 +14,4 @@ namespace KoiShowManagement.Repositories.Interface
         Task<List<Guest>> SearchGuestsAsync(string? name, string? email, string? phone);
     }
 }
+
