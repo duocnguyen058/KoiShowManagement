@@ -1,7 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using KoiShowManagement.Services.Interface;
-using System;
 
 namespace KoiShowManagement.Services.Service
 {
@@ -14,57 +16,98 @@ namespace KoiShowManagement.Services.Service
             _repository = repository;
         }
 
+        // Them mot ket qua cham diem cho Koi
         public async Task<bool> AddScoreKoiAsync(ScoreKoi scoreKoi)
         {
-            if (scoreKoi == null)
-                throw new ArgumentNullException(nameof(scoreKoi), "ScoreKoi không được để trống.");
-            if (scoreKoi.KoiId <= 0)
-                throw new ArgumentException("ID của Koi phải là số nguyên dương.", nameof(scoreKoi.KoiId));
-            if (scoreKoi.Score < 0 || scoreKoi.Score > 100)
-                throw new ArgumentException("Điểm của ScoreKoi phải nằm trong khoảng từ 0 đến 100.", nameof(scoreKoi.Score));
-
+            ValidateScoreKoi(scoreKoi);
             return await _repository.AddScoreKoiAsync(scoreKoi);
         }
 
-        public async Task<bool> DeleteScoreKoiAsync(int Id)
+        // Xoa ket qua cham diem theo ScoreId
+        public async Task<bool> DelScoreKoiAsync(int scoreId)
         {
-            if (Id <= 0)
-                throw new ArgumentException("ID không hợp lệ, chỉ chấp nhận số nguyên dương.", nameof(Id));
+            if (scoreId <= 0)
+                throw new ArgumentException("ID khong hop le, chi chap nhan so nguyen duong", nameof(scoreId));
 
-            return await _repository.DeleteScoreKoiAsync(Id);
+            return await _repository.DelScoreKoiAsync(scoreId);
         }
 
-        public async Task<bool> DeleteScoreKoiAsync(ScoreKoi scoreKoi)
+        // Xoa ket qua cham diem theo doi tuong ScoreKoi
+        public async Task<bool> DelScoreKoiAsync(ScoreKoi scoreKoi)
         {
             if (scoreKoi == null)
-                throw new ArgumentNullException(nameof(scoreKoi), "ScoreKoi không được để trống.");
+                throw new ArgumentNullException(nameof(scoreKoi), "Ket qua cham diem khong duoc de trong");
 
-            return await _repository.DeleteScoreKoiAsync(scoreKoi);
+            return await _repository.DelScoreKoiAsync(scoreKoi);
         }
 
+        // Lay tat ca ket qua cham diem
         public async Task<List<ScoreKoi>> GetAllScoreKoisAsync()
         {
             return await _repository.GetAllScoreKoisAsync();
         }
 
-        public async Task<ScoreKoi> GetScoreKoiByIdAsync(int Id)
+        // Lay ket qua cham diem theo ScoreId
+        public async Task<ScoreKoi> GetScoreKoiByIdAsync(int scoreId)
         {
-            if (Id <= 0)
-                throw new ArgumentException("ID không hợp lệ, chỉ chấp nhận số nguyên dương.", nameof(Id));
+            if (scoreId <= 0)
+                throw new ArgumentException("ID khong hop le, chi chap nhan so nguyen duong", nameof(scoreId));
 
-            return await _repository.GetScoreKoiByIdAsync(Id);
+            return await _repository.GetScoreKoiByIdAsync(scoreId);
         }
 
-        public async Task<bool> UpdateScoreKoiAsync(ScoreKoi scoreKoi)
+        // Cap nhat ket qua cham diem
+        public async Task<bool> UpdScoreKoiAsync(ScoreKoi scoreKoi)
+        {
+            ValidateScoreKoi(scoreKoi);
+            return await _repository.UpdScoreKoiAsync(scoreKoi);
+        }
+
+        // Ham xac thuc cac thong tin can thiet truoc khi thuc hien thao tac
+        private void ValidateScoreKoi(ScoreKoi scoreKoi)
         {
             if (scoreKoi == null)
-                throw new ArgumentNullException(nameof(scoreKoi), "ScoreKoi không được để trống.");
-            if (scoreKoi.KoiId <= 0)
-                throw new ArgumentException("ID của Koi phải là số nguyên dương.", nameof(scoreKoi.KoiId));
-            if (scoreKoi.Score < 0 || scoreKoi.Score > 100)
-                throw new ArgumentException("Điểm của ScoreKoi phải nằm trong khoảng từ 0 đến 100.", nameof(scoreKoi.Score));
+                throw new ArgumentNullException(nameof(scoreKoi), "Ket qua cham diem khong duoc de trong");
 
-            return await _repository.UpdateScoreKoiAsync(scoreKoi);
+            if (scoreKoi.ScoreId <= 0)
+                throw new ArgumentException("Ma ket qua cham diem phai la so nguyen duong.", nameof(scoreKoi.ScoreId));
+
+            if (scoreKoi.KoiId.HasValue && scoreKoi.KoiId <= 0)
+                throw new ArgumentException("Ma Koi phai la so nguyen duong.", nameof(scoreKoi.KoiId));
+
+            if (scoreKoi.RefereeId.HasValue && scoreKoi.RefereeId <= 0)
+                throw new ArgumentException("Ma trong tai phai la so nguyen duong.", nameof(scoreKoi.RefereeId));
+
+            if (scoreKoi.EventId.HasValue && scoreKoi.EventId <= 0)
+                throw new ArgumentException("Ma su kien phai la so nguyen duong.", nameof(scoreKoi.EventId));
+
+            if (scoreKoi.Score.HasValue && (scoreKoi.Score < 0 || scoreKoi.Score > 10))
+                throw new ArgumentException("Diem phai nam trong khoang tu 0 den 10.", nameof(scoreKoi.Score));
+
+            if (string.IsNullOrWhiteSpace(scoreKoi.Feedback))
+                throw new ArgumentException("Ghi nhan xet khong duoc de trong hoac chi chua khoang trong.", nameof(scoreKoi.Feedback));
+
+            if (scoreKoi.Event != null && scoreKoi.Event.EventId <= 0)
+                throw new ArgumentException("Ma su kien cua doi tuong su kien phai la so nguyen duong.", nameof(scoreKoi.Event));
+
+            if (scoreKoi.Koi != null && scoreKoi.Koi.KoiId <= 0)
+                throw new ArgumentException("Ma Koi cua doi tuong Koi phai la so nguyen duong.", nameof(scoreKoi.Koi));
+
+            if (scoreKoi.Referee != null && scoreKoi.Referee.RefereeId <= 0)
+                throw new ArgumentException("Ma trong tai cua doi tuong trong tai phai la so nguyen duong.", nameof(scoreKoi.Referee));
+
+            // Kiem tra ScoreDate neu can thiet
+            if (scoreKoi.ScoreDate == null)
+                throw new ArgumentException("Ngay cham diem khong duoc de trong.", nameof(scoreKoi.ScoreDate));
+
+            if (string.IsNullOrWhiteSpace(scoreKoi.JudgeName))
+                throw new ArgumentException("Ten trong tai khong duoc de trong.", nameof(scoreKoi.JudgeName));
+
+            if (scoreKoi.ScoreValue <= 0)
+                throw new ArgumentException("Diem cham phai la so nguyen duong.", nameof(scoreKoi.ScoreValue));
+
+            if (scoreKoi.FishId <= 0)
+                throw new ArgumentException("Ma ca phai la so nguyen duong.", nameof(scoreKoi.FishId));
         }
     }
-}      
+}
