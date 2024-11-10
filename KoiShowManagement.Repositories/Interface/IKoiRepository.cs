@@ -14,3 +14,4 @@ namespace KoiShowManagement.Repositories.Interface
         Task<bool> DeleteKoiAsync(Koi koi);
     }
 }
+
