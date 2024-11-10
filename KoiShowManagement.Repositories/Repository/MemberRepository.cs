@@ -77,5 +77,22 @@ namespace KoiShowManagementSystem.Repositories.Repository
                 throw new InvalidOperationException("Có lỗi xảy ra khi xóa thành viên.", ex);
             }
         }
+
+        // Triển khai phương thức tìm kiếm
+        public async Task<List<Member>> SearchMembersAsync(string? name, string? email, string? membershipType)
+        {
+            var query = _dbContext.Members.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(name))
+                query = query.Where(m => m.Name.Contains(name));
+
+            if (!string.IsNullOrWhiteSpace(email))
+                query = query.Where(m => m.Email.Contains(email));
+
+            if (!string.IsNullOrWhiteSpace(membershipType))
+                query = query.Where(m => m.MembershipType == membershipType);
+
+            return await query.ToListAsync();
+        }
     }
 }
