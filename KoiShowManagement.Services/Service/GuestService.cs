@@ -87,17 +87,16 @@ namespace KoiShowManagement.Services.Service
             return await _repository.GetGuestByIdAsync(Id);
         }
 
+        public async Task<List<Guest>> SearchGuestsAsync(string? name, string? email, string? phone)
+        {
+            return await _repository.SearchGuestsAsync(name, email, phone);
+        }
+
         public async Task<bool> UpdateGuestAsync(Guest guest)
         {
             ValidateGuest(guest);
             return await _repository.UpdateGuestAsync(guest);
         }
-         public async Task<List<Guest>> SearchGuestsAsync(string? name, string? email, string? phone)
-        {
-            return await _repository.SearchGuestsAsync(name, email, phone);
-        }
     }
 }
-
-
 
