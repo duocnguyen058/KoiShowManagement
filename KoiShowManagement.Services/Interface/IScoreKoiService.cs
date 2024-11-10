@@ -8,10 +8,10 @@ namespace KoiShowManagement.Services.Interface
     public interface IScoreKoiService
     {
         Task<List<ScoreKoi>> GetAllScoreKoisAsync();
-        Task<bool> DeleteScoreKoiAsync(int Id);
-        Task<bool> DeleteScoreKoiAsync(ScoreKoi scoreKoi);
+        Task<ScoreKoi> GetScoreKoiByIdAsync(int scoreId);
         Task<bool> AddScoreKoiAsync(ScoreKoi scoreKoi);
-        Task<bool> UpdateScoreKoiAsync(ScoreKoi scoreKoi);
-        Task<ScoreKoi> GetScoreKoiByIdAsync(int Id);
+        Task<bool> UpdScoreKoiAsync(ScoreKoi scoreKoi);
+        Task<bool> DelScoreKoiAsync(int scoreId);
+        Task<bool> DelScoreKoiAsync(ScoreKoi scoreKoi);
     }
 }
