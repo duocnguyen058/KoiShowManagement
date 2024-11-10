@@ -7,7 +7,7 @@ namespace KoiShowManagement.Services.Interface
 {
     public interface IGuestService
     {
-        Task<List<Guest>> GetGuestsAsync();
+        Task<List<Guest>> GetAllGuestsAsync();
         Task<bool> DeleteGuestAsync(int Id);
         Task<bool> DeleteGuestAsync(Guest guest);
         Task<bool> AddGuestAsync(Guest guest);
