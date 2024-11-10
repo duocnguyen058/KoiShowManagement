@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sửa sự kiện</title>
+    <title>Chỉnh sửa sự kiện</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
 </head>
 <body>
@@ -14,32 +14,39 @@
 
         <div class="content-wrapper">
             <div class="content-header">
-                <h1>Sửa sự kiện</h1>
+                <h1>Chỉnh sửa sự kiện</h1>
             </div>
 
             <div class="content">
                 <div class="container-fluid">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Chỉnh sửa thông tin sự kiện</h3>
+                            <h3 class="card-title">Thông tin sự kiện</h3>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="@Url.Action("Edit", "Event", new { id = Model.Id })">
+                            <form method="post" action="@Url.Action("Edit", "Event")">
+                                <input type="hidden" name="EventId" value="@Model.EventId" />
                                 <div class="form-group">
-                                    <label for="Name">Tên sự kiện</label>
-                                    <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+                                    <label for="EventName">Tên sự kiện</label>
+                                    <input type="text" class="form-control" id="EventName" name="EventName" value="@Model.EventName" required />
                                 </div>
                                 <div class="form-group">
-                                    <label for="StartDate">Ngày bắt đầu</label>
-                                    <input type="date" class="form-control" id="StartDate" name="StartDate" value="@Model.StartDate.ToString("yyyy-MM-dd")" required />
+                                    <label for="EventDate">Ngày bắt đầu</label>
+                                    <input type="datetime-local" class="form-control" id="EventDate" name="EventDate" value="@Model.EventDate?.ToString("yyyy-MM-ddTHH:mm")" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="EndDate">Ngày kết thúc</label>
-                                    <input type="date" class="form-control" id="EndDate" name="EndDate" value="@Model.EndDate.ToString("yyyy-MM-dd")" required />
+                                    <label for="Location">Địa điểm</label>
+                                    <input type="text" class="form-control" id="Location" name="Location" value="@Model.Location" />
                                 </div>
                                 <div class="form-group">
-                                    <label for="Description">Mô tả</label>
-                                    <textarea class="form-control" id="Description" name="Description">@Model.Description</textarea>
+                                    <label for="ManagerId">Quản lý</label>
+                                    <select class="form-control" id="ManagerId" name="ManagerId">
+                                        <option value="">--Chọn quản lý--</option>
+                                        @foreach (var manager in ViewData["Managers"] as IEnumerable<KoiShowManagement.Repositories.Entities.Manager>)
+                                        {
+                                            <option value="@manager.ManagerId" @(manager.ManagerId == Model.ManagerId ? "selected" : "")>@manager.Name</option>
+                                        }
+                                    </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Cập nhật sự kiện</button>
                             </form>

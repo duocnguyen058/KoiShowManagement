@@ -41,10 +41,10 @@
                                     {
                                         <tr>
                                             <td>@score.ScoreId</td>
-                                            <td>@score.Referee.Name</td>
-                                            <td>@score.Koi.Name</td>
-                                            <td>@score.Score</td>
-                                            <td>@score.ScoreDate.ToString("dd/MM/yyyy")</td>
+                                            <td>@score.JudgeName</td>
+                                            <td>@score.Koi?.Name</td>
+                                            <td>@score.ScoreValue</td>
+                                            <td>@score.ScoreDate?.ToString("dd/MM/yyyy")</td>
                                             <td>
                                                 <a href="@Url.Action("Edit", "ScoreKoi", new { id = score.ScoreId })" class="btn btn-primary">Sửa</a>
                                             </td>

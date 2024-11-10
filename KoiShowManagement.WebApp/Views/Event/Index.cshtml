@@ -1,4 +1,4 @@
-﻿@model List<KoiShowManagement.Repositories.Entities.Event>
+﻿@model IEnumerable<KoiShowManagement.Repositories.Entities.Event>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -21,17 +21,17 @@
                 <div class="container-fluid">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Danh sách các sự kiện</h3>
-                            <a href="@Url.Action("Create", "Event")" class="btn btn-success float-right">Tạo sự kiện mới</a>
+                            <h3 class="card-title">Danh sách sự kiện</h3>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Id</th>
+                                        <th>#</th>
                                         <th>Tên sự kiện</th>
                                         <th>Ngày bắt đầu</th>
-                                        <th>Ngày kết thúc</th>
+                                        <th>Địa điểm</th>
+                                        <th>Quản lý</th>
                                         <th>Hành động</th>
                                     </tr>
                                 </thead>
@@ -39,13 +39,15 @@
                                     @foreach (var eventItem in Model)
                                     {
                                         <tr>
-                                            <td>@eventItem.Id</td>
-                                            <td>@eventItem.Name</td>
-                                            <td>@eventItem.StartDate.ToString("dd/MM/yyyy")</td>
-                                            <td>@eventItem.EndDate.ToString("dd/MM/yyyy")</td>
+                                            <td>@eventItem.EventId</td>
+                                            <td>@eventItem.EventName</td>
+                                            <td>@eventItem.EventDate?.ToString("dd/MM/yyyy HH:mm")</td>
+                                            <td>@eventItem.Location</td>
+                                            <td>@eventItem.Manager?.Name</td>
                                             <td>
-                                                <a href="@Url.Action("Details", "Event", new { id = eventItem.Id })" class="btn btn-info">Chi tiết</a>
-                                                <a href="@Url.Action("Edit", "Event", new { id = eventItem.Id })" class="btn btn-primary">Sửa</a>
+                                                <a href="@Url.Action("Details", "Event", new { id = eventItem.EventId })" class="btn btn-info btn-sm">Chi tiết</a>
+                                                <a href="@Url.Action("Edit", "Event", new { id = eventItem.EventId })" class="btn btn-warning btn-sm">Chỉnh sửa</a>
+                                                <a href="@Url.Action("Delete", "Event", new { id = eventItem.EventId })" class="btn btn-danger btn-sm">Xóa</a>
                                             </td>
                                         </tr>
                                     }

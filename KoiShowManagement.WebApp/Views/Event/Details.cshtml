@@ -24,12 +24,21 @@
                             <h3 class="card-title">Thông tin sự kiện</h3>
                         </div>
                         <div class="card-body">
-                            <p><strong>Id:</strong> @Model.Id</p>
-                            <p><strong>Tên sự kiện:</strong> @Model.Name</p>
-                            <p><strong>Ngày bắt đầu:</strong> @Model.StartDate.ToString("dd/MM/yyyy")</p>
-                            <p><strong>Ngày kết thúc:</strong> @Model.EndDate.ToString("dd/MM/yyyy")</p>
-                            <p><strong>Mô tả:</strong> @Model.Description</p>
-                            <a href="@Url.Action("Edit", "Event", new { id = Model.Id })" class="btn btn-primary">Sửa</a>
+                            <dl class="row">
+                                <dt class="col-sm-2">Tên sự kiện</dt>
+                                <dd class="col-sm-10">@Model.EventName</dd>
+
+                                <dt class="col-sm-2">Ngày bắt đầu</dt>
+                                <dd class="col-sm-10">@Model.EventDate?.ToString("dd/MM/yyyy HH:mm")</dd>
+
+                                <dt class="col-sm-2">Địa điểm</dt>
+                                <dd class="col-sm-10">@Model.Location</dd>
+
+                                <dt class="col-sm-2">Quản lý</dt>
+                                <dd class="col-sm-10">@Model.Manager?.Name</dd>
+                            </dl>
+                            <a href="@Url.Action("Edit", "Event", new { id = Model.EventId })" class="btn btn-primary">Chỉnh sửa</a>
+                            <a href="@Url.Action("Index", "Event")" class="btn btn-secondary">Quay lại</a>
                         </div>
                     </div>
                 </div>

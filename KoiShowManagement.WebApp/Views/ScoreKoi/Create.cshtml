@@ -27,8 +27,8 @@
                             @using (Html.BeginForm())
                             {
                                 <div class="form-group">
-                                    <label for="KoiId">Cá Koi</label>
-                                    <select id="KoiId" name="KoiId" class="form-control" required>
+                                    <label for="FishId">Cá Koi</label>
+                                    <select id="FishId" name="FishId" class="form-control" required>
                                         @foreach (var koi in ViewBag.KoiList)
                                         {
                                             <option value="@koi.KoiId">@koi.Name</option>
@@ -37,23 +37,18 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="RefereeId">Người chấm</label>
-                                    <select id="RefereeId" name="RefereeId" class="form-control" required>
-                                        @foreach (var referee in ViewBag.RefereeList)
-                                        {
-                                            <option value="@referee.RefereeId">@referee.Name</option>
-                                        }
-                                    </select>
+                                    <label for="JudgeName">Tên người chấm</label>
+                                    <input type="text" id="JudgeName" name="JudgeName" class="form-control" value="@Model.JudgeName" required />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="Score">Điểm</label>
-                                    <input type="number" id="Score" name="Score" class="form-control" min="0" max="10" step="0.1" required />
+                                    <label for="ScoreValue">Điểm</label>
+                                    <input type="number" id="ScoreValue" name="ScoreValue" class="form-control" min="0" max="10" step="0.1" value="@Model.ScoreValue" required />
                                 </div>
 
                                 <div class="form-group">
                                     <label for="ScoreDate">Ngày chấm</label>
-                                    <input type="date" id="ScoreDate" name="ScoreDate" class="form-control" required />
+                                    <input type="date" id="ScoreDate" name="ScoreDate" class="form-control" value="@Model.ScoreDate?.ToString("yyyy-MM-dd")" required />
                                 </div>
 
                                 <button type="submit" class="btn btn-success">Lưu điểm</button>
