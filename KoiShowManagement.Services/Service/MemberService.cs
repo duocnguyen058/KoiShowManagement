@@ -57,6 +57,12 @@ namespace KoiShowManagement.Services.Service
             return await _repository.DeleteMemberAsync(member);
         }
 
+        // Triển khai phương thức tìm kiếm
+        public async Task<List<Member>> SearchMembersAsync(string? name, string? email, string? membershipType)
+        {
+            return await _repository.SearchMembersAsync(name, email, membershipType);
+        }
+
         private void ValidateMember(Member member)
         {
             if (member == null)
@@ -74,7 +80,7 @@ namespace KoiShowManagement.Services.Service
             if (member.MembershipDate.HasValue && member.MembershipDate.Value > DateTime.Now)
                 throw new ArgumentException("Ngày đăng ký thành viên không thể ở tương lai.", nameof(member.MembershipDate));
 
-            var validMembershipTypes = new List<string> { "Standard", "Premium", "VIP" }; // Các loại thành viên hợp lệ
+            var validMembershipTypes = new List<string> { "Standard", "Premium", "VIP" };
             if (!string.IsNullOrEmpty(member.MembershipType) && !validMembershipTypes.Contains(member.MembershipType))
                 throw new ArgumentException("Loại thành viên không hợp lệ.", nameof(member.MembershipType));
         }
