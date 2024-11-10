@@ -13,5 +13,6 @@ namespace KoiShowManagement.Services.Interface
         Task<bool> AddGuestAsync(Guest guest);
         Task<bool> UpdateGuestAsync(Guest guest);
         Task<Guest> GetGuestByIdAsync(int Id);
+        Task<List<Guest>> SearchGuestsAsync(string? name, string? email, string? phone);
     }
 }
