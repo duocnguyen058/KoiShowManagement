@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
-
 namespace KoiShowManagement.Repositories.Interface
 {
     public interface IGuestRepository
