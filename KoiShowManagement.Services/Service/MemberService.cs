@@ -29,10 +29,18 @@ namespace KoiShowManagement.Services.Service
             return await _repository.GetMemberByIdAsync(memberId);
         }
 
+        // Implementing AddMemberAsync method from the interface
         public async Task<bool> AddMemberAsync(Member member)
         {
             ValidateMember(member);
-            return await _repository.AddMemberAsync(member);
+            return await _repository.AddMemberAsync(member); // Asynchronous call to the repository
+        }
+
+        // Implementing AddMember method from the interface
+        public async Task<bool> AddMember(Member member)
+        {
+            ValidateMember(member);
+            return await _repository.AddMemberAsync(member); // Calls the asynchronous method
         }
 
         public async Task<bool> UpdateMemberAsync(Member member)
@@ -61,6 +69,21 @@ namespace KoiShowManagement.Services.Service
         public async Task<List<Member>> SearchMembersAsync(string? name, string? email, string? membershipType)
         {
             return await _repository.SearchMembersAsync(name, email, membershipType);
+        }
+
+        // Implementing GetAllMembers method from the interface
+        public async Task<List<Member>> GetAllMembers()
+        {
+            return await _repository.GetAllMembersAsync(); // Returns the list of all members asynchronously
+        }
+
+        // Implementing GetMemberById method from the interface
+        public async Task<Member> GetMemberById(int id)
+        {
+            if (id <= 0)
+                throw new ArgumentException("ID không hợp lệ.", nameof(id));
+
+            return await _repository.GetMemberByIdAsync(id); // Retrieves the member by ID asynchronously
         }
 
         private void ValidateMember(Member member)
