@@ -1,91 +1,90 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using KoiShowManagement.Repositories.Entities;
 using KoiShowManagement.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 
 namespace KoiShowManagement.Repositories.Repository
 {
     public class ReportRepository : IReportRepository
     {
         private readonly KoiShowManagementDbContext _dbContext;
+
         public ReportRepository(KoiShowManagementDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public bool AddReport(Report report)
+        public async Task<bool> AddReportAsync(Report report)
         {
             try
             {
-                _dbContext.Reports.Add(report);
-                _dbContext.SaveChanges();
+                await _dbContext.Reports.AddAsync(report);
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Error adding report.", ex);
             }
         }
 
-        public bool DelReport(int Id)
+        public async Task<bool> DelReportAsync(int Id)
         {
             try
             {
-                var objDel = _dbContext.Reports.Where(r => r.ReportId.Equals(Id)).FirstOrDefault();
-                if (objDel != null)
+                var report = await _dbContext.Reports.FindAsync(Id);
+                if (report != null)
                 {
-                    _dbContext.Reports.Remove(objDel);
-                    _dbContext.SaveChanges();
+                    _dbContext.Reports.Remove(report);
+                    await _dbContext.SaveChangesAsync();
                     return true;
                 }
                 return false;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Error deleting report by Id.", ex);
             }
         }
 
-        public bool DelReport(Report report)
+        public async Task<bool> DelReportAsync(Report report)
         {
             try
             {
                 _dbContext.Reports.Remove(report);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Error deleting report.", ex);
             }
         }
 
-        public async Task<List<Report>> GetAllReports()
+        public async Task<List<Report>> GetAllReportsAsync()
         {
             return await _dbContext.Reports.ToListAsync();
         }
 
-        public async Task<Report> GetReportById(int Id)
+        public async Task<Report> GetReportByIdAsync(int Id)
         {
-            return await _dbContext.Reports.Where(r => r.ReportId.Equals(Id)).FirstOrDefaultAsync();
+            return await _dbContext.Reports.FindAsync(Id);
         }
 
-        public bool UpdReport(Report report)
+        public async Task<bool> UpdReportAsync(Report report)
         {
             try
             {
                 _dbContext.Reports.Update(report);
-                _dbContext.SaveChanges();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException();
-                return false;
+                throw new InvalidOperationException("Error updating report.", ex);
             }
         }
     }
