@@ -12,5 +12,8 @@ namespace KoiShowManagement.Repositories.Interface
         Task<bool> UpdateMemberAsync(Member member);
         Task<bool> DeleteMemberAsync(int memberId);
         Task<bool> DeleteMemberAsync(Member member);
+
+        // Thêm phương thức tìm kiếm
+        Task<List<Member>> SearchMembersAsync(string? name, string? email, string? membershipType);
     }
 }
