@@ -1,4 +1,4 @@
-﻿@model KoiShowManagement.Repositories.Entities.Koi
+@model KoiShowManagement.Repositories.Entities.Koi
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -24,19 +24,31 @@
                             <h3 class="card-title">Chỉnh Sửa Cá Koi</h3>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="@Url.Action("Edit", "Koi", new { id = Model.Id })">
+                            <form method="post" action="@Url.Action("Edit", "Koi", new { id = Model.KoiId })">
                                 <div class="form-group">
-                                    <label for="Name">Tên Cá</label>
-                                    <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+                                    <label asp-for="Name">Tên Cá</label>
+                                    <input asp-for="Name" class="form-control" required />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="Gender">Giới tính</label>
-                                    <input type="text" class="form-control" id="Gender" name="Gender" value="@Model.Gender" required />
+                                    <label asp-for="Age">Tuổi</label>
+                                    <input asp-for="Age" class="form-control" type="number" required />
+                                    <span asp-validation-for="Age" class="text-danger"></span>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="Age">Tuổi</label>
-                                    <input type="number" class="form-control" id="Age" name="Age" value="@Model.Age" required />
+                                    <label asp-for="Size">Kích thước</label>
+                                    <input asp-for="Size" class="form-control" type="number" step="0.01" />
+                                    <span asp-validation-for="Size" class="text-danger"></span>
                                 </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Color">Màu sắc</label>
+                                    <input asp-for="Color" class="form-control" />
+                                    <span asp-validation-for="Color" class="text-danger"></span>
+                                </div>
+
                                 <button type="submit" class="btn btn-primary">Lưu</button>
                                 <a href="@Url.Action("Index", "Koi")" class="btn btn-secondary">Hủy</a>
                             </form>
