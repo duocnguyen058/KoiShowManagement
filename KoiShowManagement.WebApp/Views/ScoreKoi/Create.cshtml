@@ -1,0 +1,41 @@
+﻿@model KoiShowManagement.Repositories.Entities.ScoreKoi
+
+@{
+    ViewData["Title"] = "Tạo Điểm Số Koi Mới";
+}
+
+<h2>Tạo Điểm Số Koi</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="KoiId">Koi</label>
+        <select id="KoiId" name="KoiId" class="form-control" required>
+            @foreach (var koi in ViewBag.KoiList as List<KoiShowManagement.Repositories.Entities.Koi>)
+            {
+                <option value="@koi.KoiId">@koi.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="RefereeId">Trọng Tài</label>
+        <select id="RefereeId" name="RefereeId" class="form-control" required>
+            @foreach (var referee in ViewBag.RefereeList as List<KoiShowManagement.Repositories.Entities.Referee>)
+            {
+                <option value="@referee.RefereeId">@referee.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Score">Điểm</label>
+        <input type="number" id="Score" name="Score" class="form-control" required min="0" />
+    </div>
+
+    <div class="form-group">
+        <label for="Feedback">Chi Tiết</label>
+        <textarea id="Feedback" name="Feedback" class="form-control" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Tạo</button>
+</form>

@@ -1,0 +1,23 @@
+﻿@model KoiShowManagement.Repositories.Entities.Event
+
+@{
+    ViewData["Title"] = "Tạo Sự Kiện";
+}
+
+<h2>Tạo Sự Kiện</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="EventName">Tên Sự Kiện</label>
+        <input type="text" id="EventName" name="EventName" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Date">Ngày</label>
+        <input type="date" id="Date" name="Date" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="Details">Chi Tiết</label>
+        <textarea id="Details" name="Details" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Tạo</button>
+</form>

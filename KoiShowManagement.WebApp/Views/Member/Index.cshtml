@@ -1,0 +1,33 @@
+﻿@model List<KoiShowManagement.Repositories.Entities.Member>
+
+@{
+    ViewData["Title"] = "Danh Sách Thành Viên";
+}
+
+<h2>Danh Sách Thành Viên</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Thành Viên</th>
+            <th>Email</th>
+            <th>Số Điện Thoại</th>
+            <th>Ngày Tham Gia</th>
+            <th>Loại Thành Viên</th>
+            <th>Chi Tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@member.Name</td>
+                <td>@member.Email</td>
+                <td>@member.Phone</td>
+                <td>@member.MembershipDate?.ToString("dd/MM/yyyy")</td>
+                <td>@member.MembershipType</td>
+                <td><a href="@Url.Action("Details", new { id = member.MemberId })">Xem Chi Tiết</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Chi Tiết Trọng Tài";
+}
+
+<h2>Chi Tiết Trọng Tài</h2>
+
+<div>
+    <h3>@Model.Name</h3>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Số Điện Thoại:</strong> @Model.Phone</p>
+    <p><strong>Vai Trò:</strong> @Model.Role</p>
+</div>
+
+<div>
+    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-warning">Chỉnh Sửa</a>
+    <a href="@Url.Action("Index", "Referee")" class="btn btn-secondary">Quay lại danh sách trọng tài</a>
+</div>

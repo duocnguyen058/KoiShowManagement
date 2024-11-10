@@ -1,0 +1,27 @@
+﻿@model List<KoiShowManagement.Repositories.Entities.Koi>
+
+@{
+    ViewData["Title"] = "Danh Sách Koi";
+}
+
+<h2>Danh Sách Koi</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Koi</th>
+            <th>Màu Sắc Koi</th> <!-- Sử dụng thuộc tính Color thay cho Type -->
+            <th>Chi Tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var koi in Model)
+        {
+            <tr>
+                <td>@koi.Name</td>
+                <td>@koi.Color</td> <!-- Hiển thị màu sắc -->
+                <td><a href="@Url.Action("Details", new { id = koi.KoiId })">Xem Chi Tiết</a></td> <!-- Sử dụng KoiId thay vì Id -->
+            </tr>
+        }
+    </tbody>
+</table>

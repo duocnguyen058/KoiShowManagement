@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Chỉnh Sửa Trọng Tài";
+}
+
+<h2>Chỉnh Sửa Thông Tin Trọng Tài</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="form-group">
+        <label for="Name">Tên</label>
+        <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Phone">Số Điện Thoại</label>
+        <input type="text" class="form-control" id="Phone" name="Phone" value="@Model.Phone" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Role">Vai Trò</label>
+        <select class="form-control" id="Role" name="Role">
+            <option value="Trọng Tài" @if (Model.Role == "Trọng Tài")
+            {
+                <text>selected</text>
+            }>Trọng Tài</option>
+            <option value="Trưởng Ban" @if (Model.Role == "Trưởng Ban")
+            {
+                <text>selected</text>
+            }>Trưởng Ban</option>
+            <option value="Trợ Lý" @if (Model.Role == "Trợ Lý")
+            {
+                <text>selected</text>
+            }>Trợ Lý</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cập Nhật Thông Tin</button>
+</form>
+
+<a href="@Url.Action("Index", "Referee")">Quay lại danh sách trọng tài</a>

@@ -1,0 +1,30 @@
+﻿@model List<KoiShowManagement.Repositories.Entities.CompetitionResult>
+
+@{
+    ViewData["Title"] = "Kết Quả Cuộc Thi";
+}
+
+<h2>Kết Quả Cuộc Thi</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Cuộc Thi</th>
+            <th>Ngày</th>
+            <th>Chi Tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in Model)
+        {
+            <tr>
+                <!-- Sửa lại: Thay từ .Name thành .EventName -->
+                <td>@result.Event?.EventName</td> <!-- Lấy tên cuộc thi từ đối tượng Event -->
+                <!-- Sửa lại: Thay từ .Date thành .EventDate -->
+                <td>@result.Event?.EventDate?.ToShortDateString()</td> <!-- Lấy ngày từ đối tượng Event -->
+
+                <td><a href="@Url.Action("Details", new { id = result.ResultId })">Xem Chi Tiết</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

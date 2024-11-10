@@ -1,0 +1,10 @@
+﻿@model KoiShowManagement.Repositories.Entities.CompetitionResult
+
+@{
+    ViewData["Title"] = "Chi Tiết Kết Quả Cuộc Thi";
+}
+
+<h2>@Model.Event?.EventName</h2>  <!-- Lấy tên cuộc thi từ Event -->
+<p>Ngày: @Model.Event?.EventDate?.ToShortDateString() ?? "Chưa có ngày tổ chức"</p>  <!-- Kiểm tra nếu EventDate không có thì hiển thị thông báo -->
+<p>Chi Tiết: @Model.Feedback</p>  <!-- Lấy chi tiết từ Feedback của CompetitionResult -->
+<a href="@Url.Action("Index")">Quay lại</a>

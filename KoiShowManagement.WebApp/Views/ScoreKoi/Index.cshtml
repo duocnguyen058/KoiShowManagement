@@ -1,0 +1,23 @@
+﻿@model List<KoiShowManagement.Repositories.Entities.ScoreKoi>
+
+@{
+    ViewData["Title"] = "Danh Sách Điểm Số Koi";
+}
+
+<h2>Danh Sách Điểm Số Koi</h2>
+
+<table>
+    <tr>
+        <th>Koi</th>
+        <th>Điểm</th>
+        <th>Trọng Tài</th>
+    </tr>
+    @foreach (var score in Model)
+    {
+        <tr>
+            <td>@score.Koi.Name</td>
+            <td>@score.Score</td>
+            <td>@score.Referee.Name</td>
+        </tr>
+    }
+</table>

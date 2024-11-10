@@ -1,0 +1,11 @@
+﻿@model KoiShowManagement.Repositories.Entities.Report
+
+@{
+    ViewData["Title"] = "Chi Tiết Báo Cáo";
+}
+
+<h2>@Model.Title</h2>
+<p><strong>Nội Dung:</strong> @Model.Content ?? "Chưa có nội dung"</p>
+<p><strong>Ngày Tạo:</strong> @Model.CreatedAt?.ToString("dd/MM/yyyy") ?? "Chưa có ngày tạo"</p>
+<p><strong>Người Tạo:</strong> @Model.CreatedByNavigation?.Username ?? "Chưa xác định"</p>
+<a href="@Url.Action("Index", "User")">Quay lại Hồ Sơ</a>

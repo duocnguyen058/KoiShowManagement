@@ -1,0 +1,27 @@
+﻿@model List<KoiShowManagement.Repositories.Entities.Event>
+
+@{
+    ViewData["Title"] = "Sự Kiện";
+}
+
+<h2>Sự Kiện</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Sự Kiện</th>
+            <th>Ngày</th>
+            <th>Chi Tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var eventItem in Model)
+        {
+            <tr>
+                <td>@eventItem.EventName</td> <!-- Sử dụng EventName -->
+                <td>@eventItem.EventDate?.ToShortDateString()</td> <!-- Sử dụng EventDate -->
+                <td><a href="@Url.Action("Details", new { id = eventItem.EventId })">Xem Chi Tiết</a></td> <!-- Sử dụng EventId -->
+            </tr>
+        }
+    </tbody>
+</table>

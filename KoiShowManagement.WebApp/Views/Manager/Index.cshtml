@@ -1,0 +1,27 @@
+﻿@model List<KoiShowManagement.Repositories.Entities.Manager>
+
+@{
+    ViewData["Title"] = "Danh Sách Quản Lý";
+}
+
+<h2>Danh Sách Quản Lý</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên Quản Lý</th>
+            <th>Email</th>
+            <th>Sự Kiện</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var manager in Model)
+        {
+            <tr>
+                <td>@manager.Name</td>
+                <td>@manager.Email</td>
+                <td><a href="@Url.Action("Details", new { id = manager.ManagerId })">Xem Sự Kiện</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Danh Sách Trọng Tài";
+}
+
+<h2>Danh Sách Trọng Tài</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Referee")" class="btn btn-primary">Thêm Trọng Tài Mới</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Tên</th>
+            <th>Email</th>
+            <th>Số Điện Thoại</th>
+            <th>Vai Trò</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var referee in Model)
+        {
+            <tr>
+                <td>@referee.Id</td>
+                <td>@referee.Name</td>
+                <td>@referee.Email</td>
+                <td>@referee.Phone</td>
+                <td>@referee.Role</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = referee.Id })" class="btn btn-info">Xem</a>
+                    <a href="@Url.Action("Edit", new { id = referee.Id })" class="btn btn-warning">Chỉnh Sửa</a>
+                    <a href="@Url.Action("Delete", new { id = referee.Id })" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,10 @@
+﻿@model KoiShowManagement.Repositories.Entities.Event
+
+@{
+    ViewData["Title"] = "Chi Tiết Sự Kiện";
+}
+
+<h2>@Model.EventName</h2>
+<p>Ngày: @Model.EventDate?.ToShortDateString()</p>  <!-- Sử dụng EventDate thay vì Date -->
+<p>Chi Tiết: @Model.Location</p>  <!-- Thay Details bằng Location nếu không có trường Details -->
+<a href="@Url.Action("Index")">Quay lại</a>

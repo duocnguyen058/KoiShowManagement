@@ -1,0 +1,21 @@
+﻿@model KoiShowManagement.Repositories.Entities.User
+
+@{
+    ViewData["Title"] = "Đăng Ký";
+}
+
+<h1>Đăng Ký Tài Khoản</h1>
+
+<form method="post">
+    <div>
+        <label for="Username">Tên người dùng:</label>
+        <input type="text" id="Username" name="Username" required />
+    </div>
+    <div>
+        <label for="Password">Mật khẩu:</label>
+        <input type="password" id="Password" name="Password" required />
+    </div>
+    <button type="submit">Đăng Ký</button>
+</form>
+
+<p><a href="/Account/Login">Đã có tài khoản? Đăng nhập ngay!</a></p>
