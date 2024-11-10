@@ -78,5 +78,22 @@ namespace KoiShowManagementSystem.Repositories.Repository
                 throw new InvalidOperationException("Có lỗi xảy ra khi xóa nhân viên.", ex);
             }
         }
+
+        // Triển khai phương thức tìm kiếm
+        public async Task<List<Staff>> SearchStaffAsync(string? name, string? email, string? position)
+        {
+            var query = _dbContext.Staff.AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(name))
+                query = query.Where(s => s.Name.Contains(name));
+
+            if (!string.IsNullOrWhiteSpace(email))
+                query = query.Where(s => s.Email.Contains(email));
+
+            if (!string.IsNullOrWhiteSpace(position))
+                query = query.Where(s => s.Position == position);
+
+            return await query.ToListAsync();
+        }
     }
 }
