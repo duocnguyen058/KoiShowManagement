@@ -1,4 +1,4 @@
-﻿@model KoiShowManagement.Repositories.Entities.Report
+@model KoiShowManagement.Repositories.Entities.Report
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -24,7 +24,7 @@
                             <h3 class="card-title">Cập nhật Báo cáo</h3>
                         </div>
                         <div class="card-body">
-                            @using (Html.BeginForm())
+                            @using (Html.BeginForm("Edit", "Report", FormMethod.Post))
                             {
                                 <div class="form-group">
                                     <label for="Title">Tiêu đề</label>
@@ -36,9 +36,10 @@
                                     <textarea id="Content" name="Content" class="form-control" rows="5" required>@Model.Content</textarea>
                                 </div>
 
+                                <!-- Optionally, you can show the created date but not allow editing -->
                                 <div class="form-group">
                                     <label for="CreatedDate">Ngày tạo</label>
-                                    <input type="date" id="CreatedDate" name="CreatedDate" class="form-control" value="@Model.CreatedDate.ToString("yyyy-MM-dd")" required />
+                                    <input type="text" id="CreatedDate" class="form-control" value="@Model.CreatedAt?.ToString("dd/MM/yyyy")" disabled />
                                 </div>
 
                                 <button type="submit" class="btn btn-success">Lưu thay đổi</button>
