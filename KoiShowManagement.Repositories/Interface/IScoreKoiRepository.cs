@@ -15,3 +15,4 @@ namespace KoiShowManagement.Repositories.Interface
         Task<bool> DelScoreKoiAsync(ScoreKoi scoreKoi);
     }
 }
+
