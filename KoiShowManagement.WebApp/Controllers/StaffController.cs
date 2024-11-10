@@ -15,13 +15,13 @@ namespace KoiShowManagement.WebApp.Controllers
 
         public IActionResult Index()
         {
-            var staffList = _staffService.GetAllStaffs();
+            var staffList = _staffService.GetAllStaffsAsync();
             return View(staffList);
         }
 
         public IActionResult Details(int id)
         {
-            var staff = _staffService.GetStaffById(id);
+            var staff = _staffService.GetStaffByIdAsync(id);
             return View(staff);
         }
 
@@ -36,7 +36,7 @@ namespace KoiShowManagement.WebApp.Controllers
             if (ModelState.IsValid)
             {
                 // Sử dụng phương thức AddStaff thay vì Add
-                _staffService.AddStaff(staff);
+                _staffService.AddStaffAsync(staff);
                 return RedirectToAction("Index");
             }
             return View(staff);
@@ -44,7 +44,7 @@ namespace KoiShowManagement.WebApp.Controllers
 
         public IActionResult Edit(int id)
         {
-            var staff = _staffService.GetStaffById(id);
+            var staff = _staffService.GetStaffByIdAsync(id);
             return View(staff);
         }
 
@@ -53,7 +53,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _staffService.UpdStaff(staff);
+                _staffService.UpdateStaffAsync(staff);
                 return RedirectToAction("Index");
             }
             return View(staff);

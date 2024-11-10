@@ -15,19 +15,19 @@ namespace KoiShowManagement.WebApp.Controllers
 
         public IActionResult Index()
         {
-            var users = _userService.GetAll();
+            var users = _userService.GetAllUsersAsync();
             return View(users);
         }
 
         public IActionResult Details(int id)
         {
-            var user = _userService.GetById(id);
+            var user = _userService.GetUserByIdAsync(id);
             return View(user);
         }
 
         public IActionResult Edit(int id)
         {
-            var user = _userService.GetById(id);
+            var user = _userService.GetUserByIdAsync(id);
             return View(user);
         }
 
@@ -36,7 +36,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _userService.Update(user);
+                _userService.UpdUserAsync(user);
                 return RedirectToAction("Index");
             }
             return View(user);

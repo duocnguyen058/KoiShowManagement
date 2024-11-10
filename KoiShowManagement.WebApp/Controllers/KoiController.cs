@@ -16,13 +16,13 @@ namespace KoiShowManagement.WebApp.Controllers
 
         public IActionResult Index()
         {
-            var koiList = _koiService.GetAllKois();
+            var koiList = _koiService.GetAllKoisAsync();
             return View(koiList);
         }
 
         public IActionResult Details(int id)
         {
-            var koi = _koiService.GetKoiById(id);
+            var koi = _koiService.GetKoiByIdAsync(id);
             return View(koi);
         }
 
@@ -36,7 +36,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isAdded = await _koiService.AddKoi(koi);  // Dùng await vì AddKoi đã là Task<bool>
+                bool isAdded = await _koiService.AddKoiAsync(koi);  // Dùng await vì AddKoi đã là Task<bool>
                 if (isAdded)
                 {
                     return RedirectToAction("Index");

@@ -16,13 +16,13 @@ namespace KoiShowManagement.WebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var events = await _eventService.GetAllEvents();
+            var events = await _eventService.GetAllEventsAsync();
             return View(events);
         }
 
         public async Task<IActionResult> Details(int id)
         {
-            var eventItem = await _eventService.GetEventById(id);
+            var eventItem = await _eventService.GetEventByIdAsync(id);
             return View(eventItem);
         }
 
@@ -36,7 +36,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isAdded = await _eventService.AddEvent(eventItem);
+                bool isAdded = await _eventService.AddEventAsync(eventItem);
                 if (isAdded)
                 {
                     return RedirectToAction("Index");
@@ -47,7 +47,7 @@ namespace KoiShowManagement.WebApp.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-            var eventItem = await _eventService.GetEventById(id);
+            var eventItem = await _eventService.GetEventByIdAsync(id);
             if (eventItem == null)
             {
                 return NotFound();
@@ -60,7 +60,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isUpdated = await _eventService.UpdEvent(eventItem);
+                bool isUpdated = await _eventService.UpdateEventAsync(eventItem);
                 if (isUpdated)
                 {
                     return RedirectToAction("Index");
@@ -71,10 +71,10 @@ namespace KoiShowManagement.WebApp.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var eventItem = await _eventService.GetEventById(id);
+            var eventItem = await _eventService.GetEventByIdAsync(id);
             if (eventItem != null)
             {
-                bool isDeleted = await _eventService.DelEvent(eventItem);
+                bool isDeleted = await _eventService.DeleteEventAsync(eventItem);
                 if (isDeleted)
                 {
                     return RedirectToAction("Index");

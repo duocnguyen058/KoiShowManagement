@@ -15,13 +15,13 @@ namespace KoiShowManagement.WebApp.Controllers
 
         public IActionResult Index()
         {
-            var referees = _refereeService.GetAllReferees();  // Gọi đúng phương thức trong service
+            var referees = _refereeService.GetAllRefereesAsync();  // Gọi đúng phương thức trong service
             return View(referees);
         }
 
         public IActionResult Details(int id)
         {
-            var referee = _refereeService.GetRefereeById(id);  // Gọi đúng phương thức trong service
+            var referee = _refereeService.GetRefereeByIdAsync(id);  // Gọi đúng phương thức trong service
             return View(referee);
         }
 
@@ -35,7 +35,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _refereeService.AddReferee(referee);  // Sửa từ Add thành AddReferee
+                _refereeService.AddRefereeAsync(referee);  // Sửa từ Add thành AddReferee
                 return RedirectToAction("Index");
             }
             return View(referee);

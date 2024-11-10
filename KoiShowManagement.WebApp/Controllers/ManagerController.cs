@@ -14,19 +14,19 @@ namespace KoiShowManagement.WebApp.Controllers
 
         public IActionResult Index()
         {
-            var managers = _managerService.GetAll();
+            var managers = _managerService.GetAllManagersAsync();
             return View(managers);
         }
 
         public IActionResult Details(int id)
         {
-            var manager = _managerService.GetById(id);
+            var manager = _managerService.GetManagerByIdAsync(id);
             return View(manager);
         }
 
         public IActionResult Edit(int id)
         {
-            var manager = _managerService.GetById(id);
+            var manager = _managerService.GetManagerByIdAsync(id);
             return View(manager);
         }
     }

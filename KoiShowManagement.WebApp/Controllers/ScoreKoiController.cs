@@ -17,7 +17,7 @@ namespace KoiShowManagement.WebApp.Controllers
         // Hiển thị danh sách ScoreKoi
         public async Task<IActionResult> Index()
         {
-            var scores = await _scoreKoiService.GetAllScoreKois();
+            var scores = await _scoreKoiService.GetAllScoreKoisAsync();
             return View(scores);
         }
 
@@ -33,7 +33,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isAdded = await _scoreKoiService.AddScoreKoi(score);
+                bool isAdded = await _scoreKoiService.AddScoreKoiAsync(score);
                 if (isAdded)
                 {
                     return RedirectToAction("Index");
@@ -45,7 +45,7 @@ namespace KoiShowManagement.WebApp.Controllers
         // Hiển thị form chỉnh sửa ScoreKoi
         public async Task<IActionResult> Edit(int id)
         {
-            var score = await _scoreKoiService.GetScoreKoiId(id);
+            var score = await _scoreKoiService.GetScoreKoiByIdAsync(id);
             return View(score);
         }
 
@@ -55,7 +55,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isUpdated = await _scoreKoiService.UpdScoreKoi(score);
+                bool isUpdated = await _scoreKoiService.UpdScoreKoiAsync(score);
                 if (isUpdated)
                 {
                     return RedirectToAction("Index");

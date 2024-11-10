@@ -17,14 +17,14 @@ namespace KoiShowManagement.WebApp.Controllers
         // Hiển thị tất cả kết quả thi đấu
         public async Task<IActionResult> Index()
         {
-            var results = await _competitionResultService.GetAllCompetitionResults();
+            var results = await _competitionResultService.GetAllCompetitionResultsAsync();
             return View(results);
         }
 
         // Chi tiết kết quả thi đấu
         public async Task<IActionResult> Details(int id)
         {
-            var result = await _competitionResultService.GetCompetitionResultById(id);
+            var result = await _competitionResultService.GetCompetitionResultByIdAsync(id);
             return View(result);
         }
 
@@ -40,7 +40,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isAdded = await _competitionResultService.AddCompetitionResult(result);
+                bool isAdded = await _competitionResultService.AddCompetitionResultAsync(result);
                 if (isAdded)
                 {
                     return RedirectToAction("Index");
@@ -52,10 +52,10 @@ namespace KoiShowManagement.WebApp.Controllers
         // Xử lý xóa kết quả thi đấu
         public async Task<IActionResult> Delete(int id)
         {
-            var result = await _competitionResultService.GetCompetitionResultById(id);
+            var result = await _competitionResultService.GetCompetitionResultByIdAsync(id);
             if (result != null)
             {
-                bool isDeleted = await _competitionResultService.DelCompetitionResult(result);
+                bool isDeleted = await _competitionResultService.DelCompetitionResultAsync(result);
                 if (isDeleted)
                 {
                     return RedirectToAction("Index");
@@ -67,7 +67,7 @@ namespace KoiShowManagement.WebApp.Controllers
         // Xử lý chỉnh sửa kết quả thi đấu
         public async Task<IActionResult> Edit(int id)
         {
-            var result = await _competitionResultService.GetCompetitionResultById(id);
+            var result = await _competitionResultService.GetCompetitionResultByIdAsync(id);
             if (result != null)
             {
                 return View(result);
@@ -80,7 +80,7 @@ namespace KoiShowManagement.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isUpdated = await _competitionResultService.UpdCompetitionResult(result);
+                bool isUpdated = await _competitionResultService.UpdCompetitionResultAsync(result);
                 if (isUpdated)
                 {
                     return RedirectToAction("Index");
