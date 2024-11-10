@@ -1,6 +1,42 @@
-﻿@{
-    ViewData["Title"] = "Giới Thiệu";
-}
+﻿@model KoiShowManagement.Models.HomeViewModel
 
-<h2>Giới Thiệu về Chúng Tôi</h2>
-<p>Ứng dụng này được thiết kế để quản lý các cuộc thi, sự kiện và các thí sinh tham gia các cuộc thi Koi.</p>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
+
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Giới thiệu về Cuộc thi Cá Koi</h1>
+            </div>
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Về chúng tôi</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Cuộc thi Cá Koi là một sự kiện uy tín nhằm tôn vinh vẻ đẹp và sự tinh tế của loài cá Koi. Mỗi năm, cuộc thi thu hút hàng ngàn người tham gia và là một sân chơi lý tưởng cho những người đam mê cá Koi.</p>
+                            <p>Chúng tôi cam kết mang đến một sân chơi công bằng và minh bạch, nơi các cá nhân có thể giao lưu, học hỏi và thể hiện tình yêu của mình đối với loài cá Koi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

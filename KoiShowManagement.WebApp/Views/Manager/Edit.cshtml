@@ -1,60 +1,55 @@
-﻿@model List<KoiShowManagement.Repositories.Entities.Manager>
+﻿@model KoiShowManagement.Repositories.Entities.Manager
 
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách Người Quản lý</title>
+    <title>Chỉnh sửa Người Quản lý</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
 </head>
 <body>
     <div class="wrapper">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="#" class="brand-link">
+                <img src="logo.png" alt="Logo" class="brand-image img-circle elevation-3">
+                <span class="brand-text font-weight-light">Cuộc thi Cá Koi</span>
+            </a>
+        </aside>
+
         <div class="content-wrapper">
             <div class="content-header">
-                <h1>Danh sách Người Quản lý</h1>
+                <h1>Chỉnh sửa Người Quản lý</h1>
             </div>
 
             <div class="content">
                 <div class="container-fluid">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Danh sách Người Quản lý</h3>
+                            <h3 class="card-title">Cập nhật Thông tin</h3>
                         </div>
                         <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Tên</th>
-                                        <th>Email</th>
-                                        <th>Điện thoại</th>
-                                        <th>Phòng ban</th>
-                                        <th>Hành động</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var manager in Model)
-                                    {
-                                        <tr>
-                                            <td>@manager.ManagerId</td> <!-- Sử dụng 'ManagerId' thay vì 'Id' -->
-                                            <td>@manager.Name</td>
-                                            <td>@manager.Email</td> <!-- Sử dụng Email từ đối tượng Manager -->
-                                            <td>@manager.Phone</td> <!-- Sử dụng Phone từ đối tượng Manager -->
-                                            <td>@manager.Department</td> <!-- Sử dụng Department từ đối tượng Manager -->
-                                            <td>
-                                                <a href="@Url.Action("Details", "Manager", new { id = manager.ManagerId })" class="btn btn-info">Chi tiết</a>
-                                                <a href="@Url.Action("Edit", "Manager", new { id = manager.ManagerId })" class="btn btn-primary">Sửa</a>
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
+                            <form method="post">
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <label for="Name">Tên</label>
+                                    <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Department">Phòng ban</label>
+                                    <input type="text" class="form-control" id="Department" name="Department" value="@Model.Department" required />
+                                </div>
+                                <button type="submit" class="btn btn-success">Lưu</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <footer class="main-footer">
+            <strong>&copy; 2024 <a href="#">Cuộc thi Cá Koi</a>.</strong> All rights reserved.
+        </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>

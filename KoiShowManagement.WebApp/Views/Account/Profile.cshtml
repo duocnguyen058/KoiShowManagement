@@ -1,28 +1,44 @@
-﻿@model KoiShowManagement.Repositories.Entities.User
+﻿@model KoiShowManagement.Repositories.Entities.Account
 
-@{
-    ViewData["Title"] = "Hồ Sơ Người Dùng";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang cá nhân</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>Hồ Sơ Người Dùng</h2>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Thông tin cá nhân</h1>
+            </div>
 
-<p><strong>Tên Tài Khoản:</strong> @Model.Username</p>
-<p><strong>Vai Trò:</strong> @Model.Role ?? "Chưa xác định"</p>
-<p><strong>Ngày Tạo:</strong> @Model.CreatedAt?.ToString("dd/MM/yyyy") ?? "Chưa có thông tin"</p>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Thông tin tài khoản</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Tên đăng nhập:</strong> @Model.Username</p>
+                            <p><strong>Email:</strong> @Model.Email</p>
+                            <p><strong>Ngày đăng ký:</strong> @Model.JoinDate.ToString("dd/MM/yyyy")</p>
+                            <a href="@Url.Action("Edit", "Account", new { id = Model.Id })" class="btn btn-primary">Chỉnh sửa thông tin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<h3>Báo Cáo Của Bạn</h3>
-<table>
-    <tr>
-        <th>Tiêu Đề</th>
-        <th>Ngày Tạo</th>
-        <th>Chi Tiết</th>
-    </tr>
-    @foreach (var report in Model.Reports)
-    {
-        <tr>
-            <td>@report.Title</td>
-            <td>@report.CreatedAt?.ToString("dd/MM/yyyy")</td>
-            <td><a href="@Url.Action("Details", "Report", new { id = report.ReportId })">Xem Chi Tiết</a></td>
-        </tr>
-    }
-</table>
+        @await Html.PartialAsync("_Footer")
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

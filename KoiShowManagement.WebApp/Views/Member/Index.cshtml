@@ -1,33 +1,67 @@
 ﻿@model List<KoiShowManagement.Repositories.Entities.Member>
 
-@{
-    ViewData["Title"] = "Danh Sách Thành Viên";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Thành viên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>Danh Sách Thành Viên</h2>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Danh sách Thành viên</h1>
+            </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tên Thành Viên</th>
-            <th>Email</th>
-            <th>Số Điện Thoại</th>
-            <th>Ngày Tham Gia</th>
-            <th>Loại Thành Viên</th>
-            <th>Chi Tiết</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var member in Model)
-        {
-            <tr>
-                <td>@member.Name</td>
-                <td>@member.Email</td>
-                <td>@member.Phone</td>
-                <td>@member.MembershipDate?.ToString("dd/MM/yyyy")</td>
-                <td>@member.MembershipType</td>
-                <td><a href="@Url.Action("Details", new { id = member.MemberId })">Xem Chi Tiết</a></td>
-            </tr>
-        }
-    </tbody>
-</table>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Danh sách Thành viên</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Tên</th>
+                                        <th>Email</th>
+                                        <th>Ngày tham gia</th>
+                                        <th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var member in Model)
+                                    {
+                                        <tr>
+                                            <td>@member.Id</td>
+                                            <td>@member.Name</td>
+                                            <td>@member.Email</td>
+                                            <td>@member.JoinDate.ToString("dd/MM/yyyy")</td>
+                                            <td>
+                                                <a href="@Url.Action("Details", "Member", new { id = member.Id })" class="btn btn-info">Chi tiết</a>
+                                                <a href="@Url.Action("Edit", "Member", new { id = member.Id })" class="btn btn-primary">Sửa</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>
+

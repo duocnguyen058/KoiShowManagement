@@ -1,27 +1,67 @@
 ﻿@model List<KoiShowManagement.Repositories.Entities.Event>
 
-@{
-    ViewData["Title"] = "Sự Kiện";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sự kiện</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>Sự Kiện</h2>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Danh sách sự kiện</h1>
+            </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tên Sự Kiện</th>
-            <th>Ngày</th>
-            <th>Chi Tiết</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var eventItem in Model)
-        {
-            <tr>
-                <td>@eventItem.EventName</td> <!-- Sử dụng EventName -->
-                <td>@eventItem.EventDate?.ToShortDateString()</td> <!-- Sử dụng EventDate -->
-                <td><a href="@Url.Action("Details", new { id = eventItem.EventId })">Xem Chi Tiết</a></td> <!-- Sử dụng EventId -->
-            </tr>
-        }
-    </tbody>
-</table>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Danh sách các sự kiện</h3>
+                            <a href="@Url.Action("Create", "Event")" class="btn btn-success float-right">Tạo sự kiện mới</a>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Tên sự kiện</th>
+                                        <th>Ngày bắt đầu</th>
+                                        <th>Ngày kết thúc</th>
+                                        <th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var eventItem in Model)
+                                    {
+                                        <tr>
+                                            <td>@eventItem.Id</td>
+                                            <td>@eventItem.Name</td>
+                                            <td>@eventItem.StartDate.ToString("dd/MM/yyyy")</td>
+                                            <td>@eventItem.EndDate.ToString("dd/MM/yyyy")</td>
+                                            <td>
+                                                <a href="@Url.Action("Details", "Event", new { id = eventItem.Id })" class="btn btn-info">Chi tiết</a>
+                                                <a href="@Url.Action("Edit", "Event", new { id = eventItem.Id })" class="btn btn-primary">Sửa</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

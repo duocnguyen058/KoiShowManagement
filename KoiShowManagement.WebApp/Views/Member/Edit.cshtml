@@ -1,19 +1,56 @@
 ﻿@model KoiShowManagement.Repositories.Entities.Member
 
-@{
-    ViewData["Title"] = "Sửa Thành Viên";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh Sửa Thành viên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>Sửa Thành Viên</h2>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Chỉnh Sửa Thành viên</h1>
+            </div>
 
-<form method="post">
-    <div class="form-group">
-        <label for="Name">Tên Thành Viên</label>
-        <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required />
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Chỉnh Sửa Thành viên</h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="@Url.Action("Edit", "Member", new { id = Model.Id })">
+                                <div class="form-group">
+                                    <label for="Name">Tên Thành viên</label>
+                                    <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">Email</label>
+                                    <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="JoinDate">Ngày tham gia</label>
+                                    <input type="date" class="form-control" id="JoinDate" name="JoinDate" value="@Model.JoinDate.ToString("yyyy-MM-dd")" required />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                                <a href="@Url.Action("Index", "Member")" class="btn btn-secondary">Hủy</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
     </div>
-    <div class="form-group">
-        <label for="Email">Email</label>
-        <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" required />
-    </div>
-    <button type="submit" class="btn btn-primary">Cập Nhật</button>
-</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

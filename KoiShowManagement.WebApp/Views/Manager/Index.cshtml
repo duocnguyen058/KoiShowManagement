@@ -35,7 +35,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Tên</th>
-                                        <th>Phòng ban</th> <!-- Chỉnh lại cột "Chức vụ" thành "Phòng ban" -->
+                                        <th>Phòng ban</th>
                                         <th>Hành động</th>
                                     </tr>
                                 </thead>
@@ -43,12 +43,12 @@
                                     @foreach (var manager in Model)
                                     {
                                         <tr>
-                                            <td>@manager.ManagerId</td> <!-- Thay Id bằng ManagerId -->
+                                            <td>@manager.ManagerId</td>
                                             <td>@manager.Name</td>
-                                            <td>@manager.Department</td> <!-- Thay Position bằng Department -->
+                                            <td>@manager.Department</td>
                                             <td>
-                                                <a href="@Url.Action("Details", "Manager", new { id = manager.ManagerId })" class="btn btn-info">Chi tiết</a> <!-- Thay Id bằng ManagerId -->
-                                                <a href="@Url.Action("Edit", "Manager", new { id = manager.ManagerId })" class="btn btn-primary">Sửa</a> <!-- Thay Id bằng ManagerId -->
+                                                <a href="@Url.Action("Details", "Manager", new { id = manager.ManagerId })" class="btn btn-info">Chi tiết</a>
+                                                <a href="@Url.Action("Edit", "Manager", new { id = manager.ManagerId })" class="btn btn-primary">Sửa</a>
                                             </td>
                                         </tr>
                                     }

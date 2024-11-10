@@ -1,25 +1,55 @@
 ﻿@model KoiShowManagement.Repositories.Entities.CompetitionResult
 
-@{
-    ViewData["Title"] = "Sửa Kết Quả Cuộc Thi";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa kết quả cuộc thi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>Sửa Kết Quả Cuộc Thi</h2>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Sửa kết quả cuộc thi</h1>
+            </div>
 
-<form method="post">
-    <div class="form-group">
-        <label for="CompetitionName">Tên Cuộc Thi</label>
-        <!-- Sửa từ Model.Event?.Name thành Model.Event?.EventName -->
-        <input type="text" id="CompetitionName" name="CompetitionName" class="form-control" value="@Model.Event?.EventName" readonly />
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Chỉnh sửa kết quả cuộc thi</h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="@Url.Action("Edit", "CompetitionResult", new { id = Model.Id })">
+                                <div class="form-group">
+                                    <label for="CompetitionName">Tên cuộc thi</label>
+                                    <input type="text" class="form-control" id="CompetitionName" name="CompetitionName" value="@Model.CompetitionName" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Score">Điểm</label>
+                                    <input type="number" class="form-control" id="Score" name="Score" value="@Model.Score" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="ScoreDate">Ngày chấm điểm</label>
+                                    <input type="date" class="form-control" id="ScoreDate" name="ScoreDate" value="@Model.ScoreDate.ToString("yyyy-MM-dd")" required />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Cập nhật kết quả</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
     </div>
-    <div class="form-group">
-        <label for="Date">Ngày</label>
-        <!-- Sửa từ Model.Event?.Date thành Model.Event?.EventDate -->
-        <input type="date" id="Date" name="Date" class="form-control" value="@Model.Event?.EventDate?.ToString("yyyy-MM-dd")" required />
-    </div>
-    <div class="form-group">
-        <label for="Feedback">Chi Tiết</label>
-        <textarea id="Feedback" name="Feedback" class="form-control" required>@Model.Feedback</textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Cập Nhật</button>
-</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

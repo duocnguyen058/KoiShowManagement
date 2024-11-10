@@ -1,6 +1,13 @@
 ﻿@{
-    ViewData["Title"] = "Lỗi";
+    Layout = "_Layout";
 }
 
-<h1>Đã xảy ra lỗi</h1>
-<p>@ViewData["ErrorMessage"]</p>
+<div class="container">
+    <h2 class="text-danger">Lỗi!</h2>
+    <div class="alert alert-danger">
+        <strong>Xin lỗi!</strong> Một lỗi không xác định đã xảy ra. Vui lòng thử lại sau.
+    </div>
+    <p>Chi tiết lỗi: @ViewData["ErrorMessage"]</p>
+    <p>Thông tin lỗi: @ViewData["StackTrace"]</p>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Quay lại trang chủ</a>
+</div>

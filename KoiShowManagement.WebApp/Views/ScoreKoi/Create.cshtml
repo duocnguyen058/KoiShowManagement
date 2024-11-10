@@ -1,41 +1,75 @@
 ﻿@model KoiShowManagement.Repositories.Entities.ScoreKoi
 
-@{
-    ViewData["Title"] = "Tạo Điểm Số Koi Mới";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Điểm Cá Koi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>Tạo Điểm Số Koi</h2>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Tạo Điểm cho Cá Koi</h1>
+            </div>
 
-<form method="post">
-    <div class="form-group">
-        <label for="KoiId">Koi</label>
-        <select id="KoiId" name="KoiId" class="form-control" required>
-            @foreach (var koi in ViewBag.KoiList as List<KoiShowManagement.Repositories.Entities.Koi>)
-            {
-                <option value="@koi.KoiId">@koi.Name</option>
-            }
-        </select>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Điền thông tin điểm cá Koi</h3>
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm())
+                            {
+                                <div class="form-group">
+                                    <label for="KoiId">Cá Koi</label>
+                                    <select id="KoiId" name="KoiId" class="form-control" required>
+                                        @foreach (var koi in ViewBag.KoiList)
+                                        {
+                                            <option value="@koi.KoiId">@koi.Name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="RefereeId">Người chấm</label>
+                                    <select id="RefereeId" name="RefereeId" class="form-control" required>
+                                        @foreach (var referee in ViewBag.RefereeList)
+                                        {
+                                            <option value="@referee.RefereeId">@referee.Name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Score">Điểm</label>
+                                    <input type="number" id="Score" name="Score" class="form-control" min="0" max="10" step="0.1" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ScoreDate">Ngày chấm</label>
+                                    <input type="date" id="ScoreDate" name="ScoreDate" class="form-control" required />
+                                </div>
+
+                                <button type="submit" class="btn btn-success">Lưu điểm</button>
+                                <a href="@Url.Action("Index", "ScoreKoi")" class="btn btn-secondary">Hủy</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
     </div>
 
-    <div class="form-group">
-        <label for="RefereeId">Trọng Tài</label>
-        <select id="RefereeId" name="RefereeId" class="form-control" required>
-            @foreach (var referee in ViewBag.RefereeList as List<KoiShowManagement.Repositories.Entities.Referee>)
-            {
-                <option value="@referee.RefereeId">@referee.Name</option>
-            }
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label for="Score">Điểm</label>
-        <input type="number" id="Score" name="Score" class="form-control" required min="0" />
-    </div>
-
-    <div class="form-group">
-        <label for="Feedback">Chi Tiết</label>
-        <textarea id="Feedback" name="Feedback" class="form-control" required></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Tạo</button>
-</form>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

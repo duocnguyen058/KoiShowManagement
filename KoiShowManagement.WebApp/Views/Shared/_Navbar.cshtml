@@ -1,10 +1,61 @@
-﻿<nav>
-    <ul>
-        <li><a href="/">Trang Chủ</a></li>
-        <li><a href="/CompetitionResult">Kết Quả Cuộc Thi</a></li>
-        <li><a href="/Event">Sự Kiện</a></li>
-        <li><a href="/Koi">Koi</a></li>
-        <li><a href="/Account/Login">Đăng Nhập</a></li>
-        <li><a href="/Account/Register">Đăng Ký</a></li>
-    </ul>
-</nav>
+﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="/" class="brand-link">
+        <img src="logo.png" alt="Logo" class="brand-image img-circle elevation-3">
+        <span class="brand-text font-weight-light">Cuộc thi Cá Koi</span>
+    </a>
+
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Trang chủ
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Event")" class="nav-link">
+                        <i class="nav-icon fas fa-calendar-alt"></i>
+                        <p>
+                            Sự kiện
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Manager")" class="nav-link">
+                        <i class="nav-icon fas fa-user-tie"></i>
+                        <p>
+                            Người quản lý
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "ScoreKoi")" class="nav-link">
+                        <i class="nav-icon fas fa-star"></i>
+                        <p>
+                            Điểm cá Koi
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Report")" class="nav-link">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>
+                            Báo cáo
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("Logout", "Account")" class="nav-link">
+                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <p>
+                            Đăng xuất
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

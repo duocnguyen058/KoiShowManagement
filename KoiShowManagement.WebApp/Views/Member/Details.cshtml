@@ -1,12 +1,45 @@
 ﻿@model KoiShowManagement.Repositories.Entities.Member
 
-@{
-    ViewData["Title"] = "Chi Tiết Thành Viên";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Thành viên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>@Model.Name</h2>
-<p>Email: @Model.Email</p>
-<p>Số Điện Thoại: @Model.Phone</p>
-<p>Ngày Tham Gia: @Model.MembershipDate?.ToString("dd/MM/yyyy")</p>
-<p>Loại Thành Viên: @Model.MembershipType</p>
-<a href="@Url.Action("Index")">Quay lại</a>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Chi Tiết Thành viên</h1>
+            </div>
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Thông Tin Thành viên</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>ID:</strong> @Model.Id</p>
+                            <p><strong>Tên:</strong> @Model.Name</p>
+                            <p><strong>Email:</strong> @Model.Email</p>
+                            <p><strong>Ngày tham gia:</strong> @Model.JoinDate.ToString("dd/MM/yyyy")</p>
+                            <a href="@Url.Action("Edit", "Member", new { id = Model.Id })" class="btn btn-primary">Chỉnh sửa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

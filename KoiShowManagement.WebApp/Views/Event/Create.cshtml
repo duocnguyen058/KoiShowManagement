@@ -1,23 +1,59 @@
 ﻿@model KoiShowManagement.Repositories.Entities.Event
 
-@{
-    ViewData["Title"] = "Tạo Sự Kiện";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo sự kiện mới</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>Tạo Sự Kiện</h2>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Tạo sự kiện mới</h1>
+            </div>
 
-<form method="post">
-    <div class="form-group">
-        <label for="EventName">Tên Sự Kiện</label>
-        <input type="text" id="EventName" name="EventName" class="form-control" required />
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Thông tin sự kiện</h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="@Url.Action("Create", "Event")">
+                                <div class="form-group">
+                                    <label for="Name">Tên sự kiện</label>
+                                    <input type="text" class="form-control" id="Name" name="Name" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="StartDate">Ngày bắt đầu</label>
+                                    <input type="date" class="form-control" id="StartDate" name="StartDate" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="EndDate">Ngày kết thúc</label>
+                                    <input type="date" class="form-control" id="EndDate" name="EndDate" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="Description">Mô tả</label>
+                                    <textarea class="form-control" id="Description" name="Description"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Tạo sự kiện</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
     </div>
-    <div class="form-group">
-        <label for="Date">Ngày</label>
-        <input type="date" id="Date" name="Date" class="form-control" required />
-    </div>
-    <div class="form-group">
-        <label for="Details">Chi Tiết</label>
-        <textarea id="Details" name="Details" class="form-control" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Tạo</button>
-</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

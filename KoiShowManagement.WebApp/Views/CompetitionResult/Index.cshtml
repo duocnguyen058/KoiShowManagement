@@ -1,30 +1,68 @@
 ﻿@model List<KoiShowManagement.Repositories.Entities.CompetitionResult>
 
-@{
-    ViewData["Title"] = "Kết Quả Cuộc Thi";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách kết quả cuộc thi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>Kết Quả Cuộc Thi</h2>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Danh sách kết quả cuộc thi</h1>
+            </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tên Cuộc Thi</th>
-            <th>Ngày</th>
-            <th>Chi Tiết</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var result in Model)
-        {
-            <tr>
-                <!-- Sửa lại: Thay từ .Name thành .EventName -->
-                <td>@result.Event?.EventName</td> <!-- Lấy tên cuộc thi từ đối tượng Event -->
-                <!-- Sửa lại: Thay từ .Date thành .EventDate -->
-                <td>@result.Event?.EventDate?.ToShortDateString()</td> <!-- Lấy ngày từ đối tượng Event -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Danh sách các kết quả cuộc thi</h3>
+                            <a href="@Url.Action("Create", "CompetitionResult")" class="btn btn-success float-right">Tạo kết quả mới</a>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Tên cuộc thi</th>
+                                        <th>Điểm</th>
+                                        <th>Ngày chấm điểm</th>
+                                        <th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var result in Model)
+                                    {
+                                        <tr>
+                                            <td>@result.Id</td>
+                                            <td>@result.CompetitionName</td>
+                                            <td>@result.Score</td>
+                                            <td>@result.ScoreDate.ToString("dd/MM/yyyy")</td>
+                                            <td>
+                                                <a href="@Url.Action("Details", "CompetitionResult", new { id = result.Id })" class="btn btn-info">Chi tiết</a>
+                                                <a href="@Url.Action("Edit", "CompetitionResult", new { id = result.Id })" class="btn btn-primary">Sửa</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <td><a href="@Url.Action("Details", new { id = result.ResultId })">Xem Chi Tiết</a></td>
-            </tr>
-        }
-    </tbody>
-</table>
+        @await Html.PartialAsync("_Footer")
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>
+    

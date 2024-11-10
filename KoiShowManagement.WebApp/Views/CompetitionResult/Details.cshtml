@@ -1,10 +1,45 @@
 ﻿@model KoiShowManagement.Repositories.Entities.CompetitionResult
 
-@{
-    ViewData["Title"] = "Chi Tiết Kết Quả Cuộc Thi";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết kết quả cuộc thi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>@Model.Event?.EventName</h2>  <!-- Lấy tên cuộc thi từ Event -->
-<p>Ngày: @Model.Event?.EventDate?.ToShortDateString() ?? "Chưa có ngày tổ chức"</p>  <!-- Kiểm tra nếu EventDate không có thì hiển thị thông báo -->
-<p>Chi Tiết: @Model.Feedback</p>  <!-- Lấy chi tiết từ Feedback của CompetitionResult -->
-<a href="@Url.Action("Index")">Quay lại</a>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Chi tiết kết quả cuộc thi</h1>
+            </div>
+
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Thông tin kết quả cuộc thi</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Id:</strong> @Model.Id</p>
+                            <p><strong>Tên cuộc thi:</strong> @Model.CompetitionName</p>
+                            <p><strong>Điểm:</strong> @Model.Score</p>
+                            <p><strong>Ngày chấm điểm:</strong> @Model.ScoreDate.ToString("dd/MM/yyyy")</p>
+                            <a href="@Url.Action("Edit", "CompetitionResult", new { id = Model.Id })" class="btn btn-primary">Sửa</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

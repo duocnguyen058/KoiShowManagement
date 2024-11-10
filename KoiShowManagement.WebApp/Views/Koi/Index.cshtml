@@ -1,27 +1,66 @@
 ﻿@model List<KoiShowManagement.Repositories.Entities.Koi>
 
-@{
-    ViewData["Title"] = "Danh Sách Koi";
-}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Cá Koi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<h2>Danh Sách Koi</h2>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Danh sách Cá Koi</h1>
+            </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Tên Koi</th>
-            <th>Màu Sắc Koi</th> <!-- Sử dụng thuộc tính Color thay cho Type -->
-            <th>Chi Tiết</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var koi in Model)
-        {
-            <tr>
-                <td>@koi.Name</td>
-                <td>@koi.Color</td> <!-- Hiển thị màu sắc -->
-                <td><a href="@Url.Action("Details", new { id = koi.KoiId })">Xem Chi Tiết</a></td> <!-- Sử dụng KoiId thay vì Id -->
-            </tr>
-        }
-    </tbody>
-</table>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Danh sách Cá Koi</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Tên</th>
+                                        <th>Giới tính</th>
+                                        <th>Tuổi</th>
+                                        <th>Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var koi in Model)
+                                    {
+                                        <tr>
+                                            <td>@koi.Id</td>
+                                            <td>@koi.Name</td>
+                                            <td>@koi.Gender</td>
+                                            <td>@koi.Age</td>
+                                            <td>
+                                                <a href="@Url.Action("Details", "Koi", new { id = koi.Id })" class="btn btn-info">Chi tiết</a>
+                                                <a href="@Url.Action("Edit", "Koi", new { id = koi.Id })" class="btn btn-primary">Sửa</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

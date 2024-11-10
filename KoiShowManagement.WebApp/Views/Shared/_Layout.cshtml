@@ -1,69 +1,28 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/css/site.css" />
-    @RenderSection("Styles", required: false)
+    <title>@ViewData["Title"] - Cuộc thi Cá Koi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 </head>
-<body>
-    <!-- Menu -->
-    <ul class="menu">
-        <li><img src="~/images/koi-logo.png" alt="Logo Koi Show 2024" class="logo" /></li>
-        <li><a href="/">Trang chủ</a></li>
-        <li id="profileLink" style="display:none;"><a href="/Member/UpdateProfile">Profile</a></li>
-        <li id="addKoiLink" style="display:none;"><a href="/Referee/ScoreKoi">Thêm Cá Koi</a></li>
-        <li id="infoLink"><a href="/Home/Competitions">Thông tin</a></li>
-        <li id="loginLink"><a href="/Account/Login">Đăng Nhập</a></li>
-        <li id="registerLink"><a href="/Account/Register">Đăng Ký</a></li>
-        <li id="logoutLink" style="display:none;"><a href="/Account/Logout">Đăng Xuất</a></li>
-    </ul>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-    <div class="container">
-        @RenderBody() <!-- Phần nội dung chính sẽ được render ở đây -->
+        @RenderBody()
+
+        @await Html.PartialAsync("_Footer")
     </div>
 
-    <!-- Render section Content nếu nó được định nghĩa trong view con -->
-    @RenderSection("Content", required: false)
-
-    <footer>
-        <p>&copy; 2024 Koi Show - Tất cả quyền lợi được bảo lưu. <a href="#">Điều khoản sử dụng</a> | <a href="#">Chính sách bảo mật</a></p>
-    </footer>
-
-    <script src="~/js/site.js"></script>
-
-    <script>
-        function getLoggedInUser() {
-            return JSON.parse(localStorage.getItem('loggedInUser'));
-        }
-
-        function updateNav() {
-            const user = getLoggedInUser();
-            const loginLink = document.getElementById('loginLink');
-            const registerLink = document.getElementById('registerLink');
-            const profileLink = document.getElementById('profileLink');
-            const addKoiLink = document.getElementById('addKoiLink');
-            const logoutLink = document.getElementById('logoutLink');
-
-            if (user) {
-                loginLink.style.display = 'none';
-                registerLink.style.display = 'none';
-                profileLink.style.display = 'block';
-                addKoiLink.style.display = 'block';
-                logoutLink.style.display = 'block';
-            } else {
-                profileLink.style.display = 'none';
-                addKoiLink.style.display = 'none';
-                logoutLink.style.display = 'none';
-                loginLink.style.display = 'block';
-                registerLink.style.display = 'block';
-            }
-        }
-
-        window.onload = function () {
-            updateNav();
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
 </body>
 </html>

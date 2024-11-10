@@ -1,46 +1,65 @@
-﻿@{
-    ViewData["Title"] = "Chỉnh Sửa Trọng Tài";
-}
+﻿@model KoiShowManagement.Repositories.Entities.Referee
 
-<h2>Chỉnh Sửa Thông Tin Trọng Tài</h2>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa Trọng tài</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Chỉnh sửa thông tin Trọng tài</h1>
+            </div>
 
-    <div class="form-group">
-        <label for="Name">Tên</label>
-        <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" required />
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Cập nhật thông tin Trọng tài</h3>
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm())
+                            {
+                                <div class="form-group">
+                                    <label for="Name">Tên</label>
+                                    <input type="text" id="Name" name="Name" class="form-control" value="@Model.Name" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Email">Email</label>
+                                    <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Phone">Số điện thoại</label>
+                                    <input type="text" id="Phone" name="Phone" class="form-control" value="@Model.Phone" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="JoinDate">Ngày tham gia</label>
+                                    <input type="date" id="JoinDate" name="JoinDate" class="form-control" value="@Model.JoinDate.ToString("yyyy-MM-dd")" />
+                                </div>
+
+                                <button type="submit" class="btn btn-success">Lưu thay đổi</button>
+                                <a href="@Url.Action("Index", "Referee")" class="btn btn-secondary">Hủy</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
     </div>
 
-    <div class="form-group">
-        <label for="Email">Email</label>
-        <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Phone">Số Điện Thoại</label>
-        <input type="text" class="form-control" id="Phone" name="Phone" value="@Model.Phone" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Role">Vai Trò</label>
-        <select class="form-control" id="Role" name="Role">
-            <option value="Trọng Tài" @if (Model.Role == "Trọng Tài")
-            {
-                <text>selected</text>
-            }>Trọng Tài</option>
-            <option value="Trưởng Ban" @if (Model.Role == "Trưởng Ban")
-            {
-                <text>selected</text>
-            }>Trưởng Ban</option>
-            <option value="Trợ Lý" @if (Model.Role == "Trợ Lý")
-            {
-                <text>selected</text>
-            }>Trợ Lý</option>
-        </select>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Cập Nhật Thông Tin</button>
-</form>
-
-<a href="@Url.Action("Index", "Referee")">Quay lại danh sách trọng tài</a>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>

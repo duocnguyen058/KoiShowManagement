@@ -1,28 +1,60 @@
-﻿@{
-    ViewData["Title"] = "Chỉnh Sửa Báo Cáo";
-}
+﻿@model KoiShowManagement.Repositories.Entities.Report
 
-<h2>Chỉnh Sửa Báo Cáo</h2>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chỉnh sửa Báo cáo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("_Navbar")
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="content-wrapper">
+            <div class="content-header">
+                <h1>Chỉnh sửa Báo cáo</h1>
+            </div>
 
-    <div class="form-group">
-        <label for="Title">Tiêu Đề</label>
-        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required />
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Cập nhật Báo cáo</h3>
+                        </div>
+                        <div class="card-body">
+                            @using (Html.BeginForm())
+                            {
+                                <div class="form-group">
+                                    <label for="Title">Tiêu đề</label>
+                                    <input type="text" id="Title" name="Title" class="form-control" value="@Model.Title" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Content">Nội dung</label>
+                                    <textarea id="Content" name="Content" class="form-control" rows="5" required>@Model.Content</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="CreatedDate">Ngày tạo</label>
+                                    <input type="date" id="CreatedDate" name="CreatedDate" class="form-control" value="@Model.CreatedDate.ToString("yyyy-MM-dd")" required />
+                                </div>
+
+                                <button type="submit" class="btn btn-success">Lưu thay đổi</button>
+                                <a href="@Url.Action("Index", "Report")" class="btn btn-secondary">Hủy</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @await Html.PartialAsync("_Footer")
     </div>
 
-    <div class="form-group">
-        <label for="Date">Ngày</label>
-        <input type="date" class="form-control" id="Date" name="Date" value="@Model.Date.ToString("yyyy-MM-dd")" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Description">Mô Tả</label>
-        <textarea class="form-control" id="Description" name="Description" rows="4" required>@Model.Description</textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Cập Nhật Báo Cáo</button>
-</form>
-
-<a href="@Url.Action("Index", "Report")">Quay lại danh sách báo cáo</a>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js"></script>
+</body>
+</html>
