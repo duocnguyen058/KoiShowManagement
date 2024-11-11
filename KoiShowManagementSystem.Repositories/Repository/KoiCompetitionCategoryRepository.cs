@@ -1,18 +1,21 @@
 ﻿using KoiShowManagementSystem.Repositories.Entities;
+using KoiShowManagementSystem.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace KoiShowManagementSystem.Repositories
+namespace KoiShowManagementSystem.Repositories.Repository
 {
-    public class KoiCompetitionRepository : IKoiCompetitionRepository
+    public class KoiCompetitionCategoryRepository : IKoiCompetitionCategoryRepository
     {
-        private readonly KoiShowManagementDbContext _context;
+        private readonly KoiShowManagementDbcontextContext _context;
 
-        public KoiCompetitionRepository(KoiShowManagementDbContext context)
+        public KoiCompetitionCategoryRepository(KoiShowManagementDbcontextContext context)
         {
             _context = context;
         }
 
-        public async Task<List<KoiCompetitionCategory>> GetAllAsync()
+        public async Task<List<KoiCompetitionCategory>> GetAllKoiCompetitionCategoriesAsync()
         {
             return await _context.KoiCompetitionCategories
                 .Include(k => k.Competition)
@@ -21,7 +24,7 @@ namespace KoiShowManagementSystem.Repositories
                 .ToListAsync();
         }
 
-        public async Task<KoiCompetitionCategory> GetByIdAsync(int id)
+        public async Task<KoiCompetitionCategory> GetKoiCompetitionCategoryByIdAsync(int id)
         {
             return await _context.KoiCompetitionCategories
                 .Include(k => k.Competition)
@@ -30,25 +33,64 @@ namespace KoiShowManagementSystem.Repositories
                 .FirstOrDefaultAsync(k => k.KoiCompetitionCategoryId == id);
         }
 
-        public async Task AddAsync(KoiCompetitionCategory koiCompetitionCategory)
+        public async Task<bool> AddKoiCompetitionCategoryAsync(KoiCompetitionCategory koiCompetitionCategory)
         {
-            await _context.KoiCompetitionCategories.AddAsync(koiCompetitionCategory);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.KoiCompetitionCategories.AddAsync(koiCompetitionCategory);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public async Task UpdateAsync(KoiCompetitionCategory koiCompetitionCategory)
+        public async Task<bool> UpdateKoiCompetitionCategoryAsync(KoiCompetitionCategory koiCompetitionCategory)
         {
-            _context.KoiCompetitionCategories.Update(koiCompetitionCategory);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.KoiCompetitionCategories.Update(koiCompetitionCategory);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task<bool> DeleteKoiCompetitionCategoryAsync(int id)
         {
-            var koiCompetitionCategory = await _context.KoiCompetitionCategories.FindAsync(id);
-            if (koiCompetitionCategory != null)
+            try
+            {
+                var koiCategory = await _context.KoiCompetitionCategories.FindAsync(id);
+                if (koiCategory != null)
+                {
+                    _context.KoiCompetitionCategories.Remove(koiCategory);
+                    await _context.SaveChangesAsync();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> DeleteKoiCompetitionCategoryAsync(KoiCompetitionCategory koiCompetitionCategory)
+        {
+            try
             {
                 _context.KoiCompetitionCategories.Remove(koiCompetitionCategory);
                 await _context.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }
