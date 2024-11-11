@@ -32,7 +32,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             }
         }
 
-        public async Task<bool> DeleteCompetitionCategoryAsync(int Id)
+        public async Task<bool> DelCompetitionCategoryAsync(int Id)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             }
         }
 
-        public async Task<bool> DeleteCompetitionCategoryAsync(CompetitionCategory category)
+        public async Task<bool> DelCompetitionCategoryAsync(CompetitionCategory category)
         {
             try
             {
@@ -71,8 +71,8 @@ namespace KoiShowManagementSystem.Repositories.Repository
             try
             {
                 return await _context.CompetitionCategories
-                    .Include(c => c.KoiCompetitionCategories) 
-                    .Include(c => c.Results) 
+                    .Include(c => c.KoiCompetitionCategories)
+                    .Include(c => c.Results)
                     .ToListAsync();
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             {
                 return await _context.CompetitionCategories
                     .Include(c => c.KoiCompetitionCategories)
-                    .Include(c => c.Results) 
+                    .Include(c => c.Results)
                     .FirstOrDefaultAsync(c => c.CategoryId == Id);
             }
             catch (Exception ex)
@@ -96,7 +96,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             }
         }
 
-        public async Task<bool> UpdateCompetitionCategoryAsync(CompetitionCategory category)
+        public async Task<bool> UpdCompetitionCategoryAsync(CompetitionCategory category)
         {
             try
             {

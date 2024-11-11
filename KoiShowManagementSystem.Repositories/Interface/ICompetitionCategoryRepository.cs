@@ -16,5 +16,6 @@ namespace KoiShowManagementSystem.Repositories.Interface
         Task<bool> UpdCompetitionCategoryAsync(CompetitionCategory category);
         Task<bool> DelCompetitionCategoryAsync(int Id);
         Task<bool> DelCompetitionCategoryAsync(CompetitionCategory category);
+        Task<bool> DeleteCompetitionCategoryAsync(int id);
     }
 }

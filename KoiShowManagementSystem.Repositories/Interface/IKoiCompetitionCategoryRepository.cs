@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace KoiShowManagementSystem.Services.Interface
+namespace KoiShowManagementSystem.Repositories.Interface
 {
-    public interface IKoiCompetitionCategoryService
+    public interface IKoiCompetitionCategoryRepository
     {
         Task<List<KoiCompetitionCategory>> GetAllKoiCompetitionCategoriesAsync();
         Task<KoiCompetitionCategory> GetKoiCompetitionCategoryByIdAsync(int id);
