@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
@@ -68,6 +69,35 @@ namespace KoiShowManagementSystem.Repositories.Repository
             _context.Competitions.Remove(competition);
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        // Triển khai phương thức tìm kiếm cuộc thi
+        public async Task<IEnumerable<Competition>> SearchCompetitionsAsync(string searchQuery, DateTime? date)
+        {
+            var competitions = _context.Competitions
+                .Include(c => c.Dashboards)
+                .Include(c => c.Judges)
+                .Include(c => c.KoiCompetitionCategories)
+                .Include(c => c.Registrations)
+                .Include(c => c.Reports)
+                .Include(c => c.Results)
+                .Include(c => c.Scores)
+                .AsQueryable();
+
+            // Lọc theo từ khóa tìm kiếm
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                competitions = competitions.Where(c => c.Name.Contains(searchQuery) || c.Description.Contains(searchQuery));
+            }
+
+            // Lọc theo ngày (nếu có)
+            if (date.HasValue)
+            {
+                DateTime searchDate = date.Value.Date;
+                competitions = competitions.Where(c => c.StartDate <= searchDate && c.EndDate >= searchDate);
+            }
+
+            return await competitions.ToListAsync();
         }
     }
 }

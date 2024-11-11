@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
-using KoiShowManagementSystem.Services.Interface;
+using KoiShowManagementSystem.Services.CompetitionService;
 
 namespace KoiShowManagementSystem.Services.Service
 {
@@ -49,6 +50,13 @@ namespace KoiShowManagementSystem.Services.Service
         {
             if (registration == null) throw new ArgumentNullException(nameof(registration));
             return await _repository.DeleteRegistrationAsync(registration);
+        }
+
+        // Cài đặt phương thức xóa các đăng ký của một cuộc thi
+        public async Task<bool> DeleteRegistrationsByCompetitionIdAsync(int competitionId)
+        {
+            if (competitionId <= 0) throw new ArgumentException("ID cuộc thi không hợp lệ.");
+            return await _repository.DeleteRegistrationsByCompetitionIdAsync(competitionId);
         }
     }
 }

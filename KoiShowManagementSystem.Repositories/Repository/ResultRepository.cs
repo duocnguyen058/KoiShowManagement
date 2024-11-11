@@ -72,5 +72,22 @@ namespace KoiShowManagementSystem.Repositories.Repository
             await _context.SaveChangesAsync();
             return true;
         }
+        // Triển khai phương thức tìm kiếm kết quả thi
+        public async Task<List<Result>> SearchResultsAsync(int? koiFishId, int? competitionId)
+        {
+            var query = _context.Results.AsQueryable();
+
+            if (koiFishId.HasValue)
+            {
+                query = query.Where(r => r.KoiFishId == koiFishId.Value);
+            }
+
+            if (competitionId.HasValue)
+            {
+                query = query.Where(r => r.CompetitionId == competitionId.Value);
+            }
+
+            return await query.ToListAsync();
+        }
     }
 }

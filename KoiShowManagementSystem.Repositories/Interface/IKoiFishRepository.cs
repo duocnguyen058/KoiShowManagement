@@ -12,5 +12,6 @@ namespace KoiShowManagementSystem.Repositories.Interface
         Task<bool> UpdateKoiFishAsync(KoiFish koiFish);
         Task<bool> DeleteKoiFishByIdAsync(int id);
         Task<bool> DeleteKoiFishAsync(KoiFish koiFish);
+        Task<List<KoiFish>> SearchKoiFishAsync(string searchQuery, string variety, double? size, int? age);
     }
 }

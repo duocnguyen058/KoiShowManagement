@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 
-namespace KoiShowManagementSystem.Services.Interface
+namespace KoiShowManagementSystem.Services.CompetitionService
 {
     public interface IRegistrationService
     {
@@ -12,5 +12,6 @@ namespace KoiShowManagementSystem.Services.Interface
         Task<bool> UpdateRegistrationAsync(Registration registration);
         Task<bool> DeleteRegistrationByIdAsync(int id);
         Task<bool> DeleteRegistrationAsync(Registration registration);
+        Task<bool> DeleteRegistrationsByCompetitionIdAsync(int competitionId);
     }
 }

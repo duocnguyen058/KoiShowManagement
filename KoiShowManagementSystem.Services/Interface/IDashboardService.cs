@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KoiShowManagementSystem.Services.Interface
+namespace KoiShowManagementSystem.Services.CompetitionService
 {
     public interface IDashboardService
     {

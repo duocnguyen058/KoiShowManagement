@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KoiShowManagementSystem.Services.Interface
+namespace KoiShowManagementSystem.Services.CompetitionService
 {
     public interface ICompetitionCategoryService
     {
@@ -15,5 +15,6 @@ namespace KoiShowManagementSystem.Services.Interface
         Task<bool> UpdateCompetitionCategoryAsync(CompetitionCategory category);
         Task<bool> DeleteCompetitionCategoryAsync(int Id);
         Task<bool> DeleteCompetitionCategoryAsync(CompetitionCategory category);
+        Task<bool> CreateCompetitionCategoryAsync(CompetitionCategory category);
     }
 }

@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using KoiShowManagementSystem.Repositories.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using KoiShowManagementSystem.Repositories.Entities;
 
-namespace KoiShowManagementSystem.Services.Interface
+namespace KoiShowManagementSystem.Services
 {
     public interface IKoiFishService
     {
@@ -12,5 +12,6 @@ namespace KoiShowManagementSystem.Services.Interface
         Task<bool> UpdateKoiFishAsync(KoiFish koiFish);
         Task<bool> DeleteKoiFishByIdAsync(int id);
         Task<bool> DeleteKoiFishAsync(KoiFish koiFish);
+        Task<List<KoiFish>> SearchKoiFishAsync(string searchQuery, string variety, double? size, int? age);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
-using KoiShowManagementSystem.Services.Interface;
+using KoiShowManagementSystem.Services.CompetitionService;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -92,16 +92,16 @@ namespace KoiShowManagementSystem.Services.Service
         }
 
         // Kiểm tra tính hợp lệ của tài khoản (username, password)
-        public async Task<bool> ValidateAccountAsync(string username, string password)
+        public async Task<Account> ValidateAccountAsync(string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 throw new ArgumentException("Tên đăng nhập hoặc mật khẩu không thể trống");
 
             var account = await _accountRepository.GetAccountByUsernameAsync(username);
             if (account == null || account.PasswordHash != password)
-                return false;
+                return null; // Trả về null nếu tài khoản không hợp lệ
 
-            return true;
+            return account; // Trả về tài khoản hợp lệ
         }
     }
 }

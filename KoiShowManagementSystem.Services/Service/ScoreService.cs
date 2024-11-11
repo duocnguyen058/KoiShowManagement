@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
-using KoiShowManagementSystem.Services.Interface;
+using KoiShowManagementSystem.Services.CompetitionService;
 
 namespace KoiShowManagementSystem.Services.Service
 {

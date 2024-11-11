@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 
@@ -9,6 +8,7 @@ namespace KoiShowManagementSystem.Services.Interface
     {
         Task<Competition> GetCompetitionByIdAsync(int competitionId);
         Task<IEnumerable<Competition>> GetAllCompetitionsAsync();
+        Task<IEnumerable<Competition>> SearchCompetitionsAsync(string searchQuery, DateTime? date);
         Task<bool> CreateCompetitionAsync(Competition competition);
         Task<bool> UpdateCompetitionAsync(Competition competition);
         Task<bool> DeleteCompetitionAsync(int competitionId);
@@ -18,5 +18,6 @@ namespace KoiShowManagementSystem.Services.Interface
         Task<IEnumerable<Result>> GetResultsForCompetitionAsync(int competitionId);
         Task<IEnumerable<Score>> GetScoresForCompetitionAsync(int competitionId);
         bool IsCompetitionActive(Competition competition);
+        Task<IEnumerable<Competition>> GetOngoingCompetitionsAsync();
     }
 }

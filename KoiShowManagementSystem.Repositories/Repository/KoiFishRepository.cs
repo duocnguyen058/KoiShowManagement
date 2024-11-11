@@ -1,18 +1,23 @@
-﻿using KoiShowManagementSystem.Repositories.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace KoiShowManagementSystem.Repositories.Repository
 {
     public class KoiFishRepository : IKoiFishRepository
     {
         private readonly KoiShowManagementDbcontextContext _context;
+        private readonly ILogger<KoiFishRepository> _logger;
 
-        public KoiFishRepository(KoiShowManagementDbcontextContext context)
+        public KoiFishRepository(KoiShowManagementDbcontextContext context, ILogger<KoiFishRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // Lấy tất cả các Koi Fish
@@ -21,16 +26,16 @@ namespace KoiShowManagementSystem.Repositories.Repository
             try
             {
                 return await _context.KoiFishes
-                                     .Include(k => k.Account)  // Bao gồm dữ liệu của Account
-                                     .Include(k => k.KoiCompetitionCategories)  // Bao gồm dữ liệu của KoiCompetitionCategory
-                                     .Include(k => k.Registrations)  // Bao gồm dữ liệu của Registration
-                                     .Include(k => k.Results)  // Bao gồm dữ liệu của Result
-                                     .Include(k => k.Scores)  // Bao gồm dữ liệu của Score
+                                     .Include(k => k.Account)
+                                     .Include(k => k.KoiCompetitionCategories)
+                                     .Include(k => k.Registrations)
+                                     .Include(k => k.Results)
+                                     .Include(k => k.Scores)
                                      .ToListAsync();
             }
             catch (Exception ex)
             {
-                // Log lỗi nếu cần
+                _logger.LogError(ex, "Có lỗi xảy ra khi lấy dữ liệu Koi Fish");
                 throw new Exception("Có lỗi xảy ra khi lấy dữ liệu Koi Fish", ex);
             }
         }
@@ -42,7 +47,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             {
                 return await _context.KoiFishes
                                      .Include(k => k.Account)
-                                     .Include(k => k.KoiCompetitionCategories)  // Bao gồm dữ liệu của KoiCompetitionCategory
+                                     .Include(k => k.KoiCompetitionCategories)
                                      .Include(k => k.Registrations)
                                      .Include(k => k.Results)
                                      .Include(k => k.Scores)
@@ -50,7 +55,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             }
             catch (Exception ex)
             {
-                // Log lỗi nếu cần
+                _logger.LogError(ex, "Có lỗi xảy ra khi lấy Koi Fish theo ID");
                 throw new Exception("Có lỗi xảy ra khi lấy Koi Fish theo ID", ex);
             }
         }
@@ -61,11 +66,11 @@ namespace KoiShowManagementSystem.Repositories.Repository
             try
             {
                 await _context.KoiFishes.AddAsync(koiFish);
-                return await _context.SaveChangesAsync() > 0;  // Nếu lưu thành công trả về true
+                return await _context.SaveChangesAsync() > 0;
             }
             catch (Exception ex)
             {
-                // Log lỗi nếu cần
+                _logger.LogError(ex, "Có lỗi xảy ra khi thêm Koi Fish");
                 throw new Exception("Có lỗi xảy ra khi thêm Koi Fish", ex);
             }
         }
@@ -76,11 +81,11 @@ namespace KoiShowManagementSystem.Repositories.Repository
             try
             {
                 _context.KoiFishes.Update(koiFish);
-                return await _context.SaveChangesAsync() > 0;  // Nếu cập nhật thành công trả về true
+                return await _context.SaveChangesAsync() > 0;
             }
             catch (Exception ex)
             {
-                // Log lỗi nếu cần
+                _logger.LogError(ex, "Có lỗi xảy ra khi cập nhật Koi Fish");
                 throw new Exception("Có lỗi xảy ra khi cập nhật Koi Fish", ex);
             }
         }
@@ -94,11 +99,11 @@ namespace KoiShowManagementSystem.Repositories.Repository
                 if (koiFish == null) return false;
 
                 _context.KoiFishes.Remove(koiFish);
-                return await _context.SaveChangesAsync() > 0;  // Nếu xóa thành công trả về true
+                return await _context.SaveChangesAsync() > 0;
             }
             catch (Exception ex)
             {
-                // Log lỗi nếu cần
+                _logger.LogError(ex, "Có lỗi xảy ra khi xóa Koi Fish");
                 throw new Exception("Có lỗi xảy ra khi xóa Koi Fish", ex);
             }
         }
@@ -111,12 +116,52 @@ namespace KoiShowManagementSystem.Repositories.Repository
                 if (koiFish == null) return false;
 
                 _context.KoiFishes.Remove(koiFish);
-                return await _context.SaveChangesAsync() > 0;  // Nếu xóa thành công trả về true
+                return await _context.SaveChangesAsync() > 0;
             }
             catch (Exception ex)
             {
-                // Log lỗi nếu cần
+                _logger.LogError(ex, "Có lỗi xảy ra khi xóa Koi Fish");
                 throw new Exception("Có lỗi xảy ra khi xóa Koi Fish", ex);
+            }
+        }
+
+        // Tìm kiếm Koi Fish theo từ khóa, variety, size và age
+        public async Task<List<KoiFish>> SearchKoiFishAsync(string searchQuery, string variety, double? size, int? age)
+        {
+            try
+            {
+                var query = _context.KoiFishes.AsQueryable();
+
+                // Tìm kiếm theo từ khóa
+                if (!string.IsNullOrWhiteSpace(searchQuery))
+                {
+                    query = query.Where(k => k.Name.Contains(searchQuery) || k.Variety.Contains(searchQuery));
+                }
+
+                // Tìm kiếm theo variety
+                if (!string.IsNullOrWhiteSpace(variety))
+                {
+                    query = query.Where(k => k.Variety.Contains(variety));
+                }
+
+                // Tìm kiếm theo size
+                if (size.HasValue)
+                {
+                    query = query.Where(k => k.Size == size);
+                }
+
+                // Tìm kiếm theo age
+                if (age.HasValue)
+                {
+                    query = query.Where(k => k.Age == age);
+                }
+
+                return await query.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Có lỗi xảy ra khi tìm kiếm Koi Fish");
+                throw new Exception("Có lỗi xảy ra khi tìm kiếm Koi Fish", ex);
             }
         }
     }

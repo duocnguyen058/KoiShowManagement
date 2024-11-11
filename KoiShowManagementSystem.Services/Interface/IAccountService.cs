@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 
-namespace KoiShowManagementSystem.Services.Interface
+namespace KoiShowManagementSystem.Services.CompetitionService
 {
     public interface IAccountService
     {
@@ -13,6 +13,8 @@ namespace KoiShowManagementSystem.Services.Interface
         Task<bool> UpdateAccountAsync(Account account);
         Task<bool> DeleteAccountAsync(int accountId);
         Task<bool> IsAccountExistAsync(string username);
-        Task<bool> ValidateAccountAsync(string username, string password);
+
+        // Change this to return Task<Account> instead of Task<bool>
+        Task<Account> ValidateAccountAsync(string username, string password);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
-using KoiShowManagementSystem.Services.Interface;
+using KoiShowManagementSystem.Services.CompetitionService;
 using System;
 using System.Collections.Generic;
 using System.Linq;

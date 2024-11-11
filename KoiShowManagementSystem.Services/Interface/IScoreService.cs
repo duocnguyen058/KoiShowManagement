@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 
-namespace KoiShowManagementSystem.Services.Interface
+namespace KoiShowManagementSystem.Services.CompetitionService
 {
     public interface IScoreService
     {

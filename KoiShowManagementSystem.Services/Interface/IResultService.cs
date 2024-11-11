@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 
-namespace KoiShowManagementSystem.Services.Interface
+namespace KoiShowManagementSystem.Services.CompetitionService
 {
     public interface IResultService
     {
@@ -12,5 +12,6 @@ namespace KoiShowManagementSystem.Services.Interface
         Task<Result> GetResultByIdAsync(int resultId);
         Task<IEnumerable<Result>> GetAllResultsAsync();
         Task<IEnumerable<Result>> GetResultsForCompetitionAsync(int competitionId);
+        Task<List<Result>> SearchResultsAsync(int? koiFishId, int? competitionId);
     }
 }
