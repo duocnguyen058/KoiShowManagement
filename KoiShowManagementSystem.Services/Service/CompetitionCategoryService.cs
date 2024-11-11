@@ -1,4 +1,4 @@
-﻿using KoiShowManagementSystem.Repositories.Entities;
+using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
 using KoiShowManagementSystem.Services.Interface;
 using System;
@@ -17,6 +17,7 @@ namespace KoiShowManagementSystem.Services.Service
         {
             _repository = repository;
         }
+
         public async Task<bool> AddCompetitionCategoryAsync(CompetitionCategory category)
         {
             ValidateCompetitionCategory(category);
@@ -77,3 +78,4 @@ namespace KoiShowManagementSystem.Services.Service
         }
     }
 }
+

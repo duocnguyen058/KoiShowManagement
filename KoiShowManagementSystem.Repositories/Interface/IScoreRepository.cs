@@ -13,5 +13,6 @@ namespace KoiShowManagementSystem.Repositories.Interface
         Task<bool> CreateScoreAsync(Score score);
         Task<bool> UpdateScoreAsync(Score score);
         Task<bool> DeleteScoreAsync(int scoreId);
+        Task DeleteScoresByCompetitionIdAsync(int competitionId);
     }
 }
