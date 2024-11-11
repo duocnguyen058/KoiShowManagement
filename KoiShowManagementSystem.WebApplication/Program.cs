@@ -1,15 +1,24 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using KoiShowManagementSystem.Repositories.Entities;
+using Microsoft.EntityFrameworkCore;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+
+// Đọc cấu hình từ appsettings.json
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+// Đăng ký DbContext với cấu hình từ appsettings.json
+builder.Services.AddDbContext<KoiShowManagementDbcontextContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("KoiShowManagementDbContext")));
+
+// Thêm các dịch vụ khác nếu có
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Cấu hình HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -23,4 +32,3 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
-
