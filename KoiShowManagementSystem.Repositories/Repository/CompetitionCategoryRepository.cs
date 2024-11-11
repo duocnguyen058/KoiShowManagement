@@ -1,4 +1,4 @@
-﻿using KoiShowManagementSystem.Repositories.Entities;
+using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,18 +21,18 @@ namespace KoiShowManagementSystem.Repositories.Repository
         public async Task<bool> AddCompetitionCategoryAsync(CompetitionCategory category)
         {
             try
-            {
+    {
                 await _context.CompetitionCategories.AddAsync(category);
                 await _context.SaveChangesAsync();
                 return true;
             }
-            catch (Exception ex)
-            {
+    catch (Exception ex)
+    {
                 throw new NotImplementedException(ex.ToString());
             }
         }
 
-        public async Task<bool> DelCompetitionCategoryAsync(int Id)
+        public async Task<bool> DeleteCompetitionCategoryAsync(int Id)
         {
             try
             {
@@ -52,8 +52,9 @@ namespace KoiShowManagementSystem.Repositories.Repository
             }
         }
 
-        public async Task<bool> DelCompetitionCategoryAsync(CompetitionCategory category)
+        public async Task<bool> DeleteCompetitionCategoryAsync(CompetitionCategory category)
         {
+
             try
             {
                 _context.CompetitionCategories.Remove(category);
@@ -96,7 +97,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             }
         }
 
-        public async Task<bool> UpdCompetitionCategoryAsync(CompetitionCategory category)
+        public async Task<bool> UpdateCompetitionCategoryAsync(CompetitionCategory category)
         {
             try
             {
@@ -111,3 +112,4 @@ namespace KoiShowManagementSystem.Repositories.Repository
         }
     }
 }
+
