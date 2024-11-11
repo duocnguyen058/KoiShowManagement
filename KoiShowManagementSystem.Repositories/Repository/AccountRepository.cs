@@ -17,13 +17,18 @@ namespace KoiShowManagementSystem.Repositories.Repository
             _context = context;
         }
 
-        public async Task<Account> GetAccountByIdAsync(int accountId)
+        public async Task<Account?> GetAccountByIdAsync(int accountId)
         {
-            if (accountId <= 0)
-                throw new ArgumentException("ID tài khoản phải lớn hơn 0");
-
-            return await _context.Accounts.FindAsync(accountId);
+            var account = await _context.Accounts.FindAsync(accountId);
+            if (account == null)
+            {
+                // Xử lý khi không tìm thấy
+                return null; // Hoặc bạn có thể ném ngoại lệ nếu cần
+            }
+            return account;
         }
+
+
 
         public async Task<Account> GetAccountByUsernameAsync(string username)
         {
