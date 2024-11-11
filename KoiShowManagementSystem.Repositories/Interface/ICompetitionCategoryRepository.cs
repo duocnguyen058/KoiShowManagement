@@ -9,7 +9,7 @@ namespace KoiShowManagementSystem.Repositories.Interface
 {
     public interface ICompetitionCategoryRepository
     {
-       
+    
         Task<List<CompetitionCategory>> GetAllCompetitionCategoriesAsync();
         Task<CompetitionCategory> GetCompetitionCategoryByIdAsync(int Id);
         Task<bool> AddCompetitionCategoryAsync(CompetitionCategory category);
