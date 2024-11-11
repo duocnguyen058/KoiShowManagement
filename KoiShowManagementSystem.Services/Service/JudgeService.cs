@@ -1,40 +1,48 @@
 ﻿using KoiShowManagementSystem.Repositories.Entities;
-using KoiShowManagementSystem.Repositories;
+using KoiShowManagementSystem.Repositories.Interface;
+using KoiShowManagementSystem.Services.Interface;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace KoiShowManagementSystem.Services
+namespace KoiShowManagementSystem.Services.Service
 {
     public class JudgeService : IJudgeService
     {
-        private readonly IJudgeRepository _repository;
+        private readonly IJudgeRepository _judgeRepository;
 
-        public JudgeService(IJudgeRepository repository)
+        public JudgeService(IJudgeRepository judgeRepository)
         {
-            _repository = repository;
+            _judgeRepository = judgeRepository;
         }
 
-        public Task<List<Judge>> GetAllJudgesAsync()
+        public async Task<List<Judge>> GetAllJudgesAsync()
         {
-            return _repository.GetAllAsync();
+            return await _judgeRepository.GetAllJudgesAsync();
         }
 
-        public Task<Judge> GetJudgeByIdAsync(int id)
+        public async Task<Judge> GetJudgeByIdAsync(int id)
         {
-            return _repository.GetByIdAsync(id);
+            return await _judgeRepository.GetJudgeByIdAsync(id);
         }
 
-        public Task AddJudgeAsync(Judge judge)
+        public async Task<bool> AddJudgeAsync(Judge judge)
         {
-            return _repository.AddAsync(judge);
+            return await _judgeRepository.AddJudgeAsync(judge);
         }
 
-        public Task UpdateJudgeAsync(Judge judge)
+        public async Task<bool> UpdateJudgeAsync(Judge judge)
         {
-            return _repository.UpdateAsync(judge);
+            return await _judgeRepository.UpdateJudgeAsync(judge);
         }
 
-        public Task DeleteJudgeAsync(int id)
+        public async Task<bool> DeleteJudgeAsync(int id)
         {
-            return _repository.DeleteAsync(id);
+            return await _judgeRepository.DeleteJudgeAsync(id);
+        }
+
+        public async Task<bool> DeleteJudgeAsync(Judge judge)
+        {
+            return await _judgeRepository.DeleteJudgeAsync(judge);
         }
     }
 }

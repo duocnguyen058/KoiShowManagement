@@ -1,7 +1,10 @@
 ﻿using KoiShowManagementSystem.Repositories.Entities;
-using KoiShowManagementSystem.Repositories;
+using KoiShowManagementSystem.Repositories.Interface;
+using KoiShowManagementSystem.Services.Interface;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace KoiShowManagementSystem.Services
+namespace KoiShowManagementSystem.Services.Service
 {
     public class KoiCompetitionCategoryService : IKoiCompetitionCategoryService
     {
@@ -12,29 +15,34 @@ namespace KoiShowManagementSystem.Services
             _repository = repository;
         }
 
-        public Task<List<KoiCompetitionCategory>> GetAllCategoriesAsync()
+        public async Task<List<KoiCompetitionCategory>> GetAllKoiCompetitionCategoriesAsync()
         {
-            return _repository.GetAllAsync();
+            return await _repository.GetAllKoiCompetitionCategoriesAsync();
         }
 
-        public Task<KoiCompetitionCategory> GetCategoryByIdAsync(int id)
+        public async Task<KoiCompetitionCategory> GetKoiCompetitionCategoryByIdAsync(int id)
         {
-            return _repository.GetByIdAsync(id);
+            return await _repository.GetKoiCompetitionCategoryByIdAsync(id);
         }
 
-        public Task AddCategoryAsync(KoiCompetitionCategory koiCompetitionCategory)
+        public async Task<bool> AddKoiCompetitionCategoryAsync(KoiCompetitionCategory koiCompetitionCategory)
         {
-            return _repository.AddAsync(koiCompetitionCategory);
+            return await _repository.AddKoiCompetitionCategoryAsync(koiCompetitionCategory);
         }
 
-        public Task UpdateCategoryAsync(KoiCompetitionCategory koiCompetitionCategory)
+        public async Task<bool> UpdateKoiCompetitionCategoryAsync(KoiCompetitionCategory koiCompetitionCategory)
         {
-            return _repository.UpdateAsync(koiCompetitionCategory);
+            return await _repository.UpdateKoiCompetitionCategoryAsync(koiCompetitionCategory);
         }
 
-        public Task DeleteCategoryAsync(int id)
+        public async Task<bool> DeleteKoiCompetitionCategoryAsync(int id)
         {
-            return _repository.DeleteAsync(id);
+            return await _repository.DeleteKoiCompetitionCategoryAsync(id);
+        }
+
+        public async Task<bool> DeleteKoiCompetitionCategoryAsync(KoiCompetitionCategory koiCompetitionCategory)
+        {
+            return await _repository.DeleteKoiCompetitionCategoryAsync(koiCompetitionCategory);
         }
     }
 }

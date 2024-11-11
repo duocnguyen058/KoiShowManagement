@@ -1,13 +1,16 @@
 ﻿using KoiShowManagementSystem.Repositories.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace KoiShowManagementSystem.Repositories
+namespace KoiShowManagementSystem.Repositories.Interface
 {
-    public interface IKoiCompetitionRepository
+    public interface IKoiCompetitionCategoryRepository
     {
-        Task<List<KoiCompetitionCategory>> GetAllAsync();
-        Task<KoiCompetitionCategory> GetByIdAsync(int id);
-        Task AddAsync(KoiCompetitionCategory koiCompetitionCategory);
-        Task UpdateAsync(KoiCompetitionCategory koiCompetitionCategory);
-        Task DeleteAsync(int id);
+        Task<List<KoiCompetitionCategory>> GetAllKoiCompetitionCategoriesAsync();
+        Task<KoiCompetitionCategory> GetKoiCompetitionCategoryByIdAsync(int id);
+        Task<bool> AddKoiCompetitionCategoryAsync(KoiCompetitionCategory koiCompetitionCategory);
+        Task<bool> UpdateKoiCompetitionCategoryAsync(KoiCompetitionCategory koiCompetitionCategory);
+        Task<bool> DeleteKoiCompetitionCategoryAsync(int id);
+        Task<bool> DeleteKoiCompetitionCategoryAsync(KoiCompetitionCategory koiCompetitionCategory);
     }
 }
