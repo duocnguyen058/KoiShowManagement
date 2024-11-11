@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
-using KoiShowManagementSystem.Repositories.Repository;
 using KoiShowManagementSystem.Services.Interface;
 
 namespace KoiShowManagementSystem.Services.Service
@@ -18,9 +17,9 @@ namespace KoiShowManagementSystem.Services.Service
 
         public ScoreService(
         IScoreRepository scoreRepository,
-            ICompetitionRepository competitionRepository,
-            IJudgeRepository judgeRepository,
-            IKoiFishRepository koiFishRepository)
+        ICompetitionRepository competitionRepository,
+        IJudgeRepository judgeRepository,
+        IKoiFishRepository koiFishRepository)
         {
             _scoreRepository = scoreRepository;
             _competitionRepository = competitionRepository;
@@ -51,7 +50,7 @@ namespace KoiShowManagementSystem.Services.Service
             return await _scoreRepository.GetScoresByCompetitionIdAsync(competitionId);
         }
 
-        public async Task CreateScoreAsync(Score score)
+        public async Task<bool> CreateScoreAsync(Score score)
         {
             if (score == null)
                 throw new ArgumentNullException(nameof(score), "Điểm số không thể null");
@@ -74,10 +73,10 @@ namespace KoiShowManagementSystem.Services.Service
 
             score.TotalScore = (score.BodyScore ?? 0) + (score.ColorScore ?? 0) + (score.PatternScore ?? 0);
 
-            await _scoreRepository.CreateScoreAsync(score);
+            return await _scoreRepository.CreateScoreAsync(score);
         }
 
-        public async Task UpdateScoreAsync(Score score)
+        public async Task<bool> UpdateScoreAsync(Score score)
         {
             if (score == null)
                 throw new ArgumentNullException(nameof(score), "Điểm số không thể null");
@@ -92,10 +91,10 @@ namespace KoiShowManagementSystem.Services.Service
 
             score.TotalScore = (score.BodyScore ?? 0) + (score.ColorScore ?? 0) + (score.PatternScore ?? 0);
 
-            await _scoreRepository.UpdateScoreAsync(score);
+            return await _scoreRepository.UpdateScoreAsync(score);
         }
 
-        public async Task DeleteScoreAsync(int scoreId)
+        public async Task<bool> DeleteScoreAsync(int scoreId)
         {
             if (scoreId <= 0)
                 throw new ArgumentException("ID điểm số không hợp lệ");
@@ -105,7 +104,7 @@ namespace KoiShowManagementSystem.Services.Service
             if (score == null)
                 throw new KeyNotFoundException($"Không tìm thấy điểm số với ID {scoreId}");
 
-            await _scoreRepository.DeleteScoreAsync(scoreId);
+            return await _scoreRepository.DeleteScoreAsync(scoreId);
         }
 
         public async Task<Score> GetScoreByKoiAndJudgeAsync(int koiFishId, int judgeId, int competitionId)

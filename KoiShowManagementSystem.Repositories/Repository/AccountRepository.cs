@@ -1,7 +1,9 @@
 ﻿using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace KoiShowManagementSystem.Repositories.Repository
@@ -20,11 +22,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             if (accountId <= 0)
                 throw new ArgumentException("ID tài khoản phải lớn hơn 0");
 
-            var account = await _context.Accounts.FindAsync(accountId);
-            if (account == null)
-                throw new KeyNotFoundException($"Không tìm thấy tài khoản với ID {accountId}");
-
-            return account;
+            return await _context.Accounts.FindAsync(accountId);
         }
 
         public async Task<Account> GetAccountByUsernameAsync(string username)
@@ -32,13 +30,8 @@ namespace KoiShowManagementSystem.Repositories.Repository
             if (string.IsNullOrEmpty(username))
                 throw new ArgumentException("Tên đăng nhập không thể trống");
 
-            var account = await _context.Accounts
-                                         .FirstOrDefaultAsync(a => a.Username == username);
-
-            if (account == null)
-                throw new KeyNotFoundException($"Không tìm thấy tài khoản với tên đăng nhập {username}");
-
-            return account;
+            return await _context.Accounts
+                                 .FirstOrDefaultAsync(a => a.Username == username);
         }
 
         public async Task<IEnumerable<Account>> GetAllAccountsAsync()
@@ -46,7 +39,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             return await _context.Accounts.ToListAsync();
         }
 
-        public async Task AddAccountAsync(Account account)
+        public async Task<bool> AddAccountAsync(Account account)
         {
             if (account == null)
                 throw new ArgumentNullException(nameof(account), "Tài khoản không thể null");
@@ -56,9 +49,10 @@ namespace KoiShowManagementSystem.Repositories.Repository
 
             await _context.Accounts.AddAsync(account);
             await _context.SaveChangesAsync();
+            return true;
         }
 
-        public async Task UpdateAccountAsync(Account account)
+        public async Task<bool> UpdateAccountAsync(Account account)
         {
             if (account == null)
                 throw new ArgumentNullException(nameof(account), "Tài khoản không thể null");
@@ -76,9 +70,10 @@ namespace KoiShowManagementSystem.Repositories.Repository
             existingAccount.CreatedAt = account.CreatedAt;
 
             await _context.SaveChangesAsync();
+            return true;
         }
 
-        public async Task DeleteAccountAsync(int accountId)
+        public async Task<bool> DeleteAccountAsync(int accountId)
         {
             if (accountId <= 0)
                 throw new ArgumentException("ID tài khoản không hợp lệ");
@@ -89,6 +84,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
 
             _context.Accounts.Remove(account);
             await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<bool> IsAccountExistAsync(string username)

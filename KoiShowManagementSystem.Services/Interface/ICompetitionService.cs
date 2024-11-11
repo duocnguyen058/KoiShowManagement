@@ -9,12 +9,12 @@ namespace KoiShowManagementSystem.Services.Interface
     {
         Task<Competition> GetCompetitionByIdAsync(int competitionId);
         Task<IEnumerable<Competition>> GetAllCompetitionsAsync();
-        Task CreateCompetitionAsync(Competition competition);
-        Task UpdateCompetitionAsync(Competition competition);
-        Task DeleteCompetitionAsync(int competitionId);
-        Task AddJudgeToCompetitionAsync(int competitionId, int judgeId);
-        Task RemoveJudgeFromCompetitionAsync(int competitionId, int judgeId);
-        Task AddRegistrationToCompetitionAsync(int competitionId, Registration registration);
+        Task<bool> CreateCompetitionAsync(Competition competition);
+        Task<bool> UpdateCompetitionAsync(Competition competition);
+        Task<bool> DeleteCompetitionAsync(int competitionId);
+        Task<bool> AddJudgeToCompetitionAsync(int competitionId, int judgeId);
+        Task<bool> RemoveJudgeFromCompetitionAsync(int competitionId, int judgeId);
+        Task<bool> AddRegistrationToCompetitionAsync(int competitionId, Registration registration);
         Task<IEnumerable<Result>> GetResultsForCompetitionAsync(int competitionId);
         Task<IEnumerable<Score>> GetScoresForCompetitionAsync(int competitionId);
         bool IsCompetitionActive(Competition competition);

@@ -48,7 +48,7 @@ namespace KoiShowManagementSystem.Services.Service
             return await _competitionRepository.GetAllCompetitionsAsync();
         }
 
-        public async Task CreateCompetitionAsync(Competition competition)
+        public async Task<bool> CreateCompetitionAsync(Competition competition)
         {
             if (competition == null)
                 throw new ArgumentNullException(nameof(competition), "Cuộc thi không thể null");
@@ -56,10 +56,10 @@ namespace KoiShowManagementSystem.Services.Service
             if (string.IsNullOrEmpty(competition.Name))
                 throw new ArgumentException("Tên cuộc thi là bắt buộc");
 
-            await _competitionRepository.CreateCompetitionAsync(competition);
+            return await _competitionRepository.CreateCompetitionAsync(competition);
         }
 
-        public async Task UpdateCompetitionAsync(Competition competition)
+        public async Task<bool> UpdateCompetitionAsync(Competition competition)
         {
             if (competition == null)
                 throw new ArgumentNullException(nameof(competition), "Cuộc thi không thể null");
@@ -72,10 +72,10 @@ namespace KoiShowManagementSystem.Services.Service
             if (existingCompetition == null)
                 throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competition.CompetitionId}.");
 
-            await _competitionRepository.UpdateCompetitionAsync(competition);
+            return await _competitionRepository.UpdateCompetitionAsync(competition);
         }
 
-        public async Task DeleteCompetitionAsync(int competitionId)
+        public async Task<bool> DeleteCompetitionAsync(int competitionId)
         {
             if (competitionId <= 0)
                 throw new ArgumentException("ID cuộc thi không hợp lệ");
@@ -89,10 +89,10 @@ namespace KoiShowManagementSystem.Services.Service
             await _resultRepository.DeleteResultsByCompetitionIdAsync(competitionId);
             await _registrationRepository.DeleteRegistrationsByCompetitionIdAsync(competitionId);
 
-            await _competitionRepository.DeleteCompetitionAsync(competitionId);
+            return await _competitionRepository.DeleteCompetitionAsync(competitionId);
         }
 
-        public async Task AddJudgeToCompetitionAsync(int competitionId, int judgeId)
+        public async Task<bool> AddJudgeToCompetitionAsync(int competitionId, int judgeId)
         {
             var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
             var judge = await _judgeRepository.GetJudgeByIdAsync(judgeId);
@@ -107,19 +107,18 @@ namespace KoiShowManagementSystem.Services.Service
             {
                 competition.Judges.Add(judge);
                 await _competitionRepository.UpdateCompetitionAsync(competition);
+                return true;
             }
-            else
-            {
-                throw new InvalidOperationException("Giám khảo đã được thêm vào cuộc thi này.");
-            }
+
+            throw new InvalidOperationException("Giám khảo đã được thêm vào cuộc thi này.");
         }
 
-        public async Task RemoveJudgeFromCompetitionAsync(int competitionId, int judgeId)
+        public async Task<bool> RemoveJudgeFromCompetitionAsync(int competitionId, int judgeId)
         {
             var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
 
             if (competition == null)
-                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}.");
+                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}");
 
             var judge = competition.Judges.FirstOrDefault(j => j.JudgeId == judgeId);
 
@@ -128,9 +127,10 @@ namespace KoiShowManagementSystem.Services.Service
 
             competition.Judges.Remove(judge);
             await _competitionRepository.UpdateCompetitionAsync(competition);
+            return true;
         }
 
-        public async Task AddRegistrationToCompetitionAsync(int competitionId, Registration registration)
+        public async Task<bool> AddRegistrationToCompetitionAsync(int competitionId, Registration registration)
         {
             if (registration == null)
                 throw new ArgumentNullException(nameof(registration), "Đăng ký không thể null");
@@ -138,10 +138,11 @@ namespace KoiShowManagementSystem.Services.Service
             var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
 
             if (competition == null)
-                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}.");
+                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}");
 
             competition.Registrations.Add(registration);
             await _competitionRepository.UpdateCompetitionAsync(competition);
+            return true;
         }
 
         public async Task<IEnumerable<Result>> GetResultsForCompetitionAsync(int competitionId)
@@ -149,7 +150,7 @@ namespace KoiShowManagementSystem.Services.Service
             var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
 
             if (competition == null)
-                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}.");
+                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}");
 
             return await _resultRepository.GetResultsByCompetitionIdAsync(competitionId);
         }
@@ -159,7 +160,7 @@ namespace KoiShowManagementSystem.Services.Service
             var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
 
             if (competition == null)
-                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}.");
+                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}");
 
             return await _scoreRepository.GetScoresByCompetitionIdAsync(competitionId);
         }

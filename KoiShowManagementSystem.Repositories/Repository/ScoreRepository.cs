@@ -41,26 +41,30 @@ namespace KoiShowManagementSystem.Repositories.Implementation
                 .FirstOrDefaultAsync(s => s.KoiFishId == koiFishId && s.JudgeId == judgeId && s.CompetitionId == competitionId);
         }
 
-        public async Task CreateScoreAsync(Score score)
+        public async Task<bool> CreateScoreAsync(Score score)
         {
             await _context.Scores.AddAsync(score);
-            await _context.SaveChangesAsync();
+            var result = await _context.SaveChangesAsync();
+            return result > 0; // Trả về true nếu có thay đổi trong DB
         }
 
-        public async Task UpdateScoreAsync(Score score)
+        public async Task<bool> UpdateScoreAsync(Score score)
         {
             _context.Scores.Update(score);
-            await _context.SaveChangesAsync();
+            var result = await _context.SaveChangesAsync();
+            return result > 0; // Trả về true nếu có thay đổi trong DB
         }
 
-        public async Task DeleteScoreAsync(int scoreId)
+        public async Task<bool> DeleteScoreAsync(int scoreId)
         {
             var score = await GetScoreByIdAsync(scoreId);
             if (score != null)
             {
                 _context.Scores.Remove(score);
-                await _context.SaveChangesAsync();
+                var result = await _context.SaveChangesAsync();
+                return result > 0; // Trả về true nếu có thay đổi trong DB
             }
+            return false;
         }
     }
 }

@@ -42,26 +42,32 @@ namespace KoiShowManagementSystem.Repositories.Repository
                 .ToListAsync();
         }
 
-        public async Task CreateCompetitionAsync(Competition competition)
+        public async Task<bool> CreateCompetitionAsync(Competition competition)
         {
+            if (competition == null) return false;
+
             await _context.Competitions.AddAsync(competition);
             await _context.SaveChangesAsync();
+            return true;
         }
 
-        public async Task UpdateCompetitionAsync(Competition competition)
+        public async Task<bool> UpdateCompetitionAsync(Competition competition)
         {
+            if (competition == null) return false;
+
             _context.Competitions.Update(competition);
             await _context.SaveChangesAsync();
+            return true;
         }
 
-        public async Task DeleteCompetitionAsync(int competitionId)
+        public async Task<bool> DeleteCompetitionAsync(int competitionId)
         {
             var competition = await _context.Competitions.FindAsync(competitionId);
-            if (competition != null)
-            {
-                _context.Competitions.Remove(competition);
-                await _context.SaveChangesAsync();
-            }
+            if (competition == null) return false;
+
+            _context.Competitions.Remove(competition);
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }

@@ -9,9 +9,9 @@ namespace KoiShowManagementSystem.Repositories.Interface
         Task<Account> GetAccountByIdAsync(int accountId);
         Task<Account> GetAccountByUsernameAsync(string username);
         Task<IEnumerable<Account>> GetAllAccountsAsync();
-        Task AddAccountAsync(Account account);
-        Task UpdateAccountAsync(Account account);
-        Task DeleteAccountAsync(int accountId);
+        Task<bool> AddAccountAsync(Account account);
+        Task<bool> UpdateAccountAsync(Account account);
+        Task<bool> DeleteAccountAsync(int accountId);
         Task<bool> IsAccountExistAsync(string username);
     }
 }

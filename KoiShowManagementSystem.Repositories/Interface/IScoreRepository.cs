@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 
@@ -11,8 +10,8 @@ namespace KoiShowManagementSystem.Repositories.Interface
         Task<IEnumerable<Score>> GetScoresByCompetitionIdAsync(int competitionId);
         Task<IEnumerable<Score>> GetScoresByKoiFishIdAsync(int koiFishId);
         Task<Score> GetScoreByKoiAndJudgeAsync(int koiFishId, int judgeId, int competitionId);
-        Task CreateScoreAsync(Score score);
-        Task UpdateScoreAsync(Score score);
-        Task DeleteScoreAsync(int scoreId);
+        Task<bool> CreateScoreAsync(Score score);
+        Task<bool> UpdateScoreAsync(Score score);
+        Task<bool> DeleteScoreAsync(int scoreId);
     }
 }

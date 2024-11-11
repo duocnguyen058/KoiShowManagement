@@ -41,7 +41,7 @@ namespace KoiShowManagementSystem.Services.Service
         }
 
         // Tạo tài khoản mới
-        public async Task CreateAccountAsync(Account account)
+        public async Task<bool> CreateAccountAsync(Account account)
         {
             if (account == null)
                 throw new ArgumentNullException(nameof(account), "Tài khoản không thể null");
@@ -50,11 +50,11 @@ namespace KoiShowManagementSystem.Services.Service
             if (await _accountRepository.IsAccountExistAsync(account.Username))
                 throw new InvalidOperationException($"Tài khoản với tên đăng nhập {account.Username} đã tồn tại");
 
-            await _accountRepository.AddAccountAsync(account);
+            return await _accountRepository.AddAccountAsync(account);
         }
 
         // Cập nhật tài khoản
-        public async Task UpdateAccountAsync(Account account)
+        public async Task<bool> UpdateAccountAsync(Account account)
         {
             if (account == null)
                 throw new ArgumentNullException(nameof(account), "Tài khoản không thể null");
@@ -65,11 +65,11 @@ namespace KoiShowManagementSystem.Services.Service
                 throw new KeyNotFoundException($"Không tìm thấy tài khoản với ID {account.AccountId}");
 
             // Cập nhật tài khoản
-            await _accountRepository.UpdateAccountAsync(account);
+            return await _accountRepository.UpdateAccountAsync(account);
         }
 
         // Xóa tài khoản
-        public async Task DeleteAccountAsync(int accountId)
+        public async Task<bool> DeleteAccountAsync(int accountId)
         {
             if (accountId <= 0)
                 throw new ArgumentException("ID tài khoản không hợp lệ");
@@ -79,7 +79,7 @@ namespace KoiShowManagementSystem.Services.Service
             if (account == null)
                 throw new KeyNotFoundException($"Không tìm thấy tài khoản với ID {accountId}");
 
-            await _accountRepository.DeleteAccountAsync(accountId);
+            return await _accountRepository.DeleteAccountAsync(accountId);
         }
 
         // Kiểm tra tài khoản đã tồn tại chưa
