@@ -1,60 +1,73 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
+using Microsoft.EntityFrameworkCore;
 
-namespace KoiShowManagementSystem.Repositories.Repository
+namespace KoiShowManagementSystem.Repositories
 {
     public class RegistrationRepository : IRegistrationRepository
     {
-        private readonly KoiShowManagementDbcontextContext _context;
+        private readonly KoiShowManagementDbcontextContext _dbContext;
 
-        public RegistrationRepository(KoiShowManagementDbcontextContext context)
+        public RegistrationRepository(KoiShowManagementDbcontextContext dbContext)
         {
-            _context = context;
+            _dbContext = dbContext;
         }
 
         public async Task<List<Registration>> GetAllRegistrationsAsync()
         {
-            return await _context.Registrations
-                .Include(r => r.Competition)
-                .Include(r => r.KoiFish)
-                .ToListAsync();
+            return await _dbContext.Registrations.ToListAsync();
         }
 
         public async Task<Registration> GetRegistrationByIdAsync(int id)
         {
-            return await _context.Registrations
-                .Include(r => r.Competition)
-                .Include(r => r.KoiFish)
-                .FirstOrDefaultAsync(r => r.RegistrationId == id);
+            return await _dbContext.Registrations.FindAsync(id);
         }
 
         public async Task<bool> AddRegistrationAsync(Registration registration)
         {
-            await _context.Registrations.AddAsync(registration);
-            return await _context.SaveChangesAsync() > 0;
+            await _dbContext.Registrations.AddAsync(registration);
+            return await _dbContext.SaveChangesAsync() > 0;
         }
 
         public async Task<bool> UpdateRegistrationAsync(Registration registration)
         {
-            _context.Registrations.Update(registration);
-            return await _context.SaveChangesAsync() > 0;
+            _dbContext.Registrations.Update(registration);
+            return await _dbContext.SaveChangesAsync() > 0;
         }
 
         public async Task<bool> DeleteRegistrationByIdAsync(int id)
         {
-            var registration = await GetRegistrationByIdAsync(id);
-            if (registration == null) return false;
-            _context.Registrations.Remove(registration);
-            return await _context.SaveChangesAsync() > 0;
+            var registration = await _dbContext.Registrations.FindAsync(id);
+            if (registration != null)
+            {
+                _dbContext.Registrations.Remove(registration);
+                return await _dbContext.SaveChangesAsync() > 0;
+            }
+            return false;
         }
 
         public async Task<bool> DeleteRegistrationAsync(Registration registration)
         {
-            _context.Registrations.Remove(registration);
-            return await _context.SaveChangesAsync() > 0;
+            _dbContext.Registrations.Remove(registration);
+            return await _dbContext.SaveChangesAsync() > 0;
+        }
+
+        public async Task<bool> DeleteRegistrationsByCompetitionIdAsync(int competitionId)
+        {
+            var registrations = await _dbContext.Registrations
+                .Where(r => r.CompetitionId == competitionId)
+                .ToListAsync();
+
+            if (registrations.Any())
+            {
+                _dbContext.Registrations.RemoveRange(registrations);
+                return await _dbContext.SaveChangesAsync() > 0;
+            }
+
+            return false;
         }
     }
 }

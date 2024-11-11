@@ -12,5 +12,6 @@ namespace KoiShowManagementSystem.Repositories.Interface
         Task<bool> UpdateRegistrationAsync(Registration registration);
         Task<bool> DeleteRegistrationByIdAsync(int id);
         Task<bool> DeleteRegistrationAsync(Registration registration);
+        Task<bool> DeleteRegistrationsByCompetitionIdAsync(int competitionId);  // Thêm phương thức này
     }
 }

@@ -60,5 +60,17 @@ namespace KoiShowManagementSystem.Repositories.Repository
                 .Where(r => r.CompetitionId == competitionId)
                 .ToListAsync();
         }
+
+        // Cài đặt phương thức DeleteResultsByCompetitionIdAsync
+        public async Task<bool> DeleteResultsByCompetitionIdAsync(int competitionId)
+        {
+            var results = _context.Results.Where(r => r.CompetitionId == competitionId).ToList();
+
+            if (results.Count == 0) return false;
+
+            _context.Results.RemoveRange(results);
+            await _context.SaveChangesAsync();
+            return true;
+        }
     }
 }

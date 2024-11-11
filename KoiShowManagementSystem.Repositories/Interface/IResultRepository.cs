@@ -12,5 +12,6 @@ namespace KoiShowManagementSystem.Repositories.Interface
         Task<Result> GetResultByIdAsync(int resultId);
         Task<List<Result>> GetAllResultsAsync();
         Task<List<Result>> GetResultsByCompetitionIdAsync(int competitionId);
+        Task<bool> DeleteResultsByCompetitionIdAsync(int competitionId); // Phương thức này thuộc IResultRepository
     }
 }

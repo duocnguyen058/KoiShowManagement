@@ -22,7 +22,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             {
                 return await _context.KoiFishes
                                      .Include(k => k.Account)  // Bao gồm dữ liệu của Account
-                                     .Include(k => k.Category)  // Bao gồm dữ liệu của Category
+                                     .Include(k => k.KoiCompetitionCategories)  // Bao gồm dữ liệu của KoiCompetitionCategory
                                      .Include(k => k.Registrations)  // Bao gồm dữ liệu của Registration
                                      .Include(k => k.Results)  // Bao gồm dữ liệu của Result
                                      .Include(k => k.Scores)  // Bao gồm dữ liệu của Score
@@ -42,7 +42,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
             {
                 return await _context.KoiFishes
                                      .Include(k => k.Account)
-                                     .Include(k => k.Category)
+                                     .Include(k => k.KoiCompetitionCategories)  // Bao gồm dữ liệu của KoiCompetitionCategory
                                      .Include(k => k.Registrations)
                                      .Include(k => k.Results)
                                      .Include(k => k.Scores)

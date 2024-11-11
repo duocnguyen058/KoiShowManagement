@@ -85,8 +85,9 @@ namespace KoiShowManagementSystem.Services.Service
             if (competition == null)
                 throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}.");
 
+            // Xóa các đối tượng liên quan đến cuộc thi
             await _scoreRepository.DeleteScoresByCompetitionIdAsync(competitionId);
-            await _resultRepository.DeleteResultsByCompetitionIdAsync(competitionId);
+            await _resultRepository.DeleteResultsByCompetitionIdAsync(competitionId); // Cập nhật phần này để xóa kết quả
             await _registrationRepository.DeleteRegistrationsByCompetitionIdAsync(competitionId);
 
             return await _competitionRepository.DeleteCompetitionAsync(competitionId);
