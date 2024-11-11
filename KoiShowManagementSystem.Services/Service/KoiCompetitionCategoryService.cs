@@ -5,9 +5,9 @@ namespace KoiShowManagementSystem.Services
 {
     public class KoiCompetitionCategoryService : IKoiCompetitionCategoryService
     {
-        private readonly IKoiCompetitionRepository _repository;
+        private readonly IKoiCompetitionCategoryRepository _repository;
 
-        public KoiCompetitionCategoryService(IKoiCompetitionRepository repository)
+        public KoiCompetitionCategoryService(IKoiCompetitionCategoryRepository repository)
         {
             _repository = repository;
         }
