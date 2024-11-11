@@ -1,10 +1,15 @@
 ﻿using KoiShowManagementSystem.Repositories.Entities;
 using System;
-namespace KoiShowManagementSystem.Services.Interface
-{
-	public interface IAccountService
-	{
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace KoiShowManagementSystem.Repositories.Interface
+{
+    public interface IDashboardRepository
+    {
+      
         Task<List<Dashboard>> GetAllDashboardsAsync();
         Task<Dashboard> GetDashboardByIdAsync(int Id);
         Task<bool> AddDashboardAsync(Dashboard dashboard);
@@ -13,4 +18,3 @@ namespace KoiShowManagementSystem.Services.Interface
         Task<bool> DeleteDashboardAsync(Dashboard dashboard);
     }
 }
-
