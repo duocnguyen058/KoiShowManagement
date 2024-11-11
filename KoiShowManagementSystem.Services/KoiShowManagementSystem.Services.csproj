@@ -11,10 +11,6 @@
     <None Remove="Service\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interface\" />
-    <Folder Include="Service\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\KoiShowManagementSystem.Repositories\KoiShowManagementSystem.Repositories.csproj" />
   </ItemGroup>
 </Project>
