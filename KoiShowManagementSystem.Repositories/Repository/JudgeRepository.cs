@@ -5,9 +5,9 @@ namespace KoiShowManagementSystem.Repositories
 {
     public class JudgeRepository : IJudgeRepository
     {
-        private readonly KoiShowManagementDbContext _context;
+        private readonly KoiShowManagementDbcontextContext _context;
 
-        public JudgeRepository(KoiShowManagementDbContext context)
+        public JudgeRepository(KoiShowManagementDbcontextContext context)
         {
             _context = context;
         }
