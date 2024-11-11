@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
@@ -16,10 +15,10 @@ namespace KoiShowManagementSystem.Services.Service
         private readonly IKoiFishRepository _koiFishRepository;
 
         public ScoreService(
-        IScoreRepository scoreRepository,
-        ICompetitionRepository competitionRepository,
-        IJudgeRepository judgeRepository,
-        IKoiFishRepository koiFishRepository)
+            IScoreRepository scoreRepository,
+            ICompetitionRepository competitionRepository,
+            IJudgeRepository judgeRepository,
+            IKoiFishRepository koiFishRepository)
         {
             _scoreRepository = scoreRepository;
             _competitionRepository = competitionRepository;
@@ -32,18 +31,12 @@ namespace KoiShowManagementSystem.Services.Service
             if (scoreId <= 0)
                 throw new ArgumentException("ID điểm số phải lớn hơn 0");
 
-            var score = await _scoreRepository.GetScoreByIdAsync(scoreId);
-
-            if (score == null)
-                throw new KeyNotFoundException($"Không tìm thấy điểm số với ID {scoreId}.");
-
-            return score;
+            return await _scoreRepository.GetScoreByIdAsync(scoreId);
         }
 
-        public async Task<IEnumerable<Score>> GetScoresForCompetitionAsync(int competitionId)
+        public async Task<IList<Score>> GetScoresForCompetitionAsync(int competitionId)
         {
             var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
-
             if (competition == null)
                 throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}.");
 
@@ -55,6 +48,9 @@ namespace KoiShowManagementSystem.Services.Service
             if (score == null)
                 throw new ArgumentNullException(nameof(score), "Điểm số không thể null");
 
+            if (!IsScoreComponentsValid(score))
+                throw new ArgumentException("Điểm số phải nằm trong khoảng từ 0 đến 10.");
+
             if (score.KoiFishId == null || score.JudgeId == null || score.CompetitionId == null)
                 throw new ArgumentException("Điểm số phải có cá koi, giám khảo và cuộc thi");
 
@@ -62,16 +58,10 @@ namespace KoiShowManagementSystem.Services.Service
             var judge = await _judgeRepository.GetJudgeByIdAsync(score.JudgeId.Value);
             var competition = await _competitionRepository.GetCompetitionByIdAsync(score.CompetitionId.Value);
 
-            if (koiFish == null)
-                throw new KeyNotFoundException($"Không tìm thấy cá koi với ID {score.KoiFishId}");
+            if (koiFish == null || judge == null || competition == null)
+                throw new KeyNotFoundException("Dữ liệu không đầy đủ");
 
-            if (judge == null)
-                throw new KeyNotFoundException($"Không tìm thấy giám khảo với ID {score.JudgeId}");
-
-            if (competition == null)
-                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {score.CompetitionId}");
-
-            score.TotalScore = (score.BodyScore ?? 0) + (score.ColorScore ?? 0) + (score.PatternScore ?? 0);
+            score.TotalScore = CalculateTotalScore(score);
 
             return await _scoreRepository.CreateScoreAsync(score);
         }
@@ -84,12 +74,15 @@ namespace KoiShowManagementSystem.Services.Service
             if (score.ScoreId <= 0)
                 throw new ArgumentException("ID điểm số không hợp lệ");
 
+            if (!IsScoreComponentsValid(score))
+                throw new ArgumentException("Điểm số phải nằm trong khoảng từ 0 đến 10.");
+
             var existingScore = await _scoreRepository.GetScoreByIdAsync(score.ScoreId);
 
             if (existingScore == null)
                 throw new KeyNotFoundException($"Không tìm thấy điểm số với ID {score.ScoreId}");
 
-            score.TotalScore = (score.BodyScore ?? 0) + (score.ColorScore ?? 0) + (score.PatternScore ?? 0);
+            score.TotalScore = CalculateTotalScore(score);
 
             return await _scoreRepository.UpdateScoreAsync(score);
         }
@@ -99,25 +92,15 @@ namespace KoiShowManagementSystem.Services.Service
             if (scoreId <= 0)
                 throw new ArgumentException("ID điểm số không hợp lệ");
 
-            var score = await _scoreRepository.GetScoreByIdAsync(scoreId);
-
-            if (score == null)
-                throw new KeyNotFoundException($"Không tìm thấy điểm số với ID {scoreId}");
-
             return await _scoreRepository.DeleteScoreAsync(scoreId);
         }
 
         public async Task<Score> GetScoreByKoiAndJudgeAsync(int koiFishId, int judgeId, int competitionId)
         {
-            var score = await _scoreRepository.GetScoreByKoiAndJudgeAsync(koiFishId, judgeId, competitionId);
-
-            if (score == null)
-                throw new KeyNotFoundException("Không tìm thấy điểm số cho cá koi này, giám khảo và cuộc thi.");
-
-            return score;
+            return await _scoreRepository.GetScoreByKoiAndJudgeAsync(koiFishId, judgeId, competitionId);
         }
 
-        public async Task<IEnumerable<Score>> GetScoresByKoiFishAsync(int koiFishId)
+        public async Task<IList<Score>> GetScoresByKoiFishAsync(int koiFishId)
         {
             var koiFish = await _koiFishRepository.GetKoiFishByIdAsync(koiFishId);
 
@@ -127,12 +110,21 @@ namespace KoiShowManagementSystem.Services.Service
             return await _scoreRepository.GetScoresByKoiFishIdAsync(koiFishId);
         }
 
-        public bool IsScoreValid(Score score)
+        public async Task<bool> IsScoreValid(Score score)
         {
-            if (score.BodyScore < 0 || score.ColorScore < 0 || score.PatternScore < 0)
-                return false;
+            return IsScoreComponentsValid(score);
+        }
 
-            return true;
+        private bool IsScoreComponentsValid(Score score)
+        {
+            return score.BodyScore >= 0 && score.BodyScore <= 10 &&
+                   score.ColorScore >= 0 && score.ColorScore <= 10 &&
+                   score.PatternScore >= 0 && score.PatternScore <= 10;
+        }
+
+        private float CalculateTotalScore(Score score)
+        {
+            return (float)((score.BodyScore * 0.5) + (score.ColorScore * 0.3) + (score.PatternScore * 0.2));
         }
     }
 }

@@ -21,14 +21,14 @@ namespace KoiShowManagementSystem.Repositories.Implementation
             return await _context.Scores.FindAsync(scoreId);
         }
 
-        public async Task<IEnumerable<Score>> GetScoresByCompetitionIdAsync(int competitionId)
+        public async Task<IList<Score>> GetScoresByCompetitionIdAsync(int competitionId)
         {
             return await _context.Scores
                 .Where(s => s.CompetitionId == competitionId)
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Score>> GetScoresByKoiFishIdAsync(int koiFishId)
+        public async Task<IList<Score>> GetScoresByKoiFishIdAsync(int koiFishId)
         {
             return await _context.Scores
                 .Where(s => s.KoiFishId == koiFishId)
@@ -44,25 +44,36 @@ namespace KoiShowManagementSystem.Repositories.Implementation
         public async Task<bool> CreateScoreAsync(Score score)
         {
             await _context.Scores.AddAsync(score);
-            var result = await _context.SaveChangesAsync();
-            return result > 0; // Trả về true nếu có thay đổi trong DB
+            return await _context.SaveChangesAsync() > 0;
         }
 
         public async Task<bool> UpdateScoreAsync(Score score)
         {
             _context.Scores.Update(score);
-            var result = await _context.SaveChangesAsync();
-            return result > 0; // Trả về true nếu có thay đổi trong DB
+            return await _context.SaveChangesAsync() > 0;
         }
 
         public async Task<bool> DeleteScoreAsync(int scoreId)
         {
-            var score = await GetScoreByIdAsync(scoreId);
+            var score = await _context.Scores.FindAsync(scoreId);
             if (score != null)
             {
                 _context.Scores.Remove(score);
-                var result = await _context.SaveChangesAsync();
-                return result > 0; // Trả về true nếu có thay đổi trong DB
+                return await _context.SaveChangesAsync() > 0;
+            }
+            return false;
+        }
+
+        public async Task<bool> DeleteScoresByCompetitionIdAsync(int competitionId)
+        {
+            var scores = await _context.Scores
+                .Where(s => s.CompetitionId == competitionId)
+                .ToListAsync();
+
+            if (scores.Any())
+            {
+                _context.Scores.RemoveRange(scores);
+                return await _context.SaveChangesAsync() > 0;
             }
             return false;
         }
