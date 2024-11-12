@@ -4,30 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
+using KoiShowManagementSystem.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace KoiShowManagementSystem.Repositories.Repository
+namespace KoiShowManagementSystem.Services.Service
 {
-    public class KoiFishRepository : IKoiFishRepository
+    public class KoiFishService : IKoiFishService
     {
-        private readonly KoiShowManagementDbcontextContext _context;
+        private readonly IKoiFishRepository _koiFishRepository;
 
-        public KoiFishRepository(KoiShowManagementDbcontextContext context)
+        public KoiFishService(IKoiFishRepository koiFishRepository)
         {
-            _context = context;
+            _koiFishRepository = koiFishRepository;
         }
 
         public async Task<List<KoiFish>> GetAllKoiFishAsync()
         {
             try
             {
-                return await _context.KoiFishes
-                                     .Include(k => k.Account)
-                                     .Include(k => k.KoiCompetitionCategories)
-                                     .Include(k => k.Registrations)
-                                     .Include(k => k.Results)
-                                     .Include(k => k.Scores)
-                                     .ToListAsync();
+                return await _koiFishRepository.GetAllKoiFishAsync();
             }
             catch (Exception ex)
             {
@@ -39,13 +34,12 @@ namespace KoiShowManagementSystem.Repositories.Repository
         {
             try
             {
-                return await _context.KoiFishes
-                                     .Include(k => k.Account)
-                                     .Include(k => k.KoiCompetitionCategories)
-                                     .Include(k => k.Registrations)
-                                     .Include(k => k.Results)
-                                     .Include(k => k.Scores)
-                                     .FirstOrDefaultAsync(k => k.KoiFishId == id);
+                var koiFish = await _koiFishRepository.GetKoiFishByIdAsync(id);
+                if (koiFish == null)
+                {
+                    throw new Exception($"Không tìm thấy Koi Fish với ID {id}");
+                }
+                return koiFish;
             }
             catch (Exception ex)
             {
@@ -57,8 +51,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
         {
             try
             {
-                await _context.KoiFishes.AddAsync(koiFish);
-                return await _context.SaveChangesAsync() > 0;
+                return await _koiFishRepository.AddKoiFishAsync(koiFish);
             }
             catch (Exception ex)
             {
@@ -70,8 +63,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
         {
             try
             {
-                _context.KoiFishes.Update(koiFish);
-                return await _context.SaveChangesAsync() > 0;
+                return await _koiFishRepository.UpdateKoiFishAsync(koiFish);
             }
             catch (Exception ex)
             {
@@ -83,10 +75,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
         {
             try
             {
-                var koiFish = await GetKoiFishByIdAsync(id);
-                if (koiFish == null) return false;
-                _context.KoiFishes.Remove(koiFish);
-                return await _context.SaveChangesAsync() > 0;
+                return await _koiFishRepository.DeleteKoiFishByIdAsync(id);
             }
             catch (Exception ex)
             {
@@ -98,9 +87,7 @@ namespace KoiShowManagementSystem.Repositories.Repository
         {
             try
             {
-                if (koiFish == null) return false;
-                _context.KoiFishes.Remove(koiFish);
-                return await _context.SaveChangesAsync() > 0;
+                return await _koiFishRepository.DeleteKoiFishAsync(koiFish);
             }
             catch (Exception ex)
             {
@@ -110,29 +97,14 @@ namespace KoiShowManagementSystem.Repositories.Repository
 
         public async Task<List<KoiFish>> SearchKoiFishAsync(string searchQuery, string variety, double? size, int? age)
         {
-            var query = _context.KoiFishes.AsQueryable();
-
-            if (!string.IsNullOrWhiteSpace(searchQuery))
+            try
             {
-                query = query.Where(k => k.Name.Contains(searchQuery) || k.Variety.Contains(searchQuery));
+                return await _koiFishRepository.SearchKoiFishAsync(searchQuery, variety, size, age);
             }
-
-            if (!string.IsNullOrWhiteSpace(variety))
+            catch (Exception ex)
             {
-                query = query.Where(k => k.Variety.Contains(variety));
+                throw new Exception("Có lỗi xảy ra khi tìm kiếm Koi Fish", ex);
             }
-
-            if (size.HasValue)
-            {
-                query = query.Where(k => k.Size == size);
-            }
-
-            if (age.HasValue)
-            {
-                query = query.Where(k => k.Age == age);
-            }
-
-            return await query.ToListAsync();
         }
     }
 }
