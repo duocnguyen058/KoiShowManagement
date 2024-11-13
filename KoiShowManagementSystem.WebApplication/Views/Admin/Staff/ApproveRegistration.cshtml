@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Xét duyệt đơn đăng ký";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Bảng danh sách đăng ký cần xét duyệt -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên người đăng ký</th>
+            <th>Cá Koi đăng ký</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var registration in Model.Registrations)
+        {
+            <tr>
+                <td>@registration.UserName</td>
+                <td>@registration.KoiName</td>
+                <td>@registration.Status</td>
+                <td>
+                    <a href="/Admin/Staff/ApproveRegistration/@registration.Id" class="btn btn-success">Duyệt</a>
+                    <a href="/Admin/Staff/RejectRegistration/@registration.Id" class="btn btn-danger">Từ chối</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

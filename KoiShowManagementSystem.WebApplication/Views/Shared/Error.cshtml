@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Lỗi";
+}
+
+<h2>Đã có lỗi xảy ra</h2>
+<p>Xin lỗi, đã xảy ra lỗi khi xử lý yêu cầu của bạn. Vui lòng thử lại sau.</p>
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <p>Thông báo lỗi chi tiết: @ViewData["ErrorMessage"]</p>
+}

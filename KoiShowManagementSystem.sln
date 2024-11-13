@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1706.14
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiShowManagementSystem.WebApplication", "KoiShowManagementSystem.WebApplication\KoiShowManagementSystem.WebApplication.csproj", "{C5383919-0E72-4DBC-AFCD-F7E8BF86074F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiShowManagementSystem.WebApplication", "KoiShowManagementSystem.WebApplication\KoiShowManagementSystem.WebApplication.csproj", "{C5383919-0E72-4DBC-AFCD-F7E8BF86074F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiShowManagementSystem.Repositories", "KoiShowManagementSystem.Repositories\KoiShowManagementSystem.Repositories.csproj", "{E7C3A548-3BB1-4564-8108-2DD24FCAD37B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiShowManagementSystem.Repositories", "KoiShowManagementSystem.Repositories\KoiShowManagementSystem.Repositories.csproj", "{E7C3A548-3BB1-4564-8108-2DD24FCAD37B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoiShowManagementSystem.Services", "KoiShowManagementSystem.Services\KoiShowManagementSystem.Services.csproj", "{EFF9C804-3064-481A-98C4-CE934D617B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KoiShowManagementSystem.Services", "KoiShowManagementSystem.Services\KoiShowManagementSystem.Services.csproj", "{EFF9C804-3064-481A-98C4-CE934D617B9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

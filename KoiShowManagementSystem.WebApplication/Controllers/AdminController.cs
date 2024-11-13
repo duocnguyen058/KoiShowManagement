@@ -1,28 +1,118 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using KoiShowManagementSystem.Services.Interface;
 using KoiShowManagementSystem.Repositories.Entities;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using KoiShowManagementSystem.Services.CompetitionService;
+using System.Threading.Tasks;
 
 namespace KoiShowManagementSystem.Controllers
 {
-    [Route("api/admin/[controller]")]
+    [Route("admin")]
     [ApiController]
-    [Authorize(Roles = "Admin")] // Chỉ cho phép người dùng có vai trò "Admin"
-    public class AdminController : ControllerBase
+    public class AdminController : Controller
     {
+        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly IAccountService _accountService;
         private readonly ICompetitionService _competitionService;
 
-        public AdminController(IAccountService accountService, ICompetitionService competitionService)
+        public AdminController(SignInManager<IdentityUser> signInManager,
+                               UserManager<IdentityUser> userManager,
+                               IAccountService accountService,
+                               ICompetitionService competitionService)
         {
+            _signInManager = signInManager;
+            _userManager = userManager;
             _accountService = accountService;
             _competitionService = competitionService;
         }
 
-        #region ** Account Management **
+        #region ** Web View Routes **
+
+        [HttpGet("index")]
+        public async Task<IActionResult> Index()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                // Tìm người dùng theo tên đăng nhập
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
+                if (user != null)
+                {
+                    // Gọi phương thức kiểm tra vai trò và điều hướng
+                    return await RedirectToDashboardBasedOnRole(user);
+                }
+                else
+                {
+                    // Người dùng không tồn tại
+                    return RedirectToAction("Login");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
+        // Trang đăng nhập
+        [HttpGet("login")]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        // Xử lý đăng nhập
+        [HttpPost("login")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(string email, string password, bool rememberMe)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Email không tồn tại.");
+                return View();
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(user, password, rememberMe, false);
+            if (result.Succeeded)
+            {
+                if (await _userManager.IsInRoleAsync(user, "Admin"))
+                {
+                    return RedirectToAction("AdminDashboard");
+                }
+                else if (await _userManager.IsInRoleAsync(user, "Manager"))
+                {
+                    return RedirectToAction("ManagerDashboard");
+                }
+                else if (await _userManager.IsInRoleAsync(user, "Staff"))
+                {
+                    return RedirectToAction("StaffDashboard");
+                }
+                else if (await _userManager.IsInRoleAsync(user, "Referee"))
+                {
+                    return RedirectToAction("RefereeDashboard");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+
+            ModelState.AddModelError("", "Mật khẩu không chính xác.");
+            return View();
+        }
+
+        // Đăng xuất
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        #endregion
+
+        #region ** API Routes - Account Management **
 
         // Lấy tất cả tài khoản
         [HttpGet("accounts")]
@@ -67,7 +157,7 @@ namespace KoiShowManagementSystem.Controllers
 
         #endregion
 
-        #region ** Competition Management **
+        #region ** API Routes - Competition Management **
 
         // Lấy tất cả cuộc thi
         [HttpGet("competitions")]
@@ -125,5 +215,30 @@ namespace KoiShowManagementSystem.Controllers
         }
 
         #endregion
+
+        // Phương thức điều hướng theo vai trò
+        private async Task<IActionResult> RedirectToDashboardBasedOnRole(IdentityUser user)
+        {
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+            {
+                return RedirectToAction("AdminDashboard");
+            }
+            else if (await _userManager.IsInRoleAsync(user, "Manager"))
+            {
+                return RedirectToAction("ManagerDashboard");
+            }
+            else if (await _userManager.IsInRoleAsync(user, "Staff"))
+            {
+                return RedirectToAction("StaffDashboard");
+            }
+            else if (await _userManager.IsInRoleAsync(user, "Referee"))
+            {
+                return RedirectToAction("RefereeDashboard");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+        }
     }
 }

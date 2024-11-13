@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Quản lý cá Koi";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Bảng danh sách cá Koi -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên cá Koi</th>
+            <th>Loại cá</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var koi in Model.KoiList)
+        {
+            <tr>
+                <td>@koi.Name</td>
+                <td>@koi.Type</td>
+                <td>@koi.Status</td>
+                <td>
+                    <a href="/Admin/Staff/ManageKoiDetails/@koi.Id" class="btn btn-primary">Chi tiết</a>
+                    <a href="/Admin/Staff/EditKoi/@koi.Id" class="btn btn-warning">Sửa</a>
+                    <a href="/Admin/Staff/DeleteKoi/@koi.Id" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Thêm cá Koi -->
+<a href="/Admin/Staff/AddKoi" class="btn btn-success">Thêm cá Koi</a>

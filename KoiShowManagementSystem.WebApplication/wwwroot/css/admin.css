@@ -1,0 +1,84 @@
+﻿/* Layout cho Admin */
+body {
+    background-color: #e9ecef;
+}
+
+h2 {
+    color: #495057;
+    font-size: 24px;
+}
+
+/* Thanh điều hướng */
+.navbar {
+    background-color: #343a40;
+    padding: 10px;
+}
+
+    .navbar a {
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+    }
+
+        .navbar a:hover {
+            background-color: #495057;
+        }
+
+    .navbar .active {
+        background-color: #007bff;
+    }
+
+/* Thẻ sidebar */
+.sidebar {
+    height: 100%;
+    background-color: #343a40;
+    color: white;
+    position: fixed;
+    width: 250px;
+    padding-top: 20px;
+}
+
+    .sidebar a {
+        color: white;
+        padding: 10px 20px;
+        display: block;
+        text-decoration: none;
+    }
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+
+/* Nội dung */
+.content {
+    margin-left: 270px;
+    padding: 20px;
+    background-color: white;
+    min-height: 100vh;
+}
+
+/* Button trong Admin */
+.admin-btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+    .admin-btn:hover {
+        background-color: #0056b3;
+    }
+
+/* Footer */
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

@@ -3,14 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Services.Interface;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System;
+using System.Linq;
 
 namespace KoiShowManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin, Judge, User")]  // Chỉ cho phép người dùng có vai trò "Admin", "Judge" hoặc "User" truy cập
+    // Loại bỏ [Authorize] ở cấp độ controller để không yêu cầu đăng nhập cho tất cả các phương thức
     public class CompetitionController : ControllerBase
     {
         private readonly ICompetitionService _competitionService;
@@ -20,16 +20,18 @@ namespace KoiShowManagementSystem.Controllers
             _competitionService = competitionService;
         }
 
-        // Lấy tất cả các cuộc thi
+        // Lấy tất cả các cuộc thi (Cho phép Guest)
         [HttpGet]
+        [AllowAnonymous]  // Chỉ định cho phép truy cập mà không cần đăng nhập
         public async Task<IActionResult> GetAllCompetitionsAsync()
         {
             var competitions = await _competitionService.GetAllCompetitionsAsync();
             return Ok(competitions);
         }
 
-        // Lấy cuộc thi theo ID
+        // Lấy cuộc thi theo ID (Cho phép Guest)
         [HttpGet("{id}")]
+        [AllowAnonymous]  // Chỉ định cho phép truy cập mà không cần đăng nhập
         public async Task<IActionResult> GetCompetitionByIdAsync(int id)
         {
             var competition = await _competitionService.GetCompetitionByIdAsync(id);
@@ -39,16 +41,18 @@ namespace KoiShowManagementSystem.Controllers
             return Ok(competition);
         }
 
-        // Tìm kiếm cuộc thi theo từ khóa và ngày
+        // Tìm kiếm cuộc thi theo từ khóa và ngày (Cho phép Guest)
         [HttpGet("search")]
+        [AllowAnonymous]  // Chỉ định cho phép truy cập mà không cần đăng nhập
         public async Task<IActionResult> SearchCompetitionsAsync([FromQuery] string searchQuery, [FromQuery] DateTime? date)
         {
             var competitions = await _competitionService.SearchCompetitionsAsync(searchQuery, date);
             return Ok(competitions);
         }
 
-        // Thêm mới cuộc thi
+        // Thêm mới cuộc thi (Chỉ cho phép Admin)
         [HttpPost]
+        [Authorize(Roles = "Admin")]  // Chỉ cho phép Admin tạo cuộc thi
         public async Task<IActionResult> CreateCompetitionAsync([FromBody] Competition competition)
         {
             if (competition == null)
@@ -61,8 +65,9 @@ namespace KoiShowManagementSystem.Controllers
             return StatusCode(500, "Đã có lỗi xảy ra khi tạo cuộc thi.");
         }
 
-        // Cập nhật thông tin cuộc thi
+        // Cập nhật thông tin cuộc thi (Chỉ cho phép Admin)
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]  // Chỉ cho phép Admin cập nhật cuộc thi
         public async Task<IActionResult> UpdateCompetitionAsync(int id, [FromBody] Competition competition)
         {
             if (competition == null || id != competition.CompetitionId)
@@ -79,8 +84,9 @@ namespace KoiShowManagementSystem.Controllers
             return StatusCode(500, "Đã có lỗi xảy ra khi cập nhật cuộc thi.");
         }
 
-        // Xóa cuộc thi
+        // Xóa cuộc thi (Chỉ cho phép Admin)
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]  // Chỉ cho phép Admin xóa cuộc thi
         public async Task<IActionResult> DeleteCompetitionAsync(int id)
         {
             var existingCompetition = await _competitionService.GetCompetitionByIdAsync(id);
@@ -94,30 +100,9 @@ namespace KoiShowManagementSystem.Controllers
             return StatusCode(500, "Đã có lỗi xảy ra khi xóa cuộc thi.");
         }
 
-        // Thêm giám khảo vào cuộc thi
-        [HttpPost("{competitionId}/addjudge/{judgeId}")]
-        public async Task<IActionResult> AddJudgeToCompetitionAsync(int competitionId, int judgeId)
-        {
-            var result = await _competitionService.AddJudgeToCompetitionAsync(competitionId, judgeId);
-            if (result)
-                return Ok("Giám khảo đã được thêm vào cuộc thi.");
-
-            return BadRequest("Không thể thêm giám khảo vào cuộc thi.");
-        }
-
-        // Xóa giám khảo khỏi cuộc thi
-        [HttpPost("{competitionId}/removejudge/{judgeId}")]
-        public async Task<IActionResult> RemoveJudgeFromCompetitionAsync(int competitionId, int judgeId)
-        {
-            var result = await _competitionService.RemoveJudgeFromCompetitionAsync(competitionId, judgeId);
-            if (result)
-                return Ok("Giám khảo đã được xóa khỏi cuộc thi.");
-
-            return BadRequest("Không thể xóa giám khảo khỏi cuộc thi.");
-        }
-
-        // Lấy kết quả của cuộc thi
+        // Lấy kết quả của cuộc thi (Cho phép Guest)
         [HttpGet("{id}/results")]
+        [AllowAnonymous]  // Chỉ định cho phép truy cập mà không cần đăng nhập
         public async Task<IActionResult> GetResultsForCompetitionAsync(int id)
         {
             var results = await _competitionService.GetResultsForCompetitionAsync(id);
@@ -127,8 +112,9 @@ namespace KoiShowManagementSystem.Controllers
             return Ok(results);
         }
 
-        // Lấy điểm của cuộc thi
+        // Lấy điểm của cuộc thi (Chỉ cho phép Admin, Judge)
         [HttpGet("{id}/scores")]
+        [Authorize(Roles = "Admin, Judge")]  // Chỉ cho phép Admin và Judge lấy điểm cuộc thi
         public async Task<IActionResult> GetScoresForCompetitionAsync(int id)
         {
             var scores = await _competitionService.GetScoresForCompetitionAsync(id);
@@ -138,16 +124,29 @@ namespace KoiShowManagementSystem.Controllers
             return Ok(scores);
         }
 
-        // Lấy các cuộc thi đang diễn ra
+        // Lấy các cuộc thi đang diễn ra (Cho phép Guest)
         [HttpGet("ongoing")]
+        [AllowAnonymous]  // Chỉ định cho phép truy cập mà không cần đăng nhập
         public async Task<IActionResult> GetOngoingCompetitionsAsync()
         {
-            var ongoingCompetitions = await _competitionService.GetOngoingCompetitionsAsync();
-            return Ok(ongoingCompetitions);
+            try
+            {
+                var ongoingCompetitions = await _competitionService.GetOngoingCompetitionsAsync();
+                if (ongoingCompetitions == null || !ongoingCompetitions.Any())
+                    return NotFound("Không có cuộc thi nào đang diễn ra.");
+
+                return Ok(ongoingCompetitions);
+            }
+            catch (Exception ex)
+            {
+                // Ghi log lỗi nếu cần thiết
+                return StatusCode(500, "Đã có lỗi xảy ra khi truy vấn cuộc thi: " + ex.Message);
+            }
         }
 
-        // Kiểm tra trạng thái của cuộc thi
+        // Kiểm tra trạng thái của cuộc thi (Cho phép Guest)
         [HttpGet("{id}/status")]
+        [AllowAnonymous]  // Chỉ định cho phép truy cập mà không cần đăng nhập
         public IActionResult CheckCompetitionStatus(int id)
         {
             var competition = _competitionService.GetCompetitionByIdAsync(id).Result;

@@ -1,0 +1,31 @@
+﻿/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    .navbar {
+        display: block;
+        text-align: center;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+        .sidebar a {
+            text-align: center;
+            padding: 12px;
+        }
+
+    .content {
+        margin-left: 0;
+    }
+
+    .member-sidebar {
+        width: 100%;
+        padding-top: 10px;
+    }
+
+        .member-sidebar a {
+            text-align: center;
+        }
+}

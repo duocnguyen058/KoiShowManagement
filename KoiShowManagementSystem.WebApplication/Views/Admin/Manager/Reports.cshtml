@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Báo cáo kết quả cuộc thi";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Báo cáo cuộc thi -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên cuộc thi</th>
+            <th>Số lượng thí sinh</th>
+            <th>Điểm trung bình</th>
+            <th>Trạng thái</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model.Reports)
+        {
+            <tr>
+                <td>@report.CompetitionName</td>
+                <td>@report.ParticipantCount</td>
+                <td>@report.AvgScore</td>
+                <td>@report.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

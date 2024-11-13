@@ -11,47 +11,26 @@ namespace KoiShowManagementSystem.Services.Service
     public class CompetitionService : ICompetitionService
     {
         private readonly ICompetitionRepository _competitionRepository;
+        private readonly IResultRepository _resultRepository;
         private readonly IJudgeRepository _judgeRepository;
         private readonly IRegistrationRepository _registrationRepository;
-        private readonly IResultRepository _resultRepository;
         private readonly IScoreRepository _scoreRepository;
 
         public CompetitionService(
             ICompetitionRepository competitionRepository,
+            IResultRepository resultRepository,
             IJudgeRepository judgeRepository,
             IRegistrationRepository registrationRepository,
-            IResultRepository resultRepository,
             IScoreRepository scoreRepository)
         {
             _competitionRepository = competitionRepository;
+            _resultRepository = resultRepository;
             _judgeRepository = judgeRepository;
             _registrationRepository = registrationRepository;
-            _resultRepository = resultRepository;
             _scoreRepository = scoreRepository;
         }
 
-        // Triển khai phương thức tìm kiếm cuộc thi theo tên và ngày
-        public async Task<IEnumerable<Competition>> SearchCompetitionsAsync(string searchQuery, DateTime? date)
-        {
-            var competitions = await _competitionRepository.GetAllCompetitionsAsync();
-
-            // Lọc theo từ khóa tìm kiếm (nếu có)
-            if (!string.IsNullOrEmpty(searchQuery))
-            {
-                competitions = competitions.Where(c => c.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase));
-            }
-
-            // Lọc theo ngày (nếu có)
-            if (date.HasValue)
-            {
-                DateTime searchDate = date.Value.Date;
-                competitions = competitions.Where(c => c.StartDate <= searchDate && c.EndDate >= searchDate);
-            }
-
-            return competitions.ToList();
-        }
-
-        // Triển khai các phương thức khác...
+        // Lấy thông tin cuộc thi theo ID
         public async Task<Competition> GetCompetitionByIdAsync(int competitionId)
         {
             if (competitionId <= 0)
@@ -64,11 +43,32 @@ namespace KoiShowManagementSystem.Services.Service
             return competition;
         }
 
+        // Lấy danh sách tất cả các cuộc thi
         public async Task<IEnumerable<Competition>> GetAllCompetitionsAsync()
         {
             return await _competitionRepository.GetAllCompetitionsAsync();
         }
 
+        // Tìm kiếm cuộc thi theo tên và ngày
+        public async Task<IEnumerable<Competition>> SearchCompetitionsAsync(string searchQuery, DateTime? date)
+        {
+            var competitions = await _competitionRepository.GetAllCompetitionsAsync();
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                competitions = competitions.Where(c => c.Name.Contains(searchQuery, StringComparison.OrdinalIgnoreCase));
+            }
+
+            if (date.HasValue)
+            {
+                DateTime searchDate = date.Value.Date;
+                competitions = competitions.Where(c => c.StartDate <= searchDate && c.EndDate >= searchDate);
+            }
+
+            return competitions.ToList();
+        }
+
+        // Tạo một cuộc thi mới
         public async Task<bool> CreateCompetitionAsync(Competition competition)
         {
             if (competition == null)
@@ -80,6 +80,7 @@ namespace KoiShowManagementSystem.Services.Service
             return await _competitionRepository.CreateCompetitionAsync(competition);
         }
 
+        // Cập nhật thông tin cuộc thi
         public async Task<bool> UpdateCompetitionAsync(Competition competition)
         {
             if (competition == null)
@@ -95,6 +96,7 @@ namespace KoiShowManagementSystem.Services.Service
             return await _competitionRepository.UpdateCompetitionAsync(competition);
         }
 
+        // Xóa cuộc thi
         public async Task<bool> DeleteCompetitionAsync(int competitionId)
         {
             if (competitionId <= 0)
@@ -104,7 +106,6 @@ namespace KoiShowManagementSystem.Services.Service
             if (competition == null)
                 throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}.");
 
-            // Xóa các đối tượng liên quan đến cuộc thi
             await _scoreRepository.DeleteScoresByCompetitionIdAsync(competitionId);
             await _resultRepository.DeleteResultsByCompetitionIdAsync(competitionId);
             await _registrationRepository.DeleteRegistrationsByCompetitionIdAsync(competitionId);
@@ -112,6 +113,7 @@ namespace KoiShowManagementSystem.Services.Service
             return await _competitionRepository.DeleteCompetitionAsync(competitionId);
         }
 
+        // Thêm giám khảo vào cuộc thi
         public async Task<bool> AddJudgeToCompetitionAsync(int competitionId, int judgeId)
         {
             var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
@@ -133,6 +135,7 @@ namespace KoiShowManagementSystem.Services.Service
             throw new InvalidOperationException("Giám khảo đã được thêm vào cuộc thi này.");
         }
 
+        // Xóa giám khảo khỏi cuộc thi
         public async Task<bool> RemoveJudgeFromCompetitionAsync(int competitionId, int judgeId)
         {
             var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
@@ -150,6 +153,7 @@ namespace KoiShowManagementSystem.Services.Service
             return true;
         }
 
+        // Thêm đăng ký vào cuộc thi
         public async Task<bool> AddRegistrationToCompetitionAsync(int competitionId, Registration registration)
         {
             if (registration == null)
@@ -165,16 +169,21 @@ namespace KoiShowManagementSystem.Services.Service
             return true;
         }
 
+        // Lấy kết quả cho cuộc thi
         public async Task<IEnumerable<Result>> GetResultsForCompetitionAsync(int competitionId)
         {
-            var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
+            if (competitionId <= 0)
+                throw new ArgumentException("ID cuộc thi phải lớn hơn 0");
 
-            if (competition == null)
-                throw new KeyNotFoundException($"Không tìm thấy cuộc thi với ID {competitionId}");
+            var results = await _resultRepository.GetResultsByCompetitionIdAsync(competitionId);
 
-            return await _resultRepository.GetResultsByCompetitionIdAsync(competitionId);
+            if (results == null || !results.Any())
+                throw new KeyNotFoundException($"Không tìm thấy kết quả cho cuộc thi với ID {competitionId}");
+
+            return results;
         }
 
+        // Lấy điểm số cho cuộc thi
         public async Task<IEnumerable<Score>> GetScoresForCompetitionAsync(int competitionId)
         {
             var competition = await _competitionRepository.GetCompetitionByIdAsync(competitionId);
@@ -185,18 +194,29 @@ namespace KoiShowManagementSystem.Services.Service
             return await _scoreRepository.GetScoresByCompetitionIdAsync(competitionId);
         }
 
+        // Kiểm tra cuộc thi có đang hoạt động không
         public bool IsCompetitionActive(Competition competition)
         {
             var now = DateTime.Now;
             return now >= competition.StartDate && now <= competition.EndDate;
         }
 
+        // Lấy danh sách các cuộc thi đang diễn ra
         public async Task<IEnumerable<Competition>> GetOngoingCompetitionsAsync()
         {
             var competitions = await _competitionRepository.GetAllCompetitionsAsync();
 
-            // Lọc các cuộc thi đang diễn ra
+            if (competitions == null || !competitions.Any())
+            {
+                throw new KeyNotFoundException("Không có cuộc thi nào trong hệ thống.");
+            }
+
             var ongoingCompetitions = competitions.Where(c => c.StartDate <= DateTime.Now && c.EndDate >= DateTime.Now).ToList();
+
+            if (!ongoingCompetitions.Any())
+            {
+                throw new KeyNotFoundException("Không có cuộc thi nào đang diễn ra.");
+            }
 
             return ongoingCompetitions;
         }

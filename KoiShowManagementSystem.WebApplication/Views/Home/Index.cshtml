@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="content">
+    <h2>Chào mừng đến với Hệ thống Quản lý Cuộc thi Cá Koi</h2>
+    <p>Chúng tôi tự hào cung cấp một nền tảng tổ chức cuộc thi cá Koi đẳng cấp, nơi bạn có thể tham gia, đăng ký và theo dõi các cuộc thi cá Koi hàng đầu. Hãy tham gia ngay để thể hiện sự yêu thích và đam mê với loài cá này!</p>
+    <a href="/Home/CompetitionList" class="btn">Xem Danh Sách Cuộc Thi</a>
+</div>
+
+<div class="content additional-section">
+    <h3>Sứ Mệnh</h3>
+    <p>Sứ mệnh của chúng tôi là tạo ra một cộng đồng sôi nổi, nơi những người yêu thích cá Koi có thể giao lưu, học hỏi và chia sẻ kinh nghiệm. Hệ thống giúp nâng cao tính minh bạch và tạo điều kiện cho sự phát triển của thú chơi cá Koi tại Việt Nam và quốc tế.</p>
+
+    <h3>Tính Năng Nổi Bật</h3>
+    <ul>
+        <li>Quản lý cuộc thi chi tiết và hiệu quả.</li>
+        <li>Đăng ký tham gia cuộc thi dễ dàng.</li>
+        <li>Theo dõi lịch sử và thành tích các cuộc thi.</li>
+        <li>Quản lý thông tin người tham gia và giám khảo.</li>
+    </ul>
+    <a href="/Home/About" class="btn">Xem Thêm</a>
+</div>
+
+<style>
+    .content {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+    }
+
+        .content h2, .content h3 {
+            color: #2980b9;
+        }
+
+        .content ul {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+
+    .btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+    .additional-section {
+        margin-top: 40px;
+    }
+</style>

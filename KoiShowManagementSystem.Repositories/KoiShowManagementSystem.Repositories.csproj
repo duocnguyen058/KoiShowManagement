@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Entities\**" />
+    <Compile Remove="Interface\**" />
+    <Compile Remove="Repository\**" />
+    <EmbeddedResource Remove="Entities\**" />
+    <EmbeddedResource Remove="Interface\**" />
+    <EmbeddedResource Remove="Repository\**" />
+    <None Remove="Entities\**" />
+    <None Remove="Interface\**" />
+    <None Remove="Repository\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.20" />

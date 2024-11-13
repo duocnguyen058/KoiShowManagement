@@ -3,14 +3,13 @@ using Microsoft.AspNetCore.Mvc;
 using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Services.Interface;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using KoiShowManagementSystem.Services.CompetitionService;
 
 namespace KoiShowManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]  // Chỉ cho phép người dùng có vai trò "Admin" truy cập
+    [Authorize(Roles = "Admin")]  // Chỉ cho phép Admin truy cập
     public class CompetitionCategoryController : ControllerBase
     {
         private readonly ICompetitionCategoryService _competitionCategoryService;

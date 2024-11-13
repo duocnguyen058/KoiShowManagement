@@ -6,9 +6,8 @@ using KoiShowManagementSystem.Services.CompetitionService;
 
 namespace KoiShowManagementSystem.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AccountController : ControllerBase
+    [Route("account")]
+    public class AccountController : Controller
     {
         private readonly IAccountService _accountService;
 
@@ -17,100 +16,90 @@ namespace KoiShowManagementSystem.Controllers
             _accountService = accountService;
         }
 
-        // Lấy thông tin tài khoản theo ID
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetAccountByIdAsync(int id)
+        // Hiển thị trang đăng ký
+        [HttpGet("register")]
+        public IActionResult Register()
         {
-            var account = await _accountService.GetAccountByIdAsync(id);
-            if (account == null)
-                return NotFound("Tài khoản không tồn tại.");
-
-            return Ok(account);
+            return View();  // Hiển thị form đăng ký
         }
 
-        // Lấy thông tin tài khoản theo Username
-        [HttpGet("username/{username}")]
-        public async Task<IActionResult> GetAccountByUsernameAsync(string username)
+        // Xử lý đăng ký tài khoản
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(Account account)
         {
-            var account = await _accountService.GetAccountByUsernameAsync(username);
-            if (account == null)
-                return NotFound("Tài khoản không tồn tại.");
+            if (ModelState.IsValid)
+            {
+                var isExist = await _accountService.IsAccountExistAsync(account.Username);
+                if (isExist)
+                {
+                    ModelState.AddModelError(string.Empty, "Tài khoản đã tồn tại.");
+                    return View(account);
+                }
 
-            return Ok(account);
+                var result = await _accountService.CreateAccountAsync(account);
+                if (result)
+                {
+                    // Thông báo đăng ký thành công
+                    TempData["SuccessMessage"] = "Đăng ký tài khoản thành công! Vui lòng đăng nhập.";
+                    return RedirectToAction("Login");  // Đổi route nếu cần
+                }
+                ModelState.AddModelError(string.Empty, "Đã có lỗi xảy ra khi tạo tài khoản.");
+            }
+
+            return View(account);
         }
 
-        // Lấy tất cả tài khoản
-        [HttpGet]
-        public async Task<IActionResult> GetAllAccountsAsync()
+        // Hiển thị trang đăng nhập cho người dùng
+        [HttpGet("login")]
+        public IActionResult UserLogin()
         {
-            var accounts = await _accountService.GetAllAccountsAsync();
-            return Ok(accounts);
+            return View();  // Hiển thị form đăng nhập người dùng
         }
 
-        // Tạo mới tài khoản
-        [HttpPost]
-        public async Task<IActionResult> CreateAccountAsync([FromBody] Account account)
+        // Xử lý đăng nhập cho người dùng
+        [HttpPost("login")]
+        public async Task<IActionResult> UserLogin(AccountLoginRequest loginRequest)
         {
-            if (account == null)
-                return BadRequest("Dữ liệu không hợp lệ.");
+            if (ModelState.IsValid)
+            {
+                var account = await _accountService.ValidateAccountAsync(loginRequest.Username, loginRequest.Password);
 
-            var isExist = await _accountService.IsAccountExistAsync(account.Username);
-            if (isExist)
-                return Conflict("Tài khoản đã tồn tại.");
+                if (account != null)
+                {
+                    TempData["SuccessMessage"] = "Đăng nhập thành công!";
+                    return RedirectToAction("Index", "Home"); // Chuyển hướng đến trang chủ người dùng
+                }
+                ModelState.AddModelError(string.Empty, "Tên đăng nhập hoặc mật khẩu không đúng.");
+            }
 
-            var result = await _accountService.CreateAccountAsync(account);
-            if (result)
-                return CreatedAtAction(nameof(GetAccountByIdAsync), new { id = account.AccountId }, account);
-
-            return StatusCode(500, "Đã có lỗi xảy ra khi tạo tài khoản.");
+            return View(loginRequest);
         }
 
-        // Cập nhật thông tin tài khoản
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateAccountAsync(int id, [FromBody] Account account)
+        // Hiển thị trang đăng nhập cho quản trị viên
+        [HttpGet("admin/login")]
+        public IActionResult AdminLogin()
         {
-            if (account == null || id != account.AccountId)
-                return BadRequest("Dữ liệu không hợp lệ.");
-
-            var existingAccount = await _accountService.GetAccountByIdAsync(id);
-            if (existingAccount == null)
-                return NotFound("Tài khoản không tồn tại.");
-
-            var result = await _accountService.UpdateAccountAsync(account);
-            if (result)
-                return NoContent();
-
-            return StatusCode(500, "Đã có lỗi xảy ra khi cập nhật tài khoản.");
+            return View();  // Hiển thị form đăng nhập quản trị viên
         }
 
-        // Xóa tài khoản
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAccountAsync(int id)
+        // Xử lý đăng nhập cho quản trị viên
+        [HttpPost("admin/login")]
+        public async Task<IActionResult> AdminLogin(AccountLoginRequest loginRequest)
         {
-            var existingAccount = await _accountService.GetAccountByIdAsync(id);
-            if (existingAccount == null)
-                return NotFound("Tài khoản không tồn tại.");
+            if (ModelState.IsValid)
+            {
+                var account = await _accountService.ValidateAccountAsync(loginRequest.Username, loginRequest.Password);
 
-            var result = await _accountService.DeleteAccountAsync(id);
-            if (result)
-                return NoContent();
+                if (account != null && account.Role == "Admin")
+                {
+                    TempData["SuccessMessage"] = "Đăng nhập thành công!";
+                    return RedirectToAction("Index", "Admin"); // Chuyển hướng đến trang quản trị
+                }
 
-            return StatusCode(500, "Đã có lỗi xảy ra khi xóa tài khoản.");
-        }
+                ModelState.AddModelError(string.Empty, "Tên đăng nhập hoặc mật khẩu không đúng.");
+            }
 
-        // Xác thực tài khoản (đăng nhập)
-        [HttpPost("validate")]
-        public async Task<IActionResult> ValidateAccountAsync([FromBody] AccountLoginRequest loginRequest)
-        {
-            if (loginRequest == null || string.IsNullOrEmpty(loginRequest.Username) || string.IsNullOrEmpty(loginRequest.Password))
-                return BadRequest("Dữ liệu không hợp lệ.");
-
-            var account = await _accountService.ValidateAccountAsync(loginRequest.Username, loginRequest.Password);
-
-            if (account == null)
-                return Unauthorized("Tên đăng nhập hoặc mật khẩu không đúng.");
-
-            return Ok(account); // Trả về thông tin tài khoản khi đăng nhập thành công
+            return View(loginRequest);
         }
     }
 

@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Phân loại cá Koi";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!-- Form phân loại cá Koi -->
+<form method="post" action="/Admin/Referee/ClassifyKoi">
+    <div class="form-group">
+        <label for="KoiId">Chọn cá Koi</label>
+        <select id="KoiId" name="KoiId" class="form-control">
+            @foreach (var koi in Model.KoiList)
+            {
+                <option value="@koi.Id">@koi.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Category">Chọn hạng mục</label>
+        <select id="Category" name="Category" class="form-control">
+            <option value="A">Hạng A</option>
+            <option value="B">Hạng B</option>
+            <option value="C">Hạng C</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Phân loại cá Koi</button>
+</form>
