@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using KoiShowManagementSystem.Repositories.Entities;
@@ -33,6 +34,12 @@ builder.Services.AddScoped<IKoiCompetitionCategoryRepository, KoiCompetitionCate
 builder.Services.AddScoped<IKoiFishRepository, KoiFishRepository>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped<IReportRepository, ReportRepository>();
+=======
+﻿var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddRazorPages();
+>>>>>>> 326395af6a86d8090aa86279419b2334c8bcafb1
 
 // Đăng ký các dịch vụ
 builder.Services.AddScoped<IScoreService, ScoreService>();
@@ -76,7 +83,18 @@ builder.Services.AddAuthorization(options =>
 // Thiết lập pipeline ứng dụng
 var app = builder.Build();
 
+<<<<<<< HEAD
 // Bật chuyển hướng HTTPS
+=======
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+>>>>>>> 326395af6a86d8090aa86279419b2334c8bcafb1
 app.UseHttpsRedirection();
 
 // Phục vụ các file tĩnh (hình ảnh, CSS, JS, v.v.) từ thư mục wwwroot
@@ -95,5 +113,9 @@ app.MapControllerRoute(
 // Bật Razor Pages
 app.MapRazorPages();
 
+<<<<<<< HEAD
 // Chạy ứng dụng
 app.Run();
+=======
+app.Run();
+>>>>>>> 326395af6a86d8090aa86279419b2334c8bcafb1
