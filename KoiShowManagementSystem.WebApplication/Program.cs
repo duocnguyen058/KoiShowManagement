@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using KoiShowManagementSystem.Repositories.Entities;
 using KoiShowManagementSystem.Repositories.Interface;
@@ -34,12 +33,6 @@ builder.Services.AddScoped<IKoiCompetitionCategoryRepository, KoiCompetitionCate
 builder.Services.AddScoped<IKoiFishRepository, KoiFishRepository>();
 builder.Services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 builder.Services.AddScoped<IReportRepository, ReportRepository>();
-=======
-﻿var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddRazorPages();
->>>>>>> 326395af6a86d8090aa86279419b2334c8bcafb1
 
 // Đăng ký các dịch vụ
 builder.Services.AddScoped<IScoreService, ScoreService>();
@@ -54,7 +47,7 @@ builder.Services.AddScoped<IKoiFishService, KoiFishService>();
 builder.Services.AddScoped<IRegistrationService, RegistrationService>();
 builder.Services.AddScoped<IReportService, ReportService>();
 
-// Đăng ký dịch vụ Identity với IdentityUser (không cần ApplicationUser nữa)
+// Đăng ký dịch vụ Identity với IdentityUser
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<KoiShowManagementDbcontextContext>()
     .AddDefaultTokenProviders();
@@ -68,7 +61,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.AccessDeniedPath = "/Home/AccessDenied";  // Đường dẫn nếu bị từ chối truy cập
     });
 
-// Định nghĩa các chính sách quyền cho các vai trò khác nhau
+// Định nghĩa các chính sách quyền
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
@@ -83,21 +76,13 @@ builder.Services.AddAuthorization(options =>
 // Thiết lập pipeline ứng dụng
 var app = builder.Build();
 
-<<<<<<< HEAD
 // Bật chuyển hướng HTTPS
-=======
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
->>>>>>> 326395af6a86d8090aa86279419b2334c8bcafb1
 app.UseHttpsRedirection();
-
-// Phục vụ các file tĩnh (hình ảnh, CSS, JS, v.v.) từ thư mục wwwroot
 app.UseStaticFiles();
 
 // Thiết lập middleware cho routing, authentication và authorization
@@ -105,17 +90,13 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Cấu hình route mặc định cho controller Home và action Index
+// Cấu hình route mặc định
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");  // Đường dẫn mặc định cho controller Home và action Index
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 // Bật Razor Pages
 app.MapRazorPages();
 
-<<<<<<< HEAD
 // Chạy ứng dụng
 app.Run();
-=======
-app.Run();
->>>>>>> 326395af6a86d8090aa86279419b2334c8bcafb1
