@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\1\\KoiShowManagement\\KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj": {}
   },
   "projects": {
@@ -12,21 +13,36 @@
         "projectPath": "D:\\1\\KoiShowManagement\\KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj",
         "packagesPath": "C:\\Users\\kiet.nguyenletuan\\.nuget\\packages\\",
         "outputPath": "D:\\1\\KoiShowManagement\\KoiShowManagementSystem.Repositories\\obj\\",
+=======
+    "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/KoiShowManagementSystem.Repositories.csproj": {}
+  },
+  "projects": {
+    "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/KoiShowManagementSystem.Repositories.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/KoiShowManagementSystem.Repositories.csproj",
+        "projectName": "KoiShowManagementSystem.Repositories",
+        "projectPath": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/KoiShowManagementSystem.Repositories.csproj",
+        "packagesPath": "/Users/huynhngocbinh/.nuget/packages/",
+        "outputPath": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/obj/",
+>>>>>>> c198da349d2ade297842fff15acba6ad0550f680
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\kiet.nguyenletuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "/Users/huynhngocbinh/.nuget/NuGet/NuGet.Config"
+>>>>>>> c198da349d2ade297842fff15acba6ad0550f680
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +55,7 @@
           "warnAsError": [
             "NU1605"
           ]
+<<<<<<< HEAD
         },
         "restoreAuditProperties": {
           "enableAudit": "true",
@@ -46,6 +63,9 @@
           "auditMode": "all"
         },
         "SdkAnalysisLevel": "9.0.100"
+=======
+        }
+>>>>>>> c198da349d2ade297842fff15acba6ad0550f680
       },
       "frameworks": {
         "net7.0": {
@@ -92,7 +112,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+>>>>>>> c198da349d2ade297842fff15acba6ad0550f680
         }
       }
     }
