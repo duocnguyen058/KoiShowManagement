@@ -8,6 +8,17 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="form-container">
+                @* Hiển thị thông báo lỗi nếu có *@
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger mt-3">
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <p>@error.ErrorMessage</p>
+                        }
+                    </div>
+                }
+
                 <form asp-action="Login" method="post">
                     <div class="form-group mb-3">
                         <label for="username" class="form-label">Tên đăng nhập</label>
@@ -28,16 +39,6 @@
                         <p>Chưa có tài khoản? <a href="@Url.Action("Register", "Home")" class="text-primary">Đăng ký ngay</a></p>
                     </div>
                 </form>
-
-                @if (!ViewData.ModelState.IsValid)
-                {
-                    <div class="alert alert-danger mt-3">
-                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-                        {
-                            <p>@error.ErrorMessage</p>
-                        }
-                    </div>
-                }
             </div>
         </div>
     </div>
@@ -52,4 +53,3 @@
         }
     </script>
 }
-﻿
