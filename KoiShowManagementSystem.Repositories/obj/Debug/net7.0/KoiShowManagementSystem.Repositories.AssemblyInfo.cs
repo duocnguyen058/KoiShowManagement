@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KoiShowManagementSystem.Repositories")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8e7597501b70bfb5186e6ad12e713fc37dbf2888")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31eaf267b0d283c54334b1c6471c2e22617e9778")]
 [assembly: System.Reflection.AssemblyProductAttribute("KoiShowManagementSystem.Repositories")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KoiShowManagementSystem.Repositories")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
