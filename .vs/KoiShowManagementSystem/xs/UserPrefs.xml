@@ -13,16 +13,16 @@
       <File FileName="KoiShowManagementSystem/ViewModels/RankedKoiViewModel.cs" />
       <File FileName="KoiShowManagementSystem/ViewModels/RefereeViewModel.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/Data/RepositoryBase.cs" />
-      <File FileName="KoiShowManagementSystem.Repositories/ApplicationDbContext.cs" Line="1" Column="1" />
-      <File FileName="KoiShowManagementSystem/Program.cs" Line="1" Column="1" />
+      <File FileName="KoiShowManagementSystem.Repositories/ApplicationDbContext.cs" />
+      <File FileName="KoiShowManagementSystem/Program.cs" />
       <File FileName="KoiShowManagementSystem/appsettings.json" Line="4" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="KoiShowManagementSystem">
-            <Node name="KoiShowManagementSystem">
-              <Node name="ViewModels" expanded="True" />
+          <Node name="KoiShowManagementSystem" expanded="True">
+            <Node name="KoiShowManagementSystem" expanded="True">
+              <Node name="appsettings.json" selected="True" />
             </Node>
             <Node name="KoiShowManagementSystem.Repositories" expanded="True">
               <Node name="Data" expanded="True" />
