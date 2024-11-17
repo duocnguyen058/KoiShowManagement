@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +8,7 @@ using KoiShowManagementSystem.Repositories.Entity;
 
 namespace KoiShowManagementSystem.Services.Services
 {
-    // Interface IUserService
+    // Interface IUserService định nghĩa các phương thức cần triển khai liên quan đến người dùng
     public interface IUserService
     {
         Task<bool> RegisterUserAsync(Users user);                      // Đăng ký người dùng mới
@@ -17,19 +17,20 @@ namespace KoiShowManagementSystem.Services.Services
         Task<Users> GetUserById(int userId);                            // Lấy thông tin người dùng theo ID
         Task<List<Users>> GetAllUsersAsync();                           // Lấy danh sách tất cả người dùng
         Task<bool> UpdateUserAsync(Users user);                         // Cập nhật thông tin người dùng
-        Task<bool> DeleteUserAsync(int id);
+        Task<bool> DeleteUserAsync(int id);                             // Xóa người dùng
     }
 
     // Lớp UserService triển khai IUserService
     public class UserService : IUserService
     {
-        private readonly ApplicationDbContext _dbContext;
-        private readonly ILogger<UserService> _logger;
+        private readonly ApplicationDbContext _dbContext; // DbContext để thao tác với cơ sở dữ liệu
+        private readonly ILogger<UserService> _logger; // Logger để ghi log các thông tin lỗi hoặc cảnh báo
 
+        // Constructor nhận vào các tham số cần thiết: ApplicationDbContext và ILogger
         public UserService(ApplicationDbContext dbContext, ILogger<UserService> logger)
         {
-            _dbContext = dbContext;
-            _logger = logger;
+            _dbContext = dbContext; // Khởi tạo dbContext để truy xuất cơ sở dữ liệu
+            _logger = logger; // Khởi tạo logger để ghi thông tin log
         }
 
         // Đăng ký người dùng mới
@@ -37,28 +38,30 @@ namespace KoiShowManagementSystem.Services.Services
         {
             try
             {
+                // Kiểm tra xem tên đăng nhập đã tồn tại chưa
                 if (await _dbContext.Users.AnyAsync(u => u.Username == user.Username))
                 {
-                    _logger.LogWarning($"Username '{user.Username}' đã tồn tại.");
-                    return false; // Username đã tồn tại
+                    _logger.LogWarning($"Username '{user.Username}' đã tồn tại."); // Ghi log cảnh báo nếu tên đăng nhập đã tồn tại
+                    return false; // Trả về false nếu tên đăng nhập đã tồn tại
                 }
 
-                // Kiểm tra mật khẩu không được trống và có độ dài hợp lý
+                // Kiểm tra mật khẩu có hợp lệ không
                 if (string.IsNullOrEmpty(user.Password) || user.Password.Length < 6)
                 {
                     _logger.LogWarning("Mật khẩu phải dài ít nhất 6 ký tự.");
                     return false; // Mật khẩu không hợp lệ
                 }
 
+                // Mã hóa mật khẩu trước khi lưu vào cơ sở dữ liệu
                 user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
-                _dbContext.Users.Add(user);
-                await _dbContext.SaveChangesAsync();
-                return true;
+                _dbContext.Users.Add(user); // Thêm người dùng vào DbContext
+                await _dbContext.SaveChangesAsync(); // Lưu vào cơ sở dữ liệu
+                return true; // Đăng ký thành công
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Lỗi xảy ra trong quá trình đăng ký người dùng.");
-                throw new Exception("Đã xảy ra lỗi khi đăng ký người dùng.", ex); // Ném lại ngoại lệ để có thể xử lý ở tầng trên
+                throw new Exception("Đã xảy ra lỗi khi đăng ký người dùng.", ex); // Ném lại ngoại lệ để xử lý ở tầng cao hơn
             }
         }
 
@@ -73,12 +76,12 @@ namespace KoiShowManagementSystem.Services.Services
                     return user; // Trả về người dùng nếu mật khẩu hợp lệ
                 }
                 _logger.LogWarning($"Tên đăng nhập hoặc mật khẩu không đúng cho username: {username}");
-                return null; // Tên đăng nhập hoặc mật khẩu không đúng
+                return null; // Trả về null nếu tên đăng nhập hoặc mật khẩu sai
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Lỗi xảy ra trong quá trình xác thực người dùng.");
-                throw new Exception("Đã xảy ra lỗi khi xác thực người dùng.", ex); // Ném lại ngoại lệ để có thể xử lý ở tầng trên
+                throw new Exception("Đã xảy ra lỗi khi xác thực người dùng.", ex); // Ném lại ngoại lệ để xử lý ở tầng trên
             }
         }
 
@@ -87,7 +90,7 @@ namespace KoiShowManagementSystem.Services.Services
         {
             try
             {
-                return _dbContext.Users.Where(u => u.Role == role).ToList();
+                return _dbContext.Users.Where(u => u.Role == role).ToList(); // Lọc người dùng theo vai trò
             }
             catch (Exception ex)
             {
@@ -101,7 +104,7 @@ namespace KoiShowManagementSystem.Services.Services
         {
             try
             {
-                return await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
+                return await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId); // Lấy người dùng theo ID
             }
             catch (Exception ex)
             {
@@ -115,7 +118,7 @@ namespace KoiShowManagementSystem.Services.Services
         {
             try
             {
-                return await _dbContext.Users.ToListAsync();
+                return await _dbContext.Users.ToListAsync(); // Lấy tất cả người dùng
             }
             catch (Exception ex)
             {
@@ -136,14 +139,15 @@ namespace KoiShowManagementSystem.Services.Services
                     return false; // Người dùng không tồn tại
                 }
 
+                // Cập nhật các trường dữ liệu của người dùng
                 existingUser.Username = user.Username ?? existingUser.Username;
                 existingUser.Password = user.Password != null ? BCrypt.Net.BCrypt.HashPassword(user.Password) : existingUser.Password;
                 existingUser.Role = user.Role ?? existingUser.Role;
                 existingUser.Email = user.Email ?? existingUser.Email;
 
-                _dbContext.Users.Update(existingUser);
-                await _dbContext.SaveChangesAsync();
-                return true;
+                _dbContext.Users.Update(existingUser); // Cập nhật thông tin người dùng
+                await _dbContext.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
+                return true; // Cập nhật thành công
             }
             catch (Exception ex)
             {
@@ -164,9 +168,9 @@ namespace KoiShowManagementSystem.Services.Services
                     return false; // Người dùng không tồn tại
                 }
 
-                _dbContext.Users.Remove(user);
-                await _dbContext.SaveChangesAsync();
-                return true;
+                _dbContext.Users.Remove(user); // Xóa người dùng khỏi DbContext
+                await _dbContext.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
+                return true; // Xóa thành công
             }
             catch (Exception ex)
             {
