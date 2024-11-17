@@ -4,24 +4,25 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace KoiShowManagementSystem.Services.Services
 {
-    public interface IEventsService
+    public interface IEventsService //Các phương thức cần thiết để quản lý sự kiện trong hệ thống (tạo, cập nhật, xóa, tìm kiếm sự kiện, và các chức năng liên quan).
+
     {
-        List<Events> GetAllEvents();
-        Events GetEventById(int eventId);
-        void CreateEvent(Events events);
-        void UpdateEvent(Events events);
-        void DeleteEvent(int eventId);
-        void RegisterKoiToEvent(int eventId, int koiId);
-        List<Events> SearchEvents(string keyword);
-        List<Koi> GetUserKoi(int userId); // Thêm phương thức để lấy cá Koi của người dùng
+        List<Events> GetAllEvents(); //Lấy danh sách tất cả các sự kiện.
+        Events GetEventById(int eventId); //Lấy thông tin chi tiết của một sự kiện theo ID.
+        void CreateEvent(Events events); //Tạo một sự kiện mới.
+        void UpdateEvent(Events events); //Cập nhật thông tin sự kiện.
+        void DeleteEvent(int eventId); //Xóa một sự kiện theo ID.
+        void RegisterKoiToEvent(int eventId, int koiId); //Đăng ký một cá koi tham gia sự kiện.
+        List<Events> SearchEvents(string keyword); //Tìm kiếm các sự kiện theo từ khóa (tên hoặc mô tả sự kiện).
+        List<Koi> GetUserKoi(int userId); // Lấy danh sách các cá koi của người dùng.
         bool CanRegisterToEvent(int eventId); // Phương thức để kiểm tra trạng thái sự kiện
         bool IsUserRegisteredToEvent(int eventId, int userId); // Kiểm tra người dùng đã đăng ký chưa
         List<Event_Koi_Participation> GetParticipantsByEvent(int eventId);
-        List<Scores> GetScoresByEvent(int eventId);
-        List<JudgeAssignments> GetJudgesByEvent(int eventId);
-        IEnumerable<Event_Koi_Participation> GetEventKoiParticipations(int eventId);
+        List<Scores> GetScoresByEvent(int eventId); //Lấy danh sách các cá koi tham gia sự kiện.
+        List<JudgeAssignments> GetJudgesByEvent(int eventId); //Lấy danh sách điểm số của các cá koi trong sự kiện.
+        IEnumerable<Event_Koi_Participation> GetEventKoiParticipations(int eventId); //Lấy thông tin tham gia của cá koi trong sự kiện.
     }
-    public class EventsService : IEventsService
+    public class EventsService : IEventsService //Chịu trách nhiệm xử lý các logic nghiệp vụ liên quan đến sự kiện và cá koi tham gia.
     {
         private readonly IEventsRepository _eventsRepository;
         private readonly IKoiRepository _koiRepository;
@@ -42,36 +43,36 @@ namespace KoiShowManagementSystem.Services.Services
             _scoresRepository = scoresRepository;
             _judgeAssignmentsRepository = judgeAssignmentsRepository;
         }
-        public List<Koi> GetUserKoi(int userId)
+        public List<Koi> GetUserKoi(int userId) //Lấy danh sách cá koi của người dùng
         {
-            return _koiRepository.GetAllKoi().Where(k => k.UsersId == userId).ToList();
+            return _koiRepository.GetAllKoi().Where(k => k.UsersId == userId).ToList(); //Truy vấn tất cả cá koi và lọc ra các cá koi của người dùng có ID tương ứng.
         }
-        public bool CanRegisterToEvent(int eventId)
+        public bool CanRegisterToEvent(int eventId) //Kiểm tra trạng thái sự kiện để quyết định người dùng có thể đăng ký hay không.
         {
             var eventDetails = _eventsRepository.GetById(eventId);
             return eventDetails.Status == "Chưa bắt đầu" || eventDetails.Status == "Đang diễn ra";
         }
-        //
-        public List<Events> GetAllEvents()
+        //Lấy tất cả các sự kiện từ repository.
+        public List<Events> GetAllEvents() 
         {
-            return _eventsRepository.GetEvents();
+            return _eventsRepository.GetEvents(); //Trả về danh sách các sự kiện.
         }
-        //
+        //Lấy thông tin chi tiết của một sự kiện.
         public Events GetEventById(int eventId)
         {
-            return _eventsRepository.GetById(eventId);
+            return _eventsRepository.GetById(eventId); //Trả về sự kiện từ repository.
         }
-        //
+        //Tạo một sự kiện mới.
         public void CreateEvent(Events events)
         {
-            _eventsRepository.Add(events);
+            _eventsRepository.Add(events); //Thêm sự kiện vào cơ sở dữ liệu thông qua repository.
         }
-        //
+        //Cập nhật thông tin sự kiện.
         public void UpdateEvent(Events events)
         {
-            _eventsRepository.Update(events);
+            _eventsRepository.Update(events); //Cập nhật sự kiện trong cơ sở dữ liệu.
         }
-        //
+        //Xóa một sự kiện.
         public void DeleteEvent(int eventId)
         {
             var eventToDelete = _eventsRepository.GetById(eventId);
@@ -80,7 +81,7 @@ namespace KoiShowManagementSystem.Services.Services
                 _eventsRepository.Delete(eventToDelete);
             }
         }
-        //
+        //Đăng ký một cá koi tham gia sự kiện.
         public void RegisterKoiToEvent(int eventId, int koiId)
         {
             // Lấy thông tin cá Koi từ ID
@@ -117,31 +118,31 @@ namespace KoiShowManagementSystem.Services.Services
             // Lưu vào cơ sở dữ liệu
             _eventKoiParticipationRepository.Add(participation);
         }
-        public List<Events> SearchEvents(string keyword)
+        public List<Events> SearchEvents(string keyword) //Tìm kiếm các sự kiện theo từ khóa.
         {
             return _eventsRepository.GetEvents()
                 .Where(e => e.EventName.Contains(keyword) || e.Description.Contains(keyword))
                 .ToList();
         }
-        public bool IsUserRegisteredToEvent(int eventId, int userId)
+        public bool IsUserRegisteredToEvent(int eventId, int userId) //Kiểm tra xem người dùng đã đăng ký tham gia sự kiện chưa.
         {
             var userKoiList = _koiRepository.GetAllKoi().Where(k => k.UsersId == userId).Select(k => k.Id).ToList();
             return _eventKoiParticipationRepository.GetParticipantsByEvent(eventId)
                                                    .Any(p => userKoiList.Contains(p.KoiId));
         }
-        public List<Event_Koi_Participation> GetParticipantsByEvent(int eventId)
+        public List<Event_Koi_Participation> GetParticipantsByEvent(int eventId) //Lấy danh sách các cá koi tham gia sự kiện từ repository.
         {
             return _eventKoiParticipationRepository.GetParticipantsByEvent(eventId);
         }
-        public List<Scores> GetScoresByEvent(int eventId)
+        public List<Scores> GetScoresByEvent(int eventId) //Lấy danh sách điểm số của các cá koi tham gia sự kiện.
         {
             return _scoresRepository.GetScoresByEvent(eventId);
         }
-        public List<JudgeAssignments> GetJudgesByEvent(int eventId)
+        public List<JudgeAssignments> GetJudgesByEvent(int eventId) //Lấy danh sách giám khảo tham gia vào sự kiện.
         {
             return _judgeAssignmentsRepository.GetJudgesByEvent(eventId);
         }
-        public IEnumerable<Event_Koi_Participation> GetEventKoiParticipations(int eventId)
+        public IEnumerable<Event_Koi_Participation> GetEventKoiParticipations(int eventId) //Lấy thông tin tham gia của các cá koi trong sự kiện.
         {
             return _eventKoiParticipationRepository.GetEventKoiParticipations(eventId);
         }
