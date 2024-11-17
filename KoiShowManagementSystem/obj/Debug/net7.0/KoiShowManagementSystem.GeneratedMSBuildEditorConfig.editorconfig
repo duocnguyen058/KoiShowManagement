@@ -9,119 +9,117 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = KoiShowManagementSystem
 build_property.RootNamespace = KoiShowManagementSystem
-build_property.ProjectDir = C:\abc\New folder\KoiShowManagement\KoiShowManagementSystem\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = /Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\abc\New folder\KoiShowManagement\KoiShowManagementSystem
+build_property.MSBuildProjectDirectory = /Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Event/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcQ3JlYXRlLmNzaHRtbA==
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Event/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Event/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcRGV0YWlscy5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Event/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Event/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcRWRpdC5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Event/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Event/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcSW5kZXguY3NodG1s
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Event/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Event/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcUmVnaXN0ZXIuY3NodG1s
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Event/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRXZlbnQvUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Home/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Home/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Home/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/JudgeAssignments/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVkZ2VBc3NpZ25tZW50c1xJbmRleC5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/JudgeAssignments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSnVkZ2VBc3NpZ25tZW50cy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/JudgeAssignments/_AssignJudgeModal.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVkZ2VBc3NpZ25tZW50c1xfQXNzaWduSnVkZ2VNb2RhbC5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/JudgeAssignments/_AssignJudgeModal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSnVkZ2VBc3NpZ25tZW50cy9fQXNzaWduSnVkZ2VNb2RhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29pTWFuYWdlclxDcmVhdGUuY3NodG1s
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS29pTWFuYWdlci9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29pTWFuYWdlclxEZWxldGUuY3NodG1s
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS29pTWFuYWdlci9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29pTWFuYWdlclxEZXRhaWxzLmNzaHRtbA==
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS29pTWFuYWdlci9EZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29pTWFuYWdlclxFZGl0LmNzaHRtbA==
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS29pTWFuYWdlci9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29pTWFuYWdlclxJbmRleC5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS29pTWFuYWdlci9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/IndexMng.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS29pTWFuYWdlclxJbmRleE1uZy5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/KoiManager/IndexMng.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS29pTWFuYWdlci9JbmRleE1uZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Scoring/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NvcmluZ1xJbmRleC5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Scoring/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NvcmluZy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Scoring/ScoreEvent.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NvcmluZ1xTY29yZUV2ZW50LmNzaHRtbA==
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Scoring/ScoreEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NvcmluZy9TY29yZUV2ZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Shared/_Notification.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ob3RpZmljYXRpb24uY3NodG1s
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Shared/_Notification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Ob3RpZmljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/User/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZWxldGUuY3NodG1s
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/User/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/User/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/User/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXNlci9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/abc/New folder/KoiShowManagement/KoiShowManagementSystem/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-dpzhj5n9v0
+[/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pavl8fa263

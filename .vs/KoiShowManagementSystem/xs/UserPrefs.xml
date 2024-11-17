@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{FEE7592E-5635-452B-BF27-69AAF5B1571F}|https">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="KoiShowManagementSystem.Repositories/GlobalUsing.cs">
+    <Files>
+      <File FileName="KoiShowManagementSystem.Repositories/GlobalUsing.cs" Line="1" Column="51" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="KoiShowManagementSystem">
+            <Node name="KoiShowManagementSystem.Repositories" expanded="True">
+              <Node name="Data" expanded="True" />
+              <Node name="Entity" expanded="True" />
+              <Node name="GlobalUsing.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.KoiShowManagementSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
