@@ -1,28 +1,31 @@
 ﻿<Properties StartupConfiguration="{FEE7592E-5635-452B-BF27-69AAF5B1571F}|https">
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="KoiShowManagementSystem/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="KoiShowManagementSystem/ViewModels/ScoreEventViewModel.cs">
     <Files>
       <File FileName="KoiShowManagementSystem.Repositories/GlobalUsing.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/Entity/Event_Koi_Participation.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/Entity/JudgeAssignments.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/Entity/Scores.cs" />
       <File FileName="KoiShowManagementSystem.Services/Services/EventKoiParticipationService.cs" />
-      <File FileName="KoiShowManagementSystem/Models/ErrorViewModel.cs" />
-      <File FileName="KoiShowManagementSystem/ViewModels/EventDetailsViewModel.cs" />
-      <File FileName="KoiShowManagementSystem/ViewModels/RankedKoiViewModel.cs" />
-      <File FileName="KoiShowManagementSystem/ViewModels/RefereeViewModel.cs" />
+      <File FileName="KoiShowManagementSystem/Models/ErrorViewModel.cs" Line="14" Column="1" />
+      <File FileName="KoiShowManagementSystem/ViewModels/EventDetailsViewModel.cs" Line="19" Column="1" />
+      <File FileName="KoiShowManagementSystem/ViewModels/RankedKoiViewModel.cs" Line="16" Column="1" />
+      <File FileName="KoiShowManagementSystem/ViewModels/RefereeViewModel.cs" Line="32" Column="1" />
       <File FileName="KoiShowManagementSystem.Repositories/Data/RepositoryBase.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/ApplicationDbContext.cs" />
       <File FileName="KoiShowManagementSystem/Program.cs" />
       <File FileName="KoiShowManagementSystem/appsettings.json" Line="4" Column="5" />
+      <File FileName="KoiShowManagementSystem/ViewModels/ScoreEventViewModel.cs" Line="22" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="KoiShowManagementSystem" expanded="True">
-            <Node name="KoiShowManagementSystem" expanded="True">
-              <Node name="appsettings.json" selected="True" />
+          <Node name="KoiShowManagementSystem">
+            <Node name="KoiShowManagementSystem">
+              <Node name="ViewModels">
+                <Node name="ScoreEventViewModel.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="KoiShowManagementSystem.Repositories" expanded="True">
               <Node name="Data" expanded="True" />
