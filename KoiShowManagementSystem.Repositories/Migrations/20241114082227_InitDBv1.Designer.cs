@@ -20,72 +20,68 @@ namespace KoiShowManagementSystem.Repositories.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                // Thiết lập phiên bản sản phẩm và độ dài tối đa của định danh.
                 .HasAnnotation("ProductVersion", "7.0.20")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            // Sử dụng Identity Columns cho SQL Server
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            // Định nghĩa bảng Event_Koi_Participations
             modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Event_Koi_Participation", b =>
                 {
-                    b.Property<int>("Id") // Khóa chính, tự tăng
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Category") // Thể loại của sự kiện
+                    b.Property<string>("Category")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EventsId") // Khóa ngoại tham chiếu đến bảng Events
+                    b.Property<int>("EventsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("KoiId") // Khóa ngoại tham chiếu đến bảng Koi
+                    b.Property<int>("KoiId")
                         .HasColumnType("int");
 
-                    b.Property<float>("Score") // Điểm của cá Koi trong sự kiện
+                    b.Property<float>("Score")
                         .HasColumnType("real");
 
-                    b.HasKey("Id"); // Thiết lập khóa chính
+                    b.HasKey("Id");
 
-                    b.HasIndex("EventsId"); // Tạo chỉ mục cho EventsId
+                    b.HasIndex("EventsId");
 
-                    b.HasIndex("KoiId"); // Tạo chỉ mục cho KoiId
+                    b.HasIndex("KoiId");
 
-                    b.ToTable("Event_Koi_Participations"); // Tên bảng trong CSDL
+                    b.ToTable("Event_Koi_Participations");
                 });
 
-            // Định nghĩa bảng Events
             modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Events", b =>
                 {
-                    b.Property<int>("Id") // Khóa chính, tự tăng
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description") // Mô tả sự kiện
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("EndDate") // Ngày kết thúc sự kiện
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("EventName") // Tên sự kiện
+                    b.Property<string>("EventName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Location") // Địa điểm tổ chức
+                    b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("StartDate") // Ngày bắt đầu sự kiện
+                    b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Status") // Trạng thái của sự kiện
+                    b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -94,22 +90,21 @@ namespace KoiShowManagementSystem.Repositories.Migrations
                     b.ToTable("Events");
                 });
 
-            // Định nghĩa bảng JudgeAssignments (Phân công giám khảo)
             modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.JudgeAssignments", b =>
                 {
-                    b.Property<int>("Id") // Khóa chính, tự tăng
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("EnventsId") // Khóa ngoại bị lỗi chính tả, đáng ra là "EventsId"
+                    b.Property<int>("EnventsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("EventsId") // Khóa ngoại tham chiếu đến bảng Events
+                    b.Property<int>("EventsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsersId") // Khóa ngoại tham chiếu đến bảng Users
+                    b.Property<int>("UsersId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -121,8 +116,216 @@ namespace KoiShowManagementSystem.Repositories.Migrations
                     b.ToTable("JudgeAssignments");
                 });
 
-            // Tiếp tục thêm các bảng khác (Koi, Reports, Scores, Users) tương tự...
-            // Lưu ý: Cấu trúc bảng luôn được định nghĩa bằng cách chỉ rõ các trường, khóa ngoại và bảng tham chiếu.
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Koi", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RegistrationStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Size")
+                        .HasColumnType("real");
+
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Variety")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("Kois");
+                });
+
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Reports", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EventsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReportData")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReportType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventsId");
+
+                    b.ToTable("Reports");
+                });
+
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Scores", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("ColorScore")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Event_Koi_ParticipationId")
+                        .HasColumnType("int");
+
+                    b.Property<float>("PatternScore")
+                        .HasColumnType("real");
+
+                    b.Property<float>("ShapeScore")
+                        .HasColumnType("real");
+
+                    b.Property<float>("TotalScore")
+                        .HasColumnType("real");
+
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Event_Koi_ParticipationId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("Scores");
+                });
+
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Users", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Event_Koi_Participation", b =>
+                {
+                    b.HasOne("KoiShowManagementSystem.Repositories.Entity.Events", "Events")
+                        .WithMany()
+                        .HasForeignKey("EventsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KoiShowManagementSystem.Repositories.Entity.Koi", "Kois")
+                        .WithMany()
+                        .HasForeignKey("KoiId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Events");
+
+                    b.Navigation("Kois");
+                });
+
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.JudgeAssignments", b =>
+                {
+                    b.HasOne("KoiShowManagementSystem.Repositories.Entity.Events", "Events")
+                        .WithMany()
+                        .HasForeignKey("EventsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KoiShowManagementSystem.Repositories.Entity.Users", "Users")
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Events");
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Koi", b =>
+                {
+                    b.HasOne("KoiShowManagementSystem.Repositories.Entity.Users", "Users")
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Reports", b =>
+                {
+                    b.HasOne("KoiShowManagementSystem.Repositories.Entity.Events", "Events")
+                        .WithMany()
+                        .HasForeignKey("EventsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Events");
+                });
+
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Scores", b =>
+                {
+                    b.HasOne("KoiShowManagementSystem.Repositories.Entity.Event_Koi_Participation", "Event_Koi_Participations")
+                        .WithMany("Scores")
+                        .HasForeignKey("Event_Koi_ParticipationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KoiShowManagementSystem.Repositories.Entity.Users", "Users")
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event_Koi_Participations");
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("KoiShowManagementSystem.Repositories.Entity.Event_Koi_Participation", b =>
+                {
+                    b.Navigation("Scores");
+                });
+#pragma warning restore 612, 618
         }
     }
 }
