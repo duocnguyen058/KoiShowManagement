@@ -4,7 +4,7 @@
 }
 <h2>Danh sách Cá Koi của Bạn</h2>
 
-<!-- Tìm kiếm cá Koi -->
+<!-- Form tìm kiếm cá Koi -->
 <form asp-action="Index" method="get">
     <input type="text" name="search" placeholder="Tìm kiếm cá Koi..." value="@ViewContext.HttpContext.Request.Query["search"]" />
     <button type="submit">Tìm kiếm</button>
@@ -13,7 +13,7 @@
 <!-- Nút Thêm mới cá Koi -->
 <a asp-action="Create" class="btn btn-primary mb-3">Thêm Cá Koi Mới</a>
 
-<!-- Thông báo nếu không có hồ sơ cá Koi -->
+<!-- Hiển thị thông báo nếu không có hồ sơ cá Koi -->
 @if (ViewBag.Message != null)
 {
     <div class="alert alert-info">@ViewBag.Message</div>
@@ -72,7 +72,7 @@
                     <!-- Link chỉnh sửa -->
                     <a asp-action="Edit" asp-route-id="@koi.Id" class="btn btn-warning btn-sm">Sửa</a>
 
-                    <!-- Link xóa cá koi -->
+                    <!-- Form xóa cá Koi -->
                     <form asp-action="Delete" asp-route-id="@koi.Id" method="post" style="display:inline-block;" onsubmit="return confirm('Bạn có chắc muốn xóa cá Koi này?');">
                         <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
                     </form>
@@ -81,4 +81,3 @@
         }
     </tbody>
 </table>
-﻿

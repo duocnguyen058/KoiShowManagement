@@ -4,33 +4,36 @@
 }
 <h2>Chi tiết Sự kiện</h2>
 
+<!-- Hiển thị thông tin chi tiết sự kiện -->
 <div>
-    <h4>@Model.EventDetail.EventName</h4>
-    <p>Ngày Bắt đầu: @Model.EventDetail.StartDate.ToString("dd-MM-yyyy")</p>
-    <p>Ngày Kết thúc: @Model.EventDetail.EndDate.ToString("dd-MM-yyyy")</p>
-    <p>Địa điểm: @Model.EventDetail.Location</p>
-    <p>Trạng thái: @Model.EventDetail.Status</p> <!-- Hiển thị trạng thái -->
-    <p>Mô tả: @Model.EventDetail.Description</p>
+    <h4>@Model.EventDetail.EventName</h4> <!-- Tên sự kiện -->
+    <p>Ngày Bắt đầu: @Model.EventDetail.StartDate.ToString("dd-MM-yyyy")</p> <!-- Ngày bắt đầu sự kiện -->
+    <p>Ngày Kết thúc: @Model.EventDetail.EndDate.ToString("dd-MM-yyyy")</p> <!-- Ngày kết thúc sự kiện -->
+    <p>Địa điểm: @Model.EventDetail.Location</p> <!-- Địa điểm tổ chức sự kiện -->
+    <p>Trạng thái: @Model.EventDetail.Status</p> <!-- Hiển thị trạng thái sự kiện (chẳng hạn: "Đang diễn ra", "Đã kết thúc") -->
+    <p>Mô tả: @Model.EventDetail.Description</p> <!-- Mô tả chi tiết sự kiện -->
 </div>
 
 <h3>Bảng Xếp Hạng</h3>
+
+<!-- Kiểm tra và hiển thị bảng xếp hạng nếu có cá Koi tham gia -->
 @if (Model.RankedKoiList != null && Model.RankedKoiList.Any())
 {
     <table class="table">
         <thead>
             <tr>
-                <th>Tên Cá Koi</th>
-                <th>Hạng Mục</th>
-                <th>Điểm</th>
+                <th>Tên Cá Koi</th> <!-- Tên cá Koi -->
+                <th>Hạng Mục</th> <!-- Hạng mục của cá Koi -->
+                <th>Điểm</th> <!-- Điểm của cá Koi -->
             </tr>
         </thead>
         <tbody>
             @foreach (var koi in Model.RankedKoiList)
             {
                 <tr>
-                    <td>@koi.KoiName</td>
-                    <td>@koi.Category</td>
-                    <td>@koi.Score</td>
+                    <td>@koi.KoiName</td> <!-- Tên cá Koi -->
+                    <td>@koi.Category</td> <!-- Hạng mục của cá Koi -->
+                    <td>@koi.Score</td> <!-- Điểm của cá Koi -->
                 </tr>
             }
         </tbody>
@@ -38,34 +41,37 @@
 }
 else
 {
-    <p>Không có thí sinh nào tham gia hạng mục được yêu cầu.</p>
+    <p>Không có thí sinh nào tham gia hạng mục được yêu cầu.</p> <!-- Thông báo khi không có cá Koi tham gia -->
 }
 
+<!-- Kiểm tra nếu người dùng đã đăng ký tham gia sự kiện -->
 @if (Model.IsRegistered)
 {
-    <p><strong>Bạn đã đăng ký tham gia sự kiện này</strong></p>
+    <p><strong>Bạn đã đăng ký tham gia sự kiện này</strong></p> <!-- Thông báo đã đăng ký thành công -->
 }
 else if ((User.IsInRole("USER") || User.IsInRole("ADMIN")) && Model.CanRegister)
 {
-    <!-- Chỉ cho phép User và Admin đăng ký -->
+    <!-- Nếu người dùng là USER hoặc ADMIN và sự kiện có thể đăng ký -->
+    <!-- Biểu mẫu đăng ký tham gia sự kiện -->
     <form asp-controller="Event" asp-action="Register" method="post">
-        <input type="hidden" name="eventId" value="@Model.EventDetail.Id" />
+        <input type="hidden" name="eventId" value="@Model.EventDetail.Id" /> <!-- ID sự kiện -->
         <label for="koiId">Chọn cá Koi để đăng ký:</label>
         <select id="koiId" name="koiId" class="form-control" required>
             <option value="">-- Chọn --</option>
+            <!-- Liệt kê các cá Koi có thể đăng ký -->
             @foreach (var koi in ViewBag.UserKoiList as List<Koi>)
             {
-                <option value="@koi.Id">@koi.Name</option>
+                <option value="@koi.Id">@koi.Name</option> <!-- Tên cá Koi trong danh sách -->
             }
         </select>
-        <button type="submit" class="btn btn-primary mt-2">Đăng ký</button>
+        <button type="submit" class="btn btn-primary mt-2">Đăng ký</button> <!-- Nút đăng ký -->
     </form>
 }
 else
 {
-    <!-- Thông báo cho Referee, User hoặc Admin nếu sự kiện không đủ điều kiện -->
+    <!-- Thông báo nếu không đủ điều kiện đăng ký -->
     <p><strong>Sự kiện đã kết thúc hoặc bạn không đủ điều kiện đăng ký</strong></p>
 }
 
+<!-- Nút quay lại trang danh sách sự kiện -->
 <a asp-action="Index" class="btn btn-secondary">Trở về</a>
-﻿

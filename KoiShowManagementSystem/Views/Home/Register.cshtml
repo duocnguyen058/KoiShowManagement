@@ -1,57 +1,65 @@
 @model KoiShowManagementSystem.Repositories.Entity.Users
 
 @{
-    ViewData["Title"] = "Đăng Ký";
+    ViewData["Title"] = "Đăng Ký"; // Đặt tiêu đề cho trang
 }
 
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Đăng Ký</h2>
+    <h2 class="text-center mb-4">Đăng Ký</h2> <!-- Tiêu đề trang đăng ký -->
 
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="form-container">
                 <form asp-action="Register" method="post">
-                    <!-- Display error messages -->
+                    <!-- Hiển thị thông báo lỗi nếu có -->
                     @if (!ViewData.ModelState.IsValid)
                     {
                         <div class="alert alert-danger">
                             @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
                             {
-                                <p>@error.ErrorMessage</p>
+                                <p>@error.ErrorMessage</p> <!-- Hiển thị thông báo lỗi từ ModelState -->
                             }
                         </div>
                     }
 
+                    <!-- Trường nhập tên tài khoản -->
                     <div class="form-group mb-3">
                         <label for="username" class="form-label">Tên tài khoản</label>
                         <input type="text" id="username" name="username" class="form-control" placeholder="Nhập tên tài khoản" required />
-                        <span asp-validation-for="Username" class="text-danger"></span>
+                        <span asp-validation-for="Username" class="text-danger"></span> <!-- Hiển thị thông báo lỗi nếu có -->
                     </div>
 
+                    <!-- Trường nhập mật khẩu -->
                     <div class="form-group mb-3">
                         <label for="password" class="form-label">Mật khẩu</label>
                         <input type="password" id="password" name="password" class="form-control" placeholder="Nhập mật khẩu" required />
-                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <span asp-validation-for="Password" class="text-danger"></span> <!-- Hiển thị thông báo lỗi nếu có -->
                     </div>
 
+                    <!-- Trường nhập email -->
                     <div class="form-group mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" id="email" name="email" class="form-control" placeholder="Nhập email của bạn" required />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <span asp-validation-for="Email" class="text-danger"></span> <!-- Hiển thị thông báo lỗi nếu có -->
                     </div>
 
+                    <!-- Checkbox để hiển thị mật khẩu -->
                     <div class="form-check mb-3">
                         <input type="checkbox" class="form-check-input" id="showPassword" onclick="togglePasswordVisibility()">
-                        <label class="form-check-label" for="showPassword">Hiển thị mật khẩu</label>
+                        <label class="form-check-label" for="showPassword">Hiển thị mật khẩu</label> <!-- Cho phép người dùng bật/tắt hiển thị mật khẩu -->
                     </div>
 
+                    <!-- Ẩn trường role, mặc định là USER -->
                     <input type="hidden" asp-for="Role" value="USER" />
 
+                    <!-- Nút đăng ký -->
                     <div class="form-group mb-4 text-center">
-                        <button type="submit" class="btn btn-primary w-100">Đăng Ký</button>
+                        <button type="submit" class="btn btn-primary w-100">Đăng Ký</button> <!-- Nút gửi thông tin đăng ký -->
                     </div>
+
+                    <!-- Liên kết đến trang đăng nhập nếu đã có tài khoản -->
                     <div class="text-center">
-                        <p>Đã có tài khoản? <a href="@Url.Action("Login", "Home")" class="text-primary">Đăng nhập ngay</a></p>
+                        <p>Đã có tài khoản? <a href="@Url.Action("Login", "Home")" class="text-primary">Đăng nhập ngay</a></p> <!-- Liên kết tới trang đăng nhập -->
                     </div>
                 </form>
             </div>
@@ -60,12 +68,12 @@
 </div>
 
 @section Scripts {
+    <!-- Script JavaScript để điều khiển việc hiển thị mật khẩu -->
     <script>
         function togglePasswordVisibility() {
             const passwordField = document.getElementById('password');
             const checkbox = document.getElementById('showPassword');
-            passwordField.type = checkbox.checked ? 'text' : 'password';
+            passwordField.type = checkbox.checked ? 'text' : 'password'; // Kiểm tra xem checkbox có được chọn không để thay đổi loại trường mật khẩu
         }
     </script>
 }
-﻿

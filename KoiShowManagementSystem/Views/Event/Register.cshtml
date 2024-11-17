@@ -1,16 +1,24 @@
-@model List<Koi>
+@model List<Koi> 
 @{
-    var eventId = ViewBag.EventId;
+    var eventId = ViewBag.EventId; <!-- Lấy EventId từ ViewBag để gửi cùng với form -->
 }
 
 <h2>Chọn Cá Koi để Đăng ký</h2>
+
+<!-- Form đăng ký tham gia sự kiện -->
 <form asp-action="Register" method="post">
+    <!-- Truyền EventId vào form dưới dạng hidden field -->
     <input type="hidden" name="eventId" value="@eventId" />
+
+    <!-- Dropdown cho người dùng chọn cá Koi -->
     <select name="koiId" required>
+        <!-- Lặp qua danh sách các cá Koi để tạo các lựa chọn -->
         @foreach (var koi in Model)
         {
-            <option value="@koi.Id">@koi.Name</option>
+            <option value="@koi.Id">@koi.Name</option> <!-- Tên cá Koi và ID sẽ được gửi khi chọn -->
         }
     </select>
+
+    <!-- Nút đăng ký -->
     <button type="submit" class="btn btn-success">Đăng ký</button>
-</form>﻿
+</form>

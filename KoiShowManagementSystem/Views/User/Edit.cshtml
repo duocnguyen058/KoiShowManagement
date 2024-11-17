@@ -1,38 +1,44 @@
 @model KoiShowManagementSystem.Repositories.Entity.Users
+
 @{
-    ViewData["Title"] = "Chỉnh sửa người dùng";
+    ViewData["Title"] = "Chỉnh sửa người dùng"; // Thiết lập tiêu đề trang
 }
 
-<h1>Chỉnh sửa người dùng</h1>
+<h1>Chỉnh sửa người dùng</h1> <!-- Tiêu đề trang, thông báo rằng người quản trị đang chỉnh sửa thông tin người dùng -->
 
 <form method="post">
+    <!-- Form này gửi dữ liệu khi người quản trị nhấn "Cập nhật" -->
+
     <div class="form-group">
-        <label for="Username">Tên người dùng</label>
-        <input type="text" class="form-control" id="Username" name="Username" value="@Model.Username" required />
+        <!-- Nhóm các trường thông tin người dùng -->
+        <label for="Username">Tên người dùng</label> <!-- Nhãn cho trường tên người dùng -->
+        <input type="text" class="form-control" id="Username" name="Username" value="@Model.Username" required /> <!-- Trường nhập tên người dùng, giá trị mặc định từ đối tượng model -->
     </div>
 
     <div class="form-group">
-        <label for="Email">Email</label>
-        <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required />
+        <!-- Nhóm các trường thông tin người dùng -->
+        <label for="Email">Email</label> <!-- Nhãn cho trường email -->
+        <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required /> <!-- Trường nhập email, giá trị mặc định từ đối tượng model -->
     </div>
 
     <div class="form-group">
-        <label for="Role">Vai trò</label>
-        @Html.DropDownListFor(model => model.Role,
-                 new List<SelectListItem>
+        <!-- Nhóm các trường thông tin người dùng -->
+        <label for="Role">Vai trò</label> <!-- Nhãn cho trường vai trò -->
+        @Html.DropDownListFor(model => model.Role, 
+                 new List<SelectListItem> // Danh sách các vai trò có sẵn
         {
-        new SelectListItem { Text = "ADMIN", Value = "ADMIN", Selected = Model.Role == "ADMIN" },
-        new SelectListItem { Text = "REFEREE", Value = "REFEREE", Selected = Model.Role == "REFEREE" },
-        new SelectListItem { Text = "USER", Value = "USER", Selected = Model.Role == "USER" },
+        new SelectListItem { Text = "ADMIN", Value = "ADMIN", Selected = Model.Role == "ADMIN" }, // Nếu vai trò hiện tại là ADMIN, chọn mặc định
+        new SelectListItem { Text = "REFEREE", Value = "REFEREE", Selected = Model.Role == "REFEREE" }, // Nếu vai trò hiện tại là REFEREE, chọn mặc định
+        new SelectListItem { Text = "USER", Value = "USER", Selected = Model.Role == "USER" }, // Nếu vai trò hiện tại là USER, chọn mặc định
         },
-                 new { @class = "form-control", id = "Role" })
+                 new { @class = "form-control", id = "Role" }) <!-- Áp dụng lớp CSS và ID cho dropdown list -->
     </div>
 
     <div class="form-group">
-        <label for="Password">Mật khẩu mới (nếu thay đổi)</label>
-        <input type="password" class="form-control" id="Password" name="Password" />
+        <!-- Nhóm các trường thông tin người dùng -->
+        <label for="Password">Mật khẩu mới (nếu thay đổi)</label> <!-- Nhãn cho trường mật khẩu -->
+        <input type="password" class="form-control" id="Password" name="Password" /> <!-- Trường nhập mật khẩu mới, để trống nếu không thay đổi mật khẩu -->
     </div>
 
-    <button type="submit" class="btn btn-primary">Cập nhật</button>
+    <button type="submit" class="btn btn-primary">Cập nhật</button> <!-- Nút để gửi form, cập nhật thông tin người dùng -->
 </form>
-

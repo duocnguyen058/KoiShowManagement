@@ -4,34 +4,49 @@
 }
 <h2>Chỉnh sửa Sự Kiện</h2>
 
+<!-- Biểu mẫu chỉnh sửa sự kiện -->
 <form asp-action="Edit" method="post">
+    <!-- ID sự kiện (ẩn) -->
     <input type="hidden" asp-for="Id" />
+
+    <!-- Tên sự kiện -->
     <div class="form-group">
         <label asp-for="EventName">Tên Sự Kiện</label>
         <input asp-for="EventName" class="form-control" />
-        <span asp-validation-for="EventName" class="text-danger"></span>
+        <span asp-validation-for="EventName" class="text-danger"></span> <!-- Hiển thị thông báo lỗi nếu có -->
     </div>
+
+    <!-- Ngày bắt đầu -->
     <div class="form-group">
         <label asp-for="StartDate">Ngày Bắt Đầu</label>
         <input asp-for="StartDate" class="form-control" type="date" />
-        <span asp-validation-for="StartDate" class="text-danger"></span>
+        <span asp-validation-for="StartDate" class="text-danger"></span> <!-- Hiển thị thông báo lỗi nếu có -->
     </div>
+
+    <!-- Ngày kết thúc -->
     <div class="form-group">
         <label asp-for="EndDate">Ngày Kết Thúc</label>
         <input asp-for="EndDate" class="form-control" type="date" />
-        <span asp-validation-for="EndDate" class="text-danger"></span>
+        <span asp-validation-for="EndDate" class="text-danger"></span> <!-- Hiển thị thông báo lỗi nếu có -->
     </div>
+
+    <!-- Địa điểm tổ chức sự kiện -->
     <div class="form-group">
         <label asp-for="Location">Địa Điểm</label>
         <input asp-for="Location" class="form-control" />
-        <span asp-validation-for="Location" class="text-danger"></span>
+        <span asp-validation-for="Location" class="text-danger"></span> <!-- Hiển thị thông báo lỗi nếu có -->
     </div>
+
+    <!-- Mô tả sự kiện -->
     <div class="form-group">
         <label asp-for="Description">Mô Tả</label>
         <textarea asp-for="Description" class="form-control"></textarea>
-        <span asp-validation-for="Description" class="text-danger"></span>
+        <span asp-validation-for="Description" class="text-danger"></span> <!-- Hiển thị thông báo lỗi nếu có -->
     </div>
+
+    <!-- Nút cập nhật sự kiện -->
     <button type="submit" class="btn btn-primary">Cập Nhật</button>
+
+    <!-- Nút hủy, quay lại trang trước -->
     <a asp-action="Index" class="btn btn-secondary">Hủy</a>
 </form>
-﻿

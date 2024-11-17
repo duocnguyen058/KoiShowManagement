@@ -6,6 +6,17 @@
 
 <h2>@ViewData["Title"]</h2>
 
+<!-- Ghi chú về các tiêu chí chấm điểm -->
+<div class="alert alert-info">
+    <strong>Hướng dẫn chấm điểm:</strong>
+    <ul>
+        <li><strong>Điểm Dáng (50%)</strong>: Đánh giá hình dáng, kích thước, và sự cân đối của cá Koi.</li>
+        <li><strong>Điểm Màu Sắc (30%)</strong>: Đánh giá màu sắc của cá, bao gồm sự sắc nét và độ bền màu.</li>
+        <li><strong>Điểm Hoa Văn (20%)</strong>: Đánh giá hoa văn trên cơ thể cá Koi, bao gồm độ rõ ràng và sự phân bố.</li>
+    </ul>
+    <p>Điểm số cho mỗi tiêu chí phải nằm trong phạm vi từ 0 đến 10.</p>
+</div>
+
 @if (Model.Any())
 {
     <table class="table">
@@ -97,4 +108,3 @@ else
         }
     </script>
 }
-﻿

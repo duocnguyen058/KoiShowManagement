@@ -5,11 +5,13 @@
 
 <h2>Danh sách Tất cả Cá Koi (ADMIN)</h2>
 
+<!-- Form tìm kiếm cá Koi -->
 <form asp-action="Index" method="get">
     <input type="text" name="search" placeholder="Tìm kiếm cá Koi..." value="@ViewContext.HttpContext.Request.Query["search"]" />
     <button type="submit">Tìm kiếm</button>
 </form>
 
+<!-- Bảng danh sách cá Koi -->
 <table class="table table-striped">
     <thead>
         <tr>
@@ -25,6 +27,7 @@
         @foreach (var koi in Model)
         {
             <tr>
+                <!-- Hiển thị ảnh cá Koi -->
                 <td>
                     @if (!string.IsNullOrEmpty(koi.PhotoPath))
                     {
@@ -35,11 +38,13 @@
                         <span>Không có ảnh</span>
                     }
                 </td>
+                <!-- Hiển thị thông tin cá Koi -->
                 <td>@koi.Name</td>
                 <td>@koi.Variety</td>
                 <td>@koi.Size</td>
                 <td>@koi.Age</td>
                 <td>
+                    <!-- Hiển thị trạng thái cá Koi -->
                     @switch (koi.RegistrationStatus)
                     {
                         case "Hoạt động":
@@ -60,4 +65,3 @@
         }
     </tbody>
 </table>
-﻿

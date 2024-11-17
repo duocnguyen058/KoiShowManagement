@@ -1,8 +1,11 @@
 @model List<KoiShowManagementSystem.ViewModels.RefereeViewModel>
+
 @{
     ViewData["Title"] = "Danh Sách Giám Khảo";
 }
 <h2>Danh sách Giám khảo</h2>
+
+<!-- Bảng danh sách giám khảo -->
 <table class="table">
     <thead>
         <tr>
@@ -12,12 +15,13 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var referee in Model)
+        @foreach (var referee in Model) 
         {
             <tr>
-                <td>@referee.UserName</td>
-                <td>@referee.AssignedEventCount</td>
+                <td>@referee.UserName</td> <!-- Tên giám khảo -->
+                <td>@referee.AssignedEventCount</td> 
                 <td>
+                    <!-- Nút phân công giám khảo -->
                     <button class="btn btn-primary" onclick="loadAssignModal(@referee.UserId, '@referee.UserName')">
                         Phân công
                     </button>
@@ -27,19 +31,19 @@
     </tbody>
 </table>
 
-<!-- Modal -->
+<!-- Modal phân công giám khảo -->
 <div class="modal fade" id="assignJudgeModal" tabindex="-1" aria-labelledby="assignJudgeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="assignJudgeModalLabel">Phân công giám khảo</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="assignJudgeModalLabel">Phân công giám khảo</h5> <!-- Tiêu đề của modal -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> <!-- Nút đóng modal -->
             </div>
             <div class="modal-body" id="modalContent">
-                <p>Đang tải dữ liệu...</p>
+                <p>Đang tải dữ liệu...</p> <!-- Thông báo khi dữ liệu đang được tải -->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button> <!-- Nút đóng modal -->
             </div>
         </div>
     </div>
@@ -47,19 +51,26 @@
 
 @section Scripts {
     <script>
+        // Hàm này được gọi khi nhấn nút "Phân công"
         function loadAssignModal(userId, userName) {
+            // Cập nhật tiêu đề modal với tên giám khảo
             $('#assignJudgeModalLabel').text(`Phân công cho giám khảo: ${userName}`);
+            
+            // Gửi yêu cầu GET tới server để lấy dữ liệu phân công giám khảo
             $.get('/JudgeAssignments/AssignJudge', { userId: userId })
                 .done(function (data) {
+                    // Khi dữ liệu đã được tải, cập nhật nội dung modal
                     $('#modalContent').html(data);
+                    
+                    // Hiển thị modal
                     var modal = new bootstrap.Modal(document.getElementById('assignJudgeModal'));
                     modal.show();
                 })
                 .fail(function (jqXHR, textStatus, errorThrown) {
+                    // Xử lý khi có lỗi xảy ra trong quá trình tải dữ liệu
                     console.error("Error loading modal: " + textStatus + " - " + errorThrown);
                     $('#modalContent').html('<p class="text-danger">Không thể tải dữ liệu. Đã xảy ra lỗi trên server.</p>');
                 });
         }
     </script>
 }
-﻿

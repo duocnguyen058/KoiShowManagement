@@ -6,24 +6,26 @@
 
 <h2>Xóa Cá Koi</h2>
 
+<!-- Cảnh báo xác nhận xóa cá Koi -->
 <h3>Bạn có chắc muốn xóa cá Koi này không?</h3>
 
+<!-- Thông tin chi tiết cá Koi sẽ bị xóa -->
 <div>
-    <h4>@Model.Name</h4>
-    <img src="@Model.PhotoPath" alt="@Model.Name" width="200" />
-    <p><strong>Giống: </strong>@Model.Variety</p>
-    <p><strong>Kích thước: </strong>@Model.Size</p>
-    <p><strong>Tuổi: </strong>@Model.Age</p>
-    <p><strong>Trạng thái Đăng ký: </strong>@Model.RegistrationStatus</p>
+    <h4>@Model.Name</h4> <!-- Tên cá Koi -->
+    <img src="@Model.PhotoPath" alt="@Model.Name" width="200" /> <!-- Hiển thị ảnh cá Koi -->
+    <p><strong>Giống: </strong>@Model.Variety</p> <!-- Hiển thị giống cá -->
+    <p><strong>Kích thước: </strong>@Model.Size</p> <!-- Hiển thị kích thước cá -->
+    <p><strong>Tuổi: </strong>@Model.Age</p> <!-- Hiển thị tuổi cá -->
+    <p><strong>Trạng thái Đăng ký: </strong>@Model.RegistrationStatus</p> <!-- Hiển thị trạng thái đăng ký -->
 </div>
 
 <hr />
 
+<!-- Biểu mẫu xác nhận xóa -->
 <div>
     <form method="post" action="@Url.Action("DeleteConfirmed", "KoiManager", new { id = Model.Id })">
-        <button type="submit" class="btn btn-danger">Xóa</button>
-        <a href="@Url.Action("Index")" class="btn btn-secondary">Hủy</a>
+        <!-- Gửi yêu cầu xóa với id cá Koi -->
+        <button type="submit" class="btn btn-danger">Xóa</button> <!-- Nút xóa -->
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Hủy</a> <!-- Nút hủy để quay lại trang danh sách -->
     </form>
 </div>
-
-﻿

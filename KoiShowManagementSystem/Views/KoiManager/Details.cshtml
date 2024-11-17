@@ -2,56 +2,65 @@
 @{
     ViewData["Title"] = "Thông Tin Chi Tiết";
 }
+
 <h2 class="text-center mb-4">Thông Tin Chi Tiết Cá Koi</h2>
 
+<!-- Card chứa thông tin chi tiết của cá Koi -->
 <div class="card mx-auto shadow-sm" style="max-width: 600px;">
     <div class="card-header text-center bg-primary text-white">
-        <h4>@Model.Name</h4>
+        <h4>@Model.Name</h4> <!-- Tên cá Koi -->
     </div>
     <div class="card-body">
         <div class="text-center mb-3">
+            <!-- Kiểm tra xem cá Koi có ảnh không -->
             @if (!string.IsNullOrEmpty(Model.PhotoPath))
             {
-                <img src="@Model.PhotoPath" alt="Ảnh Cá Koi" class="img-thumbnail" style="max-width: 100%; height: auto;" />
+                <img src="@Model.PhotoPath" alt="Ảnh Cá Koi" class="img-thumbnail" style="max-width: 100%; height: auto;" /> <!-- Hiển thị ảnh cá Koi nếu có -->
             }
             else
             {
-                <p class="text-muted">Không có ảnh</p>
+                <p class="text-muted">Không có ảnh</p> <!-- Thông báo nếu không có ảnh -->
             }
         </div>
+
+        <!-- Danh sách các thuộc tính chi tiết của cá Koi -->
         <dl class="row">
             <dt class="col-sm-4">Giống</dt>
-            <dd class="col-sm-8">@Model.Variety</dd>
+            <dd class="col-sm-8">@Model.Variety</dd> <!-- Giống cá Koi -->
 
             <dt class="col-sm-4">Kích Thước (cm)</dt>
-            <dd class="col-sm-8">@Model.Size</dd>
+            <dd class="col-sm-8">@Model.Size</dd> <!-- Kích thước cá Koi -->
 
             <dt class="col-sm-4">Tuổi</dt>
-            <dd class="col-sm-8">@Model.Age</dd>
+            <dd class="col-sm-8">@Model.Age</dd> <!-- Tuổi cá Koi -->
 
             <dt class="col-sm-4">Trạng Thái</dt>
             <dd class="col-sm-8">
+                <!-- Hiển thị trạng thái cá Koi với các badge màu sắc -->
                 @switch (Model.RegistrationStatus)
                 {
                     case "Hoạt động":
-                        <span class="badge bg-success">Hoạt động</span>
+                        <span class="badge bg-success">Hoạt động</span> <!-- Màu xanh cho trạng thái hoạt động -->
                         break;
                     case "Tạm ngừng":
-                        <span class="badge bg-warning text-dark">Tạm ngừng</span>
+                        <span class="badge bg-warning text-dark">Tạm ngừng</span> <!-- Màu vàng cho trạng thái tạm ngừng -->
                         break;
                     case "Ngừng hoạt động":
-                        <span class="badge bg-danger">Ngừng hoạt động</span>
+                        <span class="badge bg-danger">Ngừng hoạt động</span> <!-- Màu đỏ cho trạng thái ngừng hoạt động -->
                         break;
                 }
             </dd>
         </dl>
     </div>
     <div class="card-footer text-center">
+        <!-- Nút quay lại danh sách cá Koi -->
         <a asp-action="Index" class="btn btn-secondary">Quay Lại Danh Sách</a>
+
+        <!-- Kiểm tra nếu người dùng hiện tại là chủ sở hữu của cá Koi -->
         @if (User.FindFirstValue(ClaimTypes.NameIdentifier) == Model.UsersId.ToString())
         {
+            <!-- Nút để chỉnh sửa thông tin cá Koi -->
             <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Sửa</a>
         }
     </div>
 </div>
-﻿

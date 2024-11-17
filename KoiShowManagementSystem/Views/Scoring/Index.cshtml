@@ -6,10 +6,12 @@
 
 <h2>@ViewData["Title"]</h2>
 
+<!-- Hiển thị thông báo nếu có -->
 @Html.Partial("_Notification")
 
 @if (Model.Any())
 {
+    <!-- Bảng danh sách sự kiện -->
     <table class="table">
         <thead>
             <tr>
@@ -23,9 +25,13 @@
             @foreach (var assignment in Model)
             {
                 <tr>
+                    <!-- Tên sự kiện -->
                     <td>@assignment.Events.EventName</td>
+                    <!-- Ngày bắt đầu -->
                     <td>@assignment.Events.StartDate.ToShortDateString()</td>
+                    <!-- Ngày kết thúc -->
                     <td>@assignment.Events.EndDate.ToShortDateString()</td>
+                    <!-- Hành động: Chấm điểm -->
                     <td>
                         <a asp-action="ScoreEvent" asp-route-eventId="@assignment.EventsId" class="btn btn-primary">Chấm Điểm</a>
                     </td>
@@ -38,5 +44,6 @@ else
 {
     <p>Bạn chưa được phân công chấm điểm cho sự kiện nào.</p>
 }
+
+<!-- Hiển thị thông báo nếu có -->
 @Html.Partial("_Notification")
-﻿

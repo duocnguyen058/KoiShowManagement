@@ -1,36 +1,35 @@
 @model IEnumerable<KoiShowManagementSystem.Repositories.Entity.Users>
 
 @{
-    ViewData["Title"] = "Quản Lý Người Dùng";
+    ViewData["Title"] = "Quản Lý Người Dùng"; // Thiết lập tiêu đề trang
 }
 
-<h1>Danh Sách Người Dùng</h1>
+<h1>Danh Sách Người Dùng</h1> <!-- Tiêu đề trang, thông báo là danh sách người dùng -->
 
-<table class="table">
+<table class="table"> <!-- Bắt đầu bảng hiển thị danh sách người dùng -->
     <thead>
         <tr>
-            <th>#</th>
-            <th>Tên Người Dùng</th>
-            <th>Email</th>
-            <th>Vai Trò</th>
-            <th>Hành Động</th>
+            <th>#</th> <!-- Cột hiển thị ID người dùng -->
+            <th>Tên Người Dùng</th> <!-- Cột hiển thị tên người dùng -->
+            <th>Email</th> <!-- Cột hiển thị email người dùng -->
+            <th>Vai Trò</th> <!-- Cột hiển thị vai trò người dùng -->
+            <th>Hành Động</th> <!-- Cột hiển thị các hành động như chỉnh sửa hoặc xóa -->
         </tr>
     </thead>
     <tbody>
         @foreach (var user in Model)
         {
             <tr>
-                <td>@user.Id</td>
-                <td>@user.Username</td> <!-- Thay "UserName" thành "Username" -->
-                <td>@user.Email</td>
-                <td>@user.Role</td>
+                <td>@user.Id</td> <!-- Hiển thị ID của người dùng -->
+                <td>@user.Username</td> <!-- Hiển thị tên người dùng -->
+                <td>@user.Email</td> <!-- Hiển thị email người dùng -->
+                <td>@user.Role</td> <!-- Hiển thị vai trò người dùng -->
                 <td>
                     <!-- Thêm các hành động như xem, chỉnh sửa, hoặc xóa người dùng -->
-                    <a href="@Url.Action("Edit", "User", new { id = user.Id })">Chỉnh sửa</a> |
-                    <a href="@Url.Action("Delete", "User", new { id = user.Id })">Xóa</a>
+                    <a href="@Url.Action("Edit", "User", new { id = user.Id })">Chỉnh sửa</a> | <!-- Liên kết để chỉnh sửa thông tin người dùng -->
+                    <a href="@Url.Action("Delete", "User", new { id = user.Id })">Xóa</a> <!-- Liên kết để xóa người dùng -->
                 </td>
             </tr>
         }
     </tbody>
 </table>
-

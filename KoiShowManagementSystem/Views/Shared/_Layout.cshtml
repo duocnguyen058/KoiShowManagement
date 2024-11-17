@@ -1,51 +1,64 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+    <!-- Khai báo charset và viewport để đảm bảo trang web hiển thị chính xác trên mọi thiết bị -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tiêu đề của trang, sử dụng ViewData["Title"] để thay đổi tiêu đề tùy thuộc vào từng trang -->
     <title>@ViewData["Title"] - Hệ Thống Quản Lý Koi Show Manager</title>
 
-    <!-- Bootstrap CSS and Custom CSS -->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" />
+    <!-- Liên kết đến các tệp CSS (Bootstrap, Custom CSS) -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> <!-- CSS tùy chỉnh cho trang web -->
+    <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true" /> <!-- CSS cho các tính năng đặc biệt -->
 </head>
 <body>
     <header>
+        <!-- Navbar với các liên kết điều hướng chính của trang web -->
         <nav class="navbar navbar-expand-lg navbar-dark shadow-lg">
             <div class="container-fluid">
-                <!-- Logo -->
+                <!-- Logo của hệ thống, nhấn vào sẽ quay lại trang chủ -->
                 <a class="navbar-brand d-flex align-items-center" href="@Url.Action("Index", "Home")">
                     <img src="~/images/logo.jpg" alt="Logo" class="logo-img me-2" />
                 </a>
+                <!-- Nút điều hướng trên màn hình nhỏ (toggler) để hiển thị menu khi cần -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
+                        <!-- Các liên kết điều hướng đến các trang khác -->
                         <li class="nav-item"><a class="nav-link text-shadow" href="@Url.Action("Index", "Home")">Trang Chủ</a></li>
                         <li class="nav-item"><a class="nav-link text-shadow" href="@Url.Action("Index", "Event")">Sự Kiện</a></li>
+
+                        <!-- Kiểm tra xem người dùng đã đăng nhập và không phải giám khảo (REFEREE) -->
                         @if (User.Identity.IsAuthenticated && !User.IsInRole("REFEREE"))
                         {
                             <li class="nav-item"><a class="nav-link text-shadow" href="@Url.Action("Index", "KoiManager")">Cá Koi Tham Gia</a></li>
                         }
+
+                        <!-- Nếu người dùng là Admin, hiển thị thêm các mục quản lý -->
                         @if (User.IsInRole("ADMIN"))
                         {
                             <li class="nav-item"><a class="nav-link text-shadow" href="@Url.Action("IndexMng", "KoiManager")">Quản Lý Cá Koi</a></li>
                             <li class="nav-item"><a class="nav-link text-shadow" href="@Url.Action("Index", "JudgeAssignments")">Giám Khảo</a></li>
                             <li class="nav-item"><a class="nav-link text-shadow" href="@Url.Action("Index", "User")">Quản Lý Người Dùng</a></li>
                         }
+
+                        <!-- Nếu người dùng là giám khảo (REFEREE), hiển thị thêm mục 'Chấm Điểm' -->
                         @if (User.IsInRole("REFEREE"))
                         {
-                            <!-- Chỉ hiển thị link 'Chấm Điểm' cho giám khảo -->
                             <li class="nav-item"><a class="nav-link text-shadow" href="@Url.Action("Index", "Scoring")">Chấm Điểm</a></li>
                         }
                     </ul>
+                    <!-- Phần đăng xuất hoặc đăng nhập của người dùng -->
                     <ul class="navbar-nav">
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item"><span class="nav-link">Xin chào, @User.Identity.Name</span></li>
                             <li class="nav-item">
+                                <!-- Form đăng xuất, khi nhấn sẽ gọi phương thức Logout trong controller Home -->
                                 <form asp-controller="Home" asp-action="Logout" method="post" class="d-inline">
                                     <button type="submit" class="btn btn-custom">Đăng Xuất</button>
                                 </form>
@@ -53,6 +66,7 @@
                         }
                         else
                         {
+                            <!-- Nếu chưa đăng nhập, hiển thị liên kết đăng nhập và đăng ký -->
                             <li class="nav-item"><a class="btn btn-custom" href="@Url.Action("Login", "Home")">Đăng Nhập</a></li>
                             <li class="nav-item"><a class="btn btn-custom ms-2" href="@Url.Action("Register", "Home")">Đăng Ký</a></li>
                         }
@@ -63,7 +77,7 @@
     </header>
 
     <div class="container content">
-        @* Hiển thị thông báo nếu có *@
+        <!-- Hiển thị thông báo thành công hoặc lỗi nếu có -->
         @if (TempData["SuccessMessage"] != null)
         {
             <div class="alert alert-success mt-3">
@@ -78,23 +92,24 @@
             </div>
         }
 
-        @RenderBody() <!-- Main content of the page -->
+        @RenderBody() <!-- Phần nội dung chính của trang sẽ được chèn vào đây -->
     </div>
 
     <footer>
         <div class="container text-center">
+            <!-- Thông tin bản quyền và các liên kết đến chính sách bảo mật, điều khoản sử dụng -->
             &copy; 2024 - Hệ Thống Quản Lý Cuộc Thi Triễn Lãm Cá Koi
             <br />
-            <a href="#">Chính Sách Bảo Mật</a> | <a href="#">Điều Khoản Sử Dụng</a>
+            <a href="@Url.Action("PrivacyPolicy", "Home")">Chính Sách Bảo Mật</a> |
+            <a href="@Url.Action("TermsOfService", "Home")">Điều Khoản Sử Dụng</a>
         </div>
     </footer>
 
-    <!-- JavaScript Libraries -->
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/custom.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+    <!-- Liên kết đến các thư viện JavaScript cần thiết -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script> <!-- jQuery -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS -->
+    <script src="~/js/site.js" asp-append-version="true"></script> <!-- Tập tin JavaScript tùy chỉnh cho trang web -->
+    <script src="~/js/custom.js" asp-append-version="true"></script> <!-- Tập tin JavaScript cho các tính năng đặc biệt -->
+    @RenderSection("Scripts", required: false) <!-- Chèn các script bổ sung nếu có (từ các trang con) -->
 </body>
 </html>
-﻿

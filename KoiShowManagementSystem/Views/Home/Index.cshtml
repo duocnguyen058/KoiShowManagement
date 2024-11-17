@@ -4,100 +4,100 @@
 <style>
     /* Nền toàn trang */
     body {
-        background-image: url('/images/koi-background.jpg');
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        color: white;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-image: url('/images/koi-background.jpg'); /* Đặt hình ảnh nền */
+        background-size: cover; /* Đảm bảo hình nền bao phủ toàn bộ trang */
+        background-position: center center; /* Căn giữa hình nền */
+        background-attachment: fixed; /* Hình nền không di chuyển khi cuộn trang */
+        color: white; /* Màu chữ mặc định */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Phông chữ */
         margin: 0;
         padding: 0;
     }
 
     /* Hiệu ứng gradient cho tiêu đề */
     .text-center h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        background: linear-gradient(90deg, #FFD700, #FFB300);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
-        margin-bottom: 10px;
+        font-size: 3.5rem; /* Kích thước chữ lớn */
+        font-weight: bold; /* Chữ đậm */
+        background: linear-gradient(90deg, #FFD700, #FFB300); /* Gradient vàng cam */
+        -webkit-background-clip: text; /* Tạo hiệu ứng nền gradient cho chữ */
+        -webkit-text-fill-color: transparent; /* Làm cho màu chữ trở nên trong suốt */
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8); /* Tạo bóng đổ cho chữ */
+        margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
     }
 
     .text-center p.lead {
-        font-size: 1.8rem;
-        color: #FFFAF0;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        font-size: 1.8rem; /* Kích thước chữ phụ */
+        color: #FFFAF0; /* Màu chữ sáng */
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Tạo bóng đổ cho văn bản */
     }
 
     /* Căn giữa tiêu đề với hiệu ứng nền */
     .highlight-background {
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 30px;
-        border-radius: 10px;
-        display: inline-block;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        margin: 30px auto;
-        max-width: 90%;
+        background-color: rgba(0, 0, 0, 0.6); /* Nền mờ đen */
+        padding: 30px; /* Khoảng cách bên trong */
+        border-radius: 10px; /* Bo góc */
+        display: inline-block; /* Căn giữa khối */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Tạo bóng đổ cho khối */
+        margin: 30px auto; /* Căn giữa với khoảng cách */
+        max-width: 90%; /* Giới hạn chiều rộng tối đa */
     }
 
     /* Nội dung các phần */
     .section-background {
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
-        padding: 40px;
-        border-radius: 15px;
-        margin: 40px auto;
-        max-width: 80%;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)); /* Nền gradient mờ */
+        padding: 40px; /* Khoảng cách bên trong */
+        border-radius: 15px; /* Bo góc */
+        margin: 40px auto; /* Căn giữa và tạo khoảng cách */
+        max-width: 80%; /* Giới hạn chiều rộng tối đa */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7); /* Tạo bóng đổ */
     }
 
         .section-background h2 {
-            font-size: 2.5rem;
-            color: #FFBA49;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-            border-bottom: 2px solid #FFBA49;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            font-size: 2.5rem; /* Kích thước chữ tiêu đề phần */
+            color: #FFBA49; /* Màu chữ vàng */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Tạo bóng đổ cho tiêu đề */
+            border-bottom: 2px solid #FFBA49; /* Đường gạch dưới màu vàng */
+            padding-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+            margin-bottom: 20px; /* Khoảng cách dưới tiêu đề */
         }
 
         .section-background p {
-            font-size: 1.2rem;
-            color: #f0f0f0;
-            line-height: 1.8;
+            font-size: 1.2rem; /* Kích thước chữ nội dung */
+            color: #f0f0f0; /* Màu chữ sáng */
+            line-height: 1.8; /* Khoảng cách dòng */
         }
 
         .section-background ul {
-            margin: 20px 0;
-            padding-left: 20px;
-            list-style-type: disc;
+            margin: 20px 0; /* Khoảng cách giữa các phần tử trong danh sách */
+            padding-left: 20px; /* Khoảng cách bên trái */
+            list-style-type: disc; /* Dạng danh sách chấm tròn */
         }
 
             .section-background ul li {
-                margin-bottom: 10px;
-                font-size: 1.1rem;
-                color: #FFE4A1;
-                transition: transform 0.3s ease, color 0.3s ease;
+                margin-bottom: 10px; /* Khoảng cách giữa các mục trong danh sách */
+                font-size: 1.1rem; /* Kích thước chữ mục danh sách */
+                color: #FFE4A1; /* Màu chữ sáng vàng */
+                transition: transform 0.3s ease, color 0.3s ease; /* Hiệu ứng chuyển động khi di chuột */
             }
 
                 /* Hiệu ứng di chuột vào nội quy */
                 .section-background ul li:hover {
-                    color: #FFBA49;
-                    transform: translateX(10px);
+                    color: #FFBA49; /* Màu chữ khi hover */
+                    transform: translateX(10px); /* Di chuyển sang phải khi hover */
                 }
 </style>
 
 <!-- Phần tiêu đề -->
 <div class="text-center">
     <div class="highlight-background">
-        <h1>Cuộc Thi Triển Lãm Cá Koi Toàn Quốc</h1>
-        <p class="lead">Sự Kiện Nổi Bật Dành Cho Các Nhà Sưu Tập Cá Koi Chuyên Nghiệp</p>
+        <h1>Cuộc Thi Triển Lãm Cá Koi Toàn Quốc</h1> <!-- Tiêu đề lớn -->
+        <p class="lead">Sự Kiện Nổi Bật Dành Cho Các Nhà Sưu Tập Cá Koi Chuyên Nghiệp</p> <!-- Mô tả phụ -->
     </div>
 </div>
 
 <!-- Phần giới thiệu -->
 <section id="gioi-thieu" class="section-background">
-    <h2>Chào Mừng Đến Với Cuộc Thi Triển Lãm Cá Koi 2024</h2>
+    <h2>Chào Mừng Đến Với Cuộc Thi Triển Lãm Cá Koi 2024</h2> <!-- Tiêu đề phần giới thiệu -->
     <p>
         Triển lãm Cá Koi 2024 là sự kiện nổi bật nhất trong năm, dành riêng cho những cá nhân đam mê và sưu tầm cá Koi xuất sắc. Đây là dịp để bạn chiêm ngưỡng những chú cá Koi có giá trị cao, đồng thời khám phá các xu hướng mới trong nuôi cá Koi.
     </p>
@@ -113,7 +113,7 @@
 
 <!-- Phần nội quy -->
 <section id="noi-quy" class="section-background">
-    <h2>Nội Quy Cuộc Thi</h2>
+    <h2>Nội Quy Cuộc Thi</h2> <!-- Tiêu đề phần nội quy -->
     <ul>
         <li><strong>Điều 1:</strong> Thí sinh phải đăng ký tham gia trước ít nhất 1 tuần so với ngày diễn ra sự kiện. Đăng ký trễ sẽ không được chấp nhận.</li>
         <li><strong>Điều 2:</strong> Mỗi thí sinh chỉ được đăng ký một cá Koi cho mỗi sự kiện. Cá Koi cần đạt chuẩn về sức khỏe và ngoại hình, không có dấu hiệu bệnh tật.</li>
@@ -124,4 +124,3 @@
         <li><strong>Điều 7:</strong> Các thí sinh tham gia trực tuyến phải tuân thủ các quy định về gửi hình ảnh và video chất lượng cao của cá Koi để đảm bảo tính công bằng trong chấm điểm.</li>
     </ul>
 </section>
-﻿

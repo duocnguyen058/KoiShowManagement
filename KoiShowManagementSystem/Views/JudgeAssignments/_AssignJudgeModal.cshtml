@@ -1,39 +1,45 @@
 @model KoiShowManagementSystem.ViewModels.AssignJudgeViewModel
 
 <div id="eventAssignmentForm">
+    <!-- Biểu mẫu phân công giám khảo -->
     <form asp-controller="JudgeAssignments" asp-action="AssignJudge" method="post">
-        @Html.AntiForgeryToken()
-        <input type="hidden" name="UserId" value="@Model.UserId" />
+        @Html.AntiForgeryToken() <!-- Bảo vệ chống tấn công CSRF (Cross-Site Request Forgery) -->
+
+        <!-- Truyền UserId qua biểu mẫu -->
+        <input type="hidden" name="UserId" value="@Model.UserId" /> <!-- Ẩn UserId để biết người đang thực hiện phân công -->
 
         <div class="form-group">
-            <label>Chọn sự kiện để phân công/hủy phân công:</label>
-            @if (Model.Events != null && Model.Events.Any())
+            <label>Chọn sự kiện để phân công/hủy phân công:</label> <!-- Tiêu đề cho phần sự kiện -->
+
+            @if (Model.Events != null && Model.Events.Any()) 
             {
                 @foreach (var eventItem in Model.Events)
                 {
-                    var isAssigned = Model.AssignedEventIds?.Contains(eventItem.Id) ?? false;
+                    var isAssigned = Model.AssignedEventIds?.Contains(eventItem.Id) ?? false; 
+                    <!-- Kiểm tra xem sự kiện đã được phân công hay chưa, nếu có thì đánh dấu là đã phân công -->
+                    
                     <div class="form-check">
+                        <!-- Hiển thị checkbox để chọn sự kiện -->
                         <input class="form-check-input"
                                type="checkbox"
                                name="SelectedEventIds"
                                value="@eventItem.Id"
-                        @(isAssigned ? "checked" : "") />
+                               @(isAssigned ? "checked" : "") /> <!-- Nếu sự kiện đã phân công thì checkbox được đánh dấu -->
                         <label class="form-check-label">
-                            @eventItem.EventName (Trạng thái: @eventItem.Status)
-                            @(isAssigned ? "<span class='text-success'>(Đã được phân công)</span>" : "")
+                            @eventItem.EventName (Trạng thái: @eventItem.Status) <!-- Hiển thị tên sự kiện và trạng thái -->
+                            @(isAssigned ? "<span class='text-success'>(Đã được phân công)</span>" : "") <!-- Hiển thị trạng thái phân công -->
                         </label>
                     </div>
                 }
             }
             else
             {
-                <p class="text-danger">Không có sự kiện nào sẵn sàng để phân công.</p>
+                <p class="text-danger">Không có sự kiện nào sẵn sàng để phân công.</p> <!-- Nếu không có sự kiện nào, hiển thị thông báo lỗi -->
             }
         </div>
 
-        <!-- Hai nút phân công và hủy phân công -->
-        <button type="submit" name="action" value="Assign" class="btn btn-primary">Lưu phân công</button>
-        <button type="submit" name="action" value="Unassign" class="btn btn-danger">Hủy phân công</button>
+        <!-- Hai nút để phân công và hủy phân công -->
+        <button type="submit" name="action" value="Assign" class="btn btn-primary">Lưu phân công</button> <!-- Nút phân công giám khảo -->
+        <button type="submit" name="action" value="Unassign" class="btn btn-danger">Hủy phân công</button> <!-- Nút hủy phân công giám khảo -->
     </form>
 </div>
-﻿
