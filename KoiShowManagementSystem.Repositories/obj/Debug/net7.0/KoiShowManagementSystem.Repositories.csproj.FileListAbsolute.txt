@@ -48,3 +48,9 @@ C:/Users/Admin/Downloads/filechuan/KoiShowManagementSystem/KoiShowManagementSyst
 /Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/obj/Debug/net7.0/KoiShowManagementSystem.Repositories.dll
 /Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/obj/Debug/net7.0/refint/KoiShowManagementSystem.Repositories.dll
 /Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/obj/Debug/net7.0/KoiShowManagementSystem.Repositories.pdb
+/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/bin/Debug/net7.0/KoiShowManagementSystem.Repositories.deps.json
+/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/bin/Debug/net7.0/KoiShowManagementSystem.Repositories.runtimeconfig.json
+/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/bin/Debug/net7.0/KoiShowManagementSystem.Repositories.dll
+/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/bin/Debug/net7.0/KoiShowManagementSystem.Repositories.pdb
+/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/obj/Debug/net7.0/KoiShowManagementSystem.Repositories.genruntimeconfig.cache
+/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem.Repositories/obj/Debug/net7.0/ref/KoiShowManagementSystem.Repositories.dll
