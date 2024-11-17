@@ -1,0 +1,1324 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\abc\\KoiShowManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\wwwroot\\js\\custom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\wwwroot\\js\\custom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\wwwroot\\css\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\wwwroot\\css\\custom.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\viewmodels\\eventdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\viewmodels\\eventdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\viewmodels\\rankedkoiviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\viewmodels\\rankedkoiviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\viewmodels\\refereeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\viewmodels\\refereeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\viewmodels\\scoreeventviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\viewmodels\\scoreeventviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\shared\\_notification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\shared\\_notification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\scoring\\scoreevent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\scoring\\scoreevent.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\scoring\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\scoring\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\koimanager\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\koimanager\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\judgeassignments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\judgeassignments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\koimanager\\indexmng.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\koimanager\\indexmng.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\koimanager\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\koimanager\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\koimanager\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\koimanager\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\koimanager\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\koimanager\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\koimanager\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\koimanager\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\judgeassignments\\_assignjudgemodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\judgeassignments\\_assignjudgemodal.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\home\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\home\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\event\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\event\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\event\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\event\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\event\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\event\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\event\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\event\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\event\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\event\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\data\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\data\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\data\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\data\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\entity\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\entity\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\entity\\scores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\entity\\scores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\entity\\koi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\entity\\koi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\entity\\reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\entity\\reports.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\entity\\judgeassignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\entity\\judgeassignments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\entity\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\entity\\events.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\entity\\event_koi_participation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\entity\\event_koi_participation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241114082227_initdbv1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241114082227_initdbv1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241114082227_initdbv1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241114082227_initdbv1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241115032427_initdbv2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241115032427_initdbv2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241115032427_initdbv2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241115032427_initdbv2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241115032801_initdbv3.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241115032801_initdbv3.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241115032801_initdbv3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241115032801_initdbv3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241115123234_initdbv4.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241115123234_initdbv4.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241115123234_initdbv4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241115123234_initdbv4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241116053923_initdbv5.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241116053923_initdbv5.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\20241116053923_initdbv5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\20241116053923_initdbv5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.services\\services\\judgeassignmentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|solutionrelative:koishowmanagementsystem.services\\services\\judgeassignmentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.services\\services\\scoresservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|solutionrelative:koishowmanagementsystem.services\\services\\scoresservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.services\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|solutionrelative:koishowmanagementsystem.services\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.services\\services\\reportsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|solutionrelative:koishowmanagementsystem.services\\services\\reportsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.services\\services\\koiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|solutionrelative:koishowmanagementsystem.services\\services\\koiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.services\\services\\eventsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|solutionrelative:koishowmanagementsystem.services\\services\\eventsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.services\\services\\eventkoiparticipationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|solutionrelative:koishowmanagementsystem.services\\services\\eventkoiparticipationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.services\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1315DC3-3589-4495-8BED-1FA3FA9BD804}|KoiShowManagementSystem.Services\\KoiShowManagementSystem.Services.csproj|solutionrelative:koishowmanagementsystem.services\\globalusing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\controllers\\judgeassignmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\controllers\\judgeassignmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\controllers\\koimanagercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\controllers\\koimanagercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\controllers\\scoringcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\controllers\\scoringcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\repositories\\judgeassignmentsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\repositories\\judgeassignmentsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\user\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\user\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\repositories\\reportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\repositories\\reportsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\repositories\\koirepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\repositories\\koirepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\repositories\\eventsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\repositories\\eventsrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem.repositories\\repositories\\eventkoiparticipationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C21F25D9-427D-42F2-A831-F56AF50B469E}|KoiShowManagementSystem.Repositories\\KoiShowManagementSystem.Repositories.csproj|solutionrelative:koishowmanagementsystem.repositories\\repositories\\eventkoiparticipationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\wwwroot\\images\\koi-background.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\wwwroot\\images\\koi-background.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|c:\\abc\\koishowmanagementsystem\\koishowmanagementsystem\\wwwroot\\images\\logo.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{FEE7592E-5635-452B-BF27-69AAF5B1571F}|KoiShowManagementSystem\\KoiShowManagementSystem.csproj|solutionrelative:koishowmanagementsystem\\wwwroot\\images\\logo.jpg||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/DESKTOP_TFTDHGV_SQLEXPRESS/KoiManage/sa/SqlTable/dbo.Users.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "KoiShowManagementSystem\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-17T09:23:26.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "custom.js",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\js\\custom.js",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\wwwroot\\js\\custom.js",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\js\\custom.js",
+              "RelativeToolTip": "KoiShowManagementSystem\\wwwroot\\js\\custom.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-17T09:23:22.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "KoiShowManagementSystem\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-17T09:22:49.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:22:35.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Home\\Login.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:22:04.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:22:05.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ScoreEventViewModel.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\ViewModels\\ScoreEventViewModel.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\ViewModels\\ScoreEventViewModel.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\ViewModels\\ScoreEventViewModel.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\ViewModels\\ScoreEventViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T07:10:32.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RefereeViewModel.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\ViewModels\\RefereeViewModel.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\ViewModels\\RefereeViewModel.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\ViewModels\\RefereeViewModel.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\ViewModels\\RefereeViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:39:23.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RankedKoiViewModel.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\ViewModels\\RankedKoiViewModel.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\ViewModels\\RankedKoiViewModel.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\ViewModels\\RankedKoiViewModel.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\ViewModels\\RankedKoiViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:39:21.043Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "custom.css",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\css\\custom.css",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\wwwroot\\css\\custom.css",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\css\\custom.css",
+              "RelativeToolTip": "KoiShowManagementSystem\\wwwroot\\css\\custom.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-16T13:14:16.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EventDetailsViewModel.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\ViewModels\\EventDetailsViewModel.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\ViewModels\\EventDetailsViewModel.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\ViewModels\\EventDetailsViewModel.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\ViewModels\\EventDetailsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:39:20.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:47:41.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:47:42.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:47:38.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:47:44.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_Notification.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\_Notification.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Shared\\_Notification.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\_Notification.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Shared\\_Notification.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T06:29:46.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T06:29:47.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ScoreEvent.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Scoring\\ScoreEvent.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Scoring\\ScoreEvent.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Scoring\\ScoreEvent.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Scoring\\ScoreEvent.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:14:50.088Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Scoring\\Index.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Scoring\\Index.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Scoring\\Index.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Scoring\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:51:38.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Details.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\KoiManager\\Details.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Details.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\KoiManager\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:45:29.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\JudgeAssignments\\Index.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\JudgeAssignments\\Index.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\JudgeAssignments\\Index.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\JudgeAssignments\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:41:51.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IndexMng.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\IndexMng.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\KoiManager\\IndexMng.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\IndexMng.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\KoiManager\\IndexMng.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:46:24.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Index.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\KoiManager\\Index.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Index.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\KoiManager\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:46:20.344Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Edit.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\KoiManager\\Edit.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Edit.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\KoiManager\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:46:10.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Delete.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\KoiManager\\Delete.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Delete.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\KoiManager\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-17T05:03:23.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Create.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\KoiManager\\Create.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\KoiManager\\Create.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\KoiManager\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:42:37.88Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "_AssignJudgeModal.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\JudgeAssignments\\_AssignJudgeModal.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\JudgeAssignments\\_AssignJudgeModal.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\JudgeAssignments\\_AssignJudgeModal.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\JudgeAssignments\\_AssignJudgeModal.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:21:53.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Home\\Register.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Home\\Register.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Home\\Register.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Home\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:22:03.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Register.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Event\\Register.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Register.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Event\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:22:07.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Index.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Event\\Index.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Index.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Event\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:22:09.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Edit.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Event\\Edit.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Edit.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Event\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:22:12.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Details.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Event\\Details.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Details.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Event\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T07:22:14.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Create.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Event\\Create.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Event\\Create.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Event\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-16T09:39:26.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\appsettings.json",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\appsettings.json",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\appsettings.json",
+              "RelativeToolTip": "KoiShowManagementSystem\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAACUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-16T06:32:04.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "GlobalUsing.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\GlobalUsing.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\GlobalUsing.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\GlobalUsing.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\GlobalUsing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T07:22:20.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "RepositoryBase.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Data\\RepositoryBase.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Data\\RepositoryBase.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Data\\RepositoryBase.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Data\\RepositoryBase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:19:51.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Data\\IRepository.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Data\\IRepository.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Data\\IRepository.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Data\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:19:47.898Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Reports.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Reports.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Entity\\Reports.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Reports.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Entity\\Reports.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:53:30.196Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "JudgeAssignments.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\JudgeAssignments.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Entity\\JudgeAssignments.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\JudgeAssignments.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Entity\\JudgeAssignments.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:53:21.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Events.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Events.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Entity\\Events.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Events.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Entity\\Events.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:53:16.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "Event_Koi_Participation.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Event_Koi_Participation.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Entity\\Event_Koi_Participation.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Event_Koi_Participation.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Entity\\Event_Koi_Participation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:53:11.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "20241114082227_InitDBv1.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241114082227_InitDBv1.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241114082227_InitDBv1.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241114082227_InitDBv1.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241114082227_InitDBv1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:53:36.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Koi.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Koi.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Entity\\Koi.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Koi.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Entity\\Koi.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:53:23.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Scores.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Scores.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Entity\\Scores.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Scores.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Entity\\Scores.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:53:30.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Users.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Entity\\Users.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Entity\\Users.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Entity\\Users.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:53:31.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "20241114082227_InitDBv1.Designer.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241114082227_InitDBv1.Designer.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241114082227_InitDBv1.Designer.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241114082227_InitDBv1.Designer.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241114082227_InitDBv1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:18:57.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "20241115032427_InitDBv2.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115032427_InitDBv2.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241115032427_InitDBv2.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115032427_InitDBv2.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241115032427_InitDBv2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:54:09.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "20241115032427_InitDBv2.Designer.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115032427_InitDBv2.Designer.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241115032427_InitDBv2.Designer.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115032427_InitDBv2.Designer.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241115032427_InitDBv2.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:18:42.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "20241115032801_InitDBv3.Designer.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115032801_InitDBv3.Designer.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241115032801_InitDBv3.Designer.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115032801_InitDBv3.Designer.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241115032801_InitDBv3.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:18:36.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "20241115123234_InitDBv4.Designer.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115123234_InitDBv4.Designer.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241115123234_InitDBv4.Designer.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115123234_InitDBv4.Designer.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241115123234_InitDBv4.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:18:22.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "20241116053923_InitDBv5.Designer.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241116053923_InitDBv5.Designer.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241116053923_InitDBv5.Designer.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241116053923_InitDBv5.Designer.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241116053923_InitDBv5.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:18:06.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "20241116053923_InitDBv5.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241116053923_InitDBv5.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241116053923_InitDBv5.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241116053923_InitDBv5.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241116053923_InitDBv5.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:54:22.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "20241115123234_InitDBv4.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115123234_InitDBv4.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241115123234_InitDBv4.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115123234_InitDBv4.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241115123234_InitDBv4.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:54:19.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "20241115032801_InitDBv3.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115032801_InitDBv3.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\20241115032801_InitDBv3.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\20241115032801_InitDBv3.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\20241115032801_InitDBv3.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:54:17.677Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "ApplicationDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Migrations\\ApplicationDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:54:25.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\ApplicationDbContext.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T09:17:35.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "JudgeAssignmentsService.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\JudgeAssignmentsService.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Services\\Services\\JudgeAssignmentsService.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\JudgeAssignmentsService.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Services\\Services\\JudgeAssignmentsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:55:46.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "ReportsService.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\ReportsService.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Services\\Services\\ReportsService.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\ReportsService.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Services\\Services\\ReportsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:55:58.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "KoiService.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\KoiService.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Services\\Services\\KoiService.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\KoiService.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Services\\Services\\KoiService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:55:52.619Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "EventsService.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\EventsService.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Services\\Services\\EventsService.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\EventsService.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Services\\Services\\EventsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:55:19.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "EventKoiParticipationService.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\EventKoiParticipationService.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Services\\Services\\EventKoiParticipationService.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\EventKoiParticipationService.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Services\\Services\\EventKoiParticipationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:55:09.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Services\\Services\\UserService.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\UserService.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Services\\Services\\UserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:56:05.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "ScoresService.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\ScoresService.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Services\\Services\\ScoresService.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\Services\\ScoresService.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Services\\Services\\ScoresService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:55:59.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "GlobalUsing.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\GlobalUsing.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Services\\GlobalUsing.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Services\\GlobalUsing.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Services\\GlobalUsing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:56:06.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "JudgeAssignmentsController.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\JudgeAssignmentsController.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Controllers\\JudgeAssignmentsController.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\JudgeAssignmentsController.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\Controllers\\JudgeAssignmentsController.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAUwGUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:48:28.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\UserController.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T05:44:53.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "ScoringController.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\ScoringController.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Controllers\\ScoringController.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\ScoringController.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\Controllers\\ScoringController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T07:11:30.082Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "KoiManagerController.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\KoiManagerController.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Controllers\\KoiManagerController.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\KoiManagerController.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\Controllers\\KoiManagerController.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAkwAQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:48:45.398Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "EventController.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\EventController.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Controllers\\EventController.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\EventController.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\Controllers\\EventController.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAADwvzAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:32:35.659Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "KoiShowManagementSystem\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAgwF0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:48:24.03Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "JudgeAssignmentsRepository.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\JudgeAssignmentsRepository.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Repositories\\JudgeAssignmentsRepository.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\JudgeAssignmentsRepository.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Repositories\\JudgeAssignmentsRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T08:13:21.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\User\\Index.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\User\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-17T07:46:14.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\User\\Edit.cshtml",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\User\\Edit.cshtml",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\User\\Edit.cshtml",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\User\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-17T07:46:13.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "ReportsRepository.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\ReportsRepository.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Repositories\\ReportsRepository.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\ReportsRepository.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Repositories\\ReportsRepository.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA8wB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T05:48:07.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "KoiRepository.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\KoiRepository.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Repositories\\KoiRepository.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\KoiRepository.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Repositories\\KoiRepository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAkwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T04:52:58.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "EventKoiParticipationRepository.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\EventKoiParticipationRepository.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Repositories\\EventKoiParticipationRepository.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\EventKoiParticipationRepository.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Repositories\\EventKoiParticipationRepository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:55:01.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "EventsRepository.cs",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\EventsRepository.cs",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem.Repositories\\Repositories\\EventsRepository.cs",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem.Repositories\\Repositories\\EventsRepository.cs",
+              "RelativeToolTip": "KoiShowManagementSystem.Repositories\\Repositories\\EventsRepository.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-16T09:54:58.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "_Layout.cshtml.css",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeToolTip": "KoiShowManagementSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-16T09:47:48.698Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "koi-background.jpg",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\images\\koi-background.jpg",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\wwwroot\\images\\koi-background.jpg",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\images\\koi-background.jpg",
+              "RelativeToolTip": "KoiShowManagementSystem\\wwwroot\\images\\koi-background.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-16T09:32:00.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "logo.jpg",
+              "DocumentMoniker": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\images\\logo.jpg",
+              "RelativeDocumentMoniker": "KoiShowManagementSystem\\wwwroot\\images\\logo.jpg",
+              "ToolTip": "C:\\abc\\KoiShowManagementSystem\\KoiShowManagementSystem\\wwwroot\\images\\logo.jpg",
+              "RelativeToolTip": "KoiShowManagementSystem\\wwwroot\\images\\logo.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-11-16T09:31:29.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "dbo.Users.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/DESKTOP_TFTDHGV_SQLEXPRESS/KoiManage/sa/SqlTable/dbo.Users.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/DESKTOP_TFTDHGV_SQLEXPRESS/KoiManage/sa/SqlTable/dbo.Users.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-11-16T07:23:49.183Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+﻿global using KoiShowManagementSystem.Repositories.Entity;
+global using KoiShowManagementSystem.Services.Services;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Authentication;
+global using System.Security.Claims;
+global using Microsoft.AspNetCore.Mvc.Rendering;
+global using System.Diagnostics;
+global using KoiShowManagementSystem.Repositories;
+global using KoiShowManagementSystem.Repositories.Repositories;
+global using Microsoft.EntityFrameworkCore;
+global using System.Globalization;
+global using KoiShowManagementSystem.ViewModels;
