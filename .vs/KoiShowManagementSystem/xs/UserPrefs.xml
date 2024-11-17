@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{FEE7592E-5635-452B-BF27-69AAF5B1571F}|https">
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="KoiShowManagementSystem.Repositories/Data/RepositoryBase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="KoiShowManagementSystem.Repositories/ApplicationDbContext.cs">
     <Files>
-      <File FileName="KoiShowManagementSystem.Repositories/GlobalUsing.cs" />
+      <File FileName="KoiShowManagementSystem.Repositories/GlobalUsing.cs" Line="1" Column="1" />
       <File FileName="KoiShowManagementSystem.Repositories/Entity/Event_Koi_Participation.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/Entity/JudgeAssignments.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/Entity/Scores.cs" />
@@ -11,8 +11,9 @@
       <File FileName="KoiShowManagementSystem/Models/ErrorViewModel.cs" />
       <File FileName="KoiShowManagementSystem/ViewModels/EventDetailsViewModel.cs" />
       <File FileName="KoiShowManagementSystem/ViewModels/RankedKoiViewModel.cs" />
-      <File FileName="KoiShowManagementSystem/ViewModels/RefereeViewModel.cs" Line="1" Column="1" />
+      <File FileName="KoiShowManagementSystem/ViewModels/RefereeViewModel.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/Data/RepositoryBase.cs" Line="8" Column="19" />
+      <File FileName="KoiShowManagementSystem.Repositories/ApplicationDbContext.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,10 +23,10 @@
               <Node name="ViewModels" expanded="True" />
             </Node>
             <Node name="KoiShowManagementSystem.Repositories" expanded="True">
-              <Node name="Data" expanded="True">
-                <Node name="RepositoryBase.cs" selected="True" />
-              </Node>
+              <Node name="Data" expanded="True" />
               <Node name="Entity" expanded="True" />
+              <Node name="Migrations" expanded="True" />
+              <Node name="ApplicationDbContext.cs" selected="True" />
             </Node>
             <Node name="KoiShowManagementSystem.Services" expanded="True">
               <Node name="Services" expanded="True" />
