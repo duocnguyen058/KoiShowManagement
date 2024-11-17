@@ -1,62 +1,64 @@
 ﻿namespace KoiShowManagementSystem.Services.Services
 {
+    // Interface định nghĩa các phương thức dịch vụ liên quan đến cá Koi
     public interface IKoiService
     {
-        List<Koi> GetAllKoi();
-        Koi GetKoiById(int koiId);
-        void CreateKoi(Koi koi);
-        void UpdateKoi(Koi koi);
+        List<Koi> GetAllKoi(); // Lấy tất cả các cá Koi
+        Koi GetKoiById(int koiId); // Lấy cá Koi theo ID
+        void CreateKoi(Koi koi); // Tạo mới cá Koi
+        void UpdateKoi(Koi koi); // Cập nhật thông tin cá Koi
         void DeleteKoi(int koiId); // Xóa cá Koi
-        List<Koi> GetKoiByUserId(int userId);
+        List<Koi> GetKoiByUserId(int userId); // Lấy cá Koi của người dùng theo UserId
     }
 
+    // Lớp thực thi các phương thức trong interface
     public class KoiService : IKoiService
     {
-        private readonly IKoiRepository _koiRepository;
+        private readonly IKoiRepository _koiRepository; // Repository để tương tác với cơ sở dữ liệu cá Koi
 
-        // Khởi tạo KoiService với repository của cá Koi
+        // Constructor nhận vào repository để khởi tạo dịch vụ
         public KoiService(IKoiRepository koiRepository)
         {
             _koiRepository = koiRepository;
         }
 
-        // Lấy tất cả các cá Koi
+        // Phương thức lấy tất cả các cá Koi
         public List<Koi> GetAllKoi()
         {
-            return _koiRepository.GetAllKoi();
+            return _koiRepository.GetAllKoi(); // Gọi phương thức của repository để lấy tất cả cá Koi
         }
 
-        // Lấy cá Koi theo ID
+        // Phương thức lấy cá Koi theo ID
         public Koi GetKoiById(int koiId)
         {
-            return _koiRepository.GetKoiById(koiId);
+            return _koiRepository.GetKoiById(koiId); // Gọi phương thức của repository để lấy cá Koi theo ID
         }
 
-        // Lấy cá Koi của người dùng theo UserId
+        // Phương thức lấy cá Koi của người dùng theo UserId
         public List<Koi> GetKoiByUserId(int userId)
         {
-            return _koiRepository.GetKoiByUserId(userId);
+            return _koiRepository.GetKoiByUserId(userId); // Gọi phương thức của repository để lấy cá Koi theo UserId
         }
 
-        // Tạo mới cá Koi
+        // Phương thức tạo mới cá Koi
         public void CreateKoi(Koi koi)
         {
-            _koiRepository.Add(koi); // Thêm cá Koi vào repository
+            _koiRepository.Add(koi); // Gọi phương thức Add của repository để thêm cá Koi mới vào cơ sở dữ liệu
         }
 
-        // Cập nhật thông tin cá Koi
+        // Phương thức cập nhật thông tin cá Koi
         public void UpdateKoi(Koi koi)
         {
-            _koiRepository.Update(koi); // Cập nhật cá Koi trong repository
+            _koiRepository.Update(koi); // Gọi phương thức Update của repository để cập nhật cá Koi
         }
 
-        // Xóa cá Koi theo ID
+        // Phương thức xóa cá Koi theo ID
         public void DeleteKoi(int koiId)
         {
             var koiToDelete = _koiRepository.GetKoiById(koiId); // Tìm cá Koi theo ID
             if (koiToDelete != null)
             {
-                _koiRepository.Delete(koiToDelete); // Gọi phương thức Delete để xóa cá Koi
+                _koiRepository.Delete(koiToDelete); // Gọi phương thức Delete để xóa cá Koi khỏi cơ sở dữ liệu
             }
         }
     }
