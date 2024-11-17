@@ -8,19 +8,19 @@
       <File FileName="KoiShowManagementSystem.Repositories/Entity/JudgeAssignments.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/Entity/Scores.cs" />
       <File FileName="KoiShowManagementSystem.Services/Services/EventKoiParticipationService.cs" />
-      <File FileName="KoiShowManagementSystem/Models/ErrorViewModel.cs" Line="10" Column="1" />
-      <File FileName="KoiShowManagementSystem/ViewModels/EventDetailsViewModel.cs" Line="1" Column="1" />
-      <File FileName="KoiShowManagementSystem/ViewModels/RankedKoiViewModel.cs" Line="1" Column="1" />
+      <File FileName="KoiShowManagementSystem/Models/ErrorViewModel.cs" />
+      <File FileName="KoiShowManagementSystem/ViewModels/EventDetailsViewModel.cs" />
+      <File FileName="KoiShowManagementSystem/ViewModels/RankedKoiViewModel.cs" />
       <File FileName="KoiShowManagementSystem/ViewModels/RefereeViewModel.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="KoiShowManagementSystem">
-            <Node name="KoiShowManagementSystem">
-              <Node name="Models" expanded="True" />
-              <Node name="ViewModels" expanded="True" />
-              <Node name="wwwroot" selected="True" />
+          <Node name="KoiShowManagementSystem" expanded="True">
+            <Node name="KoiShowManagementSystem" expanded="True">
+              <Node name="ViewModels" expanded="True">
+                <Node name="RefereeViewModel.cs" selected="True" />
+              </Node>
             </Node>
             <Node name="KoiShowManagementSystem.Repositories" expanded="True">
               <Node name="Data" expanded="True" />
