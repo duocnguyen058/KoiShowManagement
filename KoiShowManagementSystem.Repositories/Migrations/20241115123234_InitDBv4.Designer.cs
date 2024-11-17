@@ -318,4 +318,17 @@ namespace KoiShowManagementSystem.Repositories.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("
+                    b.HasOne("KoiShowManagementSystem.Repositories.Entity.Users", "Users")
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event_Koi_Participations");
+
+                    b.Navigation("Users");
+                });
+#pragma warning restore 612, 618
+        }
+    }
+}
