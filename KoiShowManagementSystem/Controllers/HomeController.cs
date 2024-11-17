@@ -121,5 +121,16 @@ namespace KoiShowManagementSystem.Controllers
 
             return RedirectToAction("Login"); // Chuyển hướng đến trang đăng nhập
         }
+        // Trang Privacy Policy
+        public IActionResult PrivacyPolicy()
+        {
+            return View();
+        }
+
+        // Trang Điều Khoản Sử Dụng
+        public IActionResult TermsOfService()
+        {
+            return View();
+        }
     }
 }
