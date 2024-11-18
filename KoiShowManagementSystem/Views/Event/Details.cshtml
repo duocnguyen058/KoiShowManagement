@@ -24,15 +24,27 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Tên Cá Koi</th> <!-- Tên cá Koi -->
-                <th>Hạng Mục</th> <!-- Hạng mục của cá Koi -->
-                <th>Điểm</th> <!-- Điểm của cá Koi -->
+                <th>Ảnh</th> <!-- Cột ảnh cá Koi -->
+                <th>Tên Cá Koi</th> <!-- Cột tên cá Koi -->
+                <th>Hạng Mục</th> <!-- Cột hạng mục -->
+                <th>Điểm</th> <!-- Cột điểm -->
             </tr>
         </thead>
         <tbody>
             @foreach (var koi in sortedKoiList)
             {
                 <tr>
+                    <!-- Kiểm tra và hiển thị ảnh cá Koi -->
+                    <td>
+                        @if (!string.IsNullOrEmpty(koi.PhotoPath))
+                        {
+                            <img src="@Url.Content(koi.PhotoPath)" alt="Ảnh Cá Koi" class="img-thumbnail" style="width: 50px; height: auto;" />
+                        }
+                        else
+                        {
+                            <p>Không có ảnh</p> <!-- Thông báo khi không có ảnh -->
+                        }
+                    </td>
                     <td>@koi.KoiName</td> <!-- Tên cá Koi -->
                     <td>@koi.Category</td> <!-- Hạng mục của cá Koi -->
                     <td>@koi.Score</td> <!-- Điểm của cá Koi -->
@@ -54,26 +66,22 @@ else
 else if ((User.IsInRole("USER") || User.IsInRole("ADMIN")) && Model.CanRegister)
 {
     <!-- Nếu người dùng là USER hoặc ADMIN và sự kiện có thể đăng ký -->
-    <!-- Biểu mẫu đăng ký tham gia sự kiện -->
     <form asp-controller="Event" asp-action="Register" method="post">
-        <input type="hidden" name="eventId" value="@Model.EventDetail.Id" /> <!-- ID sự kiện -->
+        <input type="hidden" name="eventId" value="@Model.EventDetail.Id" />
         <label for="koiId">Chọn cá Koi để đăng ký:</label>
         <select id="koiId" name="koiId" class="form-control" required>
             <option value="">-- Chọn --</option>
-            <!-- Liệt kê các cá Koi có thể đăng ký -->
             @foreach (var koi in ViewBag.UserKoiList as List<Koi>)
             {
-                <option value="@koi.Id">@koi.Name</option> <!-- Tên cá Koi trong danh sách -->
+                <option value="@koi.Id">@koi.Name</option>
             }
         </select>
-        <button type="submit" class="btn btn-primary mt-2">Đăng ký</button> <!-- Nút đăng ký -->
+        <button type="submit" class="btn btn-primary mt-2">Đăng ký</button>
     </form>
 }
 else
 {
-    <!-- Thông báo nếu không đủ điều kiện đăng ký -->
     <p><strong>Sự kiện đã kết thúc hoặc bạn không đủ điều kiện đăng ký</strong></p>
 }
 
-<!-- Nút quay lại trang danh sách sự kiện -->
 <a asp-action="Index" class="btn btn-secondary">Trở về</a>
