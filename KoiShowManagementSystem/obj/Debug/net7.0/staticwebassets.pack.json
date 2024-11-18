@@ -249,8 +249,8 @@
       "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
     },
     {
-      "Id": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/wwwroot/lib/jquery/dist/jquery.js",
-      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+      "Id": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/wwwroot/lib/jquery/dist/.DS_Store",
+      "PackagePath": "staticwebassets/lib/jquery/dist/.DS_Store"
     },
     {
       "Id": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/wwwroot/lib/jquery/dist/jquery.min.js",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "O1Nyaec7nVwx6plF8vU/cDLQAwPWcU2qLw1rePE64KQ=",
+  "Hash": "Xf99nrbzbT5+JklgxEGsZmO3g4HRw3zugbpR+d0B1Tc=",
   "Source": "KoiShowManagementSystem",
   "BasePath": "_content/KoiShowManagementSystem",
   "Mode": "Default",
@@ -1071,12 +1071,12 @@
       "OriginalItemSpec": "wwwroot/lib/jquery-validation/LICENSE.md"
     },
     {
-      "Identity": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/wwwroot/lib/jquery/dist/jquery.js",
+      "Identity": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/wwwroot/lib/jquery/dist/.DS_Store",
       "SourceId": "KoiShowManagementSystem",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/wwwroot/",
       "BasePath": "_content/KoiShowManagementSystem",
-      "RelativePath": "lib/jquery/dist/jquery.js",
+      "RelativePath": "lib/jquery/dist/.DS_Store",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1085,7 +1085,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/lib/jquery/dist/jquery.js"
+      "OriginalItemSpec": "wwwroot/lib/jquery/dist/.DS_Store"
     },
     {
       "Identity": "/Users/huynhngocbinh/Projects/KoiShowManagement/KoiShowManagementSystem/wwwroot/lib/jquery/dist/jquery.min.js",
