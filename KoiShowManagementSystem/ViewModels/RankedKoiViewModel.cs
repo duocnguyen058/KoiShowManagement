@@ -11,5 +11,8 @@
 
         // Thuộc tính Score lưu điểm số mà cá Koi đạt được
         public float Score { get; set; }
+
+        // Thuộc tính PhotoPath hiển thị ảnh cá Koi
+        public string? PhotoPath { get; set; }
     }
 }
