@@ -215,12 +215,12 @@ namespace KoiShowManagementSystem.Controllers
         // Hàm hỗ trợ kiểm tra định dạng và kích thước ảnh
         private bool IsValidPhoto(IFormFile photo)
         {
-            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" }; // Định dạng cho phép
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".jfif" }; // Định dạng cho phép
             var fileExtension = Path.GetExtension(photo.FileName).ToLower();
 
             if (!allowedExtensions.Contains(fileExtension))
             {
-                ModelState.AddModelError("photo", "Chỉ cho phép tải lên các định dạng ảnh: .jpg, .jpeg, .png");
+                ModelState.AddModelError("photo", "Chỉ cho phép tải lên các định dạng ảnh: .jpg, .jpeg, .png, .jfif");
                 return false;
             }
 
