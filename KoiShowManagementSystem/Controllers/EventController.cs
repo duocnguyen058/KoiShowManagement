@@ -43,6 +43,7 @@
                 .OrderBy(p => p.Category) // Sắp xếp theo danh mục
                 .Select(p => new RankedKoiViewModel
                 {
+                    PhotoPath = p.Kois.PhotoPath, // Ảnh cá Koi
                     KoiName = p.Kois.Name, // Tên cá Koi
                     Category = p.Category, // Danh mục
                     Score = p.Score // Điểm số
