@@ -10,7 +10,7 @@
     <p>Ngày Bắt đầu: @Model.EventDetail.StartDate.ToString("dd-MM-yyyy")</p> <!-- Ngày bắt đầu sự kiện -->
     <p>Ngày Kết thúc: @Model.EventDetail.EndDate.ToString("dd-MM-yyyy")</p> <!-- Ngày kết thúc sự kiện -->
     <p>Địa điểm: @Model.EventDetail.Location</p> <!-- Địa điểm tổ chức sự kiện -->
-    <p>Trạng thái: @Model.EventDetail.Status</p> <!-- Hiển thị trạng thái sự kiện (chẳng hạn: "Đang diễn ra", "Đã kết thúc") -->
+    <p>Trạng thái: @Model.EventDetail.Status</p> <!-- Hiển thị trạng thái sự kiện -->
     <p>Mô tả: @Model.EventDetail.Description</p> <!-- Mô tả chi tiết sự kiện -->
 </div>
 
@@ -19,6 +19,8 @@
 <!-- Kiểm tra và hiển thị bảng xếp hạng nếu có cá Koi tham gia -->
 @if (Model.RankedKoiList != null && Model.RankedKoiList.Any())
 {
+    var sortedKoiList = Model.RankedKoiList.OrderByDescending(koi => koi.Score);
+
     <table class="table">
         <thead>
             <tr>
@@ -28,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var koi in Model.RankedKoiList)
+            @foreach (var koi in sortedKoiList)
             {
                 <tr>
                     <td>@koi.KoiName</td> <!-- Tên cá Koi -->
