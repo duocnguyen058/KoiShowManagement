@@ -1,7 +1,11 @@
 ﻿<Properties StartupConfiguration="{FEE7592E-5635-452B-BF27-69AAF5B1571F}|https">
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.KoiShowManagementSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="KoiShowManagementSystem/ViewModels/ScoreEventViewModel.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="KoiShowManagementSystem/appsettings.json">
     <Files>
       <File FileName="KoiShowManagementSystem.Repositories/GlobalUsing.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/Entity/Event_Koi_Participation.cs" />
@@ -15,20 +19,32 @@
       <File FileName="KoiShowManagementSystem.Repositories/Data/RepositoryBase.cs" />
       <File FileName="KoiShowManagementSystem.Repositories/ApplicationDbContext.cs" />
       <File FileName="KoiShowManagementSystem/Program.cs" />
-      <File FileName="KoiShowManagementSystem/appsettings.json" />
-      <File FileName="KoiShowManagementSystem/ViewModels/ScoreEventViewModel.cs" Line="22" Column="1" />
+      <File FileName="KoiShowManagementSystem/appsettings.json" Line="4" Column="5" />
+      <File FileName="KoiShowManagementSystem/ViewModels/ScoreEventViewModel.cs" />
+      <File FileName="KoiShowManagementSystem/Controllers/EventController.cs" Line="1" Column="1" />
+      <File FileName="KoiShowManagementSystem/Controllers/HomeController.cs" />
+      <File FileName="KoiShowManagementSystem/Controllers/JudgeAssignmentsController.cs" />
+      <File FileName="KoiShowManagementSystem/Controllers/KoiManagerController.cs" />
+      <File FileName="KoiShowManagementSystem/Controllers/ScoringController.cs" />
+      <File FileName="KoiShowManagementSystem/Controllers/UserController.cs" />
+      <File FileName="KoiShowManagementSystem/Properties/launchSettings.json" />
+      <File FileName="KoiShowManagementSystem.Services/Services/EventsService.cs" Line="1" Column="1" />
+      <File FileName="KoiShowManagementSystem.Services/Services/KoiService.cs" Line="1" Column="1" />
+      <File FileName="KoiShowManagementSystem.Services/Services/ScoresService.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="KoiShowManagementSystem">
-            <Node name="KoiShowManagementSystem" expanded="True">
-              <Node name="ViewModels" expanded="True" />
+            <Node name="KoiShowManagementSystem">
+              <Node name="Controllers" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
             </Node>
             <Node name="KoiShowManagementSystem.Repositories" expanded="True">
               <Node name="Data" expanded="True" />
               <Node name="Entity" expanded="True" />
               <Node name="Migrations" expanded="True" />
+              <Node name="Repositories" expanded="True" />
             </Node>
             <Node name="KoiShowManagementSystem.Services" expanded="True">
               <Node name="Services" expanded="True" />
@@ -39,8 +55,4 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.KoiShowManagementSystem PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
